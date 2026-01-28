@@ -21,8 +21,19 @@ How to run the Program:
 # Create the virtual environment
 python3 -m venv venv
 
+# install dependencies 
+pip install Pillow numpy
+
 # On macOS/Linux:
 source venv/bin/activate
 
 # run
 python3 generate_mesh_data.py
+
+# outputs
+mesh_init.mem AND  debug_view.png
+
+mesh_init.mem: Binary Mapping represents the 10x10 grid of pixels (1 = Alive, 0 = Dead)
+
+ebug_view.png: Purpose: It shows exactly how the script "sees" your drawing after it has been cropped, downsampled to $51 \times 51$, and padded to $60 \times 60$.
+Appearance: It will look like a small, pixelated version of your original sample#1.jpg, converted to high-contrast black and white.
