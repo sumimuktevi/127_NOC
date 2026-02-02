@@ -1,187 +1,324 @@
 import numpy as np
-from PIL import Image
-import random
+from PIL import Image, ImageDraw
 import sys
 
-def generate_random_pattern(size=60, density=0.3, seed=None):
+def process_image_to_tiles(image_path, debug=True):
     """
-    Generate a random pattern for Game of Life
+    Process input image into 3x3 grid of 10×10 tiles (modified from 6x6)
     
     Args:
-        size: Grid size (default 60x60)
-        density: Probability of a cell being alive (0.0 to 1.0)
-        seed: Random seed for reproducibility
+        image_path: Path to input image
+        debug: Whether to save debug visualization
     
     Returns:
-        PIL Image
+        tiles_data: Dictionary mapping (x,y) coordinates to 10x10 binary grids
     """
-    if seed is not None:
-        np.random.seed(seed)
-        random.seed(seed)
+    print(f"Loading image: {image_path}")
     
-    # Generate random pattern
-    pattern = np.random.choice([0, 255], size=(size, size), p=[density, 1-density]).astype(np.uint8)
+    # Load image in RGB mode first to detect colors
+    img_rgb = Image.open(image_path).convert('RGB')
+    img_array_rgb = np.array(img_rgb)
     
-    return Image.fromarray(pattern)
-
-def generate_cluster_pattern(size=60, num_clusters=5, cluster_size=10, seed=None):
-    """
-    Generate clustered random patterns (more interesting than pure random)
+    # Also load grayscale version
+    img = Image.open(image_path).convert('L')
+    img_array = np.array(img)
     
-    Args:
-        size: Grid size
-        num_clusters: Number of clusters to generate
-        cluster_size: Approximate size of each cluster
-        seed: Random seed
+    print(f"Original image size: {img_array.shape}")
     
-    Returns:
-        PIL Image
-    """
-    if seed is not None:
-        np.random.seed(seed)
-        random.seed(seed)
+    # === INTELLIGENT COLOR DETECTION ===
+    # Detect if this is a yellow/gray pattern or black/white pattern
+    # Sample center region to determine pattern type
+    h, w = img_array_rgb.shape[:2]
+    sample_region = img_array_rgb[h//4:3*h//4, w//4:3*w//4]
     
-    # Create white canvas
-    canvas = np.ones((size, size), dtype=np.uint8) * 255
+    # Calculate average colors
+    avg_color = np.mean(sample_region, axis=(0, 1))
     
-    for _ in range(num_clusters):
-        # Random center point
-        center_x = random.randint(cluster_size, size - cluster_size)
-        center_y = random.randint(cluster_size, size - cluster_size)
+    # Detect yellow: high R, high G, low B
+    has_yellow = (avg_color[0] > 150 and avg_color[1] > 150 and avg_color[2] < 150)
+    
+    if has_yellow:
+        print("Detected YELLOW/GRAY pattern")
+        # Yellow = alive, Gray = dead
+        # Yellow has high R and G, Gray has balanced RGB
+        r, g, b = img_array_rgb[:,:,0], img_array_rgb[:,:,1], img_array_rgb[:,:,2]
         
-        # Create cluster around center
-        for i in range(cluster_size):
-            for j in range(cluster_size):
-                if random.random() < 0.4:  # 40% chance of cell being alive
-                    x = center_x + random.randint(-cluster_size//2, cluster_size//2)
-                    y = center_y + random.randint(-cluster_size//2, cluster_size//2)
-                    if 0 <= x < size and 0 <= y < size:
-                        canvas[x, y] = 0
+        # Yellow detection: R > 200, G > 200, B < 150
+        yellow_mask = (r > 200) & (g > 200) & (b < 150)
+        binary_full = yellow_mask.astype(int)
+        
+        print(f"Yellow (alive) cells detected: {np.sum(binary_full)}")
+    else:
+        print("Detected BLACK/WHITE pattern")
+        # Black = alive, White = dead (traditional)
+        # Find bounding box of content (non-white pixels)
+        content_mask = img_array < 200
+        
+        if content_mask.any():
+            rows = np.any(content_mask, axis=1)
+            cols = np.any(content_mask, axis=0)
+            ymin, ymax = np.where(rows)[0][[0, -1]]
+            xmin, xmax = np.where(cols)[0][[0, -1]]
+            
+            # Crop to bounding box
+            cropped = img_array[ymin:ymax+1, xmin:xmax+1]
+            print(f"Cropped to content: {cropped.shape}")
+        else:
+            cropped = img_array
+            print("No content detected, using full image")
+        
+        # Threshold: pixels < 128 are considered "alive"
+        binary_cropped = (cropped < 128).astype(int)
+        binary_full = binary_cropped
+        # Threshold: pixels < 128 are considered "alive"
+        binary_cropped = (cropped < 128).astype(int)
+        binary_full = binary_cropped
     
-    return Image.fromarray(canvas)
+    # === DOWNSAMPLING ===
+    # MODIFIED: Downsample to 30×30 instead of 51×51 (for 3x3 grid instead of 6x6)
+    target_size = 30  # Changed from 51
+    
+    # Resize using PIL for better quality
+    binary_img = Image.fromarray((binary_full * 255).astype(np.uint8))
+    resized_img = binary_img.resize((target_size, target_size), Image.Resampling.NEAREST)
+    resized_array = (np.array(resized_img) > 128).astype(int)
+    
+    print(f"Downsampled to: {target_size}×{target_size}")
+    
+    # === TILE SLICING ===
+    # 3x3 grid = 9 tiles, each 10×10
+    tile_size = 10
+    tiles_data = {}
+    
+    for ty in range(3):  # 3 rows (changed from 6)
+        for tx in range(3):  # 3 columns (changed from 6)
+            # Extract 10x10 tile
+            y_start = ty * tile_size
+            y_end = (ty + 1) * tile_size
+            x_start = tx * tile_size
+            x_end = (tx + 1) * tile_size
+            
+            tile = resized_array[y_start:y_end, x_start:x_end]
+            
+            # Store with coordinates (tx, ty) matching Core coordinates (0,0 to 2,2)
+            tiles_data[(tx, ty)] = tile
+    
+    print(f"Created {len(tiles_data)} tiles (3×3 grid)")
+    
+    # === DEBUG VISUALIZATION ===
+    if debug:
+        create_debug_view(resized_array, tiles_data)
+    
+    return tiles_data
 
-def generate_symmetric_pattern(size=60, seed=None):
+
+def create_debug_view(grid_array, tiles_data):
     """
-    Generate a symmetric pattern (often creates interesting results)
+    Create a debug visualization showing the processed grid with tile boundaries
+    """
+    # Create RGB image for visualization
+    height, width = grid_array.shape
+    debug_img = Image.new('RGB', (width * 10, height * 10), 'white')
+    draw = ImageDraw.Draw(debug_img)
+    
+    # Draw cells
+    for y in range(height):
+        for x in range(width):
+            color = 'black' if grid_array[y, x] == 1 else 'white'
+            draw.rectangle(
+                [x*10, y*10, (x+1)*10-1, (y+1)*10-1],
+                fill=color,
+                outline='lightgray'
+            )
+    
+    # Draw tile boundaries (3x3 grid)
+    for i in range(4):  # 0, 1, 2, 3 for 3x3 grid
+        # Vertical lines
+        x = i * 100
+        draw.line([(x, 0), (x, height*10)], fill='red', width=2)
+        # Horizontal lines
+        y = i * 100
+        draw.line([(0, y), (width*10, y)], fill='red', width=2)
+    
+    debug_img.save('debug_view.png')
+    print("✓ Saved debug visualization: debug_view.png")
+
+
+# ============================================================================
+# MODIFIED: Replaced save_for_verilog with SPI Integration Wrapper
+# ============================================================================
+
+async def load_tiles_to_noc(dut, tiles_data):
+    """
+    Integration Wrapper: Bridges tiles_data to your SPI Gateway
+    
+    This replaces the old save_for_verilog function and sends data via SPI
+    instead of saving to a .mem file.
     
     Args:
-        size: Grid size
-        seed: Random seed
-    
-    Returns:
-        PIL Image
+        dut: Device under test (your hardware interface)
+        tiles_data: Dictionary of (x,y) -> 10x10 grid mappings
     """
-    if seed is not None:
-        np.random.seed(seed)
-        random.seed(seed)
+    print("\n" + "="*60)
+    print("Loading tiles to NoC via SPI Gateway")
+    print("="*60)
     
-    # Create white canvas
-    canvas = np.ones((size, size), dtype=np.uint8) * 255
+    for (tx, ty), grid in sorted(tiles_data.items()):
+        print(f"\nCore ({tx},{ty}):")
+        
+        # tx, ty are the Core coordinates (0,0 to 2,2)
+        for row_addr in range(10):
+            # Convert the 10-bit row to an integer
+            row_bits = int("".join(map(str, grid[row_addr])), 2)
+            
+            # Create the packet using YOUR new structure
+            packet = create_packet(
+                opcode=1, 
+                core_x=tx, 
+                core_y=ty,
+                row_addr=row_addr, 
+                row_data=row_bits
+            )
+            
+            print(f"  Row {row_addr}: {grid[row_addr]} -> 0x{row_bits:03x}")
+            
+            # Send it through the SPI wires
+            await spi_transfer_logic(dut, packet)
     
-    # Generate random quarter, then mirror it
-    quarter_size = size // 2
-    quarter = np.random.choice([0, 255], size=(quarter_size, quarter_size), p=[0.3, 0.7]).astype(np.uint8)
-    
-    # Mirror to create symmetric pattern
-    canvas[:quarter_size, :quarter_size] = quarter
-    canvas[:quarter_size, quarter_size:] = np.fliplr(quarter)
-    canvas[quarter_size:, :quarter_size] = np.flipud(quarter)
-    canvas[quarter_size:, quarter_size:] = np.flipud(np.fliplr(quarter))
-    
-    return Image.fromarray(canvas)
+    print("\n" + "="*60)
+    print("✓ All tiles loaded to NoC")
+    print("="*60)
 
-def generate_line_pattern(size=60, num_lines=5, seed=None):
+
+def create_packet(opcode, core_x, core_y, row_addr, row_data):
     """
-    Generate random lines (creates interesting oscillators)
+    Create SPI packet structure
     
     Args:
-        size: Grid size
-        num_lines: Number of random lines
-        seed: Random seed
+        opcode: Operation code (1 = write)
+        core_x: Target core X coordinate (0-2)
+        core_y: Target core Y coordinate (0-2)
+        row_addr: Row address in 10x10 grid (0-9)
+        row_data: 10-bit row data
     
     Returns:
-        PIL Image
+        Dictionary representing the packet
     """
-    if seed is not None:
-        np.random.seed(seed)
-        random.seed(seed)
+    packet = {
+        'opcode': opcode,
+        'core_x': core_x,
+        'core_y': core_y,
+        'row_addr': row_addr,
+        'row_data': row_data
+    }
+    return packet
+
+
+async def spi_transfer_logic(dut, packet):
+    """
+    Send packet through SPI interface
     
-    # Create white canvas
-    canvas = np.ones((size, size), dtype=np.uint8) * 255
+    TODO: Implement based on your actual SPI protocol
     
-    for _ in range(num_lines):
-        # Random starting point
-        x = random.randint(5, size - 15)
-        y = random.randint(5, size - 15)
+    Example structure:
+    - Clock in packet data bit by bit
+    - Wait for acknowledgment
+    - Handle any error conditions
+    """
+    # Placeholder for actual SPI transfer implementation
+    # You'll need to replace this with your actual SPI protocol
+    
+    # Example pseudo-code:
+    # combined_data = (packet['opcode'] << 20) | (packet['core_x'] << 18) | ...
+    # for bit in combined_data:
+    #     await dut.spi_mosi.write(bit)
+    #     await dut.spi_clk.toggle()
+    #     ...
+    
+    pass
+
+
+# ============================================================================
+# LEGACY FUNCTION: Keep for backwards compatibility but mark as deprecated
+# ============================================================================
+
+def save_for_verilog(tiles_data, output_file='mesh_init.mem'):
+    """
+    DEPRECATED: This function is kept for backwards compatibility.
+    Use load_tiles_to_noc() for new implementations with SPI Gateway.
+    
+    Original function that saves tiles to Verilog memory file.
+    """
+    print(f"\n⚠️  WARNING: save_for_verilog() is deprecated!")
+    print(f"   Use load_tiles_to_noc() for SPI Gateway integration.\n")
+    
+    with open(output_file, 'w') as f:
+        f.write("// Game of Life Mesh Initialization Data\n")
+        f.write("// Format: [Y_coordinate][X_coordinate][Row_address] = 10-bit hex value\n")
+        f.write("// Grid: 3×3 tiles, each 10×10 pixels\n\n")
         
-        # Random length and direction
-        length = random.randint(3, 10)
-        direction = random.choice(['horizontal', 'vertical', 'diagonal'])
+        for ty in range(3):
+            for tx in range(3):
+                tile = tiles_data[(tx, ty)]
+                f.write(f"\n// Tile ({tx},{ty})\n")
+                
+                for row_idx in range(10):
+                    row = tile[row_idx]
+                    # Convert 10-bit row to hex (3 digits)
+                    row_int = int("".join(map(str, row)), 2)
+                    f.write(f"[{ty}][{tx}][{row_idx}] = 10'h{row_int:03x};\n")
         
-        if direction == 'horizontal':
-            canvas[x, y:min(y+length, size)] = 0
-        elif direction == 'vertical':
-            canvas[x:min(x+length, size), y] = 0
-        else:  # diagonal
-            for i in range(length):
-                if x+i < size and y+i < size:
-                    canvas[x+i, y+i] = 0
+        # Summary
+        total_alive = sum(np.sum(tile) for tile in tiles_data.values())
+        f.write(f"\n// Total alive cells: {total_alive}\n")
     
-    return Image.fromarray(canvas)
+    print(f"✓ Saved Verilog memory file: {output_file}")
+
+
+# ============================================================================
+# MAIN EXECUTION
+# ============================================================================
 
 def main():
-    """Generate multiple input images"""
-    
-    # Parse command line arguments
-    num_images = 5
+    """
+    Main execution function
+    """
+    # Get input image from command line or use default
     if len(sys.argv) > 1:
-        try:
-            num_images = int(sys.argv[1])
-        except ValueError:
-            print(f"Invalid number: {sys.argv[1]}, using default of 5")
+        input_image = sys.argv[1]
+    else:
+        input_image = 'sample#1.jpg'
     
-    print(f"Generating {num_images} Game of Life input images...")
-    print("=" * 50)
+    print("="*60)
+    print("Game of Life: Image-to-Tile Processor (3×3 Grid)")
+    print("="*60)
     
-    patterns = ['random', 'cluster', 'symmetric', 'lines']
+    # Process image into tiles
+    tiles_data = process_image_to_tiles(input_image, debug=True)
     
-    for i in range(num_images):
-        # Use iteration number as seed for reproducibility
-        seed = i + 1
-        
-        # Cycle through different pattern types
-        pattern_type = patterns[i % len(patterns)]
-        
-        if pattern_type == 'random':
-            density = random.uniform(0.2, 0.4)
-            img = generate_random_pattern(size=60, density=density, seed=seed)
-            filename = f"input_{i+1:03d}_random.jpg"
-            print(f"✓ {filename} - Random pattern (density: {density:.2f})")
-            
-        elif pattern_type == 'cluster':
-            num_clusters = random.randint(3, 7)
-            img = generate_cluster_pattern(size=60, num_clusters=num_clusters, seed=seed)
-            filename = f"input_{i+1:03d}_cluster.jpg"
-            print(f"✓ {filename} - Clustered pattern ({num_clusters} clusters)")
-            
-        elif pattern_type == 'symmetric':
-            img = generate_symmetric_pattern(size=60, seed=seed)
-            filename = f"input_{i+1:03d}_symmetric.jpg"
-            print(f"✓ {filename} - Symmetric pattern")
-            
-        elif pattern_type == 'lines':
-            num_lines = random.randint(3, 8)
-            img = generate_line_pattern(size=60, num_lines=num_lines, seed=seed)
-            filename = f"input_{i+1:03d}_lines.jpg"
-            print(f"✓ {filename} - Line pattern ({num_lines} lines)")
-        
-        # Save as JPEG
-        img.save(filename, 'JPEG', quality=95)
+    # Print statistics
+    print("\n" + "="*60)
+    print("Tile Statistics:")
+    print("="*60)
+    for (tx, ty), tile in sorted(tiles_data.items()):
+        alive = np.sum(tile)
+        print(f"Tile ({tx},{ty}): {alive:3d}/100 cells alive")
     
-    print("=" * 50)
-    print(f"Successfully generated {num_images} input images!")
-    print("\nUsage in your Game of Life script:")
-    print("  input_file = 'input_001_random.jpg'")
+    total_alive = sum(np.sum(tile) for tile in tiles_data.values())
+    print(f"\nTotal: {total_alive:3d}/900 cells alive")
+    
+    # Save legacy format (optional)
+    print("\n" + "="*60)
+    save_for_verilog(tiles_data, 'mesh_init.mem')
+    
+    print("\n" + "="*60)
+    print("✓ Processing complete!")
+    print("="*60)
+    print("\nNext steps:")
+    print("  1. Review debug_view.png to verify the pattern")
+    print("  2. Use load_tiles_to_noc(dut, tiles_data) in your hardware test")
+    print("  3. Implement spi_transfer_logic() with your actual SPI protocol")
+
 
 if __name__ == "__main__":
     main()
