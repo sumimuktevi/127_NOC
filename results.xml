@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1770066604" />
+    <testcase name="test_full_pipeline" classname="test_gateway" file="/Users/fanshenglee/Desktop/noc_prototype/test_gateway.py" lineno="77" time="0.5418219566345215" sim_time_ns="37500.0" ratio_time="69210.92720739463" />
+  </testsuite>
+</testsuites>
