@@ -5,14 +5,13 @@ from PIL import Image, ImageDraw
 import sys
 
 # ============================================================================
-# PART 1: YOUR VERIFIED SPI DRIVER & PACKET LOGIC
+# PART 1: SPI DRIVER & PACKET LOGIC
 # ============================================================================
 def create_packet(opcode, core_x, core_y, row_addr, row_data):
-    """Matches gateway.v: [Op:4][X:2][Y:2][Row:4][Data:10]"""
+    """Constructs the 32-bit packet: [Op:4][X:2][Y:2][Row:4][Data:10]"""
     return (opcode << 28) | (core_x << 22) | (core_y << 20) | (row_addr << 16) | (row_data & 0x3FF)
 
 async def spi_transfer_logic(dut, val_to_send):
-    """The robust SPI driver we verified today"""
     dut.cs.value = 0
     received_val = 0
     for i in range(32):
@@ -29,21 +28,17 @@ async def spi_transfer_logic(dut, val_to_send):
     return received_val
 
 # ============================================================================
-# PART 2: HER IMAGE PROCESSING FUNCTIONS (Pasted from your source)
+# PART 2: IMAGE PROCESSING
 # ============================================================================
-def process_image_to_tiles(image_path, debug=True):
-    # ... (Pasted from your friend's code) ...
-    print(f"Loading image: {image_path}")
-    img_rgb = Image.open(image_path).convert('RGB')
-    img_array_rgb = np.array(img_rgb)
+def process_image_to_tiles(image_path):
     img = Image.open(image_path).convert('L')
     img_array = np.array(img)
     
-    # ... [Keep her Yellow/Black detection logic here] ...
-    # (Simplified for brevity, but keep her full version in your file)
-    
+    # Simple thresholding for the testbench
+    binary_full = (img_array < 128).astype(int)
+
     target_size = 30
-    binary_img = Image.fromarray(((img_array < 128) * 255).astype(np.uint8))
+    binary_img = Image.fromarray((binary_full * 255).astype(np.uint8))
     resized_img = binary_img.resize((target_size, target_size), Image.Resampling.NEAREST)
     resized_array = (np.array(resized_img) > 128).astype(int)
 
@@ -51,48 +46,54 @@ def process_image_to_tiles(image_path, debug=True):
     tiles_data = {}
     for ty in range(3):
         for tx in range(3):
-            y_start, y_end = ty * tile_size, (ty + 1) * tile_size
-            x_start, x_end = tx * tile_size, (tx + 1) * tile_size
-            tiles_data[(tx, ty)] = resized_array[y_start:y_end, x_start:x_end]
-    
+            y_s, y_e = ty * tile_size, (ty + 1) * tile_size
+            x_s, x_e = tx * tile_size, (tx + 1) * tile_size
+            tiles_data[(tx, ty)] = resized_array[y_s:y_e, x_s:x_e]
     return tiles_data
 
 # ============================================================================
-# PART 3: THE INTEGRATION WRAPPER
+# PART 3: INTEGRATION WRAPPER
 # ============================================================================
 async def load_tiles_to_noc(dut, tiles_data):
-    """Bridges her 'tiles_data' to your 'spi_transfer_logic'"""
-    dut._log.info("--- Starting SPI Injection ---")
+    dut._log.info("--- Starting SPI Hardware Injection ---")
     for (tx, ty), grid in sorted(tiles_data.items()):
         dut._log.info(f"Uploading Tile ({tx}, {ty})")
-        for row_addr in range(10):
-            # Convert the array row to 10-bit integer
-            row_bits = int("".join(map(str, grid[row_addr])), 2)
-            packet = create_packet(1, tx, ty, row_addr, row_bits)
+        for row_idx in range(10):
+            # FIX: Explicitly build integer from bit array to avoid reversal
+            row_bits = 0
+            for bit in grid[row_idx]:
+                row_bits = (row_bits << 1) | int(bit)
+            
+            packet = create_packet(1, tx, ty, row_idx, row_bits)
             await spi_transfer_logic(dut, packet)
 
 # ============================================================================
-# PART 4: THE COCOTB TEST EXECUTION
+# PART 4: TEST EXECUTION WITH INTEGRITY CHECK
 # ============================================================================
 @cocotb.test()
 async def test_full_pipeline(dut):
-    # 1. Hardware Init
     dut.mosi.value = 0
     dut.cs.value = 1
     dut.clk.value = 0
     await Timer(100, "ns")
 
-    # 2. Process Image (Make sure 'sample#1.jpg' is in the folder!)
     tiles_data = process_image_to_tiles('input_30x30.png')
-
-    # 3. Load into Mesh
     await load_tiles_to_noc(dut, tiles_data)
 
-    # 4. Final Confirmation Read-back of Tile (0,0)
-    dut._log.info("--- Reading back Core(0,0) for Verification ---")
+    dut._log.info("--- Verifying Core(0,0) Integrity ---")
+    original_matrix = tiles_data[(0,0)]
+    
     for r in range(10):
         await spi_transfer_logic(dut, create_packet(2, 0, 0, r, 0))
         captured = await spi_transfer_logic(dut, create_packet(2, 0, 0, r, 0))
-        actual = captured & 0x3FF
-        visual = bin(actual)[2:].zfill(10).replace('1', '#').replace('0', '.')
-        dut._log.info(f"Row {r}: {visual}")
+        actual_bits = captured & 0x3FF
+        
+        expected_bits = 0
+        for bit in original_matrix[r]:
+            expected_bits = (expected_bits << 1) | int(bit)
+            
+        visual = bin(actual_bits)[2:].zfill(10).replace('1', '#').replace('0', '.')
+        if actual_bits == expected_bits:
+            dut._log.info(f"Row {r}: {visual} [MATCH]")
+        else:
+            dut._log.error(f"Row {r}: {visual} [MISMATCH! Expected {hex(expected_bits)}]")
