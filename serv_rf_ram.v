@@ -1,12 +1,19 @@
+/*
+ * serv_rf_ram.v : SRAM-based RF storage for SERV
+ *
+ * SPDX-FileCopyrightText: 2019 Olof Kindgren <olof@award-winning.me>
+ * SPDX-License-Identifier: ISC
+ */
+ 
 // REMEMBER TO ADD gf180mcu_fd_ip_sram__sram256x8m8wm1.v TO THE FILELIST - WHEREVER TF THAT IS!!!!!
 
 /*
- * serv_rf_ram_gf180.v : GF180 256x8 SRAM-based RF storage for SERV
+ * serv_rf_ram.v : GF180 256x8 SRAM-based RF storage for SERV
  *
  * This module replaces serv_rf_ram.v to use the GF180MCU 256x8 SRAM
  * instead of behavioral memory.
  *
- * Drop-in replacement with same interface as serv_rf_ram.v
+ * Drop-in replacement with same interface as original serv_rf_ram.v
  */
 module serv_rf_ram
   #(parameter width=0,
