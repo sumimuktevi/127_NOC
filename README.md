@@ -37,3 +37,16 @@ mesh_init.mem: Binary Mapping represents the 10x10 grid of pixels (1 = Alive, 0 
 
 ebug_view.png: Purpose: It shows exactly how the script "sees" your drawing after it has been cropped, downsampled to $51 \times 51$, and padded to $60 \times 60$.
 Appearance: It will look like a small, pixelated version of your original sample#1.jpg, converted to high-contrast black and white.
+
+# running wrapped 
+
+python3 grid_converter_universal.py your_image.png
+
+then input the vertical rows and horizontal columns 
+
+then go into your local computer terminal and run
+
+# To generate the .pbm image
+
+pngtopnm YOUR_IMAGE.png | ppmtopgm | pgmtopbm | pnmtoplainpnm > binary_grid.pbm
+
