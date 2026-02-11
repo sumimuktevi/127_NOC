@@ -15,7 +15,7 @@
 #define GRID_SIZE 10
 
 int main() {
-    // 1. Boot-up: Identify who I am in the 3x3 mesh
+    // 1. Boot-up: Identify who I am in the mesh
     uint32_t my_id = *HW_REGS;
     uint8_t my_x = (uint8_t)(my_id & 0xFF);
     uint8_t my_y = (uint8_t)((my_id >> 8) & 0xFF);
