@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1770068819" />
-    <testcase name="test_full_pipeline" classname="test_gateway" file="/Users/fanshenglee/Desktop/noc_prototype/test_gateway.py" lineno="73" time="0.06574010848999023" sim_time_ns="37500.0" ratio_time="570428.0212088462" />
+    <property name="random_seed" value="1770842129" />
+    <testcase name="test_full_pipeline" classname="test_gateway" file="/Users/fanshenglee/Desktop/noc_prototype/test_gateway.py" lineno="65" time="0.06744384765625" sim_time_ns="37500.0" ratio_time="556018.0995475113" />
   </testsuite>
 </testsuites>
