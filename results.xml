@@ -1,0 +1,27 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1771450009" />
+    <testcase name="test_wb_basic_write_read" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="167" time="0.0066127777099609375" sim_time_ns="1350.0" ratio_time="204150.21632535334">
+      <failure error_type="AssertionError" error_msg="wb_basic: addr=0 got=0xADADBE00 exp=0xDEADBEEF" />
+    </testcase>
+    <testcase name="test_wb_sequential_fetches" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="188" time="0.006123065948486328" sim_time_ns="2850.0" ratio_time="465453.0955533058">
+      <failure error_type="AssertionError" error_msg="seq_fetch PC=0x000: got=0x50500000 exp=0x00500093" />
+    </testcase>
+    <testcase name="test_wb_byte_sel_partial_write" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="219" time="0.004006147384643555" sim_time_ns="1850.0" ratio_time="461790.29935130634">
+      <failure error_type="AssertionError" error_msg="byte_sel: got=0xADAD1200 exp=0xDEAD1234" />
+    </testcase>
+    <testcase name="test_wb_stalls_during_rf_write" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="248" time="0.004455089569091797" sim_time_ns="1650.0" ratio_time="370362.9241143102">
+      <failure error_type="AssertionError" error_msg="stall_test: data corrupted: got=0xFEFEBA00 exp=0xCAFEBABE" />
+    </testcase>
+    <testcase name="test_rf_wb_no_crosstalk" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="316" time="0.007622241973876953" sim_time_ns="2150.000000000001" ratio_time="282069.239912418">
+      <failure error_type="AssertionError" error_msg="crosstalk: WB data corrupted: got=0xCDCDEF00 exp=0xABCDEF01" />
+    </testcase>
+    <testcase name="test_wb_rf_interleaved" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="356" time="0.006702899932861328" sim_time_ns="2750.0" ratio_time="410270.1856726186">
+      <failure error_type="AssertionError" error_msg="interleaved: word A: got=0x11112200 exp=0x11112222" />
+    </testcase>
+    <testcase name="test_rf_x0_suppression" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="392" time="0.0056989192962646484" sim_time_ns="2350.0" ratio_time="412358.8838221144" />
+    <testcase name="test_wb_consecutive_transactions" classname="test_servile_rf_mem_if" file="/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py" lineno="433" time="0.009644746780395508" sim_time_ns="4850.000000000002" ratio_time="502864.4204385338">
+      <failure error_type="AssertionError" error_msg="consecutive: word_addr=0 got=0xBBBBCC00 exp=0xAABBCCDD" />
+    </testcase>
+  </testsuite>
+</testsuites>

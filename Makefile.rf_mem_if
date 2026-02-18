@@ -1,0 +1,50 @@
+# Makefile.rf_mem_if - cocotb testbench for the servile_rf_mem_if arbiter
+#
+# DUT: rf_mem_if_tb_top  (wrapper wiring servile_rf_mem_if + subservient_generic_ram)
+# The local subservient_generic_ram.v wraps the GF180 SRAM macro, so
+# gf180mcu_fd_ip_sram__sram256x8m8wm1.v is included in VERILOG_SOURCES.
+#
+# Usage:
+#   make -f Makefile.rf_mem_if              # run all 8 tests
+#   make -f Makefile.rf_mem_if COCOTB_TESTCASE=test_wb_stalls_during_rf_write
+#   make -f Makefile.rf_mem_if waves        # run + open FST in Surfer
+
+SIM           ?= icarus
+TOPLEVEL_LANG ?= verilog
+
+# Use a separate build directory so the stale cocotb_iverilog_dump.v from
+# the subservient_generic_ram testbench does not interfere.
+SIM_BUILD = sim_build_rf_mem_if
+
+# Path to the servile sub-library (two levels up from this directory)
+SERV_SERVILE  := $(abspath $(PWD)/../../fusesoc_libraries/serv/servile)
+
+VERILOG_SOURCES  = $(PWD)/rf_mem_if_tb_top.v \
+                   $(PWD)/subservient_generic_ram.v \
+                   $(PWD)/gf180mcu_fd_ip_sram__sram256x8m8wm1.v \
+                   $(SERV_SERVILE)/servile_rf_mem_if.v
+
+TOPLEVEL = rf_mem_if_tb_top
+MODULE   = test_servile_rf_mem_if
+
+# Top-level parameter overrides
+#   depth=256  -> 8-bit address space; RF in top half, program mem in bottom half
+#   rf_regs=32 -> 32 GPRs only (no CSRs), rf_depth=7
+ifeq ($(SIM),icarus)
+  COMPILE_ARGS += -P $(TOPLEVEL).depth=256
+  COMPILE_ARGS += -P $(TOPLEVEL).rf_regs=32
+endif
+
+# FST waveform dump
+WAVES = 1
+
+ifeq ($(SIM),icarus)
+  COCOTB_HDL_TIMEUNIT      = 1ns
+  COCOTB_HDL_TIMEPRECISION = 1ps
+endif
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+.PHONY: waves
+waves: all
+	surfer $(SIM_BUILD)/$(TOPLEVEL).fst &

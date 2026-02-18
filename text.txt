@@ -1,0 +1,116 @@
+rm -f results.xml
+"/Library/Developer/CommandLineTools/usr/bin/make" -f Makefile.rf_mem_if results.xml
+rm -f results.xml
+COCOTB_TEST_MODULES=test_servile_rf_mem_if COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=rf_mem_if_tb_top TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build_rf_mem_if/sim.vvp -fst  
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.9.13 interpreter at /Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1771450009
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_basic_write_read (1/8)
+                                                            TEST 1 – Basic Wishbone word write then read-back.
+     0.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:175: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+   500.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:129: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")
+  1000.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:150: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")
+  1350.00ns WARNING  ..te_read.test_wb_basic_write_read wb_basic: addr=0 got=0xADADBE00 exp=0xDEADBEEF
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 184, in test_wb_basic_write_read
+                                                            assert rd == DATA, (
+                                                        AssertionError: wb_basic: addr=0 got=0xADADBE00 exp=0xDEADBEEF
+  1350.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_basic_write_read failed
+  1350.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_sequential_fetches (2/8)
+                                                            TEST 2 – Sequential Wishbone reads (instruction-fetch simulation).
+  1350.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:196: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+  4200.00ns WARNING  ..tches.test_wb_sequential_fetches seq_fetch PC=0x000: got=0x50500000 exp=0x00500093
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 214, in test_wb_sequential_fetches
+                                                            assert rd == exp_instr, (
+                                                        AssertionError: seq_fetch PC=0x000: got=0x50500000 exp=0x00500093
+  4200.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_sequential_fetches failed
+  4200.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_byte_sel_partial_write (3/8)
+                                                            TEST 3 – Partial word write using Wishbone byte-select.
+  4200.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:228: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+  6050.00ns WARNING  ..e.test_wb_byte_sel_partial_write byte_sel: got=0xADAD1200 exp=0xDEAD1234
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 244, in test_wb_byte_sel_partial_write
+                                                            assert rd == expected, (
+                                                        AssertionError: byte_sel: got=0xADAD1200 exp=0xDEAD1234
+  6050.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_byte_sel_partial_write failed
+  6050.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_stalls_during_rf_write (4/8)
+                                                            TEST 4 – RF write stalls a concurrent Wishbone transaction.
+  6050.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:261: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+  7050.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:287: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")
+  7350.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:299: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")
+  7700.00ns WARNING  ..e.test_wb_stalls_during_rf_write stall_test: data corrupted: got=0xFEFEBA00 exp=0xCAFEBABE
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 312, in test_wb_stalls_during_rf_write
+                                                            assert rd == DATA, (
+                                                        AssertionError: stall_test: data corrupted: got=0xFEFEBA00 exp=0xCAFEBABE
+  7700.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_stalls_during_rf_write failed
+  7700.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_rf_wb_no_crosstalk (5/8)
+                                                            TEST 5 – RF and Wishbone memory regions are independent.
+  7700.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:328: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+  8700.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:96: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")    # tiny settle margin
+  9850.00ns WARNING  ..rosstalk.test_rf_wb_no_crosstalk crosstalk: WB data corrupted: got=0xCDCDEF00 exp=0xABCDEF01
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 345, in test_rf_wb_no_crosstalk
+                                                            assert rd_wb == WB_DATA, (
+                                                        AssertionError: crosstalk: WB data corrupted: got=0xCDCDEF00 exp=0xABCDEF01
+  9850.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_rf_wb_no_crosstalk failed
+  9850.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_rf_interleaved (6/8)
+                                                            TEST 6 – Wishbone write → RF access → Wishbone read; data intact.
+  9850.00ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:366: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+ 12600.00ns WARNING  ..terleaved.test_wb_rf_interleaved interleaved: word A: got=0x11112200 exp=0x11112222
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 386, in test_wb_rf_interleaved
+                                                            assert rd_a == DATA_A, (
+                                                        AssertionError: interleaved: word A: got=0x11112200 exp=0x11112222
+ 12600.00ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_rf_interleaved failed
+ 12600.00ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_rf_x0_suppression (7/8)
+                                                            TEST 7 – RF reads from the x0 address always return 0x00.
+ 12600.01ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:408: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+ 13900.01ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:109: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          await Timer(1, units="ns")
+ 14950.01ns INFO     cocotb.regression                  test_servile_rf_mem_if.test_rf_x0_suppression passed
+ 14950.01ns INFO     cocotb.regression                  running test_servile_rf_mem_if.test_wb_consecutive_transactions (8/8)
+                                                            TEST 8 – Multiple back-to-back Wishbone transactions.
+ 14950.01ns WARNING  py.warnings                        /Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py:441: DeprecationWarning: The 'units' argument has been renamed to 'unit'.
+                                                          cocotb.start_soon(Clock(dut.i_clk, CLK_PERIOD_NS, units="ns").start())
+ 19800.01ns WARNING  ..test_wb_consecutive_transactions consecutive: word_addr=0 got=0xBBBBCC00 exp=0xAABBCCDD
+                                                        Traceback (most recent call last):
+                                                          File "/Users/ethanfrancis/Desktop/cse127/NoC/Subservient_SRAM/test_servile_rf_mem_if.py", line 463, in test_wb_consecutive_transactions
+                                                            assert rd == exp_data, (
+                                                        AssertionError: consecutive: word_addr=0 got=0xBBBBCC00 exp=0xAABBCCDD
+ 19800.01ns WARNING  cocotb.regression                  test_servile_rf_mem_if.test_wb_consecutive_transactions failed
+ 19800.01ns INFO     cocotb.regression                  *****************************************************************************************************************
+                                                        ** TEST                                                     STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *****************************************************************************************************************
+                                                        ** test_servile_rf_mem_if.test_wb_basic_write_read           FAIL        1350.00           0.01     204150.22  **
+                                                        ** test_servile_rf_mem_if.test_wb_sequential_fetches         FAIL        2850.00           0.01     465453.10  **
+                                                        ** test_servile_rf_mem_if.test_wb_byte_sel_partial_write     FAIL        1850.00           0.00     461790.30  **
+                                                        ** test_servile_rf_mem_if.test_wb_stalls_during_rf_write     FAIL        1650.00           0.00     370362.92  **
+                                                        ** test_servile_rf_mem_if.test_rf_wb_no_crosstalk            FAIL        2150.00           0.01     282069.24  **
+                                                        ** test_servile_rf_mem_if.test_wb_rf_interleaved             FAIL        2750.00           0.01     410270.19  **
+                                                        ** test_servile_rf_mem_if.test_rf_x0_suppression             PASS        2350.00           0.01     412358.88  **
+                                                        ** test_servile_rf_mem_if.test_wb_consecutive_transactions   FAIL        4850.00           0.01     502864.42  **
+                                                        *****************************************************************************************************************
+                                                        ** TESTS=8 PASS=1 FAIL=7 SKIP=0                                         19800.01           0.07     271481.41  **
+                                                        *****************************************************************************************************************
+FST info: dumpfile sim_build_rf_mem_if/rf_mem_if_tb_top.fst opened for output.
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 450000: scope = rf_mem_if_tb_top.u_ram.sram ---------
