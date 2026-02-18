@@ -1,8 +1,8 @@
-module shift register (
+module shiftregister (
     input wire clk,
     input wire reset,
     input wire serial_in,   
-    input wire shift_en,    // Should go high when FSM is in FETCH_BIT state
+    input wire shift_en,    //high in fetch bit state
     output reg [31:0] parallel_out,
     output reg done_word    // Goes high when we get 32 bits
 );

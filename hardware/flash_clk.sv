@@ -1,6 +1,7 @@
 module flash_clk(
     input clk,
-    input state_ack,
+    input reset,
+    input enable,
     output reg flash_clk
 );
     reg [7:0] clk_cnt; 
@@ -10,7 +11,7 @@ module flash_clk(
     localparam DUTY_THRESHOLD = 8'd5;  //Ex: 5/10 = 50% (number of bits high)
 
     always @(posedge clk) begin
-        if (reset || state != FETCH_BIT) begin
+        if (reset || !enable) begin
             clk_cnt   <= 0;
             flash_clk <= 0;
         end else begin
