@@ -2,15 +2,23 @@
  * rf_mem_if_tb_top.v
  *
  * Simulation-only wrapper that connects servile_rf_mem_if (the SRAM arbiter)
- * to subservient_generic_ram so the cocotb test can drive both ports directly:
+ * to a simple behavioral SRAM so the cocotb test can drive both ports directly:
  *
  *   +-----------------------------------------------------+
  *   |                 rf_mem_if_tb_top                    |
  *   |                                                     |
- *   |  i_rf_* --> servile_rf_mem_if --> subservient_      |
- *   |  i_wb_* -->   (arbiter DUT)    --> generic_ram      |
+ *   |  i_rf_* --> servile_rf_mem_if --> sim_sram          |
+ *   |  i_wb_* -->   (arbiter DUT)    --> (behavioral)     |
  *   |                                                     |
  *   +-----------------------------------------------------+
+ *
+ * A purely behavioral SRAM (sim_sram) is used instead of the GF180 macro
+ * wrapper because the GF180 model fires its read/write operations on a
+ * delayed clock (clk_dly = CLK #100ps).  By that time the arbiter's
+ * non-blocking "bsel <= bsel+1" has settled, causing every address and data
+ * lane to be off by one slot.  The behavioral model uses standard
+ * non-blocking assignments evaluated at posedge CLK before bsel updates,
+ * giving correct timing.
  *
  * Parameters
  *   depth   - total SRAM depth in bytes (default 256)
@@ -21,14 +29,48 @@
  * Wishbone word addresses accessible as program/data memory:
  *   valid range: 0 .. (depth/2)/4 - 1   -> 0..31 for depth=256
  *
- * x0 suppression (RF read port only):
+ * x0 suppression (RF read port only, inside servile_rf_mem_if):
  *   i_rf_raddr[rf_depth-1:2] == all-1s  (i_rf_raddr in {0x7C..0x7F} for rf_regs=32)
- *
- * NOTE: subservient_generic_ram in this directory wraps the GF180 SRAM macro
- * (gf180mcu_fd_ip_sram__sram256x8m8wm1).  Include that model in VERILOG_SOURCES.
  */
 
 `default_nettype none
+
+// ---------------------------------------------------------------------------
+// Simple behavioral 8-bit-wide SRAM for simulation.
+// All operations are synchronous on posedge i_clk.
+// The r0 gate suppresses reads when the full address is all-1s in bits
+// [aw-1:2] (mirroring subservient_generic_ram's built-in x0 logic), though
+// the arbiter's own regzero logic is what the tests exercise.
+// ---------------------------------------------------------------------------
+module sim_sram
+  #(parameter depth = 256,
+    parameter aw    = $clog2(depth))
+   (input  wire          i_clk,
+    input  wire          i_rst,
+    input  wire [aw-1:0] i_waddr,
+    input  wire [7:0]    i_wdata,
+    input  wire          i_wen,
+    input  wire [aw-1:0] i_raddr,
+    output wire [7:0]    o_rdata,
+    input  wire          i_ren);
+
+   reg [7:0] mem [0:depth-1];
+   reg [7:0] rdata;
+   reg       r0;
+
+   assign o_rdata = r0 ? 8'd0 : rdata;
+
+   always @(posedge i_clk) begin
+      if (i_wen) mem[i_waddr] <= i_wdata;
+      rdata <= i_ren ? mem[i_raddr] : 8'bx;
+      r0    <= &i_raddr[aw-1:2];
+   end
+
+endmodule
+
+// ---------------------------------------------------------------------------
+// Top-level wrapper
+// ---------------------------------------------------------------------------
 module rf_mem_if_tb_top
   #(parameter depth    = 256,
     parameter rf_regs  = 32,
@@ -100,9 +142,8 @@ module rf_mem_if_tb_top
       .o_wb_rdt (o_wb_rdt),
       .o_wb_ack (o_wb_ack));
 
-   // GF180-backed SRAM (subservient_generic_ram in this directory wraps
-   // gf180mcu_fd_ip_sram__sram256x8m8wm1; no memfile parameter)
-   subservient_generic_ram
+   // Behavioral SRAM (no GF180 macro dependency)
+   sim_sram
      #(.depth (depth))
    u_ram
      (.i_clk   (i_clk),

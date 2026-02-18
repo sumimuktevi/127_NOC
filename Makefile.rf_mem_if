@@ -1,8 +1,13 @@
 # Makefile.rf_mem_if - cocotb testbench for the servile_rf_mem_if arbiter
 #
-# DUT: rf_mem_if_tb_top  (wrapper wiring servile_rf_mem_if + subservient_generic_ram)
-# The local subservient_generic_ram.v wraps the GF180 SRAM macro, so
-# gf180mcu_fd_ip_sram__sram256x8m8wm1.v is included in VERILOG_SOURCES.
+# DUT: rf_mem_if_tb_top  (wrapper wiring servile_rf_mem_if + sim_sram)
+#
+# A behavioral sim_sram is defined inside rf_mem_if_tb_top.v instead of
+# using the GF180 wrapper.  The GF180 model fires reads/writes on a
+# clk_dly signal (CLK delayed by 100 ps), so by then the arbiter's
+# non-blocking bsel update has settled and every access is off by one
+# byte slot.  The behavioral model avoids this by using non-blocking
+# assignments evaluated exactly at posedge CLK.
 #
 # Usage:
 #   make -f Makefile.rf_mem_if              # run all 8 tests
@@ -12,16 +17,14 @@
 SIM           ?= icarus
 TOPLEVEL_LANG ?= verilog
 
-# Use a separate build directory so the stale cocotb_iverilog_dump.v from
-# the subservient_generic_ram testbench does not interfere.
+# Use a separate build directory so the cocotb_iverilog_dump.v generated
+# for the other testbench (TOPLEVEL=subservient_generic_ram) does not conflict.
 SIM_BUILD = sim_build_rf_mem_if
 
 # Path to the servile sub-library (two levels up from this directory)
 SERV_SERVILE  := $(abspath $(PWD)/../../fusesoc_libraries/serv/servile)
 
 VERILOG_SOURCES  = $(PWD)/rf_mem_if_tb_top.v \
-                   $(PWD)/subservient_generic_ram.v \
-                   $(PWD)/gf180mcu_fd_ip_sram__sram256x8m8wm1.v \
                    $(SERV_SERVILE)/servile_rf_mem_if.v
 
 TOPLEVEL = rf_mem_if_tb_top
