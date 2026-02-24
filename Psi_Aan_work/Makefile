@@ -10,6 +10,7 @@ VERILOG_SOURCES = \
     mesh_tile.v \
     mesh_router.v \
     gf180mcu_fd_ip_sram__sram256x8m8wm1.v \
+	boot_loader.v \
     $(VERILOG_EXTRA)
 
 SIM = verilator
