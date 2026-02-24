@@ -25,6 +25,7 @@ module topmod (
     wire h_csb;
     wire [31:0] shifted_word;
     wire word_ready;
+    wire fetch_o;
 
     // Flash Clock Module (Flashs clock is slower than systems clock)
     flash_clk slow_clk (
@@ -42,6 +43,7 @@ module topmod (
         .word_ready(word_ready),
         .shifted_word(shifted_word),
         .fetch_en(fetch_en),
+        .fetch_o(fetch_o),
         .flash_csb(h_csb),
         .wbs_adr(wbs_adr),
         .wbs_dat(wbs_dat),
@@ -63,7 +65,8 @@ module topmod (
         .reset(reset || bypass_en),
         .serial_in(flash_miso),
         .shift_en(fetch_en), 
-        .parallel_out(shifted_word),
+        .fetch_o(fetch_o),
+        .shifted_word(shifted_word),
         .done_word(word_ready)
     );
 
@@ -72,8 +75,9 @@ wire [7:0] sram_addr;
 wire [7:0] sram_wen;  
 wire [7:0] sram_dout;
 wire sram_cen;
+    
     // SRAM
-gf180mcu_fd_ip_sram__sram256x8m8wm1 ethan_sram (
+    gf180mcu_fd_ip_sram__sram256x8m8wm1 ethan_sram (
     .CLK(clk),
     .CEN(sram_cen),   // Driven by your FSM
     .WEN(sram_wen),   // Driven by your FSM
@@ -96,14 +100,13 @@ gf180mcu_fd_ip_sram__sram256x8m8wm1 ethan_sram (
     // We replicate the 1-bit wbs_we to the 8-bit mask WEN
     assign sram_wen = {8{!wbs_we}}; 
 
-    // Use the FSM address for the SRAM (using bottom 8 bits for your 256x8 SRAM)
-    assign sram_addr = wbs_adr[7:0];
+    // Offsets address by the base address (h1000)
+    assign sram_addr = (wbs_adr - 32'h1000) >> 2;
 
-    // 2. The Wishbone "Handshake" (The secret sauce)
-    // In a real system, there's a delay. For this sim, we can just 
-    // tie ACK to STB so the FSM moves instantly.
-    assign wbs_ack = wbs_stb;
-
+    // WishBone handshake
+    reg wbs_ack_r;
+    always @(posedge clk) wbs_ack_r <= wbs_stb;
+    assign wbs_ack = wbs_ack_r;
 endmodule
 
 
