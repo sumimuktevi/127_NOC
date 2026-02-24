@@ -49,38 +49,60 @@ module mesh_router #(
             inject_flit <= {1'b1, local_wb_adr[3:2], local_wb_adr[1:0], 28'b0, local_wb_dat_o[0]};
         end else inject_flit <= 34'h0;
     end
+    
+    reg [33:0] next_n, next_s, next_e, next_w;
+    reg [33:0] next_ne, next_nw, next_se, next_sw;
 
-    // DIAGONAL XY ROUTING TASK
-    task route_flit;
+    task route_flit_comb;
         input [33:0] flit;
         reg [1:0] tgt_row, tgt_col;
     begin
         tgt_row = flit[32:31];
         tgt_col = flit[30:29];
 
-        if (tgt_row > my_row && tgt_col > my_col)      se_out = flit;
-        else if (tgt_row > my_row && tgt_col < my_col) sw_out = flit;
-        else if (tgt_row < my_row && tgt_col > my_col) ne_out = flit;
-        else if (tgt_row < my_row && tgt_col < my_col) nw_out = flit;
-        else if (tgt_row > my_row)                     s_out  = flit;
-        else if (tgt_row < my_row)                     n_out  = flit;
-        else if (tgt_col > my_col)                     e_out  = flit;
-        else if (tgt_col < my_col)                     w_out  = flit;
+        if (tgt_row == my_row && tgt_col == my_col) begin
+            // Destination reached — eject out se_out
+            next_se = flit;
+        end else if (tgt_row > my_row && tgt_col > my_col) next_se = flit;
+        else if (tgt_row > my_row && tgt_col < my_col)     next_sw = flit;
+        else if (tgt_row < my_row && tgt_col > my_col)     next_ne = flit;
+        else if (tgt_row < my_row && tgt_col < my_col)     next_nw = flit;
+        else if (tgt_row > my_row)                         next_s  = flit;
+        else if (tgt_row < my_row)                         next_n  = flit;
+        else if (tgt_col > my_col)                         next_e  = flit;
+        else if (tgt_col < my_col)                         next_w  = flit;
     end
     endtask
 
     always @(*) begin
-        {n_out, s_out, e_out, w_out, ne_out, nw_out, se_out, sw_out} = 0;
-        if (inject_flit[33] && inject_flit[32:29] != MY_ID) route_flit(inject_flit);
-        // Transit packets (Check all 8 inputs)
-        if (n_in[33]  && n_in[32:29]  != MY_ID) route_flit(n_in);
-        if (s_in[33]  && s_in[32:29]  != MY_ID) route_flit(s_in);
-        if (e_in[33]  && e_in[32:29]  != MY_ID) route_flit(e_in);
-        if (w_in[33]  && w_in[32:29]  != MY_ID) route_flit(w_in);
-        if (ne_in[33] && ne_in[32:29] != MY_ID) route_flit(ne_in);
-        if (nw_in[33] && nw_in[32:29] != MY_ID) route_flit(nw_in);
-        if (se_in[33] && se_in[32:29] != MY_ID) route_flit(se_in);
-        if (sw_in[33] && sw_in[32:29] != MY_ID) route_flit(sw_in);
+        {next_n, next_s, next_e, next_w,
+         next_ne, next_nw, next_se, next_sw} = 0;
+
+        if (inject_flit[33]) route_flit_comb(inject_flit);
+        if (n_in[33])        route_flit_comb(n_in);
+        if (s_in[33])        route_flit_comb(s_in);
+        if (e_in[33])        route_flit_comb(e_in);
+        if (w_in[33])        route_flit_comb(w_in);
+        if (ne_in[33])       route_flit_comb(ne_in);
+        if (nw_in[33])       route_flit_comb(nw_in);
+        if (se_in[33])       route_flit_comb(se_in);
+        if (sw_in[33])       route_flit_comb(sw_in);
+    end
+
+    always @(posedge clk) begin
+        if (rst) begin
+            {n_out, s_out, e_out, w_out,
+             ne_out, nw_out, se_out, sw_out} <= 0;
+        end else begin
+            n_out   <= next_n;
+            s_out   <= next_s;
+            e_out   <= next_e;
+            w_out   <= next_w;
+            ne_out  <= next_ne;
+            nw_out  <= next_nw;
+            se_out  <= next_se;
+            sw_out  <= next_sw;
+        end
     end
 
     // Wishbone ACK
