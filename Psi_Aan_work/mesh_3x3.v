@@ -34,7 +34,7 @@ module mesh_3x3 (
     
     // Boot controller signals
     wire boot_mode;
-    wire [7:0] boot_addr;
+    wire [9:0] boot_addr;
     wire [7:0] boot_data;
     wire boot_wen;
     wire cpu_reset_n;
@@ -94,7 +94,7 @@ module mesh_3x3 (
             end
         end
     endgenerate
-    
+
     assign monitor_22_se = grid_se[2][2];
 
 endmodule
