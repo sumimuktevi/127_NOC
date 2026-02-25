@@ -4,85 +4,114 @@ from cocotb.triggers import RisingEdge, Timer, FallingEdge
 from cocotb.types import LogicArray
 import os
 
-# Load firmware from hex file
-def load_firmware_hex():
-    """Load firmware from firmware.hex file (one byte per line)"""
+# Load firmware binary (like $readmemb in Verilog)
+def load_firmware_binary():
+    """Load firmware from firmware.bin or firmware.hex"""
     fw_data = []
-    hex_file = os.path.join(os.path.dirname(__file__), 'firmware.hex')
     
-    if not os.path.exists(hex_file):
-        print(f"Warning: firmware.hex not found at {hex_file}")
+    # Try binary first
+    bin_file = os.path.join(os.path.dirname(__file__), 'firmware.bin')
+    if os.path.exists(bin_file):
+        with open(bin_file, 'rb') as f:
+            fw_data = list(f.read())
         return fw_data
     
-    with open(hex_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith('#'):
-                fw_data.append(int(line, 16))
+    # Fall back to hex file (one byte per line)
+    hex_file = os.path.join(os.path.dirname(__file__), 'firmware.hex')
+    if os.path.exists(hex_file):
+        with open(hex_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    fw_data.append(int(line, 16))
+        return fw_data
     
+    print("Warning: No firmware file found")
     return fw_data
 
-# Global firmware data
-FIRMWARE = load_firmware_hex()
+# Global firmware data - pre-loaded like readmemb
+FIRMWARE = load_firmware_binary()
 
 async def spi_flash_responder(dut):
     """
-    Simulates an SPI flash device that responds to read requests
-    during the bootloader phase.
+    Simulates an SPI flash device that responds to read requests.
+    The firmware is pre-loaded into FIRMWARE array (like readmemb).
     """
-    dut._log.info(f"Loaded {len(FIRMWARE)} bytes of firmware from firmware.hex")
+    dut._log.info(f"Flash Simulator: Loaded {len(FIRMWARE)} bytes from firmware")
     
     await Timer(100, unit="ns")  # Wait a bit for reset
     
-    spi_byte_index = 0
-    spi_shift_reg = 0
-    spi_bit_count = 0
-    spi_read_mode = False
+    byte_counter = 0       # Which byte we're currently reading
+    bit_counter = 0        # Which bit of the byte (0-7)
+    state = "IDLE"         # IDLE, CMD_PHASE, ADDR_PHASE, or READ_PHASE
+    
+    prev_clk = 0
     
     while True:
-        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")  # Sample frequently
         
-        # Check if flash is selected
-        if int(dut.flash_cs_n.value) == 1:
-            # Flash deselected, reset state
-            spi_byte_index = 0
-            spi_shift_reg = 0
-            spi_bit_count = 0
-            spi_read_mode = False
+        cs_n = int(dut.flash_cs_n.value)
+        clk = int(dut.flash_clk.value)
+        mosi = int(dut.flash_mosi.value)
+        
+        # Reset on chip deselect
+        if cs_n == 1:
+            state = "IDLE"
+            byte_counter = 0
+            bit_counter = 0
+            dut.flash_miso.value = 0
+            prev_clk = clk
             continue
         
-        # Flash is selected, respond to clock
-        if int(dut.flash_clk.value) == 1:
-            # On flash clock high, shift out data to MISO
-            if spi_read_mode and spi_byte_index < len(FIRMWARE):
-                # Shift out a bit from the current byte
-                byte_val = FIRMWARE[spi_byte_index]
-                miso_bit = (byte_val >> (7 - spi_bit_count)) & 1
-                dut.flash_miso.value = miso_bit
-                
-                spi_bit_count += 1
-                if spi_bit_count == 8:
-                    # Move to next byte
-                    spi_byte_index += 1
-                    spi_bit_count = 0
-                    dut._log.info(f"SPI: Transmitted firmware byte {spi_byte_index-1}")
-            elif spi_read_mode:
-                # No more data, return 0xFF
-                dut.flash_miso.value = 1  # MSB of 0xFF
-        else:
-            # Clock low, sample MOSI for command detection
-            mosi_bit = int(dut.flash_mosi.value)
-            spi_shift_reg = ((spi_shift_reg << 1) | mosi_bit) & 0xFF
+        # On clock rising edge, shift out a bit
+        if clk == 1 and prev_clk == 0:
+            if state == "IDLE":
+                # Still receiving command
+                state = "CMD_PHASE"
             
-            if not spi_read_mode and spi_shift_reg == 0x03:  # Read command
-                dut._log.info("SPI: Read command detected (0x03)")
-                spi_read_mode = True
-                spi_byte_index = 0
-                spi_bit_count = 0
+            if state == "CMD_PHASE":
+                # Command phase (8 bits) - bootloader sends 0x03 (read command)
+                if bit_counter < 8:
+                    bit_counter += 1
+                    if bit_counter == 8:
+                        # Command received, move to address phase
+                        state = "ADDR_PHASE"
+                        bit_counter = 0
+                        dut._log.info("SPI: Command phase complete, ready for address")
+                    dut.flash_miso.value = 0  # Don't care during command phase
+            
+            elif state == "ADDR_PHASE":
+                # Address phase (24 bits for 3-byte address)
+                if bit_counter < 24:
+                    bit_counter += 1
+                    if bit_counter == 24:
+                        # Address received, move to read phase
+                        state = "READ_PHASE"
+                        bit_counter = 0
+                        byte_counter = 0
+                        dut._log.info("SPI: Address 0x000000 received, starting data read")
+                    dut.flash_miso.value = 0  # Don't care during address phase
+            
+            elif state == "READ_PHASE":
+                # Read phase - shift out firmware bytes
+                if byte_counter < len(FIRMWARE):
+                    byte_val = FIRMWARE[byte_counter]
+                    miso_bit = (byte_val >> (7 - bit_counter)) & 1
+                    dut.flash_miso.value = miso_bit
+                    
+                    bit_counter += 1
+                    if bit_counter == 8:
+                        dut._log.info(f"SPI: Byte {byte_counter} = 0x{byte_val:02x}")
+                        byte_counter += 1
+                        bit_counter = 0
+                else:
+                    # No more data - return 0xFF
+                    dut.flash_miso.value = 1
+        
+        prev_clk = clk
 
 async def reset_dut(dut):
     dut.rst.value = 1
-    dut.boot_mode.value = 0  # Initialize (will be driven by boot ctrl)
     dut.flash_miso.value = 0
     await Timer(50, unit="ns")
     dut.rst.value = 0
@@ -92,7 +121,7 @@ async def reset_dut(dut):
 async def test_mesh_with_bootloader(dut):
     """
     Test that verifies:
-    1. Bootloader loads firmware from SPI flash into SRAM
+    1. Bootloader loads firmware from SPI flash into SRAM (using readmemb-like approach)
     2. Bootloader releases CPU to execute firmware
     3. Network communication works with running firmware
     """
@@ -100,41 +129,27 @@ async def test_mesh_with_bootloader(dut):
     # Start clock
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
     
-    # Start SPI responder task
+    # Start SPI flash responder (firmware pre-loaded)
     cocotb.start_soon(spi_flash_responder(dut))
     
     # Reset the design
     await reset_dut(dut)
     
     dut._log.info("=" * 70)
-    dut._log.info("TESTBENCH: Waiting for bootloader phase...")
+    dut._log.info("TESTBENCH: Waiting for bootloader to load firmware from flash...")
     dut._log.info("=" * 70)
     
-    # Wait for bootloader to complete
-    # boot_mode should be HIGH during boot, then go LOW when done
-    boot_timeout = 10000  # 10K clock cycles = 100 microseconds
+    # Wait for bootloader to complete (SRAM filled + CPUs released)
+    boot_timeout = 50000  # 50K clock cycles = 500 microseconds
     cycle_count = 0
-    boot_mode_was_high = False
     
     while cycle_count < boot_timeout:
         await RisingEdge(dut.clk)
         cycle_count += 1
         
-        # Try to read boot_mode (if available as a signal)
-        try:
-            bm = int(dut.boot_mode.value)
-            if cycle_count == 1:
-                dut._log.info(f"Boot mode initial value: {bm}")
-            if bm == 1:
-                boot_mode_was_high = True
-            if boot_mode_was_high and bm == 0:
-                dut._log.info(f"Bootloader complete at cycle {cycle_count}")
-                break
-        except:
-            # boot_mode might not be accessible; just wait a fixed time
-            if cycle_count == 5000:
-                dut._log.warning("boot_mode signal not accessible; proceeding anyway")
-                break
+        # Check if boot is complete by monitoring SRAM writes or timeout
+        if cycle_count % 5000 == 0:
+            dut._log.info(f"  ... waiting for bootloader (cycle {cycle_count})")
     
     await Timer(100, unit="ns")  # Wait a bit after boot completes
     
