@@ -1,33 +1,40 @@
-# Makefile – cocotb testbench for subservient_generic_ram
-# Usage:
-#   make              # run with Icarus Verilog (default)
-#   make SIM=icarus   # explicit
-#   make waves        # run + open FST waveform in Surfer
+# Makefile for Cocotb SRAM Test
 
-SIM              ?= icarus
-TOPLEVEL_LANG    ?= verilog
+# Defaults
+SIM ?= icarus
+TOPLEVEL_LANG ?= verilog
 
-VERILOG_SOURCES   = $(PWD)/subservient_generic_ram.v \
-                    $(PWD)/gf180mcu_fd_ip_sram__sram256x8m8wm1.v
+# Verilog sources
+VERILOG_SOURCES = \
+	$(PWD)/gf180mcu_ocd_ip_sram__sram1024x8m8wm1.v \
+	$(PWD)/subservient_gf180_ram_1024x8.v
 
-TOPLEVEL          = subservient_generic_ram
-MODULE            = test_subservient_generic_ram
+# Toplevel module
+TOPLEVEL = subservient_gf180_ram_1024x8
 
-# Pass DEPTH=256 as a top-level parameter override (Icarus uses -P)
-ifeq ($(SIM),icarus)
-  COMPILE_ARGS += -P $(TOPLEVEL).depth=256
+# Python test module
+COCOTB_TEST_MODULES = test_sram_gf180
+
+# Simulator-specific settings
+ifeq ($(SIM),verilator)
+    COMPILE_ARGS += -Wno-MINTYPMAXDLY
+    COMPILE_ARGS += -Wno-SPECIFYIGN
+    COMPILE_ARGS += -Wno-LATCH
+    COMPILE_ARGS += -Wno-WIDTH
+    COMPILE_ARGS += -Wno-UNOPTFLAT
+    COMPILE_ARGS += --timing
 endif
 
-# Enable FST waveform dumping (generates sim_build/$(TOPLEVEL).fst)
-WAVES = 1
-
 ifeq ($(SIM),icarus)
-  COCOTB_HDL_TIMEUNIT      = 1ns
-  COCOTB_HDL_TIMEPRECISION = 1ps
+    COMPILE_ARGS += -g2012
 endif
 
+# Include cocotb makefiles
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
-.PHONY: waves
-waves: all
-	surfer sim_build/$(TOPLEVEL).fst &
+# Clean
+clean::
+	rm -rf __pycache__
+	rm -rf sim_build
+	rm -f results.xml
+	rm -f *.vcd

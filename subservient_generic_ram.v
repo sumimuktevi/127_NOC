@@ -25,7 +25,7 @@ module subservient_generic_ram
   assign sram_addr = (aw < 8) ? {{(8-aw){1'b0}}, (i_wen ? i_waddr : i_raddr)} :
                                  (i_wen ? i_waddr[7:0] : i_raddr[7:0]);
 
-  gf180mcu_fd_ip_sram__sram256x8m8wm1 sram (
+  gf180mcu_ocd_ip_sram__sram1024x8m8wm1 sram (
     .CLK(i_clk),
     .CEN(sram_cen),
     .GWEN(sram_gwen),

@@ -7,7 +7,7 @@ module subservient_fpga
 
    //parameter memfile = "hello.hex";  gf180 SRAM doesn't support loading hex files at startup 
 
-   parameter memsize = 256;   // size of the SRAM beign used
+   parameter memsize = 1024;   // size of the SRAM beign used
 
    localparam aw    = $clog2(memsize);
 
@@ -27,18 +27,17 @@ module subservient_fpga
       .o_clk (clk),
       .o_rst (rst));
 
-   subservient_generic_ram
-     #(.depth (memsize),
-       .memfile (memfile))
+   subservient_gf180_ram_1024x8
+    #(.depth (memsize))
    memory
-     (.i_clk   (clk),
-      .i_rst   (rst),
-      .i_waddr (sram_waddr),
-      .i_wdata (sram_wdata),
-      .i_wen   (sram_wen),
-      .i_raddr (sram_raddr),
-      .o_rdata (sram_rdata),
-      .i_ren   (sram_ren));
+    (.i_clk   (clk),
+   .i_rst   (rst),
+   .i_waddr (sram_waddr),
+   .i_wdata (sram_wdata),
+   .i_wen   (sram_wen),
+   .i_raddr (sram_raddr),
+   .o_rdata (sram_rdata),
+   .i_ren   (sram_ren));
      
    subservient
      #(.memsize  (memsize),
@@ -55,16 +54,6 @@ module subservient_fpga
       .o_sram_raddr (sram_raddr),
       .i_sram_rdata (sram_rdata),
       .o_sram_ren   (sram_ren),
-
-      //Debug interface
-      .i_debug_mode (1'b0),
-      .i_wb_dbg_adr (32'd0),
-      .i_wb_dbg_dat (32'd0),
-      .i_wb_dbg_sel (4'd0),
-      .i_wb_dbg_we  (1'd0),
-      .i_wb_dbg_stb (1'd0),
-      .o_wb_dbg_rdt (),
-      .o_wb_dbg_ack (),
 
       // External I/O
       .o_gpio (q));
