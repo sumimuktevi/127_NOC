@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1772575574" />
+    <testcase name="professor_steps_test" classname="test_app" file="/Users/andreaarreortua/127_NOC/Andrea+PaulVerification/127_NOC/Psi_Aan_work/test_app.py" lineno="268" time="18.475740909576416" sim_time_ns="5000380.0" ratio_time="270645.70912055735" />
+  </testsuite>
+</testsuites>
