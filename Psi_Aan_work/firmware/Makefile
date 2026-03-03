@@ -15,6 +15,9 @@ firmware.elf: main.c link.ld
 
 firmware.bin: firmware.elf
 	$(OBJCOPY) -O binary $< $@
+	# also mirror the binary to the parent directory so the testbench can
+	# load it without needing a manual copy step
+	cp $@ ..
 
 firmware.hex: firmware.bin
 	python3 bin2hex.py $< $@
