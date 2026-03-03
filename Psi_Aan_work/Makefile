@@ -18,4 +18,4 @@ SIM = verilator
 # Added -Wno-MINTYPMAXDLY to clear up the delay warnings
 COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY
 
-include $(shell cocotb-config --makefiles)/Makefile.s
+include $(shell cocotb-config --makefiles)/Makefile.sim

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1772580752" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="561" time="10.743419170379639" sim_time_ns="4350000.0" ratio_time="404899.02990970097" />
+  </testsuite>
+</testsuites>
