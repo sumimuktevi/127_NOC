@@ -4,6 +4,8 @@
 #include "Vtop__pch.h"
 
 void Vtop__Syms::Vtop__Syms__ctor__2() {
+    __Vscopep_mesh_3x3__rows__BRA__2__KET____cols__BRA__1__KET____tile_inst__sram_inst->varInsert("CLK", &(TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.CLK), false, VLVT_UINT8, VLVD_IN|VLVF_PUB_RW, 0, 0);
+    __Vscopep_mesh_3x3__rows__BRA__2__KET____cols__BRA__1__KET____tile_inst__sram_inst->varInsert("D", &(TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.D), false, VLVT_UINT8, VLVD_IN|VLVF_PUB_RW, 0, 1 ,7,0);
     __Vscopep_mesh_3x3__rows__BRA__2__KET____cols__BRA__1__KET____tile_inst__sram_inst->varInsert("GWEN", &(TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.GWEN), false, VLVT_UINT8, VLVD_IN|VLVF_PUB_RW, 0, 0);
     __Vscopep_mesh_3x3__rows__BRA__2__KET____cols__BRA__1__KET____tile_inst__sram_inst->varInsert("Q", &(TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.Q), false, VLVT_UINT8, VLVD_OUT|VLVF_PUB_RW, 0, 1 ,7,0);
     __Vscopep_mesh_3x3__rows__BRA__2__KET____cols__BRA__1__KET____tile_inst__sram_inst->varInsert("Tckh", const_cast<void*>(static_cast<const void*>(&(TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.Tckh))), true, VLVT_UINT32, VLVD_NODIR|VLVF_PUB_RW|VLVF_SIGNED, 0, 1 ,31,0);

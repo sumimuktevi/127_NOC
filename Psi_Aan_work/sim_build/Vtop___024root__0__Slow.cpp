@@ -27,10 +27,10 @@ VL_ATTR_COLD void Vtop___024root___eval_static(Vtop___024root* vlSelf) {
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.CLK;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0 
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.CLK;
-    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__clk__0 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__clk;
-    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__rst_n__0 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__rst_n;
+    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__clk__0 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__clk;
+    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__rst_n__0 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__rst_n;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 
@@ -672,7 +672,7 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelfRef.__VstlTriggered, "stl"s);
 #endif
-            VL_FATAL_MT("mesh_3x3.v", 20, "", "Settle region did not converge after 100 tries");
+            VL_FATAL_MT("mesh_3x3.v", 3, "", "Settle region did not converge after 100 tries");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
     } while (Vtop___024root___eval_phase__stl(vlSelf));
@@ -895,10 +895,10 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__act(const VlUnpacked<QData/*63
         VL_DBG_MSGS("         '" + tag + "' region trigger index 8 is active: @(posedge mesh_3x3.rows[2].cols[2].tile_inst.sram_inst.CLK)\n");
     }
     if ((1U & (IData)((triggers[0U] >> 9U)))) {
-        VL_DBG_MSGS("         '" + tag + "' region trigger index 9 is active: @(posedge mesh_3x3.boot_ctrl.clk)\n");
+        VL_DBG_MSGS("         '" + tag + "' region trigger index 9 is active: @(posedge mesh_3x3.boot_inst.clk)\n");
     }
     if ((1U & (IData)((triggers[0U] >> 0x0000000aU)))) {
-        VL_DBG_MSGS("         '" + tag + "' region trigger index 10 is active: @(negedge mesh_3x3.boot_ctrl.rst_n)\n");
+        VL_DBG_MSGS("         '" + tag + "' region trigger index 10 is active: @(negedge mesh_3x3.boot_inst.rst_n)\n");
     }
     if ((1U & (IData)((triggers[0U] >> 0x0000000bU)))) {
         VL_DBG_MSGS("         '" + tag + "' region trigger index 11 is active: @(posedge mesh_3x3.rows[0].cols[0].tile_inst.router_inst.clk)\n");
@@ -1792,6 +1792,11 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->mesh_3x3__DOT__flash_cs_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6649561938906662950ull);
     vlSelf->mesh_3x3__DOT__flash_clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14896253386882335255ull);
     vlSelf->mesh_3x3__DOT__flash_mosi = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11846165956459883071ull);
+    vlSelf->mesh_3x3__DOT__boot_data = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10217850074793787333ull);
+    vlSelf->mesh_3x3__DOT__boot_addr = VL_SCOPED_RAND_RESET_I(10, __VscopeHash, 931017181770497013ull);
+    vlSelf->mesh_3x3__DOT__boot_wen = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12373367219486883745ull);
+    vlSelf->mesh_3x3__DOT__cpu_rst_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11580598012669602952ull);
+    vlSelf->mesh_3x3__DOT__boot_mode = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3776633919962116088ull);
     for (int __Vi0 = 0; __Vi0 < 3; ++__Vi0) {
         for (int __Vi1 = 0; __Vi1 < 3; ++__Vi1) {
             vlSelf->mesh_3x3__DOT__grid_n[__Vi0][__Vi1] = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 13586887510254758741ull);
@@ -1832,11 +1837,6 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
             vlSelf->mesh_3x3__DOT__grid_sw[__Vi0][__Vi1] = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 2226788797807567023ull);
         }
     }
-    vlSelf->mesh_3x3__DOT__boot_mode = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3776633919962116088ull);
-    vlSelf->mesh_3x3__DOT__boot_addr = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 931017181770497013ull);
-    vlSelf->mesh_3x3__DOT__boot_data = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10217850074793787333ull);
-    vlSelf->mesh_3x3__DOT__boot_wen = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12373367219486883745ull);
-    vlSelf->mesh_3x3__DOT__cpu_reset_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16013200332714888872ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__n_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 14073893746308346435ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__s_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 15244612798194838493ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__e_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 10826427599416434180ull);
@@ -1909,20 +1909,21 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__se_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 17703969916566779389ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__sw_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 13378715168763182272ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__nw_i = VL_SCOPED_RAND_RESET_Q(34, __VscopeHash, 5145633120410295177ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14642964955031971683ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__rst_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2604862642458485709ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2680776458172395103ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 292487815647380496ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6719253785719971077ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__flash_miso = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5145944969105028835ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 9928859242730474412ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 4891429241634024139ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12641927008263984695ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1015674816298521398ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__state = VL_SCOPED_RAND_RESET_I(3, __VscopeHash, 11775715993455971532ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 7007719269549407351ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 4794930953678923270ull);
-    vlSelf->mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16260050944726620771ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12500545526186799828ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__rst_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7296768251638679279ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__flash_cs_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8112979415905179923ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__flash_clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1241316697939463853ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__flash_mosi = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9245148036830335404ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__flash_miso = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1695123333971999725ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__sram_wdata = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 4536735578583406651ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__sram_waddr = VL_SCOPED_RAND_RESET_I(10, __VscopeHash, 9597670529256623049ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__sram_wen = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 12224453824795850426ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7806908762114654404ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__state = VL_SCOPED_RAND_RESET_I(3, __VscopeHash, 3930752849757561947ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__bit_counter = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 2600045788655121206ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__shift_reg = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 12912089381340537063ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__spi_phase = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2063383079662897502ull);
+    vlSelf->mesh_3x3__DOT__boot_inst__DOT__write_phase = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 2481038819692690704ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14603220992685269997ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7912709895864827323ull);
     vlSelf->mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 11281163056074569532ull);
@@ -2724,8 +2725,8 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__CLK__0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__CLK__0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0 = 0;
-    vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__clk__0 = 0;
-    vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__rst_n__0 = 0;
+    vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__clk__0 = 0;
+    vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__rst_n__0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 = 0;

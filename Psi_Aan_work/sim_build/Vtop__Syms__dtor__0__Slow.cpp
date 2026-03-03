@@ -6,7 +6,7 @@
 void Vtop__Syms::Vtop__Syms__dtor__0() {
     // Tear down scope hierarchy
     __Vhier.remove(0, __Vscopep_mesh_3x3);
-    __Vhier.remove(__Vscopep_mesh_3x3, __Vscopep_mesh_3x3__boot_ctrl);
+    __Vhier.remove(__Vscopep_mesh_3x3, __Vscopep_mesh_3x3__boot_inst);
     __Vhier.remove(__Vscopep_mesh_3x3, __Vscopep_mesh_3x3__rows__BRA__0__KET__);
     __Vhier.remove(__Vscopep_mesh_3x3, __Vscopep_mesh_3x3__rows__BRA__1__KET__);
     __Vhier.remove(__Vscopep_mesh_3x3, __Vscopep_mesh_3x3__rows__BRA__2__KET__);
@@ -258,7 +258,7 @@ void Vtop__Syms::Vtop__Syms__dtor__0() {
     // Tear down scopes
     VL_DO_CLEAR(delete __Vscopep_TOP, __Vscopep_TOP = nullptr);
     VL_DO_CLEAR(delete __Vscopep_mesh_3x3, __Vscopep_mesh_3x3 = nullptr);
-    VL_DO_CLEAR(delete __Vscopep_mesh_3x3__boot_ctrl, __Vscopep_mesh_3x3__boot_ctrl = nullptr);
+    VL_DO_CLEAR(delete __Vscopep_mesh_3x3__boot_inst, __Vscopep_mesh_3x3__boot_inst = nullptr);
     VL_DO_CLEAR(delete __Vscopep_mesh_3x3__rows__BRA__0__KET__, __Vscopep_mesh_3x3__rows__BRA__0__KET__ = nullptr);
     VL_DO_CLEAR(delete __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET__, __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET__ = nullptr);
     VL_DO_CLEAR(delete __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET____tile_inst, __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET____tile_inst = nullptr);
