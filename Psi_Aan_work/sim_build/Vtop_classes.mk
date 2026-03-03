@@ -29,20 +29,21 @@ VM_CLASSES_FAST += \
   Vtop___024root__0 \
   Vtop___024root__1 \
   Vtop___024root__2 \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram256x8m8wm1__0 \
-  Vtop_subservient_core__M100__0 \
-  Vtop_subservient_core__M100__1 \
-  Vtop_subservient_core__M100__2 \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1__0 \
+  Vtop_subservient_core__M400__0 \
+  Vtop_subservient_core__M400__1 \
+  Vtop_subservient_core__M400__2 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
   Vtop__ConstPool__0__Slow \
   Vtop___024root__Slow \
   Vtop___024root__0__Slow \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram256x8m8wm1__Slow \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram256x8m8wm1__0__Slow \
-  Vtop_subservient_core__M100__Slow \
-  Vtop_subservient_core__M100__0__Slow \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1__Slow \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1__0__Slow \
+  Vtop_subservient_core__M400__Slow \
+  Vtop_subservient_core__M400__0__Slow \
+  Vtop_subservient_core__M400__1__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
