@@ -9,7 +9,7 @@ VERILOG_SOURCES = \
     mesh_3x3.v \
     mesh_tile.v \
     mesh_router.v \
-    gf180mcu_fd_ip_sram__sram256x8m8wm1.v \
+    gf180mcu_fd_ip_sram__sram1024x8m8wm1.v \
 	boot_loader.v \
     $(VERILOG_EXTRA)
 
@@ -18,4 +18,4 @@ SIM = verilator
 # Added -Wno-MINTYPMAXDLY to clear up the delay warnings
 COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY
 
-include $(shell cocotb-config --makefiles)/Makefile.sim
+include $(shell cocotb-config --makefiles)/Makefile.s

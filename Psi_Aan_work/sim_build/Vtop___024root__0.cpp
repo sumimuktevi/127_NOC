@@ -218,10 +218,11 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
+    vlSelfRef.mesh_3x3__DOT__rst = vlSelfRef.rst;
     vlSelfRef.mesh_3x3__DOT__flash_miso = vlSelfRef.flash_miso;
-    vlSelfRef.mesh_3x3__DOT__flash_cs_n = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n;
-    vlSelfRef.mesh_3x3__DOT__flash_clk = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk;
-    vlSelfRef.mesh_3x3__DOT__flash_mosi = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi;
+    vlSelfRef.mesh_3x3__DOT__flash_cs_n = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_cs_n;
+    vlSelfRef.mesh_3x3__DOT__flash_clk = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk;
+    vlSelfRef.mesh_3x3__DOT__flash_mosi = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_mosi;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c 
@@ -321,9 +322,9 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_ack;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_ack 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_ack;
-    vlSelfRef.mesh_3x3__DOT__boot_data = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata;
-    vlSelfRef.mesh_3x3__DOT__boot_wen = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen;
-    vlSelfRef.mesh_3x3__DOT__boot_addr = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__boot_data = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__boot_wen = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen;
+    vlSelfRef.mesh_3x3__DOT__boot_addr = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
@@ -469,8 +470,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
     vlSelfRef.mesh_3x3__DOT__clk = vlSelfRef.clk;
-    vlSelfRef.mesh_3x3__DOT__rst = vlSelfRef.rst;
-    vlSelfRef.mesh_3x3__DOT__cpu_reset_n = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n;
+    vlSelfRef.mesh_3x3__DOT__cpu_rst_n = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_rdata 
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst.Q;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_rdata 
@@ -579,7 +579,9 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_sel;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_stb 
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_stb;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_miso 
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__rst_n 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rst)));
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_miso 
         = vlSelfRef.mesh_3x3__DOT__flash_miso;
     vlSelfRef.flash_cs_n = vlSelfRef.mesh_3x3__DOT__flash_cs_n;
     vlSelfRef.flash_clk = vlSelfRef.mesh_3x3__DOT__flash_clk;
@@ -685,23 +687,23 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen 
         = vlSelfRef.mesh_3x3__DOT__boot_wen;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__grid_ne[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
     vlSelfRef.mesh_3x3__DOT__grid_nw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
     vlSelfRef.mesh_3x3__DOT__grid_sw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
@@ -774,7 +776,7 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__grid_s[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
     vlSelfRef.mesh_3x3__DOT__grid_e[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
     vlSelfRef.mesh_3x3__DOT__grid_w[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__clk = vlSelfRef.mesh_3x3__DOT__clk;
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__clk = vlSelfRef.mesh_3x3__DOT__clk;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk 
         = vlSelfRef.mesh_3x3__DOT__clk;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk 
@@ -793,27 +795,25 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.mesh_3x3__DOT__clk;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__clk 
         = vlSelfRef.mesh_3x3__DOT__clk;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__rst_n 
-        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rst)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
-        = vlSelfRef.mesh_3x3__DOT__rst;
-    vlSelfRef.mesh_3x3__DOT__boot_mode = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_reset_n)));
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__boot_mode = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
@@ -6559,11 +6559,11 @@ void Vtop___024root___eval_triggers__act(Vtop___024root* vlSelf) {
                                                             | ((((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk) 
                                                                    & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0))) 
                                                                   << 3U) 
-                                                                 | (((~ (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__rst_n)) 
-                                                                     & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__rst_n__0)) 
+                                                                 | (((~ (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__rst_n)) 
+                                                                     & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__rst_n__0)) 
                                                                     << 2U)) 
-                                                                | ((((IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__clk) 
-                                                                     & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__clk__0))) 
+                                                                | ((((IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__clk) 
+                                                                     & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__clk__0))) 
                                                                     << 1U) 
                                                                    | ((IData)(vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.CLK) 
                                                                       & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0))))) 
@@ -7320,10 +7320,10 @@ void Vtop___024root___eval_triggers__act(Vtop___024root* vlSelf) {
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.CLK;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0 
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.CLK;
-    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__clk__0 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__clk;
-    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__rst_n__0 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__rst_n;
+    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__clk__0 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__clk;
+    vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__rst_n__0 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__rst_n;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk;
     vlSelfRef.__Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0 
@@ -8381,141 +8381,132 @@ void Vtop___024root___nba_sequent__TOP__18(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    CData/*2:0*/ __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 0;
-    CData/*7:0*/ __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr = 0;
-    CData/*0:0*/ __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0;
-    CData/*7:0*/ __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0;
-    CData/*7:0*/ __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = 0;
+    CData/*7:0*/ __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter = 0;
+    CData/*7:0*/ __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__boot_inst__DOT__state;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 0;
+    CData/*0:0*/ __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0;
     // Body
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__spi_phase;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg;
-    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr 
-        = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-    if (vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__rst_n) {
-        if ((4U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-            if ((2U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 0U;
-            } else if ((1U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 0U;
-            } else {
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n = 1U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi = 0U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = 1U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n = 1U;
-            }
-        } else if ((2U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-            if ((1U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = 0U;
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr 
-                    = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-                if ((0xffU == (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr))) {
-                    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = 1U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 4U;
-                } else {
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr 
-                        = (0x000000ffU & ((IData)(1U) 
-                                          + (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr)));
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 2U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = 0U;
-                    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = 1U;
-                }
-            } else if (vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__spi_phase) {
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 1U;
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg 
-                    = ((0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg) 
-                                       << 1U)) | (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_miso));
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter 
-                    = (0x000000ffU & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter)));
-                if ((7U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter))) {
-                    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata 
-                        = ((0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg) 
-                                           << 1U)) 
-                           | (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_miso));
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 3U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
-                } else {
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
-                }
-            } else {
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 1U;
-            }
-        } else if ((1U & (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state))) {
-            if (vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__spi_phase) {
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg 
-                    = (0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg) 
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state;
+    __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase 
+        = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__spi_phase;
+    if (vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__rst_n) {
+        if ((0U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_cs_n = 0U;
+            __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter = 0U;
+            __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg = 3U;
+            __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 1U;
+        } else if ((1U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            if (vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__spi_phase) {
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg 
+                    = (0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg) 
                                       << 1U));
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 1U;
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter 
-                    = (0x000000ffU & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter)));
-                if ((7U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter))) {
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 2U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = 0U;
-                } else {
-                    __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 1U;
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter 
+                    = (0x000000ffU & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter)));
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
+                if ((7U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter))) {
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 2U;
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter = 0U;
                 }
             } else {
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-                vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi 
-                    = (1U & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg) 
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 0U;
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_mosi 
+                    = (1U & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg) 
                              >> 7U));
-                __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 1U;
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 1U;
             }
-        } else {
-            __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = 3U;
-            vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n = 0U;
-            vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-            __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
-            __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0U;
-            __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 1U;
+        } else if ((2U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            if (vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__spi_phase) {
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 1U;
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter 
+                    = (0x000000ffU & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter)));
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
+                if ((0x17U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter))) {
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 3U;
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter = 0U;
+                }
+            } else {
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 0U;
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_mosi = 0U;
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 1U;
+            }
+        } else if ((3U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            if (vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__spi_phase) {
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg 
+                    = ((0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg) 
+                                       << 1U)) | (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_miso));
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 0U;
+                if ((7U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter))) {
+                    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wdata 
+                        = ((0x000000feU & ((IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg) 
+                                           << 1U)) 
+                           | (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_miso));
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 4U;
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter = 0U;
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
+                } else {
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter 
+                        = (0x000000ffU & ((IData)(1U) 
+                                          + (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter)));
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
+                }
+            } else {
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 1U;
+                __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 1U;
+            }
+        } else if ((4U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            if (vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__write_phase) {
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen = 1U;
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__write_phase = 0U;
+                if ((0x03ffU == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr))) {
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 5U;
+                } else {
+                    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr 
+                        = (0x000003ffU & ((IData)(1U) 
+                                          + (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr)));
+                    __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 3U;
+                }
+            } else {
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen = 0U;
+                vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__write_phase = 1U;
+            }
+        } else if ((5U == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state))) {
+            vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_cs_n = 1U;
+            vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n = 1U;
         }
     } else {
-        __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg = 3U;
-        __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state = 0U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n = 0U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen = 1U;
-        __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr = 0U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata = 0U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n = 1U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk = 0U;
-        vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi = 0U;
-        __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter = 0U;
-        __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase = 0U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr = 0U;
+        __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 0U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n = 0U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen = 1U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_cs_n = 1U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk = 0U;
+        __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
+        vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__write_phase = 0U;
     }
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__state 
-        = __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__state;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__spi_phase 
-        = __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__spi_phase;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__bit_counter 
-        = __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__bit_counter;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__shift_reg 
-        = __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__shift_reg;
-    vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr 
-        = __Vdly__mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-    vlSelfRef.mesh_3x3__DOT__flash_cs_n = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n;
-    vlSelfRef.mesh_3x3__DOT__flash_clk = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_clk;
-    vlSelfRef.mesh_3x3__DOT__flash_mosi = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi;
-    vlSelfRef.mesh_3x3__DOT__boot_data = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata;
-    vlSelfRef.mesh_3x3__DOT__boot_wen = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_wen;
-    vlSelfRef.mesh_3x3__DOT__boot_addr = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-    vlSelfRef.mesh_3x3__DOT__cpu_reset_n = vlSelfRef.mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n;
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__bit_counter 
+        = __Vdly__mesh_3x3__DOT__boot_inst__DOT__bit_counter;
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__shift_reg 
+        = __Vdly__mesh_3x3__DOT__boot_inst__DOT__shift_reg;
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__state 
+        = __Vdly__mesh_3x3__DOT__boot_inst__DOT__state;
+    vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__spi_phase 
+        = __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase;
+    vlSelfRef.mesh_3x3__DOT__flash_cs_n = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_cs_n;
+    vlSelfRef.mesh_3x3__DOT__flash_clk = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_clk;
+    vlSelfRef.mesh_3x3__DOT__flash_mosi = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__flash_mosi;
+    vlSelfRef.mesh_3x3__DOT__boot_data = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__boot_wen = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen;
+    vlSelfRef.mesh_3x3__DOT__boot_addr = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__cpu_rst_n = vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n;
     vlSelfRef.flash_cs_n = vlSelfRef.mesh_3x3__DOT__flash_cs_n;
     vlSelfRef.flash_clk = vlSelfRef.mesh_3x3__DOT__flash_clk;
     vlSelfRef.flash_mosi = vlSelfRef.mesh_3x3__DOT__flash_mosi;
@@ -8556,24 +8547,42 @@ void Vtop___024root___nba_sequent__TOP__18(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen 
         = vlSelfRef.mesh_3x3__DOT__boot_wen;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr 
-        = vlSelfRef.mesh_3x3__DOT__boot_addr;
-    vlSelfRef.mesh_3x3__DOT__boot_mode = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_reset_n)));
+        = (0x000000ffU & (IData)(vlSelfRef.mesh_3x3__DOT__boot_addr));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst 
+        = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
+    vlSelfRef.mesh_3x3__DOT__boot_mode = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode 
         = vlSelfRef.mesh_3x3__DOT__boot_mode;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode 
@@ -9078,85 +9087,4 @@ void Vtop___024root___nba_sequent__TOP__32(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__grid_n[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
     vlSelfRef.mesh_3x3__DOT__grid_e[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
     vlSelfRef.mesh_3x3__DOT__grid_w[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
-}
-
-void Vtop___024root___nba_sequent__TOP__33(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__33\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_ack = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (8U == (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-                          >> 0x1cU))) ? (0x0000000200000000ULL 
-                                         | (((QData)((IData)(
-                                                             (3U 
-                                                              & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-                                                                 >> 2U)))) 
-                                             << 0x0000001fU) 
-                                            | (QData)((IData)(
-                                                              ((0x60000000U 
-                                                                & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-                                                                   << 0x0000001dU)) 
-                                                               | (1U 
-                                                                  & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o))))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_ack 
-            = (1U & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_ack 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_ack;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
 }

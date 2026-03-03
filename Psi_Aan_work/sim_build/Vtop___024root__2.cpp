@@ -562,7 +562,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelfRef.__VicoTriggered, "ico"s);
 #endif
-            VL_FATAL_MT("mesh_3x3.v", 20, "", "Input combinational region did not converge after 100 tries");
+            VL_FATAL_MT("mesh_3x3.v", 3, "", "Input combinational region did not converge after 100 tries");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
     } while (Vtop___024root___eval_phase__ico(vlSelf));
@@ -572,7 +572,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__act(vlSelfRef.__VnbaTriggered, "nba"s);
 #endif
-            VL_FATAL_MT("mesh_3x3.v", 20, "", "NBA region did not converge after 100 tries");
+            VL_FATAL_MT("mesh_3x3.v", 3, "", "NBA region did not converge after 100 tries");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         vlSelfRef.__VactIterCount = 0U;
@@ -581,7 +581,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelfRef.__VactTriggered, "act"s);
 #endif
-                VL_FATAL_MT("mesh_3x3.v", 20, "", "Active region did not converge after 100 tries");
+                VL_FATAL_MT("mesh_3x3.v", 3, "", "Active region did not converge after 100 tries");
             }
             vlSelfRef.__VactIterCount = ((IData)(1U) 
                                          + vlSelfRef.__VactIterCount);

@@ -52,7 +52,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop__Syms final : public VerilatedSyms {
     // SCOPE NAMES
     VerilatedScope* __Vscopep_TOP;
     VerilatedScope* __Vscopep_mesh_3x3;
-    VerilatedScope* __Vscopep_mesh_3x3__boot_ctrl;
+    VerilatedScope* __Vscopep_mesh_3x3__boot_inst;
     VerilatedScope* __Vscopep_mesh_3x3__rows__BRA__0__KET__;
     VerilatedScope* __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET__;
     VerilatedScope* __Vscopep_mesh_3x3__rows__BRA__0__KET____cols__BRA__0__KET____tile_inst;

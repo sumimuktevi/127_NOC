@@ -8,7 +8,7 @@ module mesh_tile #(
     input wire boot_mode,       // This signal will be HIGH when the Bootloader is active
     
     // this is from top-level boot_loader
-    input wire [7:0] boot_addr,
+    input wire [9:0] boot_addr,
     input wire [7:0] boot_data,
     input wire       boot_wen, // write en
 
@@ -27,20 +27,27 @@ module mesh_tile #(
     wire        wb_we, wb_stb, wb_ack;
 
     // --- SRAM Interface ---
-    wire [7:0] sram_waddr, sram_raddr;
+    wire [9:0] sram_waddr, sram_raddr;
     wire [7:0] sram_wdata, sram_rdata;
     wire       sram_wen, sram_ren;
 
     // --- MUX Logic ---
     // This is for the SRAM pins -> if boot_mode is active, it will use the bootloader signals
     //                              else, it will use the subservient core signals
-    wire [7:0] final_a   = boot_mode ? boot_addr  : (sram_wen ? sram_waddr : sram_raddr);
+    wire [9:0] final_a   = boot_mode ? boot_addr  : (sram_wen ? sram_waddr : sram_raddr);
     wire [7:0] final_d   = boot_mode ? boot_data  : sram_wdata;
-    wire       final_gwen = boot_mode ? boot_wen   : sram_wen;
-    wire       final_cen  = boot_mode ? 1'b1       : (sram_wen | sram_ren); // Logic handled in sram_inst
+    // Boot controller drives boot_wen LOW to write (active-LOW convention).
+    // The SRAM .GWEN() port is also active-LOW, but mesh_tile passes ~final_gwen.
+    // So we need final_gwen=1 when boot_wen=0 to produce GWEN=0 (write).
+    // CPU path: sram_wen is active-HIGH → same ~final_gwen trick works fine.
+    wire       final_gwen = boot_mode ? ~boot_wen  : sram_wen;
+    // During boot: CEN follows ~boot_wen so it pulses HIGH between writes,
+    // giving the SRAM model the required 1->0 transition that sets cen_fell.
+    // During normal CPU operation: CEN is low only when the CPU accesses SRAM.
+    wire       final_cen  = boot_mode ? ~boot_wen  : (sram_wen | sram_ren);
 
     // --- Subservient Core ---
-    subservient_core #(.memsize(256)) core_inst (
+    subservient_core #(.memsize(1024)) core_inst (
         .i_clk(clk),
         .i_rst(rst | boot_mode), // Keep CPU in reset during boot!
         .i_timer_irq(1'b0),
@@ -79,21 +86,15 @@ module mesh_tile #(
     );
 
     // --- SRAM Instance ---
-    wire vdd_net = 1'b1;
-    wire vss_net = 1'b0;
-
-    gf180mcu_fd_ip_sram__sram256x8m8wm1 sram_inst (
-        .CLK(clk),
-        // CEN is Active Low: Enable if reading OR writing
-        .CEN(~final_cen), // BEFORE: (sram_wen | sram_ren)
-        // GWEN is Active Low: Enable for writes
-        .GWEN(~final_gwen), // sram_wen       
-        .WEN(8'h00), // Global write
-        .A(final_a), // sram_wen ? sram_waddr : sram_raddr
-        .D(final_d), // sram_wdata
-        .Q(sram_rdata), // sram_rdata
-        .VDD(vdd_net),
-        .VSS(vss_net)
+    // VDD/VSS omitted: guarded by `ifdef USE_POWER_PINS in model, not present in sim.
+    gf180mcu_fd_ip_sram__sram1024x8m8wm1 sram_inst (
+        .CLK (clk),
+        .CEN (~final_cen),
+        .GWEN(~final_gwen),
+        .WEN (8'h00),
+        .A   (final_a),
+        .D   (final_d),
+        .Q   (sram_rdata)
     );
 
 endmodule

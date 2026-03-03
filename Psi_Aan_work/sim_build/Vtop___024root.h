@@ -50,25 +50,24 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ mesh_3x3__DOT__flash_cs_n;
         CData/*0:0*/ mesh_3x3__DOT__flash_clk;
         CData/*0:0*/ mesh_3x3__DOT__flash_mosi;
-        CData/*0:0*/ mesh_3x3__DOT__boot_mode;
-        CData/*7:0*/ mesh_3x3__DOT__boot_addr;
         CData/*7:0*/ mesh_3x3__DOT__boot_data;
         CData/*0:0*/ mesh_3x3__DOT__boot_wen;
-        CData/*0:0*/ mesh_3x3__DOT__cpu_reset_n;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__clk;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__rst_n;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__flash_cs_n;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__flash_clk;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__flash_mosi;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__flash_miso;
-        CData/*7:0*/ mesh_3x3__DOT__boot_ctrl__DOT__sram_wdata;
-        CData/*7:0*/ mesh_3x3__DOT__boot_ctrl__DOT__sram_waddr;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__sram_wen;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__cpu_reset_n;
-        CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__state;
-        CData/*7:0*/ mesh_3x3__DOT__boot_ctrl__DOT__bit_counter;
-        CData/*7:0*/ mesh_3x3__DOT__boot_ctrl__DOT__shift_reg;
-        CData/*0:0*/ mesh_3x3__DOT__boot_ctrl__DOT__spi_phase;
+        CData/*0:0*/ mesh_3x3__DOT__cpu_rst_n;
+        CData/*0:0*/ mesh_3x3__DOT__boot_mode;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__clk;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__rst_n;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__flash_cs_n;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__flash_clk;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__flash_mosi;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__flash_miso;
+        CData/*7:0*/ mesh_3x3__DOT__boot_inst__DOT__sram_wdata;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__sram_wen;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__cpu_reset_n;
+        CData/*2:0*/ mesh_3x3__DOT__boot_inst__DOT__state;
+        CData/*7:0*/ mesh_3x3__DOT__boot_inst__DOT__bit_counter;
+        CData/*7:0*/ mesh_3x3__DOT__boot_inst__DOT__shift_reg;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__spi_phase;
+        CData/*0:0*/ mesh_3x3__DOT__boot_inst__DOT__write_phase;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode;
@@ -102,9 +101,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*1:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__Vstatic__tgt_col;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst;
+        CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode;
     };
     struct {
-        CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_data;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_wen;
@@ -168,9 +167,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr;
+        CData/*7:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_data;
     };
     struct {
-        CData/*7:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_data;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_wen;
         CData/*3:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_sel;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
@@ -234,9 +233,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_data;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen;
+        CData/*3:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_sel;
     };
     struct {
-        CData/*3:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_sel;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_stb;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_ack;
@@ -300,9 +299,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_wen;
         CData/*3:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_sel;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
+        CData/*0:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_stb;
     };
     struct {
-        CData/*0:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_stb;
         CData/*0:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_ack;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr;
         CData/*7:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr;
@@ -366,11 +365,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__CLK__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__CLK__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0;
     };
     struct {
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CLK__0;
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__clk__0;
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_ctrl__DOT__rst_n__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__clk__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__boot_inst__DOT__rst_n__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__clk__0;
@@ -432,9 +431,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__rf_mem_if__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__rf_ram_if__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__state__DOT__i_clk__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__decode__DOT__clk__0;
     };
     struct {
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__decode__DOT__clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__immdec__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__bufreg__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__bufreg2__DOT__i_clk__0;
@@ -498,9 +497,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__mem_if__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__rf_mem_if__DOT__i_clk__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__rf_ram_if__DOT__i_clk__0;
     };
     struct {
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__rf_ram_if__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__state__DOT__i_clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__decode__DOT__clk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__servile__DOT__cpu__DOT__immdec__DOT__i_clk__0;
@@ -564,9 +563,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tas__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tch__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tcs__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tdh__0;
     };
     struct {
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tdh__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_tds__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_twh__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__ntf_twih__0;
@@ -630,9 +629,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_tds__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_twh__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_twih__0;
+        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_twis__0;
     };
     struct {
-        CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_twis__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__ntf_tws__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__CEN__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__cen_flag__0;
@@ -650,6 +649,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__ntf_twis__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__ntf_tws__0;
         CData/*0:0*/ __VactDidInit;
+        SData/*9:0*/ mesh_3x3__DOT__boot_addr;
+        SData/*9:0*/ mesh_3x3__DOT__boot_inst__DOT__sram_waddr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
@@ -695,9 +696,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-        IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr;
     };
     struct {
+        IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
@@ -761,9 +762,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__nw_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__n_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__s_i;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__e_i;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__e_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__w_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__ne_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__se_i;
@@ -827,9 +828,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_in;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_in;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
@@ -893,9 +894,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_in;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_in;
@@ -959,9 +960,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_in;
@@ -1025,9 +1026,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_in;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_in;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
@@ -1091,9 +1092,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_in;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_in;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
@@ -1157,9 +1158,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
     };
     struct {
+        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
@@ -1223,9 +1224,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__54__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__55__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__56__flit;
-        QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__57__flit;
     };
     struct {
+        QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__57__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__58__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__59__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_flit_comb__60__flit;
@@ -1314,11 +1315,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
     const char* vlNamep;
 
     // PARAMETERS
-    static constexpr CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__IDLE = 0U;
-    static constexpr CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__CMD = 1U;
-    static constexpr CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__READ = 2U;
-    static constexpr CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__WRITE = 3U;
-    static constexpr CData/*2:0*/ mesh_3x3__DOT__boot_ctrl__DOT__DONE = 4U;
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__TILE_ID = 0U;
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__MY_ID = 0U;
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__TILE_ID = 1U;
@@ -1337,6 +1333,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final {
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__MY_ID = 9U;
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__TILE_ID = 0x0aU;
     static constexpr CData/*3:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__MY_ID = 0x0aU;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__IDLE = 0U;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__CMD = 1U;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__ADDR = 2U;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__READ = 3U;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__WRITE = 4U;
+    static constexpr IData/*31:0*/ mesh_3x3__DOT__boot_inst__DOT__DONE = 5U;
 
     // CONSTRUCTORS
     Vtop___024root(Vtop__Syms* symsp, const char* namep);
