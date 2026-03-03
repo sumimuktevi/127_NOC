@@ -2,22 +2,21 @@ OUTPUT_ARCH(riscv)
 ENTRY(_start)
 
 MEMORY {
-    /* The gf180mcu SRAM you provided is 256 bytes */
-    sram (rwx) : ORIGIN = 0x00000000, LENGTH = 256
+    sram (rwx) : ORIGIN = 0x00000000, LENGTH = 1024
 }
 
 SECTIONS {
-    /* Ensure the entry point code is at the very beginning */
     .text : {
         *(.text.init)
         *(.text)
         *(.rodata*)
     } > sram
 
-    /* Throw away compiler info and attributes to save space */
-    /DISCARD/ : {
-        *(.comment)
-        *(.riscv.attributes)
-        *(.eh_frame)
-    }
+    .bss : {
+        _bss_start = .;
+        *(.bss)
+        *(.bss.*)
+        *(COMMON)
+        _bss_end = .;
+    } > sram
 }
