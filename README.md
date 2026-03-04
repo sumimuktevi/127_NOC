@@ -51,7 +51,7 @@ Change into the project directory and invoke make:
 ```bash
 cd paullee_workspace
 cd integration_v1
-make        # default target runs test_mesh with verilator
+make
 ```
 
 You can also use these command lines:
