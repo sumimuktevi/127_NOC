@@ -527,6 +527,80 @@ def expected_blinker_seed():
     exp[cy + 1][cx] = 1
     return exp
 
+# ============================================================
+# Pure-Python GoL step — mirrors main.c boundary behaviour
+# (no wrapping: out-of-bounds neighbours count as 0)
+# ============================================================
+
+def gol_step(grid):
+    """Apply one GoL iteration to `grid` (SIZE×SIZE list-of-lists).
+    Boundary: cells outside the grid are treated as dead (no wrap),
+    matching the `nx>=0 && nx<SIZE && ny>=0 && ny<SIZE` guard in main.c.
+    Returns a new SIZE×SIZE grid."""
+    new_grid = [[0] * SIZE for _ in range(SIZE)]
+    for y in range(SIZE):
+        for x in range(SIZE):
+            neighbors = 0
+            for dy in range(-1, 2):
+                for dx in range(-1, 2):
+                    if dx == 0 and dy == 0:
+                        continue
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < SIZE and 0 <= ny < SIZE:
+                        if grid[ny][nx]:
+                            neighbors += 1
+            cell = grid[y][x]
+            if cell == 1:
+                new_grid[y][x] = 1 if neighbors in (2, 3) else 0
+            else:
+                new_grid[y][x] = 1 if neighbors == 3 else 0
+    return new_grid
+
+# Pre-compute the three ground-truth grids
+GOL_ITER = [
+    expected_blinker_seed(),          # iter 0
+]
+GOL_ITER.append(gol_step(GOL_ITER[0]))  # iter 1
+GOL_ITER.append(gol_step(GOL_ITER[1]))  # iter 2
+
+# ============================================================
+# SRAM grid reader
+# ============================================================
+
+def read_grid_from_sram(tile) -> list:
+    """Read the current_grid region (SIZE*SIZE bytes at SRAM_GRID_BASE)
+    from a tile's SRAM and return a SIZE×SIZE list-of-lists."""
+    g = []
+    for y in range(SIZE):
+        row = []
+        for x in range(SIZE):
+            addr = SRAM_GRID_BASE + y * SIZE + x
+            row.append(sram_read_byte(tile, addr))
+        g.append(row)
+    return g
+
+def print_iter_comparison(dut, r, c, iteration):
+    """Side-by-side print of expected vs actual for a given iteration.
+    Returns the number of mismatching cells."""
+    tile = get_tile(dut, r, c)
+    exp  = GOL_ITER[iteration]
+    act  = read_grid_from_sram(tile)
+
+    print("\n===================================================")
+    print(f"TILE ({r},{c})  ITERATION {iteration}")
+    print("EXPECTED (Python GoL)   ACTUAL (SRAM)")
+    print("---------------------------------------------------")
+    mismatches = 0
+    for y in range(SIZE):
+        exp_row = "".join("." if exp[y][x] else "#" for x in range(SIZE))
+        act_row = "".join("." if act[y][x] else "#" for x in range(SIZE))
+        marker  = "" if exp_row == act_row else "  ← MISMATCH"
+        if marker:
+            mismatches += len([1 for x in range(SIZE) if (exp[y][x] != 0) != (act[y][x] != 0)])
+        print(f"{exp_row}    {act_row}{marker}")
+    print("===================================================")
+    return mismatches
+
 def print_expected_vs_actual(dut, r, c, label="ITER 0 (seed)"):
     tile = get_tile(dut, r, c)
     exp  = expected_blinker_seed()
@@ -627,3 +701,137 @@ async def test_iter0_seed_only(dut):
 
     assert total_mismatches == 0, \
         f"Seed mismatch: {total_mismatches} cells wrong across 9 tiles."
+
+# ============================================================
+# TEST — GoL iter 1 (seed → horizontal blinker)
+# ============================================================
+
+# Without noc_send, one GoL pass ≈ 3ms simulated (@100MHz).
+# 10ms gives a comfortable 3x margin; ~25 sec wall time at observed ~396k ns/s.
+ITER_WAIT_MS = 10    # ms simulated per GoL iteration (noc_send disabled)
+
+@cocotb.test()
+async def test_gol_iter1(dut):
+    """Boot the mesh, verify iter 0 (seed), then wait one GoL pass and verify
+    iter 1 (vertical blinker → horizontal blinker) against Python ground-truth."""
+
+    # --- Boot ---
+    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
+    dut.rst.value = 1
+    dut.flash_miso.value = 0
+    if hasattr(dut, "inject_00_nw"):
+        dut.inject_00_nw.value = 0
+    await Timer(RESET_HOLD_MS, unit="ms")
+    dut.rst.value = 0
+    cocotb.start_soon(spi_flash_responder(dut))
+
+    while int(dut.cpu_rst_n.value) == 0:
+        await Timer(10, unit="us")
+    dut._log.info("[iter_test] Boot complete.")
+
+    # --- Iter 0: wait for seed init ---
+    dut._log.info(f"[iter_test] Waiting {SEED_SAMPLE_US} µs for seed init...")
+    await Timer(SEED_SAMPLE_US, unit="us")
+
+    print("\n\n******** ITERATION 0 (seed) ********")
+    iter0_mismatches = 0
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            iter0_mismatches += print_iter_comparison(dut, r, c, 0)
+    if iter0_mismatches == 0:
+        dut._log.info("✓ Iter 0: ALL tiles match expected seed")
+    else:
+        dut._log.error(f"✗ Iter 0: {iter0_mismatches} mismatches")
+
+    # --- Iter 1: wait one full GoL pass ---
+    dut._log.info(f"[iter_test] Waiting {ITER_WAIT_MS} ms for iter 1...")
+    await Timer(ITER_WAIT_MS, unit="ms")
+
+    print("\n\n******** ITERATION 1 (horizontal blinker expected) ********")
+    iter1_mismatches = 0
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            iter1_mismatches += print_iter_comparison(dut, r, c, 1)
+    if iter1_mismatches == 0:
+        dut._log.info("✓ Iter 1: ALL tiles match expected horizontal blinker")
+    else:
+        dut._log.error(f"✗ Iter 1: {iter1_mismatches} mismatches")
+
+    assert iter0_mismatches == 0 and iter1_mismatches == 0, (
+        f"GoL iteration test failed: iter0={iter0_mismatches}, "
+        f"iter1={iter1_mismatches} mismatches."
+    )
+
+
+# How long to wait PER iteration for SERV to finish one GoL pass.
+# SERV takes ~32 cycles/instruction.  One GoL pass over 100 cells:
+#   - 100 × 8 neighbour checks  ≈ 800 multiplies + loads → ~several million cycles
+# 200 ms @ 100 MHz = 20 000 000 cycles — very conservative upper bound.
+ITER_WAIT_MS = 200   # ms budget per GoL iteration
+
+@cocotb.test()
+async def test_gol_iter1_iter2(dut):
+    """Boot the mesh, then sample SRAM at iter 0, iter 1, and iter 2
+    and compare each against the Python ground-truth GoL grid."""
+
+    # --- Boot ---
+    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
+    dut.rst.value = 1
+    dut.flash_miso.value = 0
+    if hasattr(dut, "inject_00_nw"):
+        dut.inject_00_nw.value = 0
+    await Timer(RESET_HOLD_MS, unit="ms")
+    dut.rst.value = 0
+    cocotb.start_soon(spi_flash_responder(dut))
+
+    while int(dut.cpu_rst_n.value) == 0:
+        await Timer(10, unit="us")
+    dut._log.info("[iter_test] Boot complete.")
+
+    # --- Iter 0: wait for seed init ---
+    dut._log.info(f"[iter_test] Waiting {SEED_SAMPLE_US} µs for seed init...")
+    await Timer(SEED_SAMPLE_US, unit="us")
+
+    print("\n\n******** ITERATION 0 (seed) ********")
+    iter0_mismatches = 0
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            iter0_mismatches += print_iter_comparison(dut, r, c, 0)
+    if iter0_mismatches == 0:
+        dut._log.info("✓ Iter 0: ALL tiles match expected seed")
+    else:
+        dut._log.error(f"✗ Iter 0: {iter0_mismatches} mismatches")
+
+    # --- Iter 1: wait one full GoL pass ---
+    dut._log.info(f"[iter_test] Waiting {ITER_WAIT_MS} ms for iter 1...")
+    await Timer(ITER_WAIT_MS, unit="ms")
+
+    print("\n\n******** ITERATION 1 ********")
+    iter1_mismatches = 0
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            iter1_mismatches += print_iter_comparison(dut, r, c, 1)
+    if iter1_mismatches == 0:
+        dut._log.info("✓ Iter 1: ALL tiles match expected")
+    else:
+        dut._log.error(f"✗ Iter 1: {iter1_mismatches} mismatches")
+
+    # --- Iter 2: wait another full GoL pass ---
+    dut._log.info(f"[iter_test] Waiting {ITER_WAIT_MS} ms for iter 2...")
+    await Timer(ITER_WAIT_MS, unit="ms")
+
+    print("\n\n******** ITERATION 2 ********")
+    iter2_mismatches = 0
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            iter2_mismatches += print_iter_comparison(dut, r, c, 2)
+    if iter2_mismatches == 0:
+        dut._log.info("✓ Iter 2: ALL tiles match expected")
+    else:
+        dut._log.error(f"✗ Iter 2: {iter2_mismatches} mismatches")
+
+    total = iter0_mismatches + iter1_mismatches + iter2_mismatches
+    assert total == 0, (
+        f"GoL iteration test failed: iter0={iter0_mismatches}, "
+        f"iter1={iter1_mismatches}, iter2={iter2_mismatches} mismatches."
+    )
