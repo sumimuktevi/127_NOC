@@ -1,9 +1,9 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1772657131" />
-    <testcase name="test_bootloader_memory_dump" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="234" time="0.7379148006439209" sim_time_ns="349240.0" ratio_time="473279.57061607303" />
-    <testcase name="test_direct_initialization" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="302" time="0.0055370330810546875" sim_time_ns="1200.0" ratio_time="216722.5628660007" />
-    <testcase name="test_image_load_verification" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="375" time="0.0034270286560058594" sim_time_ns="200.0" ratio_time="58359.593710866844" />
-    <testcase name="test_memory_dump_detailed" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="426" time="0.0032389163970947266" sim_time_ns="1100.0" ratio_time="339619.75708502025" />
+    <property name="random_seed" value="1772660014" />
+    <testcase name="test_output_verification" classname="test_output_verification" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_output_verification.py" lineno="170" time="0.008146047592163086" sim_time_ns="1100.0" ratio_time="135034.81136769397" />
+    <testcase name="test_host_communication" classname="test_output_verification" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_output_verification.py" lineno="238" time="0.0021088123321533203" sim_time_ns="1200.0000000000002" ratio_time="569040.67834935" />
+    <testcase name="test_full_pipeline" classname="test_output_verification" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_output_verification.py" lineno="298" time="0.002287149429321289" sim_time_ns="200.0" ratio_time="87445.09538204942" />
+    <testcase name="test_integration_with_paul_image" classname="test_output_verification" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_output_verification.py" lineno="356" time="0.003690004348754883" sim_time_ns="200.0" ratio_time="54200.47812883634" />
   </testsuite>
 </testsuites>
