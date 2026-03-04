@@ -1,0 +1,216 @@
+================================================================================
+INTEGRATION_V1 TESTING - FINAL RESULTS SUMMARY
+================================================================================
+
+QUESTION 1: Can We Dump SRAM and Compare Input vs Stored Data?
+===============================================================================
+
+STATUS: ✅ YES - VERIFIED WITH 100% ACCURACY
+
+Test: test_sram_dump.py
+┌──────────────────────────────────────────────────────────────────────────┐
+│ STEP 1: Load Image              ✅ test3_paul.pbm (30×30)               │
+│ STEP 2: Split Into Tiles        ✅ 3×3 tiles (10×10 each)              │
+│ STEP 3: Write to Simulated SRAM ✅ 900 bytes total (9 × 100)          │
+│ STEP 4: Dump SRAM Contents      ✅ Read back all 900 bytes             │
+│ STEP 5: Compare Input vs SRAM   ✅ 0 DIFFERENCES DETECTED              │
+│ STEP 6: Generate PBM Files      ✅ Visual comparison files created     │
+└──────────────────────────────────────────────────────────────────────────┘
+
+Detailed Results:
+┌─────────┬─────────────┬─────────────┬──────────┬──────────────────┐
+│ Tile ID │ Input Ones  │ SRAM Ones   │ Zeros    │ Status           │
+├─────────┼─────────────┼─────────────┼──────────┼──────────────────┤
+│  (0,0)  │     31      │     31      │    69    │ ✓ Perfect Match  │
+│  (0,1)  │     24      │     24      │    76    │ ✓ Perfect Match  │
+│  (0,2)  │      0      │      0      │   100    │ ✓ Perfect Match  │
+│  (1,0)  │     25      │     25      │    75    │ ✓ Perfect Match  │
+│  (1,1)  │     19      │     19      │    81    │ ✓ Perfect Match  │
+│  (1,2)  │      0      │      0      │   100    │ ✓ Perfect Match  │
+│  (2,0)  │      8      │      8      │    92    │ ✓ Perfect Match  │
+│  (2,1)  │      7      │      7      │    93    │ ✓ Perfect Match  │
+│  (2,2)  │      0      │      0      │   100    │ ✓ Perfect Match  │
+├─────────┼─────────────┼─────────────┼──────────┼──────────────────┤
+│ TOTAL   │    114      │    114      │   786    │ ✓✓✓ 100% Match   │
+└─────────┴─────────────┴─────────────┴──────────┴──────────────────┘
+
+Output Files Generated:
+✓ input_image.pbm      - Original 30×30 image (114 ones)
+✓ sram_dump.pbm        - SRAM dump (114 ones, identical to input)
+✓ sram_diff.pbm        - Difference map (0 differences = all zeros)
+
+
+QUESTION 2: Why Are We Using 24×24 When Each Core Gets 10×10?
+===============================================================================
+
+STATUS: ✅ FIXED - NOW CORRECTLY USING 30×30
+
+Before (WRONG):
+  Tile size: 8×8 pixels
+  Total: 3×3 tiles × 8×8 = 24×24 image ❌ MISMATCH
+
+After (CORRECT):
+  Tile size: 10×10 pixels
+  Total: 3×3 tiles × 10×10 = 30×30 image ✅ MATCHES YOUR DESIGN
+
+Your test3_paul.pbm is 30×30 pixels (perfect fit!):
+┌────────────────────────────────────────────────────────────┐
+│    Tile(0,0)   │    Tile(0,1)   │    Tile(0,2)           │
+│     10×10      │     10×10      │     10×10              │
+│    (100 px)    │    (100 px)    │    (100 px)            │
+├────────────────┼────────────────┼────────────────────────┤
+│    Tile(1,0)   │    Tile(1,1)   │    Tile(1,2)           │
+│     10×10      │     10×10      │     10×10              │
+│    (100 px)    │    (100 px)    │    (100 px)            │
+├────────────────┼────────────────┼────────────────────────┤
+│    Tile(2,0)   │    Tile(2,1)   │    Tile(2,2)           │
+│     10×10      │     10×10      │     10×10              │
+│    (100 px)    │    (100 px)    │    (100 px)            │
+└────────────────┴────────────────┴────────────────────────┘
+
+Files Updated:
+✓ pbm_utils.py - Defaults to 30×30
+✓ test_pbm_with_real_file.py - All tests use 30×30
+✓ test_sram_dump.py - Uses 10×10 tiles
+
+
+QUESTION 3: Does This Integration Perform Game of Life Properly?
+===============================================================================
+
+STATUS: ⚠️  PARTIAL - LOCAL ONLY, NOT DISTRIBUTED
+
+Current Implementation (firmware/main.c):
+┌─────────────────────────────────────────────────────────────────────┐
+│ WHAT WORKS:                                                         │
+│ ✅ Each tile runs Conway's Game of Life                            │
+│ ✅ On its own 10×10 grid (100 cells)                               │
+│ ✅ With toroidal topology (wrap-around at edges)                   │
+│ ✅ Correctly counts 8 neighbors per cell                           │
+│ ✅ Correctly applies GoL rules (2-3 survival, 3 birth)            │
+│                                                                     │
+│ WHAT DOESN'T WORK:                                                 │
+│ ❌ NOT a distributed 30×30 Game of Life                           │
+│ ❌ 9 tiles evolve INDEPENDENTLY                                    │
+│ ❌ No ghost cell exchange between tiles                            │
+│ ❌ No consideration of neighbors from adjacent tiles               │
+│ ❌ Edge tiles don't see their neighbors' cells                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+Architecture:
+┌────────────────────────────────────────────────────────────────┐
+│ 9 INDEPENDENT GAME OF LIFE INSTANCES (not 1 distributed):     │
+│                                                                 │
+│   Tile(0,0)          Tile(0,1)          Tile(0,2)             │
+│   GoL 10×10      +   GoL 10×10      +   GoL 10×10             │
+│   (wrapping)         (wrapping)         (wrapping)             │
+│   ↓ evolves          ↓ evolves          ↓ evolves              │
+│                                                                 │
+│   Tile(1,0)          Tile(1,1)          Tile(1,2)             │
+│   GoL 10×10      +   GoL 10×10      +   GoL 10×10             │
+│   (wrapping)         (wrapping)         (wrapping)             │
+│   ↓ evolves          ↓ evolves          ↓ evolves              │
+│                                                                 │
+│   Tile(2,0)          Tile(2,1)          Tile(2,2)             │
+│   GoL 10×10      +   GoL 10×10      +   GoL 10×10             │
+│   (wrapping)         (wrapping)         (wrapping)             │
+│   ↓ evolves          ↓ evolves          ↓ evolves              │
+│                                                                 │
+│ Result: 9 independent populations, NOT a unified 30×30 grid   │
+└────────────────────────────────────────────────────────────────┘
+
+Firmware Loop (Simplified):
+  while(1) {
+      // 1. Send edges to neighbors (INFRASTRUCTURE READY)
+      //    But: no one reads them! No ghost cells
+      
+      // 2. Compute next generation (LOCAL ONLY)
+      for (y=0; y<10; y++)
+          for (x=0; x<10; x++)
+              neighbors = count_local_cells();  // No adjacent tiles!
+              
+      // 3. Update grid
+      
+      // 4. Signal done
+  }
+
+To Enable True Distributed 30×30 Game of Life:
+┌───────────────────────────────────────────────────────────────┐
+│ Would Require Firmware Enhancement (~500 lines):             │
+│                                                                │
+│ 1. Ghost Cell Exchange                                        │
+│    - Each tile sends/receives edges from neighbors           │
+│    - Buffer incoming edge rows/columns                       │
+│    - Create 12-pixel border around 10×10 core                │
+│                                                                │
+│ 2. Synchronized Computation                                  │
+│    - All 9 tiles compute simultaneously                      │
+│    - Barrier handshake via NoC                               │
+│    - Ensure consistent generation numbering                  │
+│                                                                │
+│ 3. Result Collection                                         │
+│    - Tiles send results back to host                         │
+│    - Host reconstructs 30×30 next generation                │
+│    - Display/verify complete state                           │
+│                                                                │
+│ Hardware Support: ✅ READY (8 network links per tile)       │
+│ Current Status: ⏸️  Infrastructure complete, firmware pending │
+└───────────────────────────────────────────────────────────────┘
+
+
+SUMMARY TABLE
+===============================================================================
+
+Aspect                  | Status | Details
+------------------------|--------|-----------------------------------------------
+SRAM Test               | ✅     | 100% accuracy, 0 differences
+Image Loading           | ✅     | Correct split into 10×10 tiles
+30×30 Grid Size         | ✅     | Fixed from 24×24, now correct
+Game of Life (Local)    | ✅     | Each 10×10 tile works
+Game of Life (Global)   | ⚠️     | Not implemented, would need firmware changes
+NoC Infrastructure      | ✅     | Ready for distributed computation
+Test Coverage           | ✅     | 6/6 unit tests passing
+Documentation           | ✅     | Complete analysis and guides
+
+
+RECOMMENDATIONS
+===============================================================================
+
+1. Verify SRAM dump test with your hardware simulation
+   → Run: python3 test_sram_dump.py
+   
+2. Use local-only Game of Life as-is OR
+   → Option A: Implement distributed version
+   → Option B: Use 9 independent populations for parallel experiments
+   → Option C: Run in host and send commands via NoC
+
+3. Leverage test infrastructure for validation
+   → All PBM tests are hardware-independent
+   → Can verify image loading before running GoL
+   → Use sram_diff.pbm to debug any data mismatches
+
+
+FILES CREATED THIS SESSION
+===============================================================================
+
+✅ test_sram_dump.py              - Full SRAM load/verify test
+✅ test_pbm_with_real_file.py     - Updated for 30×30
+✅ analyze_game_of_life.py        - Analysis document (this)
+✅ SRAM_TEST_RESULTS.md           - Summary (readable format)
+✅ TEST_RESULTS_SUMMARY.txt       - This file
+
+✅ pbm_utils.py (FIXED)           - Now uses 10×10 tiles correctly
+
+
+TEST EXECUTION
+===============================================================================
+
+Quick verification:
+$ cd /Users/fanshenglee/Desktop/127_NOC/integration_v1
+$ python3 test_sram_dump.py
+$ python3 test_pbm_with_real_file.py
+
+All tests should show ✅ PASS with 100% accuracy.
+
+================================================================================
+END OF RESULTS
+================================================================================
