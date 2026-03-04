@@ -1,9 +1,49 @@
+import os
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import Timer, RisingEdge
+from cocotb.triggers import Timer, RisingEdge, FallingEdge
+
+async def spi_flash_responder(dut, firmware_path):
+    with open(firmware_path, "rb") as f:
+        firmware = f.read()
+    
+    # Pad firmware to 1024 bytes if necessary
+    firmware = firmware + bytes(max(0, 1024 - len(firmware)))
+    
+    dut.flash_miso.value = 0
+    
+    while True:
+        # Wait for CS to go low
+        while dut.flash_cs_n.value == 1:
+            await RisingEdge(dut.clk)
+            
+        # Skip the command (8 bits) and address (24 bits) phase
+        for _ in range(32):
+            await FallingEdge(dut.flash_clk)
+            if dut.flash_cs_n.value == 1:
+                break
+                
+        if dut.flash_cs_n.value == 1:
+            continue
+            
+        # Output data bytes
+        for i in range(1024):
+            byte_val = firmware[i]
+            for b in range(8):
+                bit_val = (byte_val >> (7 - b)) & 1
+                dut.flash_miso.value = bit_val
+                await FallingEdge(dut.flash_clk)
+                if dut.flash_cs_n.value == 1:
+                    break
+            if dut.flash_cs_n.value == 1:
+                break
 
 @cocotb.test()
 async def test_mesh_diagnostics(dut):
+    # Start the flash responder to feed the bootloader
+    fw_path = os.path.join(os.path.dirname(__file__), "firmware.bin")
+    cocotb.start_soon(spi_flash_responder(dut, fw_path))
+
     # FIX (Bug 2): The GF180 SRAM requires a minimum cycle time (Tcyc) of
     # 55.6 ns. The original 10 ns clock violated this, causing setup/hold
     # violations on every access and corrupting all data read by the CPU.
