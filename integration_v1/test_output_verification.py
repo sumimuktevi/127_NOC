@@ -194,8 +194,8 @@ async def test_output_verification(dut):
     print("TEST 3: OUTPUT VERIFICATION")
     print("="*60)
     
-    # Create and load test image
-    test_image = create_test_image(24, 24, 'grid')
+    # Create and load test image (30×30 = 3×3 tiles of 10×10 pixels)
+    test_image = create_test_image(30, 30, 'grid')
     test_image.write_pbm('test_output/output_test_input.pbm', 'P1')
     print(f"Created test image: test_output/output_test_input.pbm")
     
@@ -316,9 +316,9 @@ async def test_full_pipeline(dut):
     print("TEST 3C: FULL PIPELINE TEST")
     print("="*60)
     
-    # Step 1: Create input image
+    # Step 1: Create input image (30×30 = 3×3 tiles of 10×10 pixels)
     print("\n[Step 1] Creating input image...")
-    input_image = create_test_image(24, 24, 'checkerboard')
+    input_image = create_test_image(30, 30, 'checkerboard')
     input_image.write_pbm('test_output/pipeline_input.pbm', 'P1')
     
     # Step 2: Load into tiles
@@ -351,3 +351,91 @@ async def test_full_pipeline(dut):
     print("\n" + "="*60)
     print("FULL PIPELINE TEST COMPLETE")
     print("="*60)
+
+
+@cocotb.test()
+async def test_integration_with_paul_image(dut):
+    """Integration test using the real test3_paul.pbm image.
+    
+    This test validates the complete system with actual user content:
+    1. Load test3_paul.pbm (30×30 ASCII art image)
+    2. Write to tile memories via testbench
+    3. Dump all tile memories
+    4. Send to host
+    5. Reconstruct and compare with original
+    
+    This serves as an acceptance test for real-world image processing.
+    """
+    
+    # Start clock
+    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
+    
+    # Reset
+    dut.reset.value = 1
+    dut.bypass_en.value = 0
+    dut.flash_miso.value = 0
+    await Timer(100, unit="ns")
+    dut.reset.value = 0
+    
+    print("\n" + "="*60)
+    print("TEST 3D: INTEGRATION TEST WITH REAL IMAGE")
+    print("="*60)
+    
+    # Load the real image
+    print("\n[Step 1] Loading test3_paul.pbm...")
+    paul_image = PBMImage.read_pbm('test3_paul.pbm')
+    print(f"Loaded image: {paul_image.width}×{paul_image.height}")
+    
+    # Verify dimensions
+    if paul_image.width != 30 or paul_image.height != 30:
+        print(f"⚠ Warning: Expected 30×30, got {paul_image.width}×{paul_image.height}")
+    
+    # Count ones in original image
+    ones_in_original = sum(sum(row) for row in paul_image.data)
+    print(f"Original image: {ones_in_original} ones out of 900 pixels")
+    
+    # Initialize test helper
+    output_test = OutputVerificationTest(dut, tile_rows=3, tile_cols=3)
+    
+    # Step 2: Load into tiles
+    print("[Step 2] Loading image into tiles...")
+    await output_test.load_image(paul_image)
+    
+    await Timer(100, unit="ns")
+    
+    # Step 3: Dump memory
+    print("[Step 3] Dumping tile memory...")
+    await output_test.dump_all_tile_memory()
+    
+    # Step 4: Send to host
+    print("[Step 4] Sending to host...")
+    await output_test.send_all_to_host()
+    
+    # Step 5: Write output
+    print("[Step 5] Writing reconstructed image...")
+    output_image = output_test.write_output_image('test_output/paul_reconstructed.pbm')
+    
+    # Count ones in reconstructed image
+    ones_in_output = sum(sum(row) for row in output_image.data)
+    print(f"Reconstructed image: {ones_in_output} ones out of {output_image.width * output_image.height} pixels")
+    
+    # Step 6: Compare
+    print("[Step 6] Comparing with original...")
+    match, diff_count, diffs = paul_image.compare(output_image)
+    
+    print(f"\n=== Comparison Results ===")
+    print(f"Original:      test3_paul.pbm")
+    print(f"Reconstructed: test_output/paul_reconstructed.pbm")
+    print(f"Match: {match}")
+    print(f"Differences: {diff_count}")
+    
+    if not match and diffs and len(diffs) <= 20:
+        print(f"\nDifferences found at:")
+        for y, x, actual, expected in diffs[:20]:
+            print(f"  ({y},{x}): got {actual}, expected {expected}")
+    
+    print("\n" + "="*60)
+    print(f"TEST RESULT: {'PASS ✓' if match else 'FAIL ✗'}")
+    print("="*60)
+    
+    assert match, f"Integration test failed: {diff_count} differences found"
