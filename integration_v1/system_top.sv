@@ -2,34 +2,29 @@ module system_top (
     input  wire clk,
     input  wire reset,
     
-    // ============ FLASH Interface =============
-    // Direct flash pins (memory-mapped ROM access)
+    // FLASH Interface
     input  wire flash_miso,
     output wire flash_mosi,
     output wire flash_clk,
     output wire flash_csb,
     
-    // ============ HOST Bypass Interface =============
-    // Direct host access (for debugging/bypass mode)
+    // HOST Bypass Interface
     input  wire bypass_en,        // Enable bypass mode
     input  wire host_mosi,        // Host SPI MOSI
     output wire host_miso,        // Host SPI MISO (optional)
     
-    // ============ NoC Packet Interface (for external observation) =============
+    // NoC Packet Interface 
     output wire [33:0] noc_packet_from_flash,
     output wire        noc_ready_from_flash,
     output wire [33:0] noc_packet_from_host,
     output wire        noc_ready_from_host,
     output wire [33:0] noc_output_se,     // SE corner output (3,3)
     
-    // ============ System Status =============
+    // System Status 
     output wire system_ready      // Indicates system has finished loading from flash
 );
 
-    // ============================================
     // Internal Signals
-    // ============================================
-    
     // Wishbone Signals (Flash → Gateway → NoC)
     wire [31:0] wbs_adr;
     wire [31:0] wbs_dat;
@@ -48,10 +43,9 @@ module system_top (
     wire [33:0] noc_inject_nw;
     wire [33:0] noc_monitor_se;
     
-    // ============================================
-    // STAGE 1: Flash Controller (topmod)
+
+    // Flash Controller (topmod)
     // Reads from Flash SPI and creates Wishbone transactions
-    // ============================================
     topmod flash_controller (
         .clk(clk),
         .reset(reset),
@@ -69,10 +63,8 @@ module system_top (
         .wbs_ack(wbs_ack)
     );
     
-    // ============================================
-    // STAGE 2: Gateway Flash (Wishbone → NoC)
+    // Gateway Flash (Wishbone → NoC)
     // Receives Wishbone transactions and injects packets into NoC
-    // ============================================
     gateway_flash flash_gateway (
         .clk(clk),
         .rst(reset),
@@ -84,10 +76,8 @@ module system_top (
         .ready(gateway_flash_ready)
     );
     
-    // ============================================
-    // STAGE 3: Gateway Host (Host SPI → NoC)
+    // Gateway Host (Host SPI → NoC)
     // Receives SPI packets directly from host in bypass mode
-    // ============================================
     gateway_host host_gateway (
         .clk(clk),
         .mosi(host_mosi),
@@ -97,20 +87,16 @@ module system_top (
         .ready(gateway_host_ready)
     );
     
-    // ============================================
-    // STAGE 4: NoC Packet Multiplexer
     // Select between flash-sourced or host-sourced packets
-    // ============================================
     // Priority: Flash > Host (Flash takes precedence)
     wire [33:0] selected_packet = gateway_flash_ready ? 
                                   {2'b00, gateway_flash_packet} : 
                                   {2'b00, gateway_host_packet};
     wire        selected_ready = gateway_flash_ready || gateway_host_ready;
     
-    // ============================================
-    // STAGE 5: NoC Mesh (3×3 SERV-based Network)
+
+    // NoC Mesh (3×3 SERV-based Network)
     // Receives packets at NW corner (0,0) and routes XY-dimension-order
-    // ============================================
     mesh_3x3 noc_mesh (
         .clk(clk),
         .rst(reset),
@@ -122,9 +108,7 @@ module system_top (
         .flash_mosi(flash_mosi)
     );
     
-    // ============================================
     // Output Assignment & Status
-    // ============================================
     assign noc_packet_from_flash = {2'b00, gateway_flash_packet};
     assign noc_ready_from_flash   = gateway_flash_ready;
     assign noc_packet_from_host   = {2'b00, gateway_host_packet};
