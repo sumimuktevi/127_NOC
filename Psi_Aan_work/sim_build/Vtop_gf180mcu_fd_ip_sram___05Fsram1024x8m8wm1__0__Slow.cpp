@@ -64,6 +64,7 @@ VL_ATTR_COLD void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ctor_var_reset
     vlSelf->VDD__en = 0;
     vlSelf->VSS__out = 0;
     vlSelf->VSS__en = 0;
+<<<<<<< HEAD
     vlSelf->__Vintraval_h4a4d3f7b__0 = 0;
     vlSelf->__Vintraval_h4d714d85__0 = 0;
     vlSelf->__Vintraval_h6b973a35__0 = 0;
@@ -109,4 +110,51 @@ VL_ATTR_COLD void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ctor_var_reset
     vlSelf->__Vintraval_h97aca2db__0 = 0;
     vlSelf->__Vintraval_h15649a68__0 = 0;
     vlSelf->__Vintraval_h484c2083__0 = 0;
+=======
+    vlSelf->__Vintraval_h7a1d36d7__0 = 0;
+    vlSelf->__Vintraval_h62f7cadf__0 = 0;
+    vlSelf->__Vintraval_h707e406a__0 = 0;
+    vlSelf->__Vintraval_h6b1b7eb1__0 = 0;
+    vlSelf->__Vintraval_h6085e9ef__0 = 0;
+    vlSelf->__Vintraval_h0500550d__0 = 0;
+    vlSelf->__Vintraval_h7f3b9b22__0 = 0;
+    vlSelf->__Vintraval_hff4c6fc9__0 = 0;
+    vlSelf->__Vintraval_h2ab1d14e__0 = 0;
+    vlSelf->__Vintraval_h003138fc__0 = 0;
+    vlSelf->__Vintraval_h5c6d7ae2__0 = 0;
+    vlSelf->__Vintraval_h301d6992__0 = 0;
+    vlSelf->__Vintraval_hafc6ee60__0 = 0;
+    vlSelf->__Vintraval_h71d9f349__0 = 0;
+    vlSelf->__Vintraval_hf1aad9c7__0 = 0;
+    vlSelf->__Vintraval_ha7f0c6b6__0 = 0;
+    vlSelf->__Vintraval_hd7be28d6__0 = 0;
+    vlSelf->__Vintraval_hc013fd0f__0 = 0;
+    vlSelf->__Vintraval_hf1f2d2e0__0 = 0;
+    vlSelf->__Vintraval_h382e96f1__0 = 0;
+    vlSelf->__Vintraval_h13f24ec1__0 = 0;
+    vlSelf->__Vintraval_h0fe4c450__0 = 0;
+    vlSelf->__Vintraval_hc2eebe63__0 = 0;
+    vlSelf->__Vintraval_hd6d35abc__0 = 0;
+    vlSelf->__Vintraval_h6a8a6d0d__0 = 0;
+    vlSelf->__Vintraval_had4d342a__0 = 0;
+    vlSelf->__Vintraval_ha39d7e3a__0 = 0;
+    vlSelf->__Vintraval_hce92758f__0 = 0;
+    vlSelf->__Vintraval_hff6ba9df__0 = 0;
+    vlSelf->__Vintraval_hc87ba078__0 = 0;
+    vlSelf->__Vintraval_h7dad4e14__0 = 0;
+    vlSelf->__Vintraval_ha6b7bb38__0 = 0;
+    vlSelf->__Vintraval_h61d9e442__0 = 0;
+    vlSelf->__Vintraval_h03fcf26e__0 = 0;
+    vlSelf->__Vintraval_h352b6075__0 = 0;
+    vlSelf->__Vintraval_h4bd09105__0 = 0;
+    vlSelf->__Vintraval_haaa6a66f__0 = 0;
+    vlSelf->__Vintraval_hdcf85b36__0 = 0;
+    vlSelf->__Vintraval_hfbbba5d5__0 = 0;
+    vlSelf->__Vintraval_h6a4c4fb2__0 = 0;
+    vlSelf->__Vintraval_h1ec27f8b__0 = 0;
+    vlSelf->__Vintraval_h87a819b4__0 = 0;
+    vlSelf->__Vintraval_h625edd11__0 = 0;
+    vlSelf->__Vintraval_h94ae2250__0 = 0;
+    vlSelf->__Vintraval_hfa8f34c4__0 = 0;
+>>>>>>> 0a07530 (working with new verison)
 }

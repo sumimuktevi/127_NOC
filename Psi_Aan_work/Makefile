@@ -11,11 +11,14 @@ VERILOG_SOURCES = \
     mesh_router.v \
     gf180mcu_fd_ip_sram__sram1024x8m8wm1.v \
 	boot_loader.v \
+    gateway.v \
     $(VERILOG_EXTRA)
 
 SIM = verilator
 
 # Added -Wno-MINTYPMAXDLY to clear up the delay warnings
 COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY
+COMPILE_ARGS += -Isubservient/rtl -Ifusesoc_libraries/serv/rtl -Ifusesoc_libraries/serv/servile
+# include $(shell cocotb-config --makefiles)/Makefile.s <--- this was for aan and psi
 
 include $(shell cocotb-config --makefiles)/Makefile.sim

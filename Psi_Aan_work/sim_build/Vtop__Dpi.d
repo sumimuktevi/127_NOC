@@ -1,5 +1,5 @@
 Vtop__Dpi.o: \
-  /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop__pch.h \
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop__pch.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_config.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilatedos.h \
@@ -8,10 +8,15 @@ Vtop__Dpi.o: \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_dpi.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_sym_props.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/vltstd/svdpi.h \
-  /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop__Syms.h \
-  /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop.h \
-  /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop___024root.h \
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop__Syms.h \
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop.h \
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop___024root.h \
   /opt/homebrew/Cellar/verilator/5.044/share/verilator/include/verilated_timing.h \
+<<<<<<< HEAD
   /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1.h \
   /Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/sim_build/Vtop_subservient_core__M400.h \
+=======
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1.h \
+  /Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/sim_build/Vtop_subservient_core__M400.h \
+>>>>>>> 0a07530 (working with new verison)
   Vtop__Dpi.cpp Vtop__Dpi.h Vtop.h
