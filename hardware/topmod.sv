@@ -64,27 +64,46 @@ module topmod (
         .clk(clk),
         .reset(reset || bypass_en),
         .serial_in(flash_miso),
-        .shift_en(fetch_en), 
+        .shift_en(flash_tick), 
         .fetch_o(fetch_o),
         .shifted_word(shifted_word),
         .done_word(word_ready)
     );
 
     // Change these from 'wire' or 'reg' to 'wire [7:0]'
-wire [7:0] sram_addr; 
+wire [9:0] sram_addr; 
 wire [7:0] sram_wen;  
 wire [7:0] sram_dout;
 wire sram_cen;
+wire [7:0] sram_din;
     
     // SRAM
-    gf180mcu_fd_ip_sram__sram256x8m8wm1 ethan_sram (
+    gf180mcu_ocd_ip_sram__sram1024x8m8wm1 sram (
     .CLK(clk),
-    .CEN(sram_cen),   // Driven by your FSM
-    .WEN(sram_wen),   // Driven by your FSM
-    .A(sram_addr),    // Driven by your FSM
-    .D(shifted_word[7:0]), // Taking the first byte of your 32-bit shift register
+    .CEN(sram_cen),   // Driven by your FSM 
+    .WEN(sram_wen),   // Driven by your FSM 
+    .GWEN(!wbs_we),
+    .A(sram_addr),    // Driven by your FSM [10 bits]
+    .D(sram_din[7:0]), // Taking the first byte of your 32-bit shift register
     .Q(sram_dout)     // Output from memory
 );
+
+// Select which byte to write based on address LSBs
+// wbs_adr is word-aligned (multiples of 4), so we use byte counter
+reg [1:0] byte_sel;
+always @(posedge clk) begin
+    if (reset) byte_sel <= 0;
+    else if (wbs_stb && wbs_we) byte_sel <= byte_sel + 1;
+end
+
+// Pick the right byte from the 32-bit word
+assign sram_din = (byte_sel == 2'd0) ? wbs_dat[7:0]  :
+                  (byte_sel == 2'd1) ? wbs_dat[15:8]  :
+                  (byte_sel == 2'd2) ? wbs_dat[23:16] :
+                                       wbs_dat[31:24];
+
+// Byte address: base offset + (word_index * 4) + byte_sel
+assign sram_addr = ((wbs_adr - 32'h1000) + byte_sel);
 
     // If bypass is on, host_mosi directly to flash
     assign flash_mosi = (bypass_en) ? host_mosi : 1'b0;
@@ -98,10 +117,10 @@ wire sram_cen;
     
     // The SRAM writes when the FSM says Write Enable
     // We replicate the 1-bit wbs_we to the 8-bit mask WEN
-    assign sram_wen = {8{!wbs_we}}; 
+    assign sram_wen = {8'd0}; 
 
     // Offsets address by the base address (h1000)
-    assign sram_addr = (wbs_adr - 32'h1000) >> 2;
+    //assign sram_addr = (wbs_adr - 32'h1000) >> 2;
 
     // WishBone handshake
     reg wbs_ack_r;
