@@ -279,34 +279,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -351,21 +348,18 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DO
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
         vlSelfRef.cen_fell = 1U;
     }
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -471,8 +465,7 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -480,8 +473,12 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -489,7 +486,16 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a;
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d;
+    vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -497,11 +503,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__8(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__8\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
+                           & (IData)(vlSelfRef.GWEN));
+    vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
+                                | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__9(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__9\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__10(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__10\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -793,34 +819,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -856,12 +879,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -869,8 +899,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1126,34 +1156,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -1189,12 +1216,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1202,8 +1236,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1459,34 +1493,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -1522,12 +1553,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1535,8 +1573,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1792,34 +1830,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -1855,12 +1890,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -1868,8 +1910,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2125,34 +2167,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -2188,12 +2227,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2201,8 +2247,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2458,34 +2504,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -2521,12 +2564,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2534,8 +2584,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2791,34 +2841,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -2854,12 +2901,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -2867,8 +2921,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3124,34 +3178,31 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.CLK = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__clk;
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
+    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
+        vlSelfRef.cen_fell = 1U;
+    }
+    vlSelfRef.__VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
+                                                & (IData)(vlSelfRef.cen_fell));
+    vlSelfRef.cen_flag = vlSelfRef.__VdfgRegularize_hefcf2c13_0_0;
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
-    __VdfgRegularize_hefcf2c13_0_0 = 0;
     // Body
     vlSelfRef.D = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d;
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
     vlSelfRef.A = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a;
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
-    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
-    if (((~ (IData)(vlSelfRef.CEN)) & (IData)(vlSelfRef.cen_dly))) {
-        vlSelfRef.cen_fell = 1U;
-    }
-    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
-    __VdfgRegularize_hefcf2c13_0_0 = ((~ (IData)(vlSelfRef.CEN)) 
-                                      & (IData)(vlSelfRef.cen_fell));
-    vlSelfRef.cen_flag = __VdfgRegularize_hefcf2c13_0_0;
-    vlSelfRef.read_flag = ((IData)(__VdfgRegularize_hefcf2c13_0_0) 
+    vlSelfRef.read_flag = ((IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0) 
                            & (IData)(vlSelfRef.GWEN));
     vlSelfRef.write_flag = ((~ ((IData)(vlSelfRef.GWEN) 
                                 | (0x000000ffU == (IData)(vlSelfRef.WEN)))) 
-                            & (IData)(__VdfgRegularize_hefcf2c13_0_0));
+                            & (IData)(vlSelfRef.__VdfgRegularize_hefcf2c13_0_0));
+    vlSelfRef.cd2 = (vlSelfRef.mem[vlSelfRef.A] & (IData)(vlSelfRef.WEN));
+    vlSelfRef.cd5 = ((IData)(vlSelfRef.cd2) | (IData)(vlSelfRef.cd4));
 }
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
@@ -3187,12 +3238,19 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_gwen)));
-    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_cen)));
+    vlSelfRef.CEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_active)));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__4\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.GWEN = (1U & (~ (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write)));
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3200,8 +3258,8 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DO
     vlSelfRef.cd4 = ((IData)(vlSelfRef.D) & (IData)(vlSelfRef.we));
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__5\n"); );
+void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body

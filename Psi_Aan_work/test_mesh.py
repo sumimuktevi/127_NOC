@@ -84,3 +84,6 @@ async def test_mesh_diagnostics(dut):
             dut._log.info(f"Still waiting... {i * 60 / 1e6:.1f} ms simulated")
 
     dut._log.error("FAILURE: CPU did not respond within the timeout window.")
+
+
+    
