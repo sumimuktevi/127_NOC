@@ -24,6 +24,10 @@ class TestRunner:
     def run_test(self, module_name, test_name=None):
         """Run a specific test.
         
+        The Makefile already ensures that `make sim` will rebuild the firmware
+        first, but calling this method will explicitly issue a `make firmware`
+        invocation ahead of the simulation to make the dependency obvious.
+
         Args:
             module_name: Python module (test_memory_dump, test_image_load, etc.)
             test_name: Specific test function (if None, runs all)
@@ -32,6 +36,8 @@ class TestRunner:
             (passed: bool, output: str)
         """
         os.chdir(self.integration_path)
+        # ensure firmware is up to date before running any simulation
+        subprocess.run(["make", "firmware"], cwd=self.integration_path)
         
         # Build Cocotb command
         cmd = ["make", "sim"]

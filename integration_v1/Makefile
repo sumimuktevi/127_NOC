@@ -68,6 +68,14 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 
 sim: firmware
 
+# convenience target: rebuild firmware and run only the memory-dump test
+# (the module default is test_memory_dump so just invoking this target is
+# equivalent to the manual command described in the README).
+verify: firmware
+	@echo "Running memory-dump verification suite..."
+	$(MAKE) SIM=$(SIM) MODULE=test_memory_dump sim
+
+
 distclean: clean
 	$(MAKE) -C firmware clean
 	rm -f firmware/firmware.bin firmware/firmware.hex

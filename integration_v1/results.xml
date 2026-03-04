@@ -1,9 +1,9 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1772654659" />
-    <testcase name="test_bootloader_memory_dump" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="234" time="0.7353370189666748" sim_time_ns="349240.0" ratio_time="474938.6893247481" />
-    <testcase name="test_direct_initialization" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="302" time="0.00603795051574707" sim_time_ns="1200.0" ratio_time="198742.9338598223" />
-    <testcase name="test_image_load_verification" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="375" time="0.003673076629638672" sim_time_ns="200.0" ratio_time="54450.26613007919" />
-    <testcase name="test_memory_dump_detailed" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="426" time="0.003412961959838867" sim_time_ns="1100.0" ratio_time="322300.69158225635" />
+    <property name="random_seed" value="1772656379" />
+    <testcase name="test_bootloader_memory_dump" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="234" time="0.7434718608856201" sim_time_ns="349240.0" ratio_time="469742.05531327974" />
+    <testcase name="test_direct_initialization" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="302" time="0.00633692741394043" sim_time_ns="1200.0" ratio_time="189366.22145302684" />
+    <testcase name="test_image_load_verification" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="375" time="0.0037009716033935547" sim_time_ns="200.0" ratio_time="54039.863428460994" />
+    <testcase name="test_memory_dump_detailed" classname="test_memory_dump" file="/Users/fanshenglee/Desktop/127_NOC/integration_v1/test_memory_dump.py" lineno="426" time="0.003654956817626953" sim_time_ns="1100.0" ratio_time="300961.1480756686" />
   </testsuite>
 </testsuites>
