@@ -1,6 +1,7 @@
 # Toolchain configuration
-CC      = riscv64-unknown-elf-gcc
-OBJCOPY = riscv64-unknown-elf-objcopy
+CC      = riscv64-elf-gcc
+OBJCOPY = riscv64-elf-objcopy
+SIZE    = riscv64-elf-size
 
 # --- UPDATED FLAGS ---
 # -Os: Aggressive size optimization
@@ -22,7 +23,7 @@ firmware.hex: firmware.bin
 # Added a size check to the build process so you can see if it fits
 size_check: firmware.elf
 	@echo "--- FIRMWARE SIZE REPORT ---"
-	@riscv64-unknown-elf-size firmware.elf
+	@$(SIZE) firmware.elf
 	@echo "Targeting Grid Base @ 0x2F8 (760 bytes). Text + Data must be smaller than this."
 
 clean:

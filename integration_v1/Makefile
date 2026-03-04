@@ -56,8 +56,8 @@ help:
 	@echo "  SIM      = $(SIM)"
 
 firmware:
-	@echo "Skipping firmware build for simulation testing"
-	@# $(MAKE) -C firmware
+	@echo "Building firmware from C code via riv5 compiler..."
+	$(MAKE) -C firmware
 
 # Include Cocotb Makefiles (must come before other targets)
 include $(shell cocotb-config --makefiles)/Makefile.sim
