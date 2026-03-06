@@ -1,0 +1,17 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1772589693" />
+    <testcase name="test_memory_dump" classname="test_mesh" file="/Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/test_mesh.py" lineno="972" time="19.25536012649536" sim_time_ns="5889990.0" ratio_time="305888.3324594578">
+      <failure error_type="AssertionError" error_msg="TEST 1 FAILED — 138 pixel mismatches across all tiles.&#10;assert 138 == 0" />
+    </testcase>
+    <testcase name="test_image_load" classname="test_mesh" file="/Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/test_mesh.py" lineno="1056" time="19.257671117782593" sim_time_ns="5890990.0" ratio_time="305903.5520946373">
+      <failure error_type="AssertionError" error_msg="TEST 2 FAILED — 138 load verification errors.&#10;assert 138 == 0" />
+    </testcase>
+    <testcase name="test_noc_sram_write" classname="test_mesh" file="/Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/test_mesh.py" lineno="1112" time="19.202916145324707" sim_time_ns="5890990.0" ratio_time="306775.8019364297">
+      <failure error_type="AssertionError" error_msg="TEST 3 FAILED — 900 write verification errors across all tiles.&#10;assert 900 == 0" />
+    </testcase>
+    <testcase name="test_output_verification" classname="test_mesh" file="/Users/andreaarreortua/127_NOC/127_NOC/Psi_Aan_work/test_mesh.py" lineno="1191" time="51.28594994544983" sim_time_ns="15888990.0" ratio_time="309811.751891118">
+      <failure error_type="IndexError" error_msg="mesh_3x3.TILE_ROW[0].TILE_COL[0].tile_inst.sram_inst.mem contains no object at index 1024" />
+    </testcase>
+  </testsuite>
+</testsuites>

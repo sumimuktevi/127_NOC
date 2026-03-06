@@ -1,0 +1,141 @@
+CAPI=2:
+
+name : award-winning:soc:subservient:0.2.2
+description: Minimal SERV-based SoC for ASIC implementation
+license: Apache-2.0
+
+filesets:
+  core:
+    files:
+      - rtl/subservient_rf_ram_if.v
+      - rtl/subservient_ram.v
+      - rtl/subservient_debug_switch.v
+      - rtl/subservient_core.v
+    file_type : verilogSource
+    depend : [">=award-winning:serv:servile:1.4.0"]
+
+  mem_files:
+    files:
+      - sw/blinky.hex : {copyto : blinky.hex}
+      - sw/hello.hex  : {copyto : hello.hex}
+    file_type : user
+
+  sky130:
+    files:
+      - data/openlane_common.tcl : {file_type : tclSource}
+      - data/sky130.tcl : {file_type : tclSource}
+
+  gf180:
+    files:
+      - data/openlane_common.tcl : {file_type : tclSource}
+      - data/gf180.tcl : {file_type : tclSource}
+
+  tb:
+    files:
+      - rtl/subservient_generic_ram.v
+      - tb/uart_decoder.v
+      - tb/subservient_tb.v
+    file_type : verilogSource
+    depend : [fusesoc:utils:vlog_tb_utils]
+
+  soc:
+    files:
+      - rtl/subservient_gpio.v
+      - rtl/subservient.v
+    file_type : verilogSource
+
+  fpga:
+    files:
+      - rtl/subservient_generic_ram.v : {file_type : verilogSource}
+      - rtl/subservient_fpga.v : {file_type : verilogSource}
+    
+  fpga_tb:
+    files:
+      - tb/subservient_fpga_clock_gen_sim.v : {file_type : verilogSource}
+      - tb/subservient_fpga_tb.cpp : {file_type : cppSource}
+
+  nexys_a7:
+    files:
+      - data/nexys_a7.xdc : {file_type : xdc}
+      - rtl/subservient_nexys_a7_clock_gen.v : {file_type : verilogSource}
+
+targets:
+  default:
+    filesets : [soc, core]
+
+  lint:
+    default_tool : verilator
+    filesets : [core, soc]
+    tools:
+      verilator:
+        mode : lint-only
+    toplevel : subservient
+
+  sky130:
+    default_tool: openlane
+    filesets : [core, soc, sky130]
+    parameters :
+      - memsize
+    toplevel : subservient
+
+  gf180:
+    default_tool: openlane
+    filesets : [core, soc, gf180]
+    parameters :
+      - memsize
+    toplevel : subservient
+
+  nexys_a7:
+    default_tool: vivado
+    filesets : [core, soc, mem_files, fpga, nexys_a7]
+    parameters: [memfile]
+    tools:
+      vivado: {part : xc7a100tcsg324-1}
+    toplevel: subservient_fpga
+
+  sim: &sim
+    default_tool: icarus
+    filesets : [mem_files, core, soc, tb]
+    parameters :
+      - firmware
+      - memsize
+      - uart_baudrate
+    toplevel : subservient_tb
+
+  sim_hello:
+    <<: *sim
+    parameters :
+      - firmware=hello.hex
+      - memsize=1024
+      - uart_baudrate=115200
+
+  fpga_tb:
+    default_tool : verilator
+    filesets : [core, soc, mem_files, fpga, fpga_tb]
+    parameters: [firmware, uart_baudrate=46080]
+    tools:
+      verilator:
+        verilator_options : [-trace]
+    toplevel: subservient_fpga
+
+parameters:
+  firmware:
+    datatype : file
+    description : Preload RAM with a hex file at runtime
+    paramtype : plusarg
+
+  memfile:
+    datatype : file
+    description : Preload RAM with a hex file at compile-time
+    paramtype : vlogparam
+
+  memsize:
+    datatype    : int
+    default     : 1024
+    description : Memory size in bytes for RAM (default 1kiB)
+    paramtype   : vlogparam
+
+  uart_baudrate:
+    datatype : int
+    description : Treat gpio output as an UART with the specified baudrate (0 or omitted parameter disables UART decoding)
+    paramtype : plusarg
