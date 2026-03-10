@@ -155,9 +155,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
-    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
-        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
-                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                   >> 1U) | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -171,22 +168,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op20) 
            | ((~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op21)) 
               & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op26)));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
+    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
+        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
+                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1 
         = vlSelfRef.servile__DOT__rf_ram_if__DOT__gen_wtrig_ratio_neq_2__DOT__wtrig0_r;
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
-        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0 
         = (1U & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__rdata0));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 1U));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
-        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
+        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 2U));
@@ -194,10 +189,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                 >> 1U)) & (~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mdu_op)))));
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
-        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 1U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
+        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__misalign_trap_sync 
         = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_csr__DOT__misalign_trap_sync_r;
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
+        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en 
         = (0U != (IData)(vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_cnt_w_eq_1__DOT__cnt_lsb));
     servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_18 
@@ -293,8 +293,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen = 
@@ -302,16 +300,18 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
           & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig0)) 
          | ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wen1_r) 
             & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)));
-    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__rdata0 = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
+    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__lsb = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb;
     vlSelfRef.servile__DOT__cpu__DOT__cnt_en = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT____VdfgRegularize_h2f4d1f67_0_2 
@@ -450,7 +450,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata 
         = (0x000000ffU & ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)
@@ -458,12 +457,13 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                            : (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wdata0_r)));
     vlSelfRef.servile__DOT__o_rf_wdata = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata;
     vlSelfRef.servile__DOT__o_rf_wen = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen;
-    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__i_rdata0 = vlSelfRef.servile__DOT__rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
+    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_ctrl_misalign 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__lsb) 
                  >> 1U));
@@ -586,20 +586,16 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
     vlSelfRef.rf_wdata = vlSelfRef.servile__DOT__o_rf_wdata;
     vlSelfRef.rf_wen = vlSelfRef.servile__DOT__o_rf_wen;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
-        = vlSelfRef.servile__DOT__wb_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0 
         = vlSelfRef.servile__DOT__cpu__DOT__i_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
+        = vlSelfRef.servile__DOT__wb_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
@@ -612,6 +608,10 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__byte_valid 
         = (1U & ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_lsb))) 
                  | ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_bytecnt))) 
@@ -704,6 +704,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__utype;
     vlSelfRef.rf_mem_if__DOT__i_wdata = vlSelfRef.rf_wdata;
     vlSelfRef.rf_mem_if__DOT__i_wen = vlSelfRef.rf_wen;
+    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
+        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr 
         = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr 
@@ -711,8 +713,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__ext = (0U != 
                                              (vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
                                               >> 0x0000001eU));
-    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
-        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__dat_valid 
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_mdu_op) 
            | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word) 
@@ -779,9 +779,9 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_we = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_we;
     vlSelfRef.servile__DOT__o_wb_ext_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__wb_dmem_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_dat;
+    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__o_wb_ext_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr;
     vlSelfRef.servile__DOT__wb_dmem_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr;
-    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_wb_sel;
     vlSelfRef.servile__DOT__cpu__DOT__mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_misalign;
@@ -828,15 +828,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.o_wb_dat = vlSelfRef.servile__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_dat 
         = vlSelfRef.servile__DOT__wb_dmem_dat;
-    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
-    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
-        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
+    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
+    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
+        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__wb_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_misalign;
@@ -1065,22 +1065,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.i_sram_rdata = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_rdata;
     vlSelfRef.i_clk = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__clk;
     vlSelfRef.i_rst = ((IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode) 
                        | (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst));
+    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
-    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.rf_mem_if__DOT__i_sram_rdata = vlSelfRef.i_sram_rdata;
     vlSelfRef.rf_mem_if__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.servile__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.rf_mem_if__DOT__i_rst = vlSelfRef.i_rst;
     vlSelfRef.servile__DOT__i_rst = vlSelfRef.i_rst;
+    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
         = vlSelfRef.servile__DOT__i_wb_ext_rdt;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
-        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.rf_mem_if__DOT__o_wb_rdt = (((IData)(vlSelfRef.rf_mem_if__DOT__i_sram_rdata) 
                                            << 0x00000018U) 
                                           | vlSelfRef.rf_mem_if__DOT__wb_rdt);
@@ -1092,6 +1090,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__cpu__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
+        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.wb_mem_rdt = vlSelfRef.rf_mem_if__DOT__o_wb_rdt;
     vlSelfRef.rf_rdata = vlSelfRef.rf_mem_if__DOT__o_rdata;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_clk 
@@ -2597,14 +2597,14 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 1U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
         = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en 
         = (1U & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                      >> 4U)) | (IData)((1U == (3U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))))));
@@ -2640,11 +2640,11 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                                  >> 3U) & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__imm30)) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                                   >> 4U)))));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -2686,12 +2686,12 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_imm_en 
@@ -2724,10 +2724,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                >> 4U)) & (IData)(servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_16));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op 
@@ -2779,9 +2779,9 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_eq = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_eq;
     vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_imm_en 
@@ -2800,8 +2800,8 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_two_stage_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op;
@@ -2862,16 +2862,16 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en 
@@ -2896,10 +2896,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__wb_dbus_we = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__cpu__DOT__utype = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_shift_op 
@@ -2991,14 +2991,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_ack;
-    vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
-    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
-        = vlSelfRef.servile__DOT__i_wb_ext_rdt;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
-        = vlSelfRef.servile__DOT__i_wb_ext_ack;
+    if (vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__dat_valid) {
+        vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__signbit 
+            = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_bufreg2_q;
+    }
 }
 
 void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__10(Vtop_subservient_core__M400* vlSelf) {
@@ -3006,10 +3002,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__dat_valid) {
-        vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__signbit 
-            = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_bufreg2_q;
-    }
+    vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
+    vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
+        = vlSelfRef.servile__DOT__i_wb_ext_rdt;
 }
 
 void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__11(Vtop_subservient_core__M400* vlSelf) {
@@ -3508,6 +3504,23 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
+    vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb 
+        = ((IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_stb) 
+           | (IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_ibus_stb));
+    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_ack;
+    vlSelfRef.servile__DOT__o_wb_mem_stb = vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb;
+    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
+    vlSelfRef.wb_mem_stb = vlSelfRef.servile__DOT__o_wb_mem_stb;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
+        = vlSelfRef.servile__DOT__i_wb_ext_ack;
+    vlSelfRef.rf_mem_if__DOT__i_wb_stb = vlSelfRef.wb_mem_stb;
+}
+
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__21(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__21\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
     vlSelfRef.servile__DOT__rf_ram_if__DOT__wreg = 
         ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)
           ? (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__i_wreg1)
@@ -3536,8 +3549,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
                                           & (~ (IData)(vlSelfRef.rf_mem_if__DOT__i_raddr)));
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__21(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__21\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__22(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__22\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3552,8 +3565,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
                     + (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__c_r))));
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__22(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__22\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__23(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__23\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3577,8 +3590,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = vlSelfRef.servile__DOT__cpu__DOT__rs2;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__23(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__23\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__24(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__24\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3593,8 +3606,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = vlSelfRef.servile__DOT__cpu__DOT__dbus_rdt;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__24(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__24\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__25(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__25\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3620,8 +3633,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = vlSelfRef.servile__DOT__cpu__DOT__wb_ibus_ack;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__25(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__25\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__26(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__26\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3633,8 +3646,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
     vlSelfRef.rf_mem_if__DOT__i_wb_we = vlSelfRef.wb_mem_we;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__26(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__26\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__27(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__27\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3649,21 +3662,23 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
                                              >> 2U));
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__27(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__27\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__28(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__28\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb 
-        = ((IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_stb) 
-           | (IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_ibus_stb));
-    vlSelfRef.servile__DOT__o_wb_mem_stb = vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb;
-    vlSelfRef.wb_mem_stb = vlSelfRef.servile__DOT__o_wb_mem_stb;
-    vlSelfRef.rf_mem_if__DOT__i_wb_stb = vlSelfRef.wb_mem_stb;
+    vlSelfRef.rf_mem_if__DOT__wb_en = ((~ ((IData)(vlSelfRef.rf_mem_if__DOT__i_wen) 
+                                           | (IData)(vlSelfRef.rf_mem_if__DOT__o_wb_ack))) 
+                                       & (IData)(vlSelfRef.rf_mem_if__DOT__i_wb_stb));
+    vlSelfRef.rf_mem_if__DOT__o_sram_ren = (1U & ((IData)(vlSelfRef.rf_mem_if__DOT__wb_en)
+                                                   ? 
+                                                  (~ (IData)(vlSelfRef.rf_mem_if__DOT__i_wb_we))
+                                                   : (IData)(vlSelfRef.rf_mem_if__DOT__i_ren)));
+    vlSelfRef.o_sram_ren = vlSelfRef.rf_mem_if__DOT__o_sram_ren;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__28(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__28\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__29(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__29\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3675,8 +3690,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = vlSelfRef.servile__DOT__cpu__DOT__rf_csr_out;
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__29(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__29\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__30(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__30\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3702,8 +3717,8 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
            ^ (IData)(vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_sub));
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__30(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__30\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__31(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__31\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3711,6 +3726,9 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = ((IData)(vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack) 
            | ((IData)(vlSelfRef.servile__DOT__mux__DOT__i_wb_mem_ack) 
               | (IData)(vlSelfRef.servile__DOT__mux__DOT__sim_ack)));
+    vlSelfRef.rf_mem_if__DOT__wb_we = ((IData)(vlSelfRef.rf_mem_if__DOT__i_wb_we) 
+                                       & ((IData)(vlSelfRef.rf_mem_if__DOT__i_wb_sel) 
+                                          >> (IData)(vlSelfRef.rf_mem_if__DOT__bsel)));
     vlSelfRef.servile__DOT__wb_dbus_ack = vlSelfRef.servile__DOT__mux__DOT__o_wb_cpu_ack;
     vlSelfRef.servile__DOT__cpu__DOT__i_dbus_ack = vlSelfRef.servile__DOT__wb_dbus_ack;
     vlSelfRef.servile__DOT__cpu__DOT__dbus_ack = vlSelfRef.servile__DOT__cpu__DOT__i_dbus_ack;
@@ -3718,16 +3736,6 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
         = vlSelfRef.servile__DOT__cpu__DOT__i_dbus_ack;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_load 
         = vlSelfRef.servile__DOT__cpu__DOT__dbus_ack;
-}
-
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__31(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__31\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.rf_mem_if__DOT__wb_we = ((IData)(vlSelfRef.rf_mem_if__DOT__i_wb_we) 
-                                       & ((IData)(vlSelfRef.rf_mem_if__DOT__i_wb_sel) 
-                                          >> (IData)(vlSelfRef.rf_mem_if__DOT__bsel)));
 }
 
 void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__32(Vtop_subservient_core__M400* vlSelf) {
@@ -3745,20 +3753,15 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.rf_mem_if__DOT__wb_en = ((~ ((IData)(vlSelfRef.rf_mem_if__DOT__i_wen) 
-                                           | (IData)(vlSelfRef.rf_mem_if__DOT__o_wb_ack))) 
-                                       & (IData)(vlSelfRef.rf_mem_if__DOT__i_wb_stb));
-    if (vlSelfRef.rf_mem_if__DOT__wb_en) {
-        vlSelfRef.rf_mem_if__DOT__o_sram_ren = (1U 
-                                                & (~ (IData)(vlSelfRef.rf_mem_if__DOT__i_wb_we)));
-        vlSelfRef.rf_mem_if__DOT__o_sram_wen = vlSelfRef.rf_mem_if__DOT__wb_we;
-    } else {
-        vlSelfRef.rf_mem_if__DOT__o_sram_ren = (1U 
-                                                & (IData)(vlSelfRef.rf_mem_if__DOT__i_ren));
-        vlSelfRef.rf_mem_if__DOT__o_sram_wen = vlSelfRef.rf_mem_if__DOT__i_wen;
-    }
-    vlSelfRef.o_sram_ren = vlSelfRef.rf_mem_if__DOT__o_sram_ren;
-    vlSelfRef.o_sram_wen = vlSelfRef.rf_mem_if__DOT__o_sram_wen;
+    vlSelfRef.rf_mem_if__DOT__o_sram_wdata = (0x000000ffU 
+                                              & ((IData)(vlSelfRef.rf_mem_if__DOT__wb_en)
+                                                  ? 
+                                                 (vlSelfRef.rf_mem_if__DOT__i_wb_dat 
+                                                  >> 
+                                                  (0x0000001fU 
+                                                   & VL_SHIFTL_III(5,5,32, (IData)(vlSelfRef.rf_mem_if__DOT__bsel), 3U)))
+                                                  : (IData)(vlSelfRef.rf_mem_if__DOT__i_wdata)));
+    vlSelfRef.o_sram_wdata = vlSelfRef.rf_mem_if__DOT__o_sram_wdata;
 }
 
 void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__34(Vtop_subservient_core__M400* vlSelf) {
@@ -3835,15 +3838,10 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.rf_mem_if__DOT__o_sram_wdata = (0x000000ffU 
-                                              & ((IData)(vlSelfRef.rf_mem_if__DOT__wb_en)
-                                                  ? 
-                                                 (vlSelfRef.rf_mem_if__DOT__i_wb_dat 
-                                                  >> 
-                                                  (0x0000001fU 
-                                                   & VL_SHIFTL_III(5,5,32, (IData)(vlSelfRef.rf_mem_if__DOT__bsel), 3U)))
-                                                  : (IData)(vlSelfRef.rf_mem_if__DOT__i_wdata)));
-    vlSelfRef.o_sram_wdata = vlSelfRef.rf_mem_if__DOT__o_sram_wdata;
+    vlSelfRef.rf_mem_if__DOT__o_sram_wen = ((IData)(vlSelfRef.rf_mem_if__DOT__wb_en)
+                                             ? (IData)(vlSelfRef.rf_mem_if__DOT__wb_we)
+                                             : (IData)(vlSelfRef.rf_mem_if__DOT__i_wen));
+    vlSelfRef.o_sram_wen = vlSelfRef.rf_mem_if__DOT__o_sram_wen;
 }
 
 void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__38(Vtop_subservient_core__M400* vlSelf) {
@@ -4230,9 +4228,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
-    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
-        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
-                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                   >> 1U) | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -4246,22 +4241,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op20) 
            | ((~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op21)) 
               & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op26)));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
+    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
+        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
+                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1 
         = vlSelfRef.servile__DOT__rf_ram_if__DOT__gen_wtrig_ratio_neq_2__DOT__wtrig0_r;
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
-        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0 
         = (1U & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__rdata0));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 1U));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
-        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
+        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 2U));
@@ -4269,10 +4262,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                 >> 1U)) & (~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mdu_op)))));
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
-        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 1U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
+        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__misalign_trap_sync 
         = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_csr__DOT__misalign_trap_sync_r;
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
+        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en 
         = (0U != (IData)(vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_cnt_w_eq_1__DOT__cnt_lsb));
     servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_18 
@@ -4368,8 +4366,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen = 
@@ -4377,16 +4373,18 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
           & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig0)) 
          | ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wen1_r) 
             & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)));
-    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__rdata0 = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
+    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__lsb = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb;
     vlSelfRef.servile__DOT__cpu__DOT__cnt_en = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT____VdfgRegularize_h2f4d1f67_0_2 
@@ -4525,7 +4523,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata 
         = (0x000000ffU & ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)
@@ -4533,12 +4530,13 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                            : (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wdata0_r)));
     vlSelfRef.servile__DOT__o_rf_wdata = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata;
     vlSelfRef.servile__DOT__o_rf_wen = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen;
-    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__i_rdata0 = vlSelfRef.servile__DOT__rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
+    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_ctrl_misalign 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__lsb) 
                  >> 1U));
@@ -4661,20 +4659,16 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
     vlSelfRef.rf_wdata = vlSelfRef.servile__DOT__o_rf_wdata;
     vlSelfRef.rf_wen = vlSelfRef.servile__DOT__o_rf_wen;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
-        = vlSelfRef.servile__DOT__wb_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0 
         = vlSelfRef.servile__DOT__cpu__DOT__i_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
+        = vlSelfRef.servile__DOT__wb_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
@@ -4687,6 +4681,10 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__byte_valid 
         = (1U & ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_lsb))) 
                  | ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_bytecnt))) 
@@ -4779,6 +4777,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__utype;
     vlSelfRef.rf_mem_if__DOT__i_wdata = vlSelfRef.rf_wdata;
     vlSelfRef.rf_mem_if__DOT__i_wen = vlSelfRef.rf_wen;
+    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
+        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr 
         = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr 
@@ -4786,8 +4786,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__ext = (0U != 
                                              (vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
                                               >> 0x0000001eU));
-    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
-        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__dat_valid 
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_mdu_op) 
            | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word) 
@@ -4854,9 +4852,9 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_we = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_we;
     vlSelfRef.servile__DOT__o_wb_ext_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__wb_dmem_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_dat;
+    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__o_wb_ext_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr;
     vlSelfRef.servile__DOT__wb_dmem_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr;
-    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_wb_sel;
     vlSelfRef.servile__DOT__cpu__DOT__mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_misalign;
@@ -4903,15 +4901,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.o_wb_dat = vlSelfRef.servile__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_dat 
         = vlSelfRef.servile__DOT__wb_dmem_dat;
-    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
-    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
-        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
+    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
+    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
+        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__wb_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_misalign;
@@ -5140,22 +5138,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.i_sram_rdata = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_rdata;
     vlSelfRef.i_clk = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__clk;
     vlSelfRef.i_rst = ((IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode) 
                        | (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__rst));
+    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
-    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.rf_mem_if__DOT__i_sram_rdata = vlSelfRef.i_sram_rdata;
     vlSelfRef.rf_mem_if__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.servile__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.rf_mem_if__DOT__i_rst = vlSelfRef.i_rst;
     vlSelfRef.servile__DOT__i_rst = vlSelfRef.i_rst;
+    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
         = vlSelfRef.servile__DOT__i_wb_ext_rdt;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
-        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.rf_mem_if__DOT__o_wb_rdt = (((IData)(vlSelfRef.rf_mem_if__DOT__i_sram_rdata) 
                                            << 0x00000018U) 
                                           | vlSelfRef.rf_mem_if__DOT__wb_rdt);
@@ -5167,6 +5163,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__cpu__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
+        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.wb_mem_rdt = vlSelfRef.rf_mem_if__DOT__o_wb_rdt;
     vlSelfRef.rf_rdata = vlSelfRef.rf_mem_if__DOT__o_rdata;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_clk 
@@ -5968,14 +5966,14 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 1U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
         = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en 
         = (1U & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                      >> 4U)) | (IData)((1U == (3U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))))));
@@ -6011,11 +6009,11 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                                  >> 3U) & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__imm30)) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                                   >> 4U)))));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -6057,12 +6055,12 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_imm_en 
@@ -6095,10 +6093,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                >> 4U)) & (IData)(servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_16));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op 
@@ -6150,9 +6148,9 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_eq = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_eq;
     vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_imm_en 
@@ -6171,8 +6169,8 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_two_stage_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op;
@@ -6233,16 +6231,16 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en 
@@ -6267,10 +6265,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__wb_dbus_we = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__cpu__DOT__utype = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_shift_op 
@@ -6357,19 +6355,15 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__wb_dmem_we;
 }
 
-void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__9(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__9\n"); );
+void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__10(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__10\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
-    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
         = vlSelfRef.servile__DOT__i_wb_ext_rdt;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
-        = vlSelfRef.servile__DOT__i_wb_ext_ack;
 }
 
 void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__5(Vtop_subservient_core__M400* vlSelf) {
@@ -6479,8 +6473,25 @@ void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__K
                                                     & (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en)));
 }
 
-void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__21(Vtop_subservient_core__M400* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__21\n"); );
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__20(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__20\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb 
+        = ((IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_stb) 
+           | (IData)(vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_ibus_stb));
+    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_ack;
+    vlSelfRef.servile__DOT__o_wb_mem_stb = vlSelfRef.servile__DOT__arbiter__DOT__o_wb_mem_stb;
+    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
+    vlSelfRef.wb_mem_stb = vlSelfRef.servile__DOT__o_wb_mem_stb;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
+        = vlSelfRef.servile__DOT__i_wb_ext_ack;
+    vlSelfRef.rf_mem_if__DOT__i_wb_stb = vlSelfRef.wb_mem_stb;
+}
+
+void Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__22(Vtop_subservient_core__M400* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+            Vtop_subservient_core__M400___nba_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__22\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -6627,9 +6638,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
-    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
-        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
-                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                   >> 1U) | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -6643,22 +6651,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op20) 
            | ((~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op21)) 
               & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__op26)));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
+    vlSelfRef.servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0 
+        = (1U & (~ ((IData)(vlSelfRef.servile__DOT__mux__DOT__halt_en) 
+                    | (IData)(vlSelfRef.servile__DOT__mux__DOT__sig_en))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1 
         = vlSelfRef.servile__DOT__rf_ram_if__DOT__gen_wtrig_ratio_neq_2__DOT__wtrig0_r;
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
-        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0 
         = (1U & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__rdata0));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 1U));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
-        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr 
+        = (0xfffffffcU & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 2U));
@@ -6666,10 +6672,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                 >> 1U)) & (~ (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mdu_op)))));
-    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
-        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 1U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
+        = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__misalign_trap_sync 
         = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_csr__DOT__misalign_trap_sync_r;
+    vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb 
+        = (3U & vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__data);
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en 
         = (0U != (IData)(vlSelfRef.servile__DOT__cpu__DOT__state__DOT__gen_cnt_w_eq_1__DOT__cnt_lsb));
     servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_18 
@@ -6765,8 +6776,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen = 
@@ -6774,16 +6783,18 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
           & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig0)) 
          | ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wen1_r) 
             & (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)));
-    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__rdata0 = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
+    vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__lsb = vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__o_lsb;
     vlSelfRef.servile__DOT__cpu__DOT__cnt_en = vlSelfRef.servile__DOT__cpu__DOT__state__DOT__o_cnt_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT____VdfgRegularize_h2f4d1f67_0_2 
@@ -6922,7 +6933,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata 
         = (0x000000ffU & ((IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wtrig1)
@@ -6930,12 +6940,13 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                            : (IData)(vlSelfRef.servile__DOT__rf_ram_if__DOT__wdata0_r)));
     vlSelfRef.servile__DOT__o_rf_wdata = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wdata;
     vlSelfRef.servile__DOT__o_rf_wen = vlSelfRef.servile__DOT__rf_ram_if__DOT__o_wen;
-    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__i_rdata0 = vlSelfRef.servile__DOT__rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
+    vlSelfRef.servile__DOT__wb_dbus_adr = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_ctrl_misalign 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__lsb) 
                  >> 1U));
@@ -7058,20 +7069,16 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
     vlSelfRef.rf_wdata = vlSelfRef.servile__DOT__o_rf_wdata;
     vlSelfRef.rf_wen = vlSelfRef.servile__DOT__o_rf_wen;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
-        = vlSelfRef.servile__DOT__wb_dbus_adr;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0 
         = vlSelfRef.servile__DOT__cpu__DOT__i_rdata0;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
+        = vlSelfRef.servile__DOT__wb_dbus_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
@@ -7084,6 +7091,10 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__byte_valid 
         = (1U & ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_lsb))) 
                  | ((IData)((0U == (IData)(vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_bytecnt))) 
@@ -7176,6 +7187,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__utype;
     vlSelfRef.rf_mem_if__DOT__i_wdata = vlSelfRef.rf_wdata;
     vlSelfRef.rf_mem_if__DOT__i_wen = vlSelfRef.rf_wen;
+    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
+        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr 
         = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr;
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr 
@@ -7183,8 +7196,6 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__ext = (0U != 
                                              (vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_adr 
                                               >> 0x0000001eU));
-    vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1 
-        = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__i_rdata0;
     vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__dat_valid 
         = ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_mdu_op) 
            | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word) 
@@ -7251,9 +7262,9 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_we = vlSelfRef.servile__DOT__mux__DOT__i_wb_cpu_we;
     vlSelfRef.servile__DOT__o_wb_ext_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__wb_dmem_dat = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_dat;
+    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__o_wb_ext_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_ext_adr;
     vlSelfRef.servile__DOT__wb_dmem_adr = vlSelfRef.servile__DOT__mux__DOT__o_wb_mem_adr;
-    vlSelfRef.servile__DOT__cpu__DOT__rs1 = vlSelfRef.servile__DOT__cpu__DOT__rf_if__DOT__o_rs1;
     vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_wb_sel;
     vlSelfRef.servile__DOT__cpu__DOT__mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__o_misalign;
@@ -7300,15 +7311,15 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.o_wb_dat = vlSelfRef.servile__DOT__o_wb_ext_dat;
     vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_dat 
         = vlSelfRef.servile__DOT__wb_dmem_dat;
-    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
-    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
-        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_rs1 
         = vlSelfRef.servile__DOT__cpu__DOT__rs1;
+    vlSelfRef.o_wb_adr = vlSelfRef.servile__DOT__o_wb_ext_adr;
+    vlSelfRef.servile__DOT__arbiter__DOT__i_wb_cpu_dbus_adr 
+        = vlSelfRef.servile__DOT__wb_dmem_adr;
     vlSelfRef.servile__DOT__wb_dbus_sel = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_sel;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_mem_misalign 
         = vlSelfRef.servile__DOT__cpu__DOT__mem_misalign;
@@ -7537,22 +7548,20 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.i_wb_rdt = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.i_sram_rdata = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_rdata;
     vlSelfRef.i_clk = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__clk;
     vlSelfRef.i_rst = ((IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode) 
                        | (IData)(vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst));
+    vlSelfRef.i_wb_ack = vlSymsp->TOP.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_ack;
     vlSelfRef.servile__DOT__i_wb_ext_rdt = vlSelfRef.i_wb_rdt;
-    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.rf_mem_if__DOT__i_sram_rdata = vlSelfRef.i_sram_rdata;
     vlSelfRef.rf_mem_if__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.servile__DOT__i_clk = vlSelfRef.i_clk;
     vlSelfRef.rf_mem_if__DOT__i_rst = vlSelfRef.i_rst;
     vlSelfRef.servile__DOT__i_rst = vlSelfRef.i_rst;
+    vlSelfRef.servile__DOT__i_wb_ext_ack = vlSelfRef.i_wb_ack;
     vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_rdt 
         = vlSelfRef.servile__DOT__i_wb_ext_rdt;
-    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
-        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.rf_mem_if__DOT__o_wb_rdt = (((IData)(vlSelfRef.rf_mem_if__DOT__i_sram_rdata) 
                                            << 0x00000018U) 
                                           | vlSelfRef.rf_mem_if__DOT__wb_rdt);
@@ -7564,6 +7573,8 @@ void Vtop_subservient_core__M400___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__mux__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__rf_ram_if__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
     vlSelfRef.servile__DOT__cpu__DOT__i_rst = vlSelfRef.servile__DOT__i_rst;
+    vlSelfRef.servile__DOT__mux__DOT__i_wb_ext_ack 
+        = vlSelfRef.servile__DOT__i_wb_ext_ack;
     vlSelfRef.wb_mem_rdt = vlSelfRef.rf_mem_if__DOT__o_wb_rdt;
     vlSelfRef.rf_rdata = vlSelfRef.rf_mem_if__DOT__o_rdata;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_clk 
@@ -8365,14 +8376,14 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                      >> 1U) & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                                   >> 2U)))));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
+        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
+                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
                  >> 1U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half 
         = (1U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right 
-        = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
-                 >> 2U));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en 
         = (1U & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                      >> 4U)) | (IData)((1U == (3U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))))));
@@ -8408,11 +8419,11 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                                  >> 3U) & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__imm30)) 
                                | ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                                   >> 4U)))));
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
-        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op 
         = (1U & ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                  >> 4U));
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en 
+        = (IData)((0U == (0x14U & (IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode))));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op 
         = (1U & (((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__opcode) 
                   >> 2U) & ((~ ((IData)(vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__funct3) 
@@ -8454,12 +8465,12 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_imm_en 
@@ -8492,10 +8503,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
                >> 4U)) & (IData)(servile__DOT__cpu__DOT__decode__DOT____VdfgRegularize_ha86f95b1_0_16));
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op 
@@ -8547,9 +8558,9 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_eq = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_eq;
     vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_cmp_sig;
+    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__mem_word = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_word;
     vlSelfRef.servile__DOT__cpu__DOT__mem_half = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_mem_half;
-    vlSelfRef.servile__DOT__cpu__DOT__sh_right = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg_imm_en 
@@ -8568,8 +8579,8 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_ctrl_utype;
     vlSelfRef.servile__DOT__cpu__DOT__alu_sub = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_alu_sub;
-    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__branch_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__dbus_en = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__shift_op = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_two_stage_op 
         = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__co_two_stage_op;
@@ -8630,16 +8641,16 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__alu_rd_sel;
     vlSelfRef.servile__DOT__cpu__DOT__alu__DOT__i_cmp_sig 
         = vlSelfRef.servile__DOT__cpu__DOT__alu_cmp_sig;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
-    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
-        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg2__DOT__i_sh_right 
         = vlSelfRef.servile__DOT__cpu__DOT__sh_right;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_word 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_word;
+    vlSelfRef.servile__DOT__cpu__DOT__mem_if__DOT__i_half 
+        = vlSelfRef.servile__DOT__cpu__DOT__mem_half;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_rs1_en 
         = vlSelfRef.servile__DOT__cpu__DOT__bufreg_rs1_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en 
@@ -8664,10 +8675,10 @@ void Vtop_subservient_core__M400___nba_sequent__TOP__mesh_3x3__DOT__rows__BRA__0
         = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__wb_dbus_we = vlSelfRef.servile__DOT__cpu__DOT__o_dbus_we;
     vlSelfRef.servile__DOT__cpu__DOT__utype = vlSelfRef.servile__DOT__cpu__DOT__decode__DOT__o_ctrl_utype;
-    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
-        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_branch_op 
         = vlSelfRef.servile__DOT__cpu__DOT__branch_op;
+    vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_dbus_en 
+        = vlSelfRef.servile__DOT__cpu__DOT__dbus_en;
     vlSelfRef.servile__DOT__cpu__DOT__bufreg__DOT__i_shift_op 
         = vlSelfRef.servile__DOT__cpu__DOT__shift_op;
     vlSelfRef.servile__DOT__cpu__DOT__state__DOT__i_shift_op 
