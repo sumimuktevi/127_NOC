@@ -1,4 +1,4 @@
-#Toolchain configuration
+# Toolchain configuration
 CC      = riscv64-unknown-elf-gcc
 OBJCOPY = riscv64-unknown-elf-objcopy
 
@@ -7,7 +7,7 @@ TARGET_BIN = ../firmware.bin
 TARGET_HEX = firmware.hex
 
 # --- FLAGS ---
-CFLAGS = -march=rv32i -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin
+CFLAGS  = -march=rv32i_zicsr -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin
 LDFLAGS = -T link.ld -nostdlib
 
 all: $(TARGET_HEX) size_check

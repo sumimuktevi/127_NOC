@@ -1,36 +1,5 @@
 """
-test_mesh.py — Cocotb testbench for SERV 3×3 GoL Mesh
-======================================================
-
-KEY CHANGE from the original:
-  The original testbench used blind Timer() waits (200 ms/iter), which caused
-  iteration-2 to see the iteration-0 grid.  Root cause:
-
-    original main.c called noc_read() after computing each generation, which
-    BLOCKS THE CPU FOREVER because cocotb never drives NOC_RECV_BASE.  So:
-
-      iter 0 → CPU seeds current_grid, sends 0xAAAA/0xBBBB, starts loop.
-      iter 1 → CPU computes next_grid, sends 0xDDDD … then STALLS.
-               current_grid has NOT been updated yet (copy happens AFTER noc_read).
-      iter 2 → testbench wakes up, reads current_grid → still sees ITER 0 SEED.
-               (iter 1's result is in next_grid, not current_grid)
-
-  The fix has two parts:
-    1. main.c no longer calls noc_read() as a barrier.  It computes → copies →
-       signals 0xCCCC → broadcasts → loops immediately.
-    2. This testbench polls the NOC inject port (via the mesh_router's
-       inject_flit register, or by watching monitor_22_se) to detect the
-       0xCCCC "grid stable" signal, THEN reads current_grid from SRAM.
-
-  Handshake protocol (from revised main.c):
-    0xAAAAAAAA  — firmware boot, seed is live in current_grid
-    0xBBBBBBBB  — (second boot signal, legacy; ignored here)
-    0xDDDDDDDD  — math done, copy about to happen (do NOT sample yet)
-    0xCCCCCCCC  — copy complete, current_grid is STABLE (safe to sample)
-    0x0F??xxxx  — row broadcast (optional, used for extra debug)
-
-  We detect these by watching the NW inject port of tile(0,0):
-    dut.rows[0].cols[0].tile_inst.router_inst.inject_flit
+test_mesh.py — Cocotb testbench for SERV 2-tile (1×2) GoL Mesh
 """
 
 import os
@@ -39,417 +8,272 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import Timer, RisingEdge
 
-# ============================================================
-# CONFIG
-# ============================================================
-
 SIZE   = 10
-MESH_R = 3
-MESH_C = 3
+MESH_R = 1
+MESH_C = 2
 
 FIRMWARE_BIN_NAME = "firmware.bin"
 FIRMWARE_ELF_NAME = "firmware/firmware.elf"
 
-RESET_HOLD_MS    = 2      # ms to hold rst=1
-SEED_SAMPLE_US   = 2000   # µs after boot before we expect the seed to be live
+RESET_HOLD_MS   = 2
+SEED_SAMPLE_US  = 2000
+ITER_TIMEOUT_MS = 400
 
-# Per-iteration timeout: how many ms we will wait AT MOST for the 0xCCCC signal.
-# SERV @ 100 MHz: ~32 cycles/instruction, ~100 cells × 8 neighbours ≈ several
-# million cycles per GoL pass.  200 ms = 20 000 000 cycles — very generous.
-ITER_TIMEOUT_MS  = 200
+# ── ELF symbol reader ─────────────────────────────────────────────────────────
 
-# ============================================================
-# ELF symbol reader  (pure-Python, no dependencies)
-# ============================================================
-
-def read_elf_symbol(elf_path: str, sym_name: str):
-    if not os.path.exists(elf_path):
-        return None
-    with open(elf_path, "rb") as f:
-        raw = f.read()
-    if raw[0:4] != b'\x7fELF':
-        return None
+def read_elf_symbol(elf_path, sym_name):
+    if not os.path.exists(elf_path): return None
+    with open(elf_path, "rb") as f: raw = f.read()
+    if raw[0:4] != b'\x7fELF': return None
     e_shoff     = struct.unpack_from("<I", raw, 0x20)[0]
     e_shentsize = struct.unpack_from("<H", raw, 0x2e)[0]
     e_shnum     = struct.unpack_from("<H", raw, 0x30)[0]
-
     def sh(i):
-        off = e_shoff + i * e_shentsize
-        return struct.unpack_from("<IIIIIIIIII", raw, off)
-
+        return struct.unpack_from("<IIIIIIIIII", raw, e_shoff + i * e_shentsize)
     SHT_SYMTAB = 2
     symtab_sh = strtab_sh = None
     for i in range(e_shnum):
         s = sh(i)
         if s[1] == SHT_SYMTAB:
-            symtab_sh = s
-            strtab_sh = sh(s[6])
-            break
-    if symtab_sh is None:
-        return None
-
-    sym_offset  = symtab_sh[4]
-    sym_size    = symtab_sh[5]
-    sym_entsize = symtab_sh[9]
-    str_offset  = strtab_sh[4]
-
-    for i in range(sym_size // sym_entsize):
-        off = sym_offset + i * sym_entsize
+            symtab_sh = s; strtab_sh = sh(s[6]); break
+    if symtab_sh is None: return None
+    for i in range(symtab_sh[5] // symtab_sh[9]):
+        off = symtab_sh[4] + i * symtab_sh[9]
         st_name  = struct.unpack_from("<I", raw, off)[0]
         st_value = struct.unpack_from("<I", raw, off + 4)[0]
-        name_start = str_offset + st_name
-        name_end   = raw.index(b'\x00', name_start)
-        name       = raw[name_start:name_end].decode("ascii", errors="replace")
-        if name == sym_name:
-            return st_value
+        ns = strtab_sh[4] + st_name
+        name = raw[ns:raw.index(b'\x00', ns)].decode("ascii", errors="replace")
+        if name == sym_name: return st_value
     return None
 
-# ============================================================
-# Firmware loader
-# ============================================================
+# ── Firmware ──────────────────────────────────────────────────────────────────
 
 def load_firmware_binary():
-    bin_file = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
-    if os.path.exists(bin_file):
-        with open(bin_file, "rb") as f:
-            return list(f.read())
-    return [0] * 1024
+    p = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
+    if not os.path.exists(p): return [0] * 1024
+    with open(p, "rb") as f: return list(f.read())
 
 FIRMWARE = load_firmware_binary()
 
-# ============================================================
-# Resolve SRAM_GRID_BASE from ELF symbol table
-# ============================================================
+_elf  = os.path.join(os.path.dirname(__file__), FIRMWARE_ELF_NAME)
+_addr = read_elf_symbol(_elf, "current_grid") or read_elf_symbol(_elf, "_bss_start")
+if _addr is None:
+    fw = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
+    _addr = os.path.getsize(fw) if os.path.exists(fw) else 0
+SRAM_GRID_BASE = _addr
+print(f"[testbench] current_grid @ 0x{SRAM_GRID_BASE:04x}")
 
-_elf_path  = os.path.join(os.path.dirname(__file__), FIRMWARE_ELF_NAME)
-_grid_addr = read_elf_symbol(_elf_path, "current_grid")
-
-if _grid_addr is None:
-    _grid_addr = read_elf_symbol(_elf_path, "_bss_start")
-
-if _grid_addr is None:
-    _fw_bin = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
-    if os.path.exists(_fw_bin):
-        _grid_addr = os.path.getsize(_fw_bin)
-
-if _grid_addr is not None:
-    SRAM_GRID_BASE = _grid_addr
-    print(f"[testbench] current_grid @ 0x{SRAM_GRID_BASE:04x} ({SRAM_GRID_BASE})")
-else:
-    import warnings
-    warnings.warn("Could not determine current_grid address. SRAM_GRID_BASE=0.", stacklevel=1)
-    SRAM_GRID_BASE = 0x0000
-
-# ============================================================
-# SPI Flash Model
-# ============================================================
+# ── SPI flash ─────────────────────────────────────────────────────────────────
 
 async def spi_flash_responder(dut):
-    """
-    SPI flash responder matched to boot_loader.v timing.
-    Drives MISO on FALLING edge of flash_clk (same edge the bootloader samples).
-    """
     from cocotb.triggers import FallingEdge
     while True:
         await FallingEdge(dut.flash_cs_n)
-        for _ in range(32):
-            await RisingEdge(dut.flash_clk)
-        byte_counter = 0
+        for _ in range(32): await RisingEdge(dut.flash_clk)
+        bc = 0
         while True:
             for bit in range(7, -1, -1):
                 await FallingEdge(dut.flash_clk)
-                current_byte = FIRMWARE[byte_counter] if byte_counter < len(FIRMWARE) else 0x00
-                dut.flash_miso.value = (current_byte >> bit) & 0x1
-            byte_counter += 1
-            if int(dut.flash_cs_n.value) == 1:
-                break
+                dut.flash_miso.value = (FIRMWARE[bc] >> bit) & 1 if bc < len(FIRMWARE) else 0
+            bc += 1
+            if int(dut.flash_cs_n.value) == 1: break
 
-# ============================================================
-# DUT hierarchy helpers
-# ============================================================
+# ── DUT helpers ───────────────────────────────────────────────────────────────
 
-def get_tile(dut, r, c):
-    return dut.rows[r].cols[c].tile_inst
+def get_tile(dut, r, c): return dut.rows[r].cols[c].tile_inst
 
-def sram_read_byte(tile, cpu_addr: int) -> int:
-    mem = tile.sram_inst.mem
-    elem_bits = len(mem[0])
-    if elem_bits <= 8:
-        return int(mem[cpu_addr].value) & 0xFF
-    bytes_per_word = elem_bits // 8
-    word_index = cpu_addr // bytes_per_word
-    byte_lane  = cpu_addr  % bytes_per_word
-    word = int(mem[word_index].value)
-    return (word >> (8 * byte_lane)) & 0xFF
+def sram_read_byte(tile, addr):
+    mem = tile.sram_inst.mem; bw = len(mem[0])
+    if bw <= 8: return int(mem[addr].value) & 0xFF
+    bpw = bw // 8
+    return (int(mem[addr // bpw].value) >> (8 * (addr % bpw))) & 0xFF
 
-# ============================================================
-# NOC signal monitor
-# ============================================================
+def read_grid(tile):
+    return [[sram_read_byte(tile, SRAM_GRID_BASE + y*SIZE + x)
+             for x in range(SIZE)] for y in range(SIZE)]
 
-def read_inject_flit(dut, r=0, c=0) -> int:
-    """
-    Read the current inject_flit from tile(r,c)'s router.
-    Returns the 29-bit payload (bits [28:0]) if the flit is valid, else 0.
-    The inject_flit register is valid for one clock cycle after a NOC write.
-    We read it combinatorially/polling style between rising edges.
-    """
-    try:
-        flit = int(dut.rows[r].cols[c].tile_inst.router_inst.inject_flit.value)
-        if flit & (1 << 33):   # Valid bit
-            return flit & 0x1FFFFFFF
-    except Exception:
-        pass
-    return 0
+def snap_noc(dut):
+    """Return a snapshot of all NOC state: inject_flit, eject_reg, e_out, w_out per tile."""
+    rows = []
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            router = dut.rows[r].cols[c].tile_inst.router_inst
+            inj = int(router.inject_flit.value)
+            ej  = int(router.eject_reg.value)
+            try:   eo = int(router.e_out.value)
+            except: eo = 0
+            try:   wo = int(router.w_out.value)
+            except: wo = 0
+            rows.append((r, c, inj, ej, eo, wo))
+    return rows
 
-async def wait_for_noc_signal(dut, target_payload: int, timeout_ms: int,
-                               r: int = 0, c: int = 0) -> bool:
-    """
-    Poll tile(r,c)'s inject_flit on every rising clock edge until we see
-    a flit whose lower 29 bits match target_payload, or we time out.
+def fmt_flit(v, bits=34):
+    if not ((v >> 33) & 1): return "---"
+    dest    = (v >> 29) & 0xF
+    payload = v & 0x0FFFFFFF
+    return f"d={dest} p=0x{payload:07X}"
 
-    Returns True if the signal was seen, False on timeout.
+# ── GoL reference (ghost-aware 10×20) ────────────────────────────────────────
 
-    Why inject_flit and not the router output ports?
-      inject_flit is registered exactly one cycle after the CPU's Wishbone
-      write hits NOC_INJECT_BASE, so it's the earliest observable point.
-      The router output ports are one cycle further delayed and get cleared
-      to 0 on the next cycle, making them harder to catch reliably.
-    """
-    # Convert timeout to clock cycles (10 ns per cycle @ 100 MHz)
-    max_cycles = timeout_ms * 1000 * 100  # ms → ns → cycles
+COLS_TOTAL = SIZE * MESH_C
 
-    for _ in range(max_cycles):
-        await RisingEdge(dut.clk)
-        flit_raw = int(dut.rows[r].cols[c].tile_inst.router_inst.inject_flit.value)
-        if flit_raw & (1 << 33):
-            payload = flit_raw & 0x1FFFFFFF
-            if payload == (target_payload & 0x1FFFFFFF):
-                return True
-    return False
-
-# ============================================================
-# Debug helpers
-# ============================================================
-
-def dump_region(tile, base, count_bytes=64):
-    print(f"\nDUMP @ 0x{base:04x} ({count_bytes} bytes):")
-    for off in range(0, count_bytes, 16):
-        chunk = [sram_read_byte(tile, base + off + i) for i in range(min(16, count_bytes - off))]
-        print("0x{:04x}: ".format(base + off) + " ".join(f"{b:02x}" for b in chunk))
-
-def dump_next_grid(dut, r=0, c=0):
-    """Dump next_grid (at 0x340) for debug — the computed-but-not-yet-committed result."""
-    tile = get_tile(dut, r, c)
-    NEXT_GRID_BASE = 0x340
-    print(f"\n[DEBUG] next_grid (0x{NEXT_GRID_BASE:04x}) for tile({r},{c}):")
-    for row in range(SIZE):
-        row_vals = [sram_read_byte(tile, NEXT_GRID_BASE + row * SIZE + col) for col in range(SIZE)]
-        print("  row {:2d}: {}".format(row, " ".join(f"{v}" for v in row_vals)))
-
-# ============================================================
-# Pure-Python GoL step
-# ============================================================
-
-def expected_blinker_seed():
-    exp = [[0] * SIZE for _ in range(SIZE)]
-    cx = SIZE // 2   # col 5
-    cy = SIZE // 2   # row 5
-    exp[cy - 1][cx] = 1
-    exp[cy    ][cx] = 1
-    exp[cy + 1][cx] = 1
-    return exp
-
-def gol_step(grid):
-    new_grid = [[0] * SIZE for _ in range(SIZE)]
+def build_seed_20():
+    ts = [0]*(SIZE*SIZE)
+    for i in [0,19,45,55,65,80,89,90,99]: ts[i]=1
+    g = [[0]*COLS_TOTAL for _ in range(SIZE)]
     for y in range(SIZE):
         for x in range(SIZE):
-            neighbors = 0
-            for dy in range(-1, 2):
-                for dx in range(-1, 2):
-                    if dx == 0 and dy == 0:
-                        continue
-                    nx, ny = x + dx, y + dy
-                    if 0 <= nx < SIZE and 0 <= ny < SIZE:
-                        if grid[ny][nx]:
-                            neighbors += 1
-            cell = grid[y][x]
-            if cell == 1:
-                new_grid[y][x] = 1 if neighbors in (2, 3) else 0
-            else:
-                new_grid[y][x] = 1 if neighbors == 3 else 0
-    return new_grid
-
-GOL_ITER = [expected_blinker_seed()]
-GOL_ITER.append(gol_step(GOL_ITER[0]))
-GOL_ITER.append(gol_step(GOL_ITER[1]))
-
-# ============================================================
-# SRAM grid reader
-# ============================================================
-
-def read_grid_from_sram(tile):
-    g = []
-    for y in range(SIZE):
-        row = []
-        for x in range(SIZE):
-            addr = SRAM_GRID_BASE + y * SIZE + x
-            row.append(sram_read_byte(tile, addr))
-        g.append(row)
+            v=ts[y*SIZE+x]; g[y][x]=v; g[y][x+SIZE]=v
     return g
 
-def print_iter_comparison(dut, r, c, iteration):
-    tile = get_tile(dut, r, c)
-    exp  = GOL_ITER[iteration]
-    act  = read_grid_from_sram(tile)
-
-    print("\n===================================================")
-    print(f"TILE ({r},{c})  ITERATION {iteration}")
-    print("EXPECTED (Python GoL)   ACTUAL (SRAM)")
-    print("---------------------------------------------------")
-    mismatches = 0
+def gol_step_20(g):
+    new=[[0]*COLS_TOTAL for _ in range(SIZE)]
     for y in range(SIZE):
-        exp_row = "".join("." if exp[y][x] else "#" for x in range(SIZE))
-        act_row = "".join("." if act[y][x] else "#" for x in range(SIZE))
-        marker  = "" if exp_row == act_row else "  ← MISMATCH"
-        if marker:
-            mismatches += len([1 for x in range(SIZE) if (exp[y][x] != 0) != (act[y][x] != 0)])
-        print(f"{exp_row}    {act_row}{marker}")
-    print("===================================================")
-    return mismatches
+        for x in range(COLS_TOTAL):
+            n=sum(g[y+dy][x+dx] for dy in range(-1,2) for dx in range(-1,2)
+                  if not(dx==dy==0) and 0<=x+dx<COLS_TOTAL and 0<=y+dy<SIZE)
+            alive=g[y][x]
+            new[y][x]=1 if(alive and n in(2,3))else(1 if(not alive and n==3)else 0)
+    return new
 
-# ============================================================
-# Common boot sequence
-# ============================================================
+def slice_tile(g, tc):
+    return [[g[y][tc*SIZE+x] for x in range(SIZE)] for y in range(SIZE)]
+
+_G0=build_seed_20(); _G1=gol_step_20(_G0); _G2=gol_step_20(_G1)
+GOL_ITER=[{c:slice_tile(g,c) for c in range(MESH_C)} for g in [_G0,_G1,_G2]]
+
+# ── Boot ──────────────────────────────────────────────────────────────────────
 
 async def boot_mesh(dut):
-    """Start clock, reset, load SPI firmware, wait for cpu_rst_n."""
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
-    dut.rst.value = 1
-    dut.flash_miso.value = 0
-    if hasattr(dut, "inject_00_nw"):
-        dut.inject_00_nw.value = 0
+    dut.rst.value=1; dut.flash_miso.value=0
+    if hasattr(dut,"inject_00_nw"): dut.inject_00_nw.value=0
     await Timer(RESET_HOLD_MS, unit="ms")
-    dut.rst.value = 0
+    dut.rst.value=0
     cocotb.start_soon(spi_flash_responder(dut))
-    while int(dut.cpu_rst_n.value) == 0:
-        await Timer(10, unit="us")
-    dut._log.info("[boot] cpu_rst_n asserted — CPU running.")
+    while int(dut.cpu_rst_n.value)==0: await Timer(10, unit="us")
+    dut._log.info("[boot] CPU running.")
 
-# ============================================================
-# TEST 1: Iteration 0 seed check only
-# ============================================================
+# ── NOC activity monitor ──────────────────────────────────────────────────────
+
+async def noc_monitor(dut, duration_ms, label=""):
+    """Log every inject and eject event for duration_ms of sim time."""
+    deadline_ns = cocotb.utils.get_sim_time("ns") + duration_ms * 1_000_000
+    prev_inj = [0] * (MESH_R * MESH_C)
+    prev_ej  = [0] * (MESH_R * MESH_C)
+    cycle = 0
+    while cocotb.utils.get_sim_time("ns") < deadline_ns:
+        await RisingEdge(dut.clk)
+        cycle += 1
+        idx = 0
+        for r in range(MESH_R):
+            for c in range(MESH_C):
+                router = dut.rows[r].cols[c].tile_inst.router_inst
+                inj = int(router.inject_flit.value)
+                ej  = int(router.eject_reg.value)
+                # new inject pulse
+                if (inj >> 33) & 1 and not ((prev_inj[idx] >> 33) & 1):
+                    dest    = (inj >> 29) & 0xF
+                    payload = inj & 0x0FFFFFFF
+                    print(f"[{label}@{cycle:8d}] INJECT T({r},{c}) -> dest={dest} pay=0x{payload:07X}")
+                # eject_reg became valid
+                if (ej >> 33) & 1 and not ((prev_ej[idx] >> 33) & 1):
+                    payload = ej & 0x0FFFFFFF
+                    print(f"[{label}@{cycle:8d}] EJECT  T({r},{c})         pay=0x{payload:07X}")
+                # eject_reg was drained
+                if not ((ej >> 33) & 1) and ((prev_ej[idx] >> 33) & 1):
+                    print(f"[{label}@{cycle:8d}] DRAIN  T({r},{c})")
+                prev_inj[idx] = inj
+                prev_ej[idx]  = ej
+                idx += 1
+
+async def wait_for_signal(dut, pay28, timeout_ms):
+    """Poll eject_reg every 1 µs — holds value until CPU drains it."""
+    for _ in range(timeout_ms * 1000):
+        await Timer(1, unit="us")
+        for r in range(MESH_R):
+            for c in range(MESH_C):
+                ej = int(dut.rows[r].cols[c].tile_inst.router_inst.eject_reg.value)
+                if (ej >> 33) & 1 and (ej & 0x0FFFFFFF) == pay28:
+                    return True
+    return False
+
+# ── Grid comparison ───────────────────────────────────────────────────────────
+
+def print_iter_comparison(dut, r, c, it):
+    tile=get_tile(dut,r,c); exp=GOL_ITER[it][c]; act=read_grid(tile)
+    print(f"\n=== TILE({r},{c}) ITER {it} ===")
+    print("EXPECTED              ACTUAL")
+    mm=0
+    for y in range(SIZE):
+        er="".join("."if exp[y][x]else"#" for x in range(SIZE))
+        ar="".join("."if act[y][x]else"#" for x in range(SIZE))
+        mk="" if er==ar else "  ←"
+        if mk: mm+=1
+        print(f"  {er}    {ar}{mk}")
+    return mm
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TEST 1 — seed check
+# ══════════════════════════════════════════════════════════════════════════════
 
 @cocotb.test()
 async def test_iter0_seed_only(dut):
-    """Boot, wait for seed init, compare SRAM vs expected blinker seed."""
+    """Boot and verify seed is loaded correctly in both tiles."""
     await boot_mesh(dut)
-    dut._log.info(f"Waiting {SEED_SAMPLE_US} µs for seed init...")
     await Timer(SEED_SAMPLE_US, unit="us")
+    total = sum(print_iter_comparison(dut,r,c,0)
+                for r in range(MESH_R) for c in range(MESH_C))
+    dut._log.info("✓ seed OK" if total==0 else f"✗ seed {total} mismatches")
+    assert total == 0
 
-    tile00 = get_tile(dut, 0, 0)
-    dut._log.info(f"SRAM mem element width = {len(tile00.sram_inst.mem[0])} bits")
-    dut._log.info(f"SRAM_GRID_BASE = 0x{SRAM_GRID_BASE:04x}")
-    dump_region(tile00, SRAM_GRID_BASE, 100)
-
-    print("\n\n******** ITERATION 0 (seed) ********")
-    total = 0
-    for r in range(MESH_R):
-        for c in range(MESH_C):
-            total += print_iter_comparison(dut, r, c, 0)
-
-    if total == 0:
-        dut._log.info("✓ ALL TILES: seed matches expected blinker pattern")
-    else:
-        dut._log.error(f"✗ {total} cell mismatches across all tiles")
-    assert total == 0, f"Seed mismatch: {total} cells wrong."
-
-# ============================================================
-# TEST 2: Iterations 0, 1, 2 with NOC handshake
-# ============================================================
+# ══════════════════════════════════════════════════════════════════════════════
+# TEST 2 — GoL iterations 1 and 2 with NOC debug
+# ══════════════════════════════════════════════════════════════════════════════
 
 @cocotb.test()
 async def test_gol_iter1_iter2(dut):
-    """
-    Boot the mesh, then use NOC handshake signals to sample SRAM at exactly
-    the right moments:
-
-      Signal 0xAAAA / 0xBBBB  → seed is live, sample iter 0
-      Signal 0xCCCCCCCC       → iter N complete, current_grid stable → sample
-      Signal 0xDDDDDDDD       → math done but copy NOT yet committed → skip
-
-    This guarantees we never read current_grid while the CPU is mid-copy,
-    and we always read the generation the CPU JUST committed.
-    """
+    """Run two GoL iterations and verify SRAM against Python reference."""
     await boot_mesh(dut)
-
-    # ----- Iter 0: wait for seed then sample -----
-    dut._log.info(f"Waiting {SEED_SAMPLE_US} µs for seed init...")
     await Timer(SEED_SAMPLE_US, unit="us")
 
-    print("\n\n******** ITERATION 0 (seed) ********")
-    iter0_mismatches = 0
-    for r in range(MESH_R):
-        for c in range(MESH_C):
-            iter0_mismatches += print_iter_comparison(dut, r, c, 0)
-    if iter0_mismatches == 0:
-        dut._log.info("✓ Iter 0: ALL tiles match expected seed")
-    else:
-        dut._log.error(f"✗ Iter 0: {iter0_mismatches} mismatches")
+    i0 = sum(print_iter_comparison(dut,r,c,0)
+             for r in range(MESH_R) for c in range(MESH_C))
+    dut._log.info("✓ iter0" if i0==0 else f"✗ iter0 {i0} mismatches")
 
-    # ----- Iter 1: wait for 0xCCCCCCCC then sample -----
-    dut._log.info(f"[iter_test] Waiting for iter 1 completion signal (0xCCCCCCCC)...")
-    seen = await wait_for_noc_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
-    #                                          ^^^^^^^^ lower 29 bits of 0xCCCCCCCC
+    # Run NOC monitor for 20ms to capture startup barrier + first ghost exchange
+    dut._log.info("[DEBUG] Running NOC monitor for 20ms...")
+    await noc_monitor(dut, 20, label="NOC")
 
+    # Snapshot after monitor
+    print("\n[DEBUG] NOC state after 20ms monitor:")
+    for r, c, inj, ej, eo, wo in snap_noc(dut):
+        print(f"  T({r},{c}): inj={fmt_flit(inj)}  ej={fmt_flit(ej)}  "
+              f"e_out={fmt_flit(eo)}  w_out={fmt_flit(wo)}")
+
+    # Now wait for iter1 completion
+    seen = await wait_for_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
     if not seen:
-        # Fallback: maybe already past it, or signal format differs — try a brief extra wait
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
-    else:
-        # Give SERV a tiny margin to finish the last current_grid[i] = next_grid[i] store
-        await Timer(5, unit="us")
-        dut._log.info("[iter_test] 0xCCCC signal received — iter 1 stable.")
+        dut._log.warning("iter1 signal not seen")
+        print("\n[DEBUG] NOC state at iter1 timeout:")
+        for r, c, inj, ej, eo, wo in snap_noc(dut):
+            print(f"  T({r},{c}): inj={fmt_flit(inj)}  ej={fmt_flit(ej)}")
+    await Timer(5, unit="us")
 
-    print("\n\n******** ITERATION 1 ********")
-    iter1_mismatches = 0
-    for r in range(MESH_R):
-        for c in range(MESH_C):
-            iter1_mismatches += print_iter_comparison(dut, r, c, 1)
-    if iter1_mismatches == 0:
-        dut._log.info("✓ Iter 1: ALL tiles match expected")
-    else:
-        dut._log.error(f"✗ Iter 1: {iter1_mismatches} mismatches")
-        # Extra debug: dump next_grid and current_grid for tile(0,0)
-        dut._log.info("[DEBUG] Dumping SRAM regions for tile(0,0):")
-        dump_next_grid(dut, 0, 0)
-        dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
+    i1 = sum(print_iter_comparison(dut,r,c,1)
+             for r in range(MESH_R) for c in range(MESH_C))
+    dut._log.info("✓ iter1" if i1==0 else f"✗ iter1 {i1} mismatches")
 
-    # ----- Iter 2: wait for second 0xCCCCCCCC then sample -----
-    dut._log.info(f"[iter_test] Waiting for iter 2 completion signal (0xCCCCCCCC)...")
-    seen = await wait_for_noc_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
-
+    seen = await wait_for_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
     if not seen:
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
-    else:
-        await Timer(5, unit="us")
-        dut._log.info("[iter_test] 0xCCCC signal received — iter 2 stable.")
+        dut._log.warning("iter2 signal not seen")
+        print("\n[DEBUG] NOC state at iter2 timeout:")
+        for r, c, inj, ej, eo, wo in snap_noc(dut):
+            print(f"  T({r},{c}): inj={fmt_flit(inj)}  ej={fmt_flit(ej)}")
+    await Timer(5, unit="us")
 
-    print("\n\n******** ITERATION 2 ********")
-    iter2_mismatches = 0
-    for r in range(MESH_R):
-        for c in range(MESH_C):
-            iter2_mismatches += print_iter_comparison(dut, r, c, 2)
-    if iter2_mismatches == 0:
-        dut._log.info("✓ Iter 2: ALL tiles match expected")
-    else:
-        dut._log.error(f"✗ Iter 2: {iter2_mismatches} mismatches")
-        dut._log.info("[DEBUG] Dumping SRAM regions for tile(0,0):")
-        dump_next_grid(dut, 0, 0)
-        dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
+    i2 = sum(print_iter_comparison(dut,r,c,2)
+             for r in range(MESH_R) for c in range(MESH_C))
+    dut._log.info("✓ iter2" if i2==0 else f"✗ iter2 {i2} mismatches")
 
-    total = iter0_mismatches + iter1_mismatches + iter2_mismatches
-    assert total == 0, (
-        f"GoL iteration test failed: iter0={iter0_mismatches}, "
-        f"iter1={iter1_mismatches}, iter2={iter2_mismatches} mismatches."
-    )
+    assert i0+i1+i2 == 0, f"iter0={i0} iter1={i1} iter2={i2}"
