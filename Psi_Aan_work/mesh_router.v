@@ -130,18 +130,33 @@ module mesh_router #(
             eject_reg <= 34'h0;
     end
 
-    // CPU read data: full flit payload zero-extended to 32 bits
+    // Tile ID register decode: CPU read from 0x90000000 returns MY_ID
+    wire cpu_read_id = local_wb_stb && !local_wb_we && (local_wb_adr == 32'h90000000);
+
+    // CPU read data: full flit payload zero-extended to 32 bits,
+    // or MY_ID when reading the tile ID register at 0x90000000.
     always @(posedge clk) begin
         if (rst)
             local_wb_dat_i <= 32'h0;
+        else if (cpu_read_id)
+            // Return MY_ID so the C code can distinguish tiles via
+            //   int my_id = (*((volatile uint32_t*)0x90000000)) & 0xF;
+            local_wb_dat_i <= {28'h0, MY_ID};
         else if (cpu_read)
-            local_wb_dat_i <= {3'b0, eject_reg[28:0]};
+            // Bit 31 = eject valid (so C's "& 0x80000000" ready-poll works).
+            // Bits [28:0] = payload (bit 28 is always 0 per inject packing,
+            //               so effective payload is bits [27:0]).
+            local_wb_dat_i <= {eject_reg[33], 2'b0, eject_reg[28:0]};
         else
             local_wb_dat_i <= 32'h0;
     end
 
-    // Wishbone ACK: combinatorial, one cycle
-    assign local_wb_ack = (~rst) & local_wb_stb;
+    // Wishbone ACK: combinatorial, one cycle.
+    // Covers all three mapped addresses: 0x80000000, 0x80000004, 0x90000000.
+    assign local_wb_ack = (~rst) & local_wb_stb &
+                          ((local_wb_adr == 32'h80000000) |
+                           (local_wb_adr == 32'h80000004) |
+                           (local_wb_adr == 32'h90000000));
 
     // -------------------------------------------------------------------------
     // Routing — XY dimension-order, combinatorial
