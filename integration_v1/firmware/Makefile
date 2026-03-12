@@ -1,7 +1,7 @@
 # Toolchain configuration
-CC      = riscv64-elf-gcc
-OBJCOPY = riscv64-elf-objcopy
-SIZE    = riscv64-elf-size
+CC      = riscv64-unknown-elf-gcc
+OBJCOPY = riscv64-unknown-elf-objcopy
+SIZE    = riscv64-unknown-elf-size
 
 # --- UPDATED FLAGS ---
 # -Os: Aggressive size optimization

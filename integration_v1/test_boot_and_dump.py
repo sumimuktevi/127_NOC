@@ -1037,6 +1037,7 @@ async def test_phase5_image_then_dump(dut):
     await RisingEdge(dut.clk)
     dut._log.info(f"[P5] Image slices written to current_grid @ 0x{GRID_OFFSET:03x}")
 
+
     # ── 3. Full 1024-byte dump ────────────────────────────────────────────────
     for r in range(GRID_ROWS):
         for c in range(GRID_COLS):
@@ -1047,3 +1048,90 @@ async def test_phase5_image_then_dump(dut):
                 hex_str = " ".join(f"{b:02x}" for b in chunk)
                 dut._log.info(f"0x{addr:03x}: {hex_str}")
                 
+
+
+# ===========================================================================
+# TEST 6 -- Boot + inject PBM image + run N GoL iterations + dump
+# ===========================================================================
+
+# ===========================================================================
+# TEST 6 -- Boot + inject blinker + run N GoL iterations + dump
+# ===========================================================================
+
+GOL_ITERATIONS = 3
+
+async def wait_for_grid_change(dut, tr, tc, previous_grid, timeout_cycles=10_000_000):
+    """Keep polling until current_grid changes or we timeout."""
+    for cycle in range(0, timeout_cycles, 10_000):
+        await Timer(CLK_PERIOD_NS * 10_000, unit="ns")
+        raw = read_tile_sram(dut, tr, tc)
+        current = list(raw[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE])
+        if current != list(previous_grid):
+            dut._log.info(f"[P6] Grid changed after ~{cycle} cycles!")
+            return current
+    dut._log.warning(f"[P6] TIMEOUT -- grid never changed!")
+    return list(previous_grid)
+
+def _print_grid(dut, tr, tc, grid, gen):
+    """Print a 10x10 tile grid as ASCII art and hex side by side."""
+    dut._log.info(f"  Tile ({tr},{tc}) gen={gen}:")
+    for row in range(TILE_SIZE):
+        row_pixels = grid[row * TILE_SIZE : (row + 1) * TILE_SIZE]
+        ascii_art  = " ".join("█" if p else "." for p in row_pixels)
+        hex_str    = " ".join(f"{p:02x}" for p in row_pixels)
+        dut._log.info(f"    row{row:02d}  {ascii_art}   [{hex_str}]")
+
+def slice_blinker_for_tiles():
+    """Put a horizontal blinker in center of tile (1,1), zeros everywhere else."""
+    slices = {}
+    for tr in range(GRID_ROWS):
+        for tc in range(GRID_COLS):
+            pixels = [0] * (TILE_SIZE * TILE_SIZE)
+            if tr == 1 and tc == 1:
+                center = TILE_SIZE * (TILE_SIZE // 2)
+                pixels[center + 3] = 1
+                pixels[center + 4] = 1
+                pixels[center + 5] = 1
+            slices[(tr, tc)] = pixels
+    return slices
+
+@cocotb.test()
+async def test_phase6_gol_evolution(dut):
+    firmware = load_bin(FIRMWARE_PATH)
+    slices   = slice_blinker_for_tiles()
+
+    await reset_and_boot(dut, firmware)
+    dut._log.info("[P6] Boot complete.")
+
+    dut._log.info(f"[P6] Injecting blinker into current_grid @ 0x{GRID_OFFSET:03x}...")
+    for tr in range(GRID_ROWS):
+        for tc in range(GRID_COLS):
+            write_tile_sram(dut, tr, tc, GRID_OFFSET, slices[(tr, tc)])
+    await RisingEdge(dut.clk)
+    dut._log.info("[P6] Blinker injected. Starting GoL iterations...")
+
+    dut._log.info("=" * 60)
+    dut._log.info("[P6] GENERATION 0 (injected blinker)")
+    dut._log.info("=" * 60)
+    prev_raw  = read_tile_sram(dut, 1, 1)
+    prev_grid = list(prev_raw[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE])
+    for tr in range(GRID_ROWS):
+        for tc in range(GRID_COLS):
+            raw  = read_tile_sram(dut, tr, tc)
+            grid = raw[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE]
+            _print_grid(dut, tr, tc, grid, gen=0)
+
+    for gen in range(1, GOL_ITERATIONS + 1):
+        dut._log.info(f"[P6] Waiting for generation {gen} to complete...")
+        prev_grid = await wait_for_grid_change(dut, 1, 1, prev_grid)
+
+        dut._log.info("=" * 60)
+        dut._log.info(f"[P6] GENERATION {gen}")
+        dut._log.info("=" * 60)
+        for tr in range(GRID_ROWS):
+            for tc in range(GRID_COLS):
+                raw  = read_tile_sram(dut, tr, tc)
+                grid = raw[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE]
+                _print_grid(dut, tr, tc, grid, gen=gen)
+
+    dut._log.info("[P6] DONE -- GoL evolution complete!")
