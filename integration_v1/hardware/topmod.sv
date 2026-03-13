@@ -122,10 +122,5 @@ assign sram_addr = ((wbs_adr - 32'h1000) + byte_sel);
     // Offsets address by the base address (h1000)
     //assign sram_addr = (wbs_adr - 32'h1000) >> 2;
 
-    // WishBone handshake
-    reg wbs_ack_r;
-    always @(posedge clk) wbs_ack_r <= wbs_stb;
-    assign wbs_ack = wbs_ack_r;
 endmodule
-
 

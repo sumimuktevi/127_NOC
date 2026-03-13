@@ -11,8 +11,8 @@ void Vtop__Syms::Vtop__Syms__dtor__0() {
     __Vhier.remove(__Vscopep_system_top, __Vscopep_system_top__host_gateway);
     __Vhier.remove(__Vscopep_system_top, __Vscopep_system_top__noc_mesh);
     __Vhier.remove(__Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller__FSM);
-    __Vhier.remove(__Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller__ethan_sram);
     __Vhier.remove(__Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller__slow_clk);
+    __Vhier.remove(__Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller__sram);
     __Vhier.remove(__Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller__word);
     __Vhier.remove(__Vscopep_system_top__noc_mesh, __Vscopep_system_top__noc_mesh__boot_inst);
     __Vhier.remove(__Vscopep_system_top__noc_mesh, __Vscopep_system_top__noc_mesh__rows__BRA__0__KET__);
@@ -268,8 +268,8 @@ void Vtop__Syms::Vtop__Syms__dtor__0() {
     VL_DO_CLEAR(delete __Vscopep_system_top, __Vscopep_system_top = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller, __Vscopep_system_top__flash_controller = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller__FSM, __Vscopep_system_top__flash_controller__FSM = nullptr);
-    VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller__ethan_sram, __Vscopep_system_top__flash_controller__ethan_sram = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller__slow_clk, __Vscopep_system_top__flash_controller__slow_clk = nullptr);
+    VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller__sram, __Vscopep_system_top__flash_controller__sram = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__flash_controller__word, __Vscopep_system_top__flash_controller__word = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__flash_gateway, __Vscopep_system_top__flash_gateway = nullptr);
     VL_DO_CLEAR(delete __Vscopep_system_top__host_gateway, __Vscopep_system_top__host_gateway = nullptr);

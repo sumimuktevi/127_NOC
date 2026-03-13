@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1773386869" />
-    <testcase name="test_blinker_grid_evolution" classname="test_blinker_cocotb" file="/Users/andreaarreortua/127_NOC/integration_v1/test_blinker_cocotb.py" lineno="101" time="0.036962032318115234" sim_time_ns="30780.0" ratio_time="832746.4175965942" />
+    <property name="random_seed" value="1773395846" />
+    <testcase name="test_pbm_host_load_one_iteration" classname="test_pbm_host_pipeline" file="/Users/andreaarreortua/127_NOC/integration_v1/test_pbm_host_pipeline.py" lineno="250" time="15.100513696670532" sim_time_ns="58428840.0" ratio_time="3869327.9694771445" />
   </testsuite>
 </testsuites>

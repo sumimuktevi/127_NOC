@@ -20,6 +20,7 @@ SECTIONS {
         *(.data.*)
         *(.sdata)
         *(.sdata.*)
+        *(.mailbox)
     } > sram
 
     /* .bss remains for zero-initialized variables.

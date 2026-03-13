@@ -28,3 +28,12 @@ size_check: firmware.elf
 
 clean:
 	rm -f *.elf *.bin *.hex
+
+pbm_tile_pipeline.elf: pbm_tile_pipeline.c link.ld
+	$(CC) $(CFLAGS) -o $@ pbm_tile_pipeline.c $(LDFLAGS)
+
+pbm_tile_pipeline.bin: pbm_tile_pipeline.elf
+	$(OBJCOPY) -O binary $< $@
+
+pbm_tile_pipeline.hex: pbm_tile_pipeline.bin
+	python3 bin2hex.py $< $@

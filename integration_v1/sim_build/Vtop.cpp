@@ -11,10 +11,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new Vtop__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
-    , boot_mode{vlSymsp->TOP.boot_mode}
-    , boot_wen{vlSymsp->TOP.boot_wen}
-    , boot_data{vlSymsp->TOP.boot_data}
-    , boot_addr{vlSymsp->TOP.boot_addr}
+    , flash_miso{vlSymsp->TOP.flash_miso}
+    , flash_cs_n{vlSymsp->TOP.flash_cs_n}
+    , flash_clk{vlSymsp->TOP.flash_clk}
+    , flash_mosi{vlSymsp->TOP.flash_mosi}
+    , cpu_reset_n{vlSymsp->TOP.cpu_reset_n}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

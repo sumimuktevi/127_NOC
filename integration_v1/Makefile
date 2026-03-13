@@ -22,7 +22,7 @@ VERILOG_SOURCES = \
 	gateways/gateway_flash.v \
 	gateways/gateway_host.v \
 	noc/mesh_3x3.v \
-	noc/mesh_tile.v \
+	noc/mesh_tile_fixed.v \
 	noc/mesh_router.v \
 	noc/boot_loader.v \
 	noc/subservient_core.v \
@@ -32,7 +32,7 @@ VERILOG_SOURCES = \
 SIM = verilator
 
 # Verilator compilation flags
-COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY -Wno-MULTIDRIVEN -Wno-LATCH -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND
+COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY -Wno-MULTIDRIVEN -Wno-LATCH -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND -Wno-CASEINCOMPLETE
 # removed --trace to avoid generating code requiring timing parameters
 
 
@@ -124,4 +124,8 @@ boot_dump_phase1:
 boot_dump_phase2:
 	$(MAKE) sim MODULE=test_boot_and_dump TESTCASE=test_phase2_pbm_data_load
 
-
+pbm_pipeline:
+	$(MAKE) -C firmware pbm_tile_pipeline.bin
+	$(MAKE) sim MODULE=test_pbm_host_pipeline TESTCASE=test_pbm_host_load_one_iteration \
+		TOPLEVEL=pbm_tile_full_pipeline_wrapper \
+		VERILOG_SOURCES="noc/pbm_tile_full_pipeline_wrapper.v noc/boot_loader.v noc/mesh_tile_fixed.v noc/mesh_router.v noc/subservient_core.v noc/gf180mcu_fd_ip_sram__sram1024x8m8wm1.v noc/fusesoc_libraries/serv/servile/servile_arbiter.v noc/fusesoc_libraries/serv/servile/servile_mux.v noc/fusesoc_libraries/serv/servile/servile_rf_mem_if.v noc/fusesoc_libraries/serv/servile/servile.v noc/fusesoc_libraries/serv/rtl/serv_aligner.v noc/fusesoc_libraries/serv/rtl/serv_alu.v noc/fusesoc_libraries/serv/rtl/serv_bufreg.v noc/fusesoc_libraries/serv/rtl/serv_bufreg2.v noc/fusesoc_libraries/serv/rtl/serv_compdec.v noc/fusesoc_libraries/serv/rtl/serv_csr.v noc/fusesoc_libraries/serv/rtl/serv_ctrl.v noc/fusesoc_libraries/serv/rtl/serv_debug.v noc/fusesoc_libraries/serv/rtl/serv_decode.v noc/fusesoc_libraries/serv/rtl/serv_immdec.v noc/fusesoc_libraries/serv/rtl/serv_mem_if.v noc/fusesoc_libraries/serv/rtl/serv_rf_if.v noc/fusesoc_libraries/serv/rtl/serv_rf_ram_if.v noc/fusesoc_libraries/serv/rtl/serv_rf_ram.v noc/fusesoc_libraries/serv/rtl/serv_rf_top.v noc/fusesoc_libraries/serv/rtl/serv_state.v noc/fusesoc_libraries/serv/rtl/serv_synth_wrapper.v noc/fusesoc_libraries/serv/rtl/serv_top.v"
