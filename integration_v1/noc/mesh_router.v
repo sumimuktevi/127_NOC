@@ -28,7 +28,7 @@
 //     output reg  [31:0] local_wb_dat_i,
 //     input  wire        local_wb_we,
 //     input  wire        local_wb_stb,
-//     output reg         local_wb_ack,
+//     output wire        local_wb_ack,
 
 //     // Network links (34-bit flits: [33]=Valid, [32:29]=DestID, [28:0]=Payload)
 //     output reg [33:0] n_out, s_out, e_out, w_out,
@@ -108,7 +108,7 @@
 //         end
 //     end
 
-//     always @(posedge clk) local_wb_ack <= (rst) ? 0 : local_wb_stb;
+//     assign local_wb_ack = local_wb_stb;
 
 // endmodule
 
@@ -150,7 +150,7 @@ module mesh_router #(
     output reg  [31:0] local_wb_dat_i,
     input  wire        local_wb_we,
     input  wire        local_wb_stb,
-    output reg         local_wb_ack,
+    output wire        local_wb_ack,
 
     // Network links (34-bit flits: [33]=Valid, [32:29]=DestID, [28:0]=Payload)
     output reg [33:0] n_out, s_out, e_out, w_out,
@@ -230,6 +230,9 @@ module mesh_router #(
         end
     end
 
-    always @(posedge clk) local_wb_ack <= (rst) ? 0 : local_wb_stb;
+    assign local_wb_ack = local_wb_stb;
 
 endmodule
+
+
+

@@ -10,38 +10,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     : VerilatedModel{*_vcontextp__}
     , vlSymsp{new Vtop__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
-    , reset{vlSymsp->TOP.reset}
-    , bypass_en{vlSymsp->TOP.bypass_en}
-    , flash_miso{vlSymsp->TOP.flash_miso}
-    , flash_mosi{vlSymsp->TOP.flash_mosi}
-    , flash_clk{vlSymsp->TOP.flash_clk}
-    , flash_csb{vlSymsp->TOP.flash_csb}
-    , host_mosi{vlSymsp->TOP.host_mosi}
-    , host_miso{vlSymsp->TOP.host_miso}
-    , noc_ready_from_flash{vlSymsp->TOP.noc_ready_from_flash}
-    , noc_ready_from_host{vlSymsp->TOP.noc_ready_from_host}
-    , system_ready{vlSymsp->TOP.system_ready}
-    , noc_packet_from_flash{vlSymsp->TOP.noc_packet_from_flash}
-    , noc_packet_from_host{vlSymsp->TOP.noc_packet_from_host}
-    , noc_output_se{vlSymsp->TOP.noc_output_se}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst}
-    , __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst{vlSymsp->TOP.__PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst}
+    , rst{vlSymsp->TOP.rst}
+    , boot_mode{vlSymsp->TOP.boot_mode}
+    , boot_wen{vlSymsp->TOP.boot_wen}
+    , boot_data{vlSymsp->TOP.boot_data}
+    , boot_addr{vlSymsp->TOP.boot_addr}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

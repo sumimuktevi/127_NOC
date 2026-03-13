@@ -13,9 +13,6 @@
 
 class Vtop__Syms;
 class Vtop___024root;
-class Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1;
-class Vtop_subservient_core__M400;
-
 
 // This class is the main interface to the Verilated model
 class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
@@ -33,42 +30,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
-    VL_IN8(&reset,0,0);
-    VL_IN8(&bypass_en,0,0);
-    VL_IN8(&flash_miso,0,0);
-    VL_OUT8(&flash_mosi,0,0);
-    VL_OUT8(&flash_clk,0,0);
-    VL_OUT8(&flash_csb,0,0);
-    VL_IN8(&host_mosi,0,0);
-    VL_OUT8(&host_miso,0,0);
-    VL_OUT8(&noc_ready_from_flash,0,0);
-    VL_OUT8(&noc_ready_from_host,0,0);
-    VL_OUT8(&system_ready,0,0);
-    VL_OUT64(&noc_packet_from_flash,33,0);
-    VL_OUT64(&noc_packet_from_host,33,0);
-    VL_OUT64(&noc_output_se,33,0);
+    VL_IN8(&rst,0,0);
+    VL_IN8(&boot_mode,0,0);
+    VL_IN8(&boot_wen,0,0);
+    VL_IN8(&boot_data,7,0);
+    VL_IN16(&boot_addr,9,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__system_top__DOT__noc_mesh__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.

@@ -1,7 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1773115314" />
-    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="342" time="11.418871879577637" sim_time_ns="4350000.0" ratio_time="380948.31484884815" />
-    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="370" time="2843.4156880378723" sim_time_ns="804349980.0" ratio_time="282881.6002471485" />
-  </testsuite>
-</testsuites>

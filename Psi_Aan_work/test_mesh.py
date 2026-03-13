@@ -37,7 +37,7 @@ import os
 import struct
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import Timer, RisingEdge
+from cocotb.triggers import Timer, RisingEdge, ReadOnly
 
 # ============================================================
 # CONFIG
@@ -140,6 +140,11 @@ else:
     warnings.warn("Could not determine current_grid address. SRAM_GRID_BASE=0.", stacklevel=1)
     SRAM_GRID_BASE = 0x0000
 
+_next_grid_addr = read_elf_symbol(_elf_path, "next_grid")
+if _next_grid_addr is None:
+    _next_grid_addr = 0x340
+NEXT_GRID_BASE = _next_grid_addr
+
 # ============================================================
 # SPI Flash Model
 # ============================================================
@@ -218,11 +223,18 @@ async def wait_for_noc_signal(dut, target_payload: int, timeout_ms: int,
     # Convert timeout to clock cycles (10 ns per cycle @ 100 MHz)
     max_cycles = timeout_ms * 1000 * 100  # ms → ns → cycles
 
+    debug_seen = 0
     for _ in range(max_cycles):
         await RisingEdge(dut.clk)
+        await ReadOnly()
         flit_raw = int(dut.rows[r].cols[c].tile_inst.router_inst.inject_flit.value)
         if flit_raw & (1 << 33):
             payload = flit_raw & 0x1FFFFFFF
+            if debug_seen < 16:
+                dut._log.info(
+                    f"[noc_mon] tile({r},{c}) inject_flit payload = 0x{payload:08x}"
+                )
+                debug_seen += 1
             if payload == (target_payload & 0x1FFFFFFF):
                 return True
     return False
@@ -238,9 +250,8 @@ def dump_region(tile, base, count_bytes=64):
         print("0x{:04x}: ".format(base + off) + " ".join(f"{b:02x}" for b in chunk))
 
 def dump_next_grid(dut, r=0, c=0):
-    """Dump next_grid (at 0x340) for debug — the computed-but-not-yet-committed result."""
+    """Dump next_grid for debug — the computed-but-not-yet-committed result."""
     tile = get_tile(dut, r, c)
-    NEXT_GRID_BASE = 0x340
     print(f"\n[DEBUG] next_grid (0x{NEXT_GRID_BASE:04x}) for tile({r},{c}):")
     for row in range(SIZE):
         row_vals = [sram_read_byte(tile, NEXT_GRID_BASE + row * SIZE + col) for col in range(SIZE)]
@@ -257,6 +268,12 @@ def expected_blinker_seed():
     exp[cy - 1][cx] = 1
     exp[cy    ][cx] = 1
     exp[cy + 1][cx] = 1
+    exp[0][0] = 1
+    exp[1][9] = 1
+    exp[8][0] = 1
+    exp[8][9] = 1
+    exp[9][0] = 1
+    exp[9][9] = 1
     return exp
 
 def gol_step(grid):
@@ -296,6 +313,26 @@ def read_grid_from_sram(tile):
             row.append(sram_read_byte(tile, addr))
         g.append(row)
     return g
+
+
+def grid_matches_expected(tile, expected_grid):
+    actual = read_grid_from_sram(tile)
+    for y in range(SIZE):
+        for x in range(SIZE):
+            if (actual[y][x] & 1) != (expected_grid[y][x] & 1):
+                return False
+    return True
+
+
+async def wait_for_grid_state(dut, expected_grid, timeout_ms: int, r: int = 0, c: int = 0) -> bool:
+    tile = get_tile(dut, r, c)
+    max_cycles = timeout_ms * 1000 * 100  # ms → ns → cycles @ 100 MHz
+    for _ in range(max_cycles):
+        await RisingEdge(dut.clk)
+        await ReadOnly()
+        if grid_matches_expected(tile, expected_grid):
+            return True
+    return False
 
 def print_iter_comparison(dut, r, c, iteration):
     tile = get_tile(dut, r, c)
@@ -402,9 +439,11 @@ async def test_gol_iter1_iter2(dut):
     #                                          ^^^^^^^^ lower 29 bits of 0xCCCCCCCC
 
     if not seen:
-        # Fallback: maybe already past it, or signal format differs — try a brief extra wait
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
+        dut._log.warning("[iter_test] 0xCCCC not seen in time — polling SRAM for iter 1 state")
+        seen = await wait_for_grid_state(dut, GOL_ITER[1], ITER_TIMEOUT_MS)
+        if not seen:
+            dut._log.warning("[iter_test] Iter 1 state not observed — waiting 200ms fallback")
+            await Timer(ITER_TIMEOUT_MS, unit="ms")
     else:
         # Give SERV a tiny margin to finish the last current_grid[i] = next_grid[i] store
         await Timer(5, unit="us")
@@ -429,8 +468,11 @@ async def test_gol_iter1_iter2(dut):
     seen = await wait_for_noc_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
 
     if not seen:
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
+        dut._log.warning("[iter_test] 0xCCCC not seen in time — polling SRAM for iter 2 state")
+        seen = await wait_for_grid_state(dut, GOL_ITER[2], ITER_TIMEOUT_MS)
+        if not seen:
+            dut._log.warning("[iter_test] Iter 2 state not observed — waiting 200ms fallback")
+            await Timer(ITER_TIMEOUT_MS, unit="ms")
     else:
         await Timer(5, unit="us")
         dut._log.info("[iter_test] 0xCCCC signal received — iter 2 stable.")
