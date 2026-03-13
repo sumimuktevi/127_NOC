@@ -11,10 +11,10 @@ module flash_clk(
     localparam DUTY_THRESHOLD = 8'd5;  //Ex: 5/10 = 50% (number of bits high)
 
     always @(posedge clk) begin
-        if (reset || !enable) begin
+        if (reset) begin
             clk_cnt   <= 0;
             flash_clk <= 0;
-        end else begin
+        end else if (enable) begin
             if (clk_cnt < CLK_PERIOD - 1) begin
                 clk_cnt <= clk_cnt + 1;
             end else begin
@@ -24,3 +24,6 @@ module flash_clk(
         end
     end
 endmodule 
+
+
+

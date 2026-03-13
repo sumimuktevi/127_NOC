@@ -1,4 +1,23 @@
 /*
+ *
+ * Copyright 2025 Open Circuit Design, LLC
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * Based on work done by the GlobalFoundries PDK Authors.
+ * Original copyright notice is below.
+ *
+ * Currently, this is a copy of gf180mcu_fd_ip_sram__sra512x8m8wm1.
+ * Timing (in the "specify" blocks) needs to be revised for the
+ * 3.3V version.
+ *
+ * Project:             018 3.3V SRAM
+ * Author:              Open Circuit Design, LLC
+ * Data Created:        December 11, 2025
+ * Revision:		0.0
+ *
+ * Description:         gf180mcu_ocd_ip_sram__sram1024x8m8wm1 Simulation Model
+ */
+
+/*
  * $Id: $
  * Copyright 2022 GlobalFoundries PDK Authors
  *
@@ -17,36 +36,40 @@
  * Project:             018 5VGREEN SRAM
  * Author:              GlobalFoundries PDK Authors
  * Data Created:        05-06-2014
- * Revision:		0.0	
+ * Revision:		0.0
  *
- * Description:         gf180mcu_fd_ip_sram__sram256x8m8wm1 Simulation Model
+ * Description:         gf180mcu_fd_ip_sram__sram512x8m8wm1 Simulation Model
  */
 
 `timescale 1 ps / 1 ps
 
-module gf180mcu_fd_ip_sram__sram256x8m8wm1 (
+module gf180mcu_ocd_ip_sram__sram1024x8m8wm1 (
+`ifdef USE_POWER_PINS
+	VDD,
+	VSS,
+`endif
 	CLK,
 	CEN,
 	GWEN,
 	WEN,
 	A,
 	D,
-	Q,
-	VDD,
-	VSS
+	Q
 );
 
 input           CLK;
 input           CEN;    //Chip Enable
 input           GWEN;   //Global Write Enable
 input   [7:0]  	WEN;    //Write Enable
-input   [7:0]   A;
+input   [9:0]   A;
 input   [7:0]  	D;
 output	[7:0]	Q;
+`ifdef USE_POWER_PINS
 inout		VDD;
 inout		VSS;
+`endif
 
-reg	[7:0]	mem[255:0];
+reg	[7:0]	mem[1023:0];
 reg	[7:0]	qo_reg;
 
 wire		cen_flag;
@@ -86,7 +109,7 @@ wire    [7:0]  cd4;
 wire    [7:0]  cd5;
 reg    	[7:0]  cdx;
 
-reg	[7:0]	marked_a;
+reg	[9:0]	marked_a;
 
 integer         i;
 
@@ -103,6 +126,7 @@ assign mem_2 = mem[2];
 assign mem_3 = mem[3];
 
 always @(CEN) cen_dly = #100 CEN;
+// always_comb cen_dly <= #100 CEN;
 always @(CEN or cen_dly) begin
   if (!CEN & cen_dly) cen_fell = 1'b1;
 end
@@ -128,28 +152,27 @@ assign read_flag  =  cen_fell & !CEN &  GWEN;
 reg cen_flag_dly;
 always @(cen_flag) cen_flag_dly = #100 cen_flag;
 
-// specify block disabled for simulation
-//  specparam Tcyc = 55600 : 55600 : 55600;
-//  specparam Tckh = 25000 : 25000 : 25000;
-//  specparam Tckl = 25000 : 25000 : 25000;
-//
-//  specparam tcs  = 5000 : 5000 : 5000;
-//  specparam tas  = 5000 : 5000 : 5000;
-//  specparam tds  = 5000 : 5000 : 5000;
-//  specparam tws  = 5000 : 5000 : 5000;
-//  specparam twis = 5000 : 5000 : 5000;
-//
-//  specparam tch  = 10000 : 10000 : 10000;
-//  specparam tah  = 10000 : 10000 : 10000;
-//  specparam tdh  = 10000 : 10000 : 10000;
-//  specparam twh  = 10000 : 10000 : 10000;
-//  specparam twih = 10000 : 10000 : 10000;
-//
-//  specparam ta   = 45000 : 45000 : 45000;
+specify
+  specparam Tcyc = 55600 : 55600 : 55600;
+  specparam Tckh = 25000 : 25000 : 25000;
+  specparam Tckl = 25000 : 25000 : 25000;
 
-  // specparam Tdly  = 100 : 100: 100;  // removed for simulation
+  specparam tcs  = 5000 : 5000 : 5000;
+  specparam tas  = 5000 : 5000 : 5000;
+  specparam tds  = 5000 : 5000 : 5000;
+  specparam tws  = 5000 : 5000 : 5000;
+  specparam twis = 5000 : 5000 : 5000;
 
-/* timing disabled for simulation
+  specparam tch  = 10000 : 10000 : 10000;
+  specparam tah  = 10000 : 10000 : 10000;
+  specparam tdh  = 10000 : 10000 : 10000;
+  specparam twh  = 10000 : 10000 : 10000;
+  specparam twih = 10000 : 10000 : 10000;
+
+  specparam ta   = 45000 : 45000 : 45000;
+
+  specparam Tdly  = 100 : 100: 100;
+
 //---- CLK period/pulse timing
   $period (negedge CLK, Tcyc, ntf_Tcyc);
   $width  (posedge CLK, Tckh, 0, ntf_Tckh);
@@ -206,7 +229,7 @@ always @(cen_flag) cen_flag_dly = #100 cen_flag;
   $hold  (posedge CLK &&& write_flag, negedge WEN[6],  twih, ntf_twih);
   $hold  (posedge CLK &&& write_flag, negedge WEN[7],  twih, ntf_twih);
 
-//---- A[7:0] setup/hold timing
+//---- A[8:0] setup/hold timing
   $setup (posedge A[0],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (posedge A[1],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (posedge A[2],  posedge CLK &&& cen_flag, tas, ntf_tas);
@@ -215,6 +238,7 @@ always @(cen_flag) cen_flag_dly = #100 cen_flag;
   $setup (posedge A[5],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (posedge A[6],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (posedge A[7],  posedge CLK &&& cen_flag, tas, ntf_tas);
+  $setup (posedge A[8],  posedge CLK &&& cen_flag, tas, ntf_tas);
 
   $setup (negedge A[0],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (negedge A[1],  posedge CLK &&& cen_flag, tas, ntf_tas);
@@ -224,6 +248,7 @@ always @(cen_flag) cen_flag_dly = #100 cen_flag;
   $setup (negedge A[5],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (negedge A[6],  posedge CLK &&& cen_flag, tas, ntf_tas);
   $setup (negedge A[7],  posedge CLK &&& cen_flag, tas, ntf_tas);
+  $setup (negedge A[8],  posedge CLK &&& cen_flag, tas, ntf_tas);
 
   $hold  (posedge CLK &&& cen_flag, negedge A[0],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, negedge A[1],  tah, ntf_tah);
@@ -233,6 +258,8 @@ always @(cen_flag) cen_flag_dly = #100 cen_flag;
   $hold  (posedge CLK &&& cen_flag, negedge A[5],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, negedge A[6],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, negedge A[7],  tah, ntf_tah);
+  $hold  (posedge CLK &&& cen_flag, negedge A[8],  tah, ntf_tah);
+  $hold  (posedge CLK &&& cen_flag, negedge A[9],  tah, ntf_tah);
 
   $hold  (posedge CLK &&& cen_flag, posedge A[0],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, posedge A[1],  tah, ntf_tah);
@@ -242,6 +269,8 @@ always @(cen_flag) cen_flag_dly = #100 cen_flag;
   $hold  (posedge CLK &&& cen_flag, posedge A[5],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, posedge A[6],  tah, ntf_tah);
   $hold  (posedge CLK &&& cen_flag, posedge A[7],  tah, ntf_tah);
+  $hold  (posedge CLK &&& cen_flag, posedge A[8],  tah, ntf_tah);
+  $hold  (posedge CLK &&& cen_flag, posedge A[9],  tah, ntf_tah);
 
 //---- D[7:0] setup/hold timing
   $setup (posedge D[0],  posedge CLK &&& write_flag, tds, ntf_tds);
@@ -293,15 +322,13 @@ if ((CEN == 1'b0) && (GWEN == 1'b1)) (posedge CLK => (Q[4]  : 1'bx)) = (ta, ta);
 if ((CEN == 1'b0) && (GWEN == 1'b1)) (posedge CLK => (Q[5]  : 1'bx)) = (ta, ta);
 if ((CEN == 1'b0) && (GWEN == 1'b1)) (posedge CLK => (Q[6]  : 1'bx)) = (ta, ta);
 if ((CEN == 1'b0) && (GWEN == 1'b1)) (posedge CLK => (Q[7]  : 1'bx)) = (ta, ta);
-// end specify  (timing block disabled)
-*/
+endspecify
 
 assign no_st_viol = ~(|{ntf_tcs, ntf_tas, ntf_tds, ntf_tws, ntf_twis});
 assign no_hd_viol = ~(|{ntf_tch, ntf_tah, ntf_tdh, ntf_twh, ntf_twih});
 assign no_ck_viol = ~(|{ntf_Tcyc, ntf_Tckh, ntf_Tckl});
 
-always @(CLK) clk_dly        = CLK;  // removed delay
-
+always @(CLK) clk_dly        = #Tdly CLK;
 always @(CLK) write_flag_dly = #200 write_flag;
 always @(CLK) read_flag_dly  = #200 read_flag;
 
@@ -325,6 +352,7 @@ always @(posedge clk_dly) begin
     end
   end //write
   else if (read_flag) begin     //read
+  // else if (read_flag_dly) begin     //read
     if (no_st_viol) begin 	//read, no viol
       qo_reg = mem[marked_a];
     end
@@ -381,7 +409,7 @@ always @(posedge ntf_tcs or posedge ntf_tas or posedge ntf_tds or
          posedge ntf_twh or posedge ntf_twih or
          posedge ntf_Tcyc or posedge ntf_Tckh or posedge ntf_Tckl) begin
   if (cen_fell) begin
-    // #Tdly;  // timing removed
+    #Tdly;
     if (ntf_tcs)  $display("---- ERROR: CEN setup violation! ----");
     if (ntf_tas)  $display("---- ERROR: A setup violation! ----");
     if (ntf_tds)  $display("---- ERROR: D setup violation! ----");
@@ -446,7 +474,7 @@ initial begin			//initialization
   ntf_twh  = 0;
   ntf_twih = 0;
 
-  marked_a = 8'd0;
+  marked_a = 9'd0;
 
   qo_reg         = 8'd0;
   clk_dly        = 0;
@@ -456,9 +484,11 @@ initial begin			//initialization
   cen_fell       = 0;
   cen_not_rst    = 0;
 
-  for(i=0; i<256; i=i+1) begin
+  for(i=0; i<1024; i=i+1) begin
     mem[i] = 8'd0;
   end
 end
 
 endmodule
+
+

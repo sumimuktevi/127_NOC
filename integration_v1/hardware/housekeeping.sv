@@ -49,7 +49,7 @@ module housekeeping_fsm (
             case (state)
                 IDLE: begin
                     flash_csb <= 0;
-                    wbs_adr = 32'h1000;
+                    wbs_adr <= 32'h1000;
                     state <= FETCH;
                 end
 
@@ -80,11 +80,12 @@ module housekeeping_fsm (
                     if (row_counter < 9) begin
                         row_counter <= row_counter + 1;
                          // Matches Python Test: 0x1000 + (S*64) + (R*4)
-                        wbs_adr <= 32'h1000 + (soclet_counter << 6) + (row_counter << 2);
+                        wbs_adr <= 32'h1000 + (soclet_counter << 6) + ((row_counter+1) << 2);
                         state <= FETCH;
                     end else if (soclet_counter < 8) begin
                         row_counter <= 0;
                         soclet_counter <= soclet_counter + 1;
+                        wbs_adr <= 32'h1000 + (soclet_counter << 6);
                         state <= SR_RESET;
                     end else begin
                         state <= DONE;
@@ -93,6 +94,7 @@ module housekeeping_fsm (
                 
                 SR_RESET: begin
                 // extra cycle so fetch can catch that the word is done signal, and it can restart
+                wbs_adr <= 32'h1000 + (soclet_counter << 6);
                 state <= FETCH;
                 end
 
@@ -100,9 +102,9 @@ module housekeeping_fsm (
                     flash_csb <= 1;
                     done_loading <= 1;
                 end
-
-                default: state <= IDLE;
             endcase
         end
     end
 endmodule
+
+
