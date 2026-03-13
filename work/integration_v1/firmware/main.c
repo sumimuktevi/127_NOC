@@ -8,6 +8,18 @@
 #define SIG_READY         0xA5A5A5A5u
 #define FLIT_PAYLOAD_MASK 0x0FFFFFFFu
 
+// This is your 120-byte PBM data from test3_paul.pbm
+const unsigned char pbm_data[] = {
+    0x00, 0x00, 0x00, 0x00, 0x3f, 0xff, 0x80, 0x00, // ... add the rest of the bytes here
+    // Make sure the first 8 bytes match: 00 00 00 00 3f ff 80 00
+};
+
+// To ensure it's not optimized out, just reference it once in main()
+void main() {
+    volatile unsigned char dummy = pbm_data[0]; 
+    // ... rest of your code
+}
+
 // Force alignment to 64 bytes so current_grid starts exactly at 0x40
 volatile uint8_t current_grid[SIZE * SIZE] __attribute__((section(".data"), aligned(64))) = {
     [0] = 1, [19] = 1,
@@ -104,3 +116,4 @@ void main() {
         }
     }
 }
+
