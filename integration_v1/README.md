@@ -84,7 +84,133 @@ make verify
  - Direct initialization: Write a function that puts data directly into each core's memory and initializes every core from the testbench — bypassing the flash boot entirely — then run it for a few steps.
  - Output verification: Dump memory and send the result out to the host.
 
-## 5. License & Credits
+## 5. Game of Life Flows
+
+This project currently has two important Game of Life test flows, and they do slightly different jobs.
+
+### A. Flash boot + one Game of Life iteration + host-style output
+
+Use this when you want the closest thing to the full intended pipeline:
+
+1. Build the special PBM pipeline firmware.
+2. Boot the tile from flash using the real bootloader behavior.
+3. Load a PBM image into SRAM.
+4. Run one Game of Life iteration in firmware.
+5. Read the result back from SRAM.
+6. Reconstruct the result as a PBM output image.
+
+The test for this flow is:
+
+- `test_pbm_host_pipeline.py`
+- cocotb test name: `test_pbm_host_load_one_iteration`
+
+Important note:
+This test does **not** currently write the result back into flash. It simulates sending the processed result back to the host side and writes the reconstructed image to `test_output/blinker_single_core_gen1.pbm`.
+
+#### How to run it
+
+From the `integration_v1` folder:
+
+```bash
+cd /Users/andreaarreortua/127_NOC/integration_v1
+```
+
+Build the firmware used by this pipeline:
+
+```bash
+make -C firmware pbm_tile_pipeline.bin
+```
+
+Then run the dedicated pipeline target:
+
+```bash
+make pbm_pipeline
+```
+
+That target already expands to the correct top-level wrapper and Verilog source list, so this is the easiest and most reliable command.
+
+#### What files it uses
+
+- Input PBM: `test_blinker_single_core.pbm`
+- Expected output PBM: `test_output/blinker_single_core_expected_gen1.pbm`
+- Generated output PBM: `test_output/blinker_single_core_gen1.pbm`
+- Firmware binary: `firmware/pbm_tile_pipeline.bin`
+- Firmware ELF: `firmware/pbm_tile_pipeline.elf`
+
+#### What to check after it runs
+
+- Look at `test_output/blinker_single_core_gen1.pbm`
+- Compare it against `test_output/blinker_single_core_expected_gen1.pbm`
+- Check the cocotb log for boot completion, host load, iteration complete, and SRAM readback
+
+### B. Run Game of Life and verify the result stored in SRAM
+
+Use this flow when you want to verify that the CPU/NoC/Game-of-Life logic updates SRAM correctly.
+
+The relevant tests are in `test_boot_and_dump.py`:
+
+- `test_phase6_gol_evolution`
+- `test_phase7_blinker_verify`
+
+They both boot the design from flash first, inject a known blinker pattern into SRAM, and then watch the SRAM contents change as Game of Life runs.
+
+#### `test_phase6_gol_evolution`
+
+This is the more visual/debug-oriented test.
+
+It does the following:
+
+1. Boots the firmware through the SPI flash responder.
+2. Writes a blinker pattern into SRAM.
+3. Waits for generation updates.
+4. Dumps the grid contents from SRAM for each generation.
+
+Run it with:
+
+```bash
+cd /Users/andreaarreortua/127_NOC/integration_v1
+make sim MODULE=test_boot_and_dump TESTCASE=test_phase6_gol_evolution
+```
+
+Use this one when you want to observe the generations and inspect the SRAM contents over time.
+
+#### `test_phase7_blinker_verify`
+
+This is the stricter verification test.
+
+It does the following:
+
+1. Boots from flash.
+2. Injects a vertical blinker into SRAM.
+3. Waits for generation 1 and checks that SRAM now contains the expected horizontal blinker.
+4. Waits for generation 2 and checks that SRAM returns to the original vertical blinker.
+
+Run it with:
+
+```bash
+cd /Users/andreaarreortua/127_NOC/integration_v1
+make sim MODULE=test_boot_and_dump TESTCASE=test_phase7_blinker_verify
+```
+
+Use this one when you want an exact pass/fail assertion that the Game of Life result in SRAM is correct.
+
+#### Optional: run the whole `test_boot_and_dump` module
+
+If you want all currently active tests in that module:
+
+```bash
+cd /Users/andreaarreortua/127_NOC/integration_v1
+make sim MODULE=test_boot_and_dump
+```
+
+At the moment, the active cocotb tests in that file are:
+
+- `test_phase1_instruction_load`
+- `test_phase3_direct_sram_write`
+- `test_phase6_gol_evolution`
+- `test_phase7_blinker_verify`
+
+## 6. License & Credits
 
 All hardware and firmware sources are licensed under [Apache 2.0](LICENSE).
 The integration was developed as part of a capstone project by Paul Lee and Andrea Arreortua (2025–2026).
