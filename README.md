@@ -71,6 +71,8 @@ cd ..
 
 # Build top-level project
 make
+source .venv/bin/activate
+
 ```
 
 * Optional: convert firmware.bin to hex for memory init:
