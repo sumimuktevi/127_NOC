@@ -93,6 +93,11 @@ python3 bin2hex.py firmware.bin firmware.hex
 
 ---
 
+### Running Flash Test
+
+* run /psmake.ps1 to run how Flash populates all of the nodes 
+* run it in the "hardware" folder
+
 ## Notes
 
 * Each tile runs a **10×10 GoL grid**; nine tiles form a 30×30 grid.
