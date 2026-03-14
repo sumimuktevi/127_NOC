@@ -63,16 +63,17 @@ python3 -m pip install riscv-assembler
 ## Running Firmware
 
 ```bash
+# Build top-level project
+source .venv/bin/activate
+pip install cocotb-bus
+brew install icarus-verilog
+make
+
 # Inside /firmware folder to build new binary
 cd firmware
 make clean
 make
 cd ..
-
-# Build top-level project
-make
-source .venv/bin/activate
-
 ```
 
 * Optional: convert firmware.bin to hex for memory init:
