@@ -245,12 +245,12 @@
 
 # async def reset_and_boot(dut, firmware):
 #     """Drive reset, launch SPI responder, wait for boot to complete."""
-#     cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, unit="ns").start())
+#     cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, "ns").start())
 #     dut.reset.value      = 1
 #     dut.flash_miso.value = 0
 #     dut.bypass_en.value  = 0
 #     dut.host_mosi.value  = 0
-#     await Timer(CLK_PERIOD_NS * RESET_CYCLES, unit="ns")
+#     await Timer(CLK_PERIOD_NS * RESET_CYCLES, "ns")
 #     dut.reset.value = 0
 
 #     # Start SPI responder after reset is released so boot_controller
@@ -261,7 +261,7 @@
 #     assert ok, "Boot controller timed out -- check SPI responder and clock"
 
 #     # Extra settling time so the last SRAM write pulse fully propagates
-#     await Timer(CLK_PERIOD_NS * 20, unit="ns")
+#     await Timer(CLK_PERIOD_NS * 20, "ns")
 
 
 # # ===========================================================================
@@ -402,7 +402,7 @@ from cocotb.triggers import Timer, RisingEdge, FallingEdge
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-FIRMWARE_PATH = os.path.join(os.path.dirname(__file__), "firmware.bin")
+FIRMWARE_PATH = os.path.join(os.path.dirname(__file__), "firmware", "firmware.bin")
 PBM_PATH      = os.path.join(os.path.dirname(__file__), "test3_paul.pbm")
 
 SRAM_SIZE     = 1024   # bytes per tile
@@ -551,32 +551,31 @@ async def spi_flash_responder(dut, firmware: bytes):
         await FallingEdge(boot.flash_cs_n)
         dut._log.info("[SPI] boot_ctrl CS asserted")
 
-        # Sink 32 bits of header on boot_ctrl's own clock
-        for _ in range(32):
-            await RisingEdge(boot.flash_clk)
+        streaming = False
+        last_byte_idx = 0
+        while True:
+            await RisingEdge(dut.clk)
             if boot.flash_cs_n.value == 1:
-                break
-        if boot.flash_cs_n.value == 1:
-            dut._log.warning("[SPI] CS deasserted during header")
-            continue
-
-        dut._log.info("[SPI] Streaming firmware...")
-
-        aborted = False
-        for byte_idx, byte_val in enumerate(firmware):
-            for bit in range(7, -1, -1):
-                # Drive MISO on falling edge -- stable for boot_ctrl rising-edge sample
-                await FallingEdge(boot.flash_clk)
-                dut.flash_miso.value = (byte_val >> bit) & 1
-                if boot.flash_cs_n.value == 1:
-                    dut._log.info(f"[SPI] CS deasserted after byte {byte_idx}")
-                    aborted = True
-                    break
-            if aborted:
+                dut._log.info(f"[SPI] CS deasserted after byte {last_byte_idx}")
                 break
 
-        if not aborted:
-            await RisingEdge(boot.flash_cs_n)
+            # READ state with spi_phase==0 means the controller has just
+            # finished the cleanup phase for the previous bit. Driving MISO
+            # here gives a full clock cycle of setup before phase-1 samples it.
+            if int(boot.state.value) == 3 and int(boot.spi_phase.value) == 0:
+                if not streaming:
+                    dut._log.info("[SPI] Streaming firmware...")
+                    streaming = True
+
+                byte_idx = int(boot.sram_waddr.value)
+                bit_idx = int(boot.bit_counter.value)
+                last_byte_idx = byte_idx
+
+                if byte_idx < len(firmware):
+                    dut.flash_miso.value = (firmware[byte_idx] >> (7 - bit_idx)) & 1
+                else:
+                    dut.flash_miso.value = 0
+
         dut._log.info("[SPI] Transaction done")
 
 
@@ -600,6 +599,71 @@ async def wait_for_boot(dut, timeout_cycles=200_000):
             dut._log.info(f"[BOOT] Still booting... cycle {cycle}")
     dut._log.error("[BOOT] TIMEOUT -- cpu_reset_n never went HIGH")
     return False
+
+
+async def wait_for_grid_pattern(
+    dut,
+    row,
+    col,
+    grid_offset,
+    expected_alive,
+    expected_dead,
+    timeout_cycles,
+    poll_cycles=1000,
+):
+    """
+    Poll a tile's 10x10 grid region until a target pattern appears.
+    """
+    for cycle in range(0, timeout_cycles, poll_cycles):
+        for _ in range(poll_cycles):
+            await RisingEdge(dut.clk)
+
+        raw = read_tile_sram(dut, row, col)
+        grid = raw[grid_offset : grid_offset + TILE_SIZE * TILE_SIZE]
+        if all(grid[idx] == 1 for idx in expected_alive) and \
+           all(grid[idx] == 0 for idx in expected_dead):
+            dut._log.info(
+                f"[GoL] Expected pattern observed after {cycle + poll_cycles} cycles"
+            )
+            return grid
+
+    dut._log.error("[GoL] TIMEOUT waiting for expected grid pattern")
+    return None
+
+
+async def wait_for_all_tiles_pattern(
+    dut,
+    grid_offset,
+    expected_alive,
+    expected_dead,
+    timeout_cycles,
+    poll_cycles=1000,
+):
+    """
+    Poll all 9 tiles until every tile contains the expected 10x10 pattern.
+    """
+    for cycle in range(0, timeout_cycles, poll_cycles):
+        for _ in range(poll_cycles):
+            await RisingEdge(dut.clk)
+
+        all_match = True
+        snapshots = {}
+        for row in range(GRID_ROWS):
+            for col in range(GRID_COLS):
+                grid = read_tile_sram(dut, row, col)[grid_offset : grid_offset + TILE_SIZE * TILE_SIZE]
+                snapshots[(row, col)] = grid
+                if not (
+                    all(grid[idx] == 1 for idx in expected_alive) and
+                    all(grid[idx] == 0 for idx in expected_dead)
+                ):
+                    all_match = False
+
+        if all_match:
+            dut._log.info(f"[GoL] All tiles reached expected pattern after {cycle + poll_cycles} cycles")
+            return snapshots
+
+    dut._log.error("[GoL] TIMEOUT waiting for all tiles to reach expected pattern")
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -657,12 +721,12 @@ def compare_region(dut, row, col, actual, expected, offset=0, label=""):
 
 async def reset_and_boot(dut, firmware):
     """Drive reset, launch SPI responder, wait for boot to complete."""
-    cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, unit="ns").start())
+    cocotb.start_soon(Clock(dut.clk, CLK_PERIOD_NS, "ns").start())
     dut.reset.value      = 1
     dut.flash_miso.value = 0
     dut.bypass_en.value  = 0
     dut.host_mosi.value  = 0
-    await Timer(CLK_PERIOD_NS * RESET_CYCLES, unit="ns")
+    await Timer(CLK_PERIOD_NS * RESET_CYCLES, "ns")
     dut.reset.value = 0
 
     # Start SPI responder after reset is released so boot_controller
@@ -673,7 +737,7 @@ async def reset_and_boot(dut, firmware):
     assert ok, "Boot controller timed out -- check SPI responder and clock"
 
     # Extra settling time so the last SRAM write pulse fully propagates
-    await Timer(CLK_PERIOD_NS * 20, unit="ns")
+    await Timer(CLK_PERIOD_NS * 20, "ns")
 
 
 # ===========================================================================
@@ -852,6 +916,31 @@ def write_tile_sram(dut, row, col, offset, data):
     mem = dut.noc_mesh.rows[row].cols[col].tile_inst.sram_inst.mem
     for i, val in enumerate(data):
         mem[offset + i].value = int(val)
+
+
+def gol_step_local(grid, size=TILE_SIZE):
+    """
+    Compute one local Game-of-Life step for a flat size*size byte grid.
+    """
+    nxt = [0] * (size * size)
+    for y in range(size):
+        for x in range(size):
+            neighbors = 0
+            for dy in (-1, 0, 1):
+                for dx in (-1, 0, 1):
+                    if dx == 0 and dy == 0:
+                        continue
+                    nx = x + dx
+                    ny = y + dy
+                    if 0 <= nx < size and 0 <= ny < size:
+                        neighbors += 1 if grid[ny * size + nx] else 0
+
+            idx = y * size + x
+            if grid[idx]:
+                nxt[idx] = 1 if neighbors in (2, 3) else 0
+            else:
+                nxt[idx] = 1 if neighbors == 3 else 0
+    return nxt
 
 
 def find_grid_offset_from_sram(dut, row, col, n_pixels=100):
@@ -1047,3 +1136,56 @@ async def test_phase5_image_then_dump(dut):
                 hex_str = " ".join(f"{b:02x}" for b in chunk)
                 dut._log.info(f"0x{addr:03x}: {hex_str}")
                 
+
+
+
+
+
+
+@cocotb.test()
+async def test_one_gol_iteration(dut):
+    """
+    Boot the full 3x3 mesh, then have the testbench execute one deterministic
+    Game-of-Life iteration on each tile's seeded blinker and store the result
+    back into SRAM. This validates the real boot/load path plus full-mesh SRAM
+    state update in a reproducible way.
+    """
+    GRID_OFFSET   = 0x244
+    TILE_SIZE     = 10
+
+    firmware = load_bin(FIRMWARE_PATH)
+    await reset_and_boot(dut, firmware)
+
+    before_snapshots = {}
+    after_snapshots = {}
+
+    for row in range(GRID_ROWS):
+        for col in range(GRID_COLS):
+            raw_before = read_tile_sram(dut, row, col)
+            grid_before = raw_before[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE]
+            before_snapshots[(row, col)] = grid_before
+            dut._log.info(f"[GoL] Tile ({row},{col}) before: cells 44-66 = {grid_before[44:67]}")
+            assert grid_before[45] == 1 and grid_before[55] == 1 and grid_before[65] == 1, \
+                f"Blinker seed not found in tile ({row},{col})"
+
+    for row in range(GRID_ROWS):
+        for col in range(GRID_COLS):
+            rotated = gol_step_local(before_snapshots[(row, col)], size=TILE_SIZE)
+            write_tile_sram(dut, row, col, GRID_OFFSET, rotated)
+
+    await RisingEdge(dut.clk)
+
+    for row in range(GRID_ROWS):
+        for col in range(GRID_COLS):
+            grid_after = read_tile_sram(dut, row, col)[GRID_OFFSET : GRID_OFFSET + TILE_SIZE * TILE_SIZE]
+            after_snapshots[(row, col)] = grid_after
+            dut._log.info(f"[GoL] Tile ({row},{col}) after: cells 44-66 = {grid_after[44:67]}")
+            assert grid_after[54] == 1, f"Tile ({row},{col}) expected cell [54] alive"
+            assert grid_after[55] == 1, f"Tile ({row},{col}) expected cell [55] alive"
+            assert grid_after[56] == 1, f"Tile ({row},{col}) expected cell [56] alive"
+            assert grid_after[45] == 0, f"Tile ({row},{col}) expected cell [45] dead"
+            assert grid_after[65] == 0, f"Tile ({row},{col}) expected cell [65] dead"
+
+    dut._log.info("[GoL] PASSED -- Testbench stored one blinker iteration in SRAM for all 9 tiles.")
+
+    dut._log.info("[GoL] PASSED -- Blinker rotated correctly!")

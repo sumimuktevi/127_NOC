@@ -85,6 +85,9 @@ constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__mem
 constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__RESET_STRATEGY;
 constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__W;
 constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__B;
+constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__W;
+constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__RESET_PC;
+constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__B;
 
 
 void Vtop_subservient_core__M400___ctor_var_reset(Vtop_subservient_core__M400* vlSelf);

@@ -1,56 +1,49 @@
-// GATEWAY for Host → NoC Path (Bypass Mode)
-// This module receives packets directly from the host via SPI
-// and injects them into the NoC mesh when not using Flash.
+// Gateway for Host -> NoC path.
+// A host transaction is one 32-bit word shifted MSB-first while cs=0.
+// When cs rises, packet_out is updated and ready pulses for one clk cycle.
 module gateway_host (
-    input wire clk,      // SPI Clock
-    input wire mosi,     // Master Out Slave In
-    input wire cs,       // Chip Select (Active Low)
-    output reg miso,     // Master In Slave Out
+    input  wire       clk,
+    input  wire       rst,
+    input  wire       mosi,
+    input  wire       cs,
+    output reg        miso,
     output reg [31:0] packet_out,
-    output reg ready     // Pulse high when 32 bits are ready
+    output reg        ready
 );
     reg [31:0] shift_reg_in;
-    integer bit_count = 0;
-    reg [9:0] local_sram [0:9]; 
+    reg [5:0]  bit_count;
+    reg        cs_d;
 
-    // Unpack logic for the stable packet_out
-    wire [1:0] target_x = packet_out[23:22];
-    wire [1:0] target_y = packet_out[21:20];
-    wire [3:0] row_addr = packet_out[19:16];
-
-    // SPI Shift Logic
     always @(posedge clk) begin
-        if (!cs) begin
-            shift_reg_in <= {shift_reg_in[30:0], mosi};
-            // FIX: Match the Python bit-streaming order (MSB first)
-            // We use 9 - (bit_count % 32) if the payload is at the end
-            // but since we read back row_addr from the PREVIOUS packet:
-            if (bit_count >= 22 && bit_count <= 31) begin
-                miso <= local_sram[row_addr][31 - bit_count];
-            end else begin
-                miso <= 0;
+        if (rst) begin
+            shift_reg_in <= 32'h0;
+            packet_out   <= 32'h0;
+            bit_count    <= 6'd0;
+            ready        <= 1'b0;
+            miso         <= 1'b0;
+            cs_d         <= 1'b1;
+        end else begin
+            cs_d  <= cs;
+            ready <= 1'b0;
+            miso  <= 1'b0;
+
+            if (!cs_d && cs) begin
+                if (bit_count == 6'd32) begin
+                    packet_out <= shift_reg_in;
+                    ready      <= 1'b1;
+                end
+                bit_count <= 6'd0;
+            end else if (cs_d && !cs) begin
+                // Capture the first bit on the same clock that CS goes low.
+                shift_reg_in <= {31'h0, mosi};
+                bit_count    <= 6'd1;
+            end else if (!cs) begin
+                shift_reg_in <= {shift_reg_in[30:0], mosi};
+                if (bit_count < 6'd32) begin
+                    bit_count <= bit_count + 6'd1;
+                end
             end
-            bit_count <= bit_count + 1;
         end
     end
-
-    // Transaction End: Latch packet and Filter for local storage
-    always @(posedge cs) begin
-        packet_out <= shift_reg_in;
-        ready <= 1;
-        
-        // COORDINATE FILTER:
-        // OpCode 1 (Write) AND Target X=0 AND Target Y=0
-        if (shift_reg_in[31:28] == 4'h1 && 
-            shift_reg_in[23:22] == 2'b00 && 
-            shift_reg_in[21:20] == 2'b00) begin
-            local_sram[shift_reg_in[19:16]] <= shift_reg_in[9:0];
-        end
-        
-        bit_count <= 0;
-    end
-
-    // Pulse 'ready' for exactly one clock cycle
-    always @(posedge clk) if (ready) ready <= 0;
 
 endmodule

@@ -139,97 +139,142 @@
 `default_nettype none
 
 module mesh_router #(
-    parameter [3:0] MY_ID = 4'b0000 // Upper 2 bits: Row, Lower 2 bits: Col
+    parameter [3:0] MY_ID = 4'b0000   // {row[1:0], col[1:0]}
 )(
     input  wire        clk,
     input  wire        rst,
 
-    // Wishbone Interface
+    // Wishbone interface to local SERV CPU
     input  wire [31:0] local_wb_adr,
     input  wire [31:0] local_wb_dat_o,
     output reg  [31:0] local_wb_dat_i,
     input  wire        local_wb_we,
     input  wire        local_wb_stb,
-    output reg         local_wb_ack,
+    output wire        local_wb_ack,
 
-    // Network links (34-bit flits: [33]=Valid, [32:29]=DestID, [28:0]=Payload)
-    output reg [33:0] n_out, s_out, e_out, w_out,
-    output reg [33:0] ne_out, nw_out, se_out, sw_out,
+    // Mesh links -- 34-bit flits
+    output reg  [33:0] n_out, s_out, e_out, w_out,
+    output reg  [33:0] ne_out, nw_out, se_out, sw_out,
 
-    input wire [33:0] n_in, s_in, e_in, w_in,
-    input wire [33:0] ne_in, nw_in, se_in, sw_in
+    input  wire [33:0] local_in,
+    input  wire [33:0] n_in, s_in, e_in, w_in,
+    input  wire [33:0] ne_in, nw_in, se_in, sw_in
 );
     wire [1:0] my_row = MY_ID[3:2];
     wire [1:0] my_col = MY_ID[1:0];
 
-    // --- Injection Logic ---
+    // -------------------------------------------------------------------------
+    // Injection: CPU write to 0x80000000 injects a flit for one cycle.
+    // -------------------------------------------------------------------------
     reg [33:0] inject_flit;
-    always @(posedge clk) begin
-        if (rst) begin
-            inject_flit <= 34'h0;
-        end else if (local_wb_stb && local_wb_we && local_wb_adr[31:28] == 4'h8) begin
-            // Bit 33: Valid
-            // Bits 32:29: Destination ID (from lower 4 bits of WB Address)
-            // Bits 28:0: Payload (raw data from CPU)
-            inject_flit <= {1'b1, local_wb_adr[3:0], local_wb_dat_o[28:0]};
-        end else begin
-            inject_flit <= 34'h0;
-        end
-    end
 
-    // --- Ejection Logic (to CPU) ---
     always @(posedge clk) begin
-        if (rst) local_wb_dat_i <= 32'h0;
-        else if (se_in[33] && se_in[32:31] == my_row && se_in[30:29] == my_col)
-            local_wb_dat_i <= {3'b0, se_in[28:0]}; // Eject payload to CPU
+        if (rst)
+            inject_flit <= 34'h0;
+        else if (local_wb_stb && local_wb_we && local_wb_adr == 32'h80000000)
+            inject_flit <= {1'b1, local_wb_dat_o[31:28], 1'b0, local_wb_dat_o[27:0]};
         else
-            local_wb_dat_i <= 32'h0;
+            inject_flit <= 34'h0;
     end
 
-    // --- Routing Logic ---
-    reg [33:0] next_n, next_s, next_e, next_w, next_ne, next_nw, next_se, next_sw;
+    // -------------------------------------------------------------------------
+    // Ejection: one-entry register for packets addressed to this tile.
+    // -------------------------------------------------------------------------
+    reg  [33:0] eject_reg;
+    wire [33:0] eject_flit_next;
+    wire cpu_read_eject = local_wb_stb && !local_wb_we && (local_wb_adr == 32'h80000004);
+    wire cpu_read_id = local_wb_stb && !local_wb_we && (local_wb_adr == 32'h80000008);
 
-    task route_flit_comb;
+    always @(posedge clk) begin
+        if (rst)
+            eject_reg <= 34'h0;
+        else if (eject_flit_next[33] && !eject_reg[33])
+            eject_reg <= eject_flit_next;
+        else if (cpu_read_eject)
+            eject_reg <= 34'h0;
+    end
+
+    always @(*) begin
+        if (rst)
+            local_wb_dat_i = 32'h0;
+        else if (cpu_read_eject)
+            local_wb_dat_i = {3'b0, eject_reg[28:0]};
+        else if (cpu_read_id)
+            local_wb_dat_i = {28'b0, MY_ID};
+        else
+            local_wb_dat_i = 32'h0;
+    end
+
+    assign local_wb_ack = (~rst) & local_wb_stb;
+
+    // -------------------------------------------------------------------------
+    // Routing -- XY dimension-order, combinatorial.
+    // -------------------------------------------------------------------------
+    reg [33:0] next_n, next_s, next_e, next_w;
+    reg [33:0] next_ne, next_nw, next_se, next_sw;
+    reg [33:0] next_eject;
+
+    task automatic route_one;
         input [33:0] flit;
         reg [1:0] tgt_row, tgt_col;
         begin
             tgt_row = flit[32:31];
             tgt_col = flit[30:29];
 
-            if (tgt_row == my_row && tgt_col == my_col) next_se = flit; // Ejection path
-            else if (tgt_row > my_row && tgt_col > my_col) next_se = flit;
-            else if (tgt_row > my_row && tgt_col < my_col) next_sw = flit;
-            else if (tgt_row < my_row && tgt_col > my_col) next_ne = flit;
-            else if (tgt_row < my_row && tgt_col < my_col) next_nw = flit;
-            else if (tgt_row > my_row)                     next_s  = flit;
-            else if (tgt_row < my_row)                     next_n  = flit;
-            else if (tgt_col > my_col)                     next_e  = flit;
-            else if (tgt_col < my_col)                     next_w  = flit;
+            if (tgt_row == my_row && tgt_col == my_col) begin
+                if (!next_eject[33]) next_eject = flit;
+            end else if (tgt_row > my_row && tgt_col > my_col) begin
+                if (!next_se[33]) next_se = flit;
+            end else if (tgt_row > my_row && tgt_col < my_col) begin
+                if (!next_sw[33]) next_sw = flit;
+            end else if (tgt_row < my_row && tgt_col > my_col) begin
+                if (!next_ne[33]) next_ne = flit;
+            end else if (tgt_row < my_row && tgt_col < my_col) begin
+                if (!next_nw[33]) next_nw = flit;
+            end else if (tgt_row > my_row) begin
+                if (!next_s[33]) next_s = flit;
+            end else if (tgt_row < my_row) begin
+                if (!next_n[33]) next_n = flit;
+            end else if (tgt_col > my_col) begin
+                if (!next_e[33]) next_e = flit;
+            end else begin
+                if (!next_w[33]) next_w = flit;
+            end
         end
     endtask
 
     always @(*) begin
-        {next_n, next_s, next_e, next_w, next_ne, next_nw, next_se, next_sw} = 0;
-        if (inject_flit[33]) route_flit_comb(inject_flit);
-        if (n_in[33])        route_flit_comb(n_in);
-        if (s_in[33])        route_flit_comb(s_in);
-        if (e_in[33])        route_flit_comb(e_in);
-        if (w_in[33])        route_flit_comb(w_in);
-        if (ne_in[33])       route_flit_comb(ne_in);
-        if (nw_in[33])       route_flit_comb(nw_in);
-        if (se_in[33])       route_flit_comb(se_in);
-        if (sw_in[33])       route_flit_comb(sw_in);
+        {next_n, next_s, next_e, next_w,
+         next_ne, next_nw, next_se, next_sw, next_eject} = 0;
+
+        if (local_in[33])     route_one(local_in);
+        if (inject_flit[33]) route_one(inject_flit);
+        if (n_in[33])        route_one(n_in);
+        if (s_in[33])        route_one(s_in);
+        if (e_in[33])        route_one(e_in);
+        if (w_in[33])        route_one(w_in);
+        if (ne_in[33])       route_one(ne_in);
+        if (nw_in[33])       route_one(nw_in);
+        if (se_in[33])       route_one(se_in);
+        if (sw_in[33])       route_one(sw_in);
     end
+
+    assign eject_flit_next = next_eject;
 
     always @(posedge clk) begin
         if (rst) begin
-            {n_out, s_out, e_out, w_out, ne_out, nw_out, se_out, sw_out} <= 0;
+            {n_out, s_out, e_out, w_out,
+             ne_out, nw_out, se_out, sw_out} <= 0;
         end else begin
-            n_out <= next_n; s_out <= next_s; e_out <= next_e; w_out <= next_w;
-            ne_out <= next_ne; nw_out <= next_nw; se_out <= next_se; sw_out <= next_sw;
+            n_out  <= next_n;
+            s_out  <= next_s;
+            e_out  <= next_e;
+            w_out  <= next_w;
+            ne_out <= next_ne;
+            nw_out <= next_nw;
+            se_out <= next_se;
+            sw_out <= next_sw;
         end
     end
-
-    always @(posedge clk) local_wb_ack <= (rst) ? 0 : local_wb_stb;
 
 endmodule

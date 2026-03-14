@@ -65,7 +65,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1
         VL_OUT8(VDD__en,0,0);
         VL_OUT8(VSS__out,0,0);
         VL_OUT8(VSS__en,0,0);
-        CData/*0:0*/ __VdfgRegularize_hefcf2c13_0_0;
         CData/*0:0*/ __Vintraval_h3b5fcd9c__0;
         CData/*0:0*/ __Vintraval_hb0bd7f62__0;
         CData/*0:0*/ __Vintraval_hed184258__0;
@@ -81,9 +80,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1
         CData/*0:0*/ __Vintraval_hc7587398__0;
         CData/*0:0*/ __Vintraval_ha6bb0ae3__0;
         CData/*0:0*/ __Vintraval_h59dc93e4__0;
+        CData/*0:0*/ __Vintraval_hf4691aea__0;
     };
     struct {
-        CData/*0:0*/ __Vintraval_hf4691aea__0;
         CData/*0:0*/ __Vintraval_h6bf62d92__0;
         CData/*0:0*/ __Vintraval_hd4e52b8d__0;
         CData/*0:0*/ __Vintraval_h53e31b1d__0;

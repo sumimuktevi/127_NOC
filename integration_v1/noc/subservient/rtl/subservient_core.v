@@ -31,6 +31,7 @@ module subservient_core
    output wire [3:0] 	o_wb_sel,
    output wire 		o_wb_we ,
    output wire 		o_wb_stb,
+   output wire [31:0]        o_debug_pc,
    input wire [31:0] 	i_wb_rdt,
    input wire 		i_wb_ack);
 
@@ -84,7 +85,8 @@ module subservient_core
       .o_wb_ack (wb_mem_ack));
 
    servile
-     #(.reset_strategy (RESET_STRATEGY),
+     #(.debug (1'b1),
+       .reset_strategy (RESET_STRATEGY),
        .rf_width (rf_width),
        .with_csr (WITH_CSR))
    servile
@@ -107,6 +109,7 @@ module subservient_core
       .o_wb_ext_sel   (o_wb_sel),
       .o_wb_ext_we    (o_wb_we),
       .o_wb_ext_stb   (o_wb_stb),
+      .o_debug_pc     (o_debug_pc),
       .i_wb_ext_rdt   (i_wb_rdt),
       .i_wb_ext_ack   (i_wb_ack),
 

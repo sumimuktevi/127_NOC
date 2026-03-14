@@ -38,6 +38,8 @@ module system_top (
     wire        gateway_flash_ready;
     wire [31:0] gateway_host_packet;
     wire        gateway_host_ready;
+    wire        gateway_host_valid_word = gateway_host_ready && (gateway_host_packet != 32'h0);
+    wire        gateway_flash_valid_word = gateway_flash_ready && (gateway_flash_packet != 32'h0);
     
     // NoC mesh injection point (NW corner, 0,0)
     wire [33:0] noc_inject_nw;
@@ -80,6 +82,7 @@ module system_top (
     // Receives SPI packets directly from host in bypass mode
     gateway_host host_gateway (
         .clk(clk),
+        .rst(reset),
         .mosi(host_mosi),
         .cs(!bypass_en),      // CS active low, but inverted logic for bypass
         .miso(host_miso),
@@ -87,12 +90,32 @@ module system_top (
         .ready(gateway_host_ready)
     );
     
-    // Select between flash-sourced or host-sourced packets
-    // Priority: Flash > Host (Flash takes precedence)
-    wire [33:0] selected_packet = gateway_flash_ready ? 
-                                  {2'b00, gateway_flash_packet} : 
-                                  {2'b00, gateway_host_packet};
-    wire        selected_ready = gateway_flash_ready || gateway_host_ready;
+    // Select between flash-sourced or host-sourced packets.
+    // Both gateways emit a 32-bit CPU-style injection word:
+    //   [31:28] destination tile ID
+    //   [27:0]  payload
+    // Convert that word into the router's 34-bit on-wire flit here.
+    // Host packets are emitted on the cycle CS rises, after bypass_en is dropped.
+    // Give the host gateway priority on its ready pulse and suppress flash traffic
+    // whenever a host word is being injected.
+    wire host_packet_valid = gateway_host_valid_word;
+    wire flash_packet_valid = gateway_flash_valid_word && !bypass_en && !host_packet_valid;
+
+    wire [31:0] selected_packet_word =
+        host_packet_valid  ? gateway_host_packet  :
+        flash_packet_valid ? gateway_flash_packet :
+        32'h0;
+
+    wire [33:0] selected_packet_flit =
+        (flash_packet_valid || host_packet_valid) ?
+        {1'b1, selected_packet_word[31:28], 1'b0, selected_packet_word[27:0]} :
+        34'h0;
+
+    wire host_packet_is_local_00 = host_packet_valid && (gateway_host_packet[31:28] == 4'h0);
+    wire [33:0] selected_packet_nw =
+        host_packet_is_local_00 ? 34'h0 : selected_packet_flit;
+    wire [33:0] selected_packet_local =
+        host_packet_is_local_00 ? {1'b1, gateway_host_packet[31:28], 1'b0, gateway_host_packet[27:0]} : 34'h0;
     
 
     // NoC Mesh (3×3 SERV-based Network)
@@ -100,7 +123,8 @@ module system_top (
     mesh_3x3 noc_mesh (
         .clk(clk),
         .rst(reset),
-        .inject_00_nw(selected_packet),      // Packet injection at NW
+        .inject_00_nw(selected_packet_nw),      // Packet injection at NW
+        .inject_00_local(selected_packet_local),// Direct local inject into tile (0,0)
         .monitor_22_se(noc_monitor_se),      // Output at SE (3,3)
         .flash_miso(flash_miso),             // For boot controller inside mesh
         .flash_cs_n(flash_csb),
@@ -109,10 +133,14 @@ module system_top (
     );
     
     // Output Assignment & Status
-    assign noc_packet_from_flash = {2'b00, gateway_flash_packet};
-    assign noc_ready_from_flash   = gateway_flash_ready;
-    assign noc_packet_from_host   = {2'b00, gateway_host_packet};
-    assign noc_ready_from_host    = gateway_host_ready;
+    assign noc_packet_from_flash = flash_packet_valid ?
+                                   {1'b1, gateway_flash_packet[31:28], 1'b0, gateway_flash_packet[27:0]} :
+                                   34'h0;
+    assign noc_ready_from_flash   = flash_packet_valid;
+    assign noc_packet_from_host   = host_packet_valid ?
+                                   {1'b1, gateway_host_packet[31:28], 1'b0, gateway_host_packet[27:0]} :
+                                   34'h0;
+    assign noc_ready_from_host    = host_packet_valid;
     assign noc_output_se          = noc_monitor_se;
     
     // System is ready when flash controller has finished loading (needs implementation in topmod)

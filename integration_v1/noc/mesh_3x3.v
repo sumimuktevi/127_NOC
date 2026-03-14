@@ -61,6 +61,7 @@ module mesh_3x3 (
     input wire clk,
     input wire rst,
     input  wire [33:0] inject_00_nw,
+    input  wire [33:0] inject_00_local,
     output wire [33:0] monitor_22_se,
     input  wire flash_miso,
     output wire flash_cs_n,
@@ -98,6 +99,7 @@ module mesh_3x3 (
                 mesh_tile #(.TILE_ID({2'(r), 2'(c)})) tile_inst (
                     .clk(clk), .rst(!cpu_rst_n), .boot_mode(boot_mode),
                     .boot_addr(boot_addr), .boot_data(boot_data), .boot_wen(boot_wen),
+                    .local_inject_in((r == 0 && c == 0) ? inject_00_local : 34'b0),
                     .north_in(n_i), .south_in(s_i), .east_in(e_i), .west_in(w_i),
                     .north_out(grid_n[r][c]), .south_out(grid_s[r][c]), .east_out(grid_e[r][c]), .west_out(grid_w[r][c]),
                     .ne_in(ne_i), .nw_in(nw_i), .se_in(se_i), .sw_in(sw_i),

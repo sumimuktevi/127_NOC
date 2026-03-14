@@ -41,6 +41,7 @@ module servile
    output wire [3:0]	      o_wb_ext_sel,
    output wire		      o_wb_ext_we ,
    output wire		      o_wb_ext_stb,
+   output wire [31:0]        o_debug_pc,
    input wire [31:0]	      i_wb_ext_rdt,
    input wire		      i_wb_ext_ack,
 
@@ -147,6 +148,8 @@ module servile
       .o_wb_mem_stb (o_wb_mem_stb),
       .i_wb_mem_rdt (i_wb_mem_rdt),
       .i_wb_mem_ack (i_wb_mem_ack));
+
+   assign o_debug_pc = wb_ibus_adr;
 
 
 

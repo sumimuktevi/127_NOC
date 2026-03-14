@@ -64,7 +64,6 @@ VL_ATTR_COLD void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ctor_var_reset
     vlSelf->VDD__en = 0;
     vlSelf->VSS__out = 0;
     vlSelf->VSS__en = 0;
-    vlSelf->__VdfgRegularize_hefcf2c13_0_0 = 0;
     vlSelf->__Vintraval_h3b5fcd9c__0 = 0;
     vlSelf->__Vintraval_hb0bd7f62__0 = 0;
     vlSelf->__Vintraval_hed184258__0 = 0;

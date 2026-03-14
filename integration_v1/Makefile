@@ -40,7 +40,7 @@ COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYP
 # Targets
 # ============================================================================
 
-.PHONY: help sim firmware clean distclean
+.PHONY: help sim firmware clean distclean show_blinker
 
 help:
 	@echo "Integration_v1 NoC System - Build Targets"
@@ -49,6 +49,7 @@ help:
 	@echo "  make firmware         - Build firmware only"
 	@echo "  make clean            - Remove build artifacts (keep firmware)"
 	@echo "  make distclean        - Remove all generated files"
+	@echo "  make show_blinker     - Print the seeded/rotated blinker in terminal"
 	@echo "  make help             - Show this help message"
 	@echo ""
 	@echo "Configuration:"
@@ -66,8 +67,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 # Custom Targets (override Cocotb defaults)
 # ============================================================================
 
-# sim: firmware
-sim: 
+sim: firmware
 
 # convenience target: rebuild firmware and run only the memory-dump test
 # (the module default is test_memory_dump so just invoking this target is
@@ -100,6 +100,9 @@ dump:
 	@echo "Running SRAM Dump Test..."
 	COCOTB_TEST_MODULES=sram_dump $(MAKE) sim
 
+show_blinker:
+	python3 show_blinker_result.py
+
 
 
 
@@ -123,5 +126,3 @@ boot_dump_phase1:
 
 boot_dump_phase2:
 	$(MAKE) sim MODULE=test_boot_and_dump TESTCASE=test_phase2_pbm_data_load
-
-

@@ -89,8 +89,8 @@ module boot_controller (
                         2'b11: begin 
                             spi_phase <= 2'b00;
                             if (bit_counter == 7) begin
-                                // The shift_reg now contains all 8 bits correctly
-                                sram_wdata <= shift_reg; 
+                                // phase-1 has already shifted in the final MISO bit.
+                                sram_wdata <= shift_reg;
                                 state <= WRITE;
                                 bit_counter <= 0;
                             end else begin

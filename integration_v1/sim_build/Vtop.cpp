@@ -11,11 +11,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new Vtop__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , reset{vlSymsp->TOP.reset}
-    , bypass_en{vlSymsp->TOP.bypass_en}
     , flash_miso{vlSymsp->TOP.flash_miso}
     , flash_mosi{vlSymsp->TOP.flash_mosi}
     , flash_clk{vlSymsp->TOP.flash_clk}
     , flash_csb{vlSymsp->TOP.flash_csb}
+    , bypass_en{vlSymsp->TOP.bypass_en}
     , host_mosi{vlSymsp->TOP.host_mosi}
     , host_miso{vlSymsp->TOP.host_miso}
     , noc_ready_from_flash{vlSymsp->TOP.noc_ready_from_flash}

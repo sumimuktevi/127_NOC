@@ -666,17 +666,88 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__d;
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__mstatus;
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__timer_irq;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_clk;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_rst;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_ibus_ack;
+        CData/*4:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_rd_addr;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_cnt_en;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_in;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_mstatus_en;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_mie_en;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_mcause_en;
+    };
+    struct {
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_en;
+        CData/*1:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_csr_addr;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_wen0;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_wdata0;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_cnt_done;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_rd;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mscratch;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mtvec;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mepc;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mtval;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mstatus;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mie;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__update_mcause;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LUI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__AUIPC;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__JAL;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__JALR;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BEQ;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BNE;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BLT;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BGE;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BLTU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__BGEU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LB;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LH;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LW;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LBU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__LHU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SB;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SH;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SW;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__ADDI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLTI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLTIU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__XORI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__ORI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__ANDI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLLI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SRLI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SRAI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__ADD;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SUB;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLL;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLT;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SLTU;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__XOR;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SRL;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__SRA;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__OR;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__AND;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__FENCE;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__ECALL;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__EBREAK;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRW;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRS;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRC;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRWI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRSI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__CSRRCI;
+        CData/*0:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__OTHER;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_0;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_1;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_2;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_3;
+    };
+    struct {
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_4;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_5;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_6;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_7;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_8;
-    };
-    struct {
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_9;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_10;
         CData/*0:0*/ __VdfgRegularize_hebeb780c_0_11;
@@ -697,6 +768,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         SData/*8:0*/ servile__DOT__cpu__DOT__immdec__DOT__gen_immdec_w_eq_1__DOT__imm19_12_20;
         VL_OUT(o_wb_adr,31,0);
         VL_OUT(o_wb_dat,31,0);
+        VL_OUT(o_debug_pc,31,0);
         VL_IN(i_wb_rdt,31,0);
         IData/*31:0*/ wb_mem_adr;
         IData/*31:0*/ wb_mem_dat;
@@ -709,6 +781,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         IData/*31:0*/ servile__DOT__i_wb_mem_rdt;
         IData/*31:0*/ servile__DOT__o_wb_ext_adr;
         IData/*31:0*/ servile__DOT__o_wb_ext_dat;
+        IData/*31:0*/ servile__DOT__o_debug_pc;
         IData/*31:0*/ servile__DOT__i_wb_ext_rdt;
         IData/*31:0*/ servile__DOT__wb_ibus_adr;
         IData/*31:0*/ servile__DOT__wb_ibus_rdt;
@@ -734,6 +807,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         IData/*31:0*/ servile__DOT__arbiter__DOT__i_wb_cpu_dbus_dat;
         IData/*31:0*/ servile__DOT__arbiter__DOT__o_wb_cpu_dbus_rdt;
         IData/*31:0*/ servile__DOT__arbiter__DOT__i_wb_cpu_ibus_adr;
+    };
+    struct {
         IData/*31:0*/ servile__DOT__arbiter__DOT__o_wb_cpu_ibus_rdt;
         IData/*31:0*/ servile__DOT__arbiter__DOT__o_wb_mem_adr;
         IData/*31:0*/ servile__DOT__arbiter__DOT__o_wb_mem_dat;
@@ -741,8 +816,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         IData/*31:0*/ servile__DOT__cpu__DOT__o_ibus_adr;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_ibus_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__o_dbus_adr;
-    };
-    struct {
         IData/*31:0*/ servile__DOT__cpu__DOT__o_dbus_dat;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_dbus_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_ext_rd;
@@ -761,6 +834,49 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
         IData/*31:0*/ servile__DOT__cpu__DOT__bufreg2__DOT__i_dat;
         IData/*23:0*/ servile__DOT__cpu__DOT__bufreg2__DOT__dlo;
         IData/*31:0*/ servile__DOT__cpu__DOT__ctrl__DOT__o_ibus_adr;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__i_ibus_rdt;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_rd;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_csr;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mstatus;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mie;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mcause;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mscratch;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mtvec;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mepc;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__dbg_mtval;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x1;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x2;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x3;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x4;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x5;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x6;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x7;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x8;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x9;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x10;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x11;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x12;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x13;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x14;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x15;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x16;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x17;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x18;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x19;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x20;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x21;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x22;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x23;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x24;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x25;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x26;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x27;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x28;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x29;
+    };
+    struct {
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x30;
+        IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__x31;
     };
 
     // INTERNAL VARIABLES
@@ -769,13 +885,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
 
     // PARAMETERS
     static constexpr CData/*0:0*/ servile__DOT__sim = 0U;
-    static constexpr CData/*0:0*/ servile__DOT__debug = 0U;
+    static constexpr CData/*0:0*/ servile__DOT__debug = 1U;
     static constexpr CData/*0:0*/ servile__DOT__with_c = 0U;
     static constexpr CData/*0:0*/ servile__DOT__with_csr = 1U;
     static constexpr CData/*0:0*/ servile__DOT__with_mdu = 0U;
     static constexpr CData/*0:0*/ servile__DOT__mux__DOT__sim = 0U;
     static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__PRE_REGISTER = 1U;
-    static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__DEBUG = 0U;
+    static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__DEBUG = 1U;
     static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__MDU = 0U;
     static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__COMPRESSED = 0U;
     static constexpr CData/*0:0*/ servile__DOT__cpu__DOT__ALIGN = 0U;
@@ -848,6 +964,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M400 final {
     static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__RESET_STRATEGY = 0x4d494e49U;
     static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__W = 1U;
     static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__B = 0U;
+    static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__W = 1U;
+    static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__RESET_PC = 0U;
+    static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_debug__DOT__debug__DOT__B = 0U;
 
     // CONSTRUCTORS
     Vtop_subservient_core__M400() = default;
