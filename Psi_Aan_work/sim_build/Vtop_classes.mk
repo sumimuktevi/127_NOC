@@ -43,6 +43,7 @@ VM_CLASSES_SLOW += \
   Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1__0__Slow \
   Vtop_subservient_core__M400__Slow \
   Vtop_subservient_core__M400__0__Slow \
+  Vtop_subservient_core__M400__1__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
