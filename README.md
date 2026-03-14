@@ -46,6 +46,8 @@ pipx ensurepath
 
 ```bash
 brew install verilator gtkwave
+python3 -m venv .venv
+
 ```
 
 **RISC-V Compiler (for firmware.bin)**
@@ -69,6 +71,8 @@ cd ..
 
 # Build top-level project
 make
+source .venv/bin/activate
+
 ```
 
 * Optional: convert firmware.bin to hex for memory init:
