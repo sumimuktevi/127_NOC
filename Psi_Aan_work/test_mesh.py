@@ -219,7 +219,7 @@ async def test_gol_iter1_iter2(dut):
 
     # Iter 1
     dut._log.info("Waiting for iter 1 SIG_GEN_STABLE...")
-    seen = await wait_for_noc_signal(dut, 0x00000004, ITER_TIMEOUT_MS)
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
         dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
         await Timer(ITER_TIMEOUT_MS, unit="ms")
@@ -241,7 +241,7 @@ async def test_gol_iter1_iter2(dut):
 
     # Iter 2
     dut._log.info("Waiting for iter 2 SIG_GEN_STABLE...")
-    seen = await wait_for_noc_signal(dut, 0x00000004, ITER_TIMEOUT_MS)
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
         dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
         await Timer(ITER_TIMEOUT_MS, unit="ms")

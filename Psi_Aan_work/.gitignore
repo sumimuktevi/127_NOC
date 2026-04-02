@@ -1,0 +1,5 @@
+sim_build/
+fusesoc_libraries/
+__pycache__/
+firmware.bin
+test.txt
