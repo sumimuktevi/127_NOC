@@ -1,4 +1,4 @@
-# Toolchain configuration
+#Toolchain configuration
 CC      = riscv64-unknown-elf-gcc
 OBJCOPY = riscv64-unknown-elf-objcopy
 
@@ -7,7 +7,7 @@ TARGET_BIN = ../firmware.bin
 TARGET_HEX = firmware.hex
 
 # --- FLAGS ---
-CFLAGS  = -march=rv32i_zicsr -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin
+CFLAGS = -march=rv32i -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin
 LDFLAGS = -T link.ld -nostdlib
 
 all: $(TARGET_HEX) size_check
@@ -16,8 +16,11 @@ firmware.elf: main.c link.ld
 	$(CC) $(CFLAGS) -o $@ main.c $(LDFLAGS)
 
 # This now outputs to the parent directory
+
 $(TARGET_BIN): firmware.elf
 	$(OBJCOPY) -O binary $< $@
+	# Pad to 2048 bytes for 2KB SRAM
+	truncate -s 2048 $@
 
 # Updated to reference the bin file in the parent directory
 $(TARGET_HEX): $(TARGET_BIN)

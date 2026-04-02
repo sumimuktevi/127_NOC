@@ -1,17 +1,4 @@
 // Copyright 2026 [Aan Yadav & Psi Padhya]
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-//
 // SPDX-License-Identifier: Apache-2.0
 
 `default_nettype none
@@ -22,56 +9,52 @@
 //
 // Flit format (34 bits):
 //   [33]     = Valid
-//   [32:29]  = Destination ID {dest_row[1:0], dest_col[1:0]}  (routing only)
-//   [28:0]   = Payload — OPAQUE to hardware, never inspected or modified
+//   [32:29]  = Destination ID {dest_row[1:0], dest_col[1:0]}
+//   [28:0]   = Payload — 29 bits, opaque to hardware
 //
-// CPU <-> Router interface (Wishbone):
-//   WRITE to NOC_INJECT_BASE (0x80000000):
-//     The CPU writes a full 32-bit word.  The hardware uses ONLY bits [32:29]
-//     (i.e. wb_dat_o[32:29] — but since Wishbone data is 32-bit, the dest
-//     is encoded in wb_dat_o[31:28] and payload in wb_dat_o[27:0]).
+// CPU interface (Wishbone):
+//   WRITE 0x80000000 — inject flit:
+//       word[31:28] = dest id  (stored in flit[32:29])
+//       word[27:24] = type     (lives in payload[27:24])
+//       word[9:0]   = bitmap   (lives in payload[9:0])
+//   READ  0x80000004 — receive flit: returns {3'b0, flit[28:0]}
+//       do_recv checks (p>>24)&0xF == FLIT_TYPE_GHOST, p&0x3FF == bitmap
+//   READ  0x80000008 — tile ID: returns {28'b0, MY_ID}
 //
-//     Flit wire layout packed from a single 32-bit CPU write:
-//       flit[33]    = 1 (valid, set by hardware on inject)
-//       flit[32:29] = wb_dat_o[31:28]  (destination ID — 4 bits)
-//       flit[28:0]  = wb_dat_o[27: 0]  (payload — 29 bits, opaque)
+// FIX LOG
+// =======
+// Fix 1 — inject_flit bit width:
+//   Was: {1'b1, dat_o[31:28], 1'b0, dat_o[27:0]}  — 35 bits (Verilator
+//        truncated MSB, losing valid flag; 1'b0 padding corrupted alignment).
+//   Now: {1'b1, dat_o[31:28], dat_o[28:0]}         — 34 bits correct.
 //
-//     This means the C code owns the full encoding.  To send payload P to
-//     tile (r,c), the CPU writes:
-//       *NOC_INJECT = ((r << 2 | c) << 28) | (P & 0x0FFFFFFF)
+// Fix 2 — eject path (1-slot mailbox → 4-deep FIFO):
+//   Was: single eject_reg overwritten unconditionally on every new flit.
+//        A second ghost flit arriving before the CPU read the first was
+//        silently dropped, causing do_recv() to hang forever.
+//   Now: 4-deep FIFO; route_one only claims eject slot when !fifo_full;
+//        CPU pops one entry per read transaction.
 //
-//   READ from NOC_RECV_BASE (0x80000004):
-//     Returns the most-recently-received flit payload as a 32-bit word:
-//       [31:28] = source routing bits (dest field from the flit, which equals
-//                 this tile's own ID since it was addressed here) — useful
-//                 for the CPU to confirm delivery but otherwise opaque.
-//       [27: 0] = payload bits [27:0] (same 28 bits the sender put there)
-//     Hardware delivers the full flit[28:0] zero-extended to 32 bits.
-//     The C code interprets the meaning of every bit.
-//
-// Routing:
-//   XY dimension-order routing.  No virtual channels, no backpressure.
-//   Collision policy: first-come-first-served (inject > N > S > E > W > diagonals).
-//   Packets for this tile are placed in a one-entry eject register and
-//   NOT forwarded onto any output link.
-//
+// SERV WISHBONE NOTE
+// ==================
+// SERV holds stb HIGH across multiple cycles; we latch inject_flit only on
+// every stb+we write cycle. Since ack=stb (immediate), each transaction is
+// Reads: ack = stb (combinatorial), so SERV samples dat_i on cycle 1. OK.
 // ============================================================================
 
 module mesh_router #(
-    parameter [3:0] MY_ID = 4'b0000   // {row[1:0], col[1:0]}
+    parameter [3:0] MY_ID = 4'b0000
 )(
     input  wire        clk,
     input  wire        rst,
 
-    // Wishbone interface to local SERV CPU
     input  wire [31:0] local_wb_adr,
     input  wire [31:0] local_wb_dat_o,
-    output reg  [31:0] local_wb_dat_i,
+    output wire [31:0] local_wb_dat_i,
     input  wire        local_wb_we,
     input  wire        local_wb_stb,
     output wire        local_wb_ack,
 
-    // Mesh links — 34-bit flits
     output reg  [33:0] n_out, s_out, e_out, w_out,
     output reg  [33:0] ne_out, nw_out, se_out, sw_out,
 
@@ -82,97 +65,156 @@ module mesh_router #(
     wire [1:0] my_col = MY_ID[1:0];
 
     // -------------------------------------------------------------------------
-    // Injection: CPU write to 0x80000000 injects a flit for one cycle.
-    //
-    // The CPU encodes the full 32-bit word as:
-    //   bits [31:28] = destination ID  (4 bits: {dest_row, dest_col})
-    //   bits [27: 0] = payload         (28 bits, opaque)
-    //
-    // Hardware packs this into the 34-bit flit:
-    //   flit[33]    = valid (1)
-    //   flit[32:29] = dest ID  (= wb_dat_o[31:28])
-    //   flit[28: 0] = {1'b0, payload[27:0]}  — bit 28 always 0, payload in [27:0]
-    //
-    // The CPU therefore gets 28 bits of usable payload per flit.
+    // Injection — latch every write cycle (no edge detection needed)
     // -------------------------------------------------------------------------
+    // FIX 3: ack = stb (combinatorial, immediate). SERV deasserts stb the very
+    // next cycle after receiving ack, so each transaction occupies exactly one
+    // clock cycle. There is therefore no risk of double-latching the same write,
+    // and no edge detection (stb_rise / we_rise) is needed or correct.
+    //
+    // The original stb_rise approach misfired in Verilator because stb_prev
+    // and stb are updated in the same delta cycle, causing stb_rise to
+    // occasionally evaluate to 0 on legitimate new write transactions.
     reg [33:0] inject_flit;
 
+    wire inject_write_now = local_wb_stb && local_wb_we &&
+                            (local_wb_adr == 32'h80000000);
+
     always @(posedge clk) begin
-        if (rst)
+        if (rst) begin
             inject_flit <= 34'h0;
-        else if (local_wb_stb && local_wb_we && local_wb_adr == 32'h80000000)
-            // Pack: valid=1, dest=dat[31:28], payload=dat[27:0] (bit28 set to 0)
-            inject_flit <= {1'b1, local_wb_dat_o[31:28], 1'b0, local_wb_dat_o[27:0]};
-        else
-            inject_flit <= 34'h0;
+        end else begin
+            inject_flit <= 34'h0;  // default: no active flit this cycle
+
+            if (inject_write_now) begin
+                // FIX 1: 34 bits — [33]=valid, [32:29]=dest(4b), [28:0]=payload(29b)
+                inject_flit <= {1'b1,
+                                local_wb_dat_o[31:28],
+                                local_wb_dat_o[28:0]};
+
+                $display("[NOC t=%0t] ID=%0d INJECT raw=0x%08x dest=%0d type=%0d bmap=0x%03x",
+                         $time, MY_ID,
+                         local_wb_dat_o,
+                         local_wb_dat_o[31:28],
+                         local_wb_dat_o[27:24],
+                         local_wb_dat_o[9:0]);
+            end
+
+            // ── WB MONITORS ──────────────────────────────────────────────────
+            // Tile 4 (1,0): show all WB transactions
+            if (MY_ID == 4 && local_wb_stb) begin
+                $display("[WB  t=%0t] ID=%0d stb=%b we=%b adr=0x%08x dat_o=0x%08x",
+                         $time, MY_ID,
+                         local_wb_stb, local_wb_we,
+                         local_wb_adr, local_wb_dat_o);
+            end
+            // Tile 0 (0,0): show ALL WB transactions
+            if (MY_ID == 0 && local_wb_stb) begin
+                $display("[WB0 t=%0t] ID=0 we=%b adr=0x%08x dat_o=0x%08x dat_i=0x%08x",
+                         $time,
+                         local_wb_we,
+                         local_wb_adr, local_wb_dat_o,
+                         local_wb_dat_i);
+            end
+        end
     end
 
     // -------------------------------------------------------------------------
-    // Ejection: one-entry register for packets addressed to this tile.
-    // Written by the routing combinatorial block (eject_flit_next).
-    // CPU reads it at 0x80000004; hardware delivers flit[28:0] zero-extended.
-    // The register is cleared one cycle after the CPU reads it.
+    // Ejection — 4-deep synchronous FIFO  (FIX 2)
     // -------------------------------------------------------------------------
-    reg  [33:0] eject_reg;
-    wire [33:0] eject_flit_next;   // driven by routing block below
+    // Depth 4: each tile receives at most 4 ghost flits (N/S/E/W), all of
+    // which can arrive before the CPU reads the first one.
+    //
+    localparam FIFO_DEPTH = 4;
+    localparam FIFO_BITS  = 2;   // log2(4)
 
-    // Track whether the CPU has read the ejected flit
-    wire cpu_read = local_wb_stb && !local_wb_we && (local_wb_adr == 32'h80000004);
+    reg [33:0]          fifo_mem   [0:FIFO_DEPTH-1];
+    reg [FIFO_BITS-1:0] fifo_wr_ptr, fifo_rd_ptr;
+    reg [FIFO_BITS:0]   fifo_count;   // extra bit distinguishes full/empty
 
+    wire fifo_empty = (fifo_count == 0);
+    wire fifo_full  = (fifo_count == FIFO_DEPTH[FIFO_BITS:0]);
+
+    wire cpu_read = local_wb_stb && !local_wb_we &&
+                    (local_wb_adr == 32'h80000004);
+
+    // eject_flit_next driven combinationally by route_one below.
+    wire [33:0] eject_flit_next;
+
+    wire fifo_push = eject_flit_next[33] && !fifo_full;
+
+    // Pop 1 cycle after a cpu_read that saw a valid (non-empty) flit.
+    // dat_i is now combinatorial from fifo_head_comb, so SERV sees the
+    // flit on the same cycle it reads. We pop on the next cycle so the
+    // flit is still present when SERV samples dat_i.
+    reg cpu_read_q;
     always @(posedge clk) begin
-        if (rst)
-            eject_reg <= 34'h0;
-        else if (eject_flit_next[33])
-            // New packet arrived for us — latch it (overwrites unread data)
-            eject_reg <= eject_flit_next;
-        else if (cpu_read)
-            // CPU has consumed it — clear valid so it doesn't re-read stale data
-            eject_reg <= 34'h0;
+        if (rst) cpu_read_q <= 1'b0;
+        else     cpu_read_q <= cpu_read && !fifo_empty;
+    end
+    wire fifo_pop  = cpu_read_q && !fifo_empty;
+
+    integer i;
+    always @(posedge clk) begin
+        if (rst) begin
+            fifo_wr_ptr <= 0;
+            fifo_rd_ptr <= 0;
+            fifo_count  <= 0;
+            for (i = 0; i < FIFO_DEPTH; i = i + 1)
+                fifo_mem[i] <= 34'h0;
+        end else begin
+            if (fifo_push) begin
+                fifo_mem[fifo_wr_ptr] <= eject_flit_next;
+                fifo_wr_ptr           <= fifo_wr_ptr + 1;
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_IN  type=%0d bmap=0x%03x count %0d->%0d",
+                         $time, MY_ID,
+                         eject_flit_next[27:24], eject_flit_next[9:0],
+                         fifo_count, fifo_count + 1);
+            end
+            if (fifo_pop) begin
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_OUT type=%0d bmap=0x%03x count %0d->%0d",
+                         $time, MY_ID,
+                         fifo_mem[fifo_rd_ptr][27:24], fifo_mem[fifo_rd_ptr][9:0],
+                         fifo_count, fifo_count - 1);
+                fifo_rd_ptr <= fifo_rd_ptr + 1;
+            end
+
+            if      ( fifo_push && !fifo_pop) fifo_count <= fifo_count + 1;
+            else if (!fifo_push &&  fifo_pop) fifo_count <= fifo_count - 1;
+        end
     end
 
-    // Tile ID register decode: CPU read from 0x90000000 returns MY_ID
-    wire cpu_read_id = local_wb_stb && !local_wb_we && (local_wb_adr == 32'h90000000);
+    // Combinatorial head — SERV samples dat_i on the same cycle ack fires.
+    // We must present valid data combinatorially so SERV sees it immediately.
+    // The pop is delayed by 1 cycle (cpu_read_q) so the flit stays in the
+    // FIFO long enough for SERV to read it before it disappears.
+    wire [33:0] fifo_head_comb = fifo_empty ? 34'h0 : fifo_mem[fifo_rd_ptr];
 
-    // CPU read data: full flit payload zero-extended to 32 bits,
-    // or MY_ID when reading the tile ID register at 0x90000000.
+    // Keep fifo_head_reg for the WB monitor display only
+    reg  [33:0] fifo_head_reg;
     always @(posedge clk) begin
-        if (rst)
-            local_wb_dat_i <= 32'h0;
-        else if (cpu_read_id)
-            // Return MY_ID so the C code can distinguish tiles via
-            //   int my_id = (*((volatile uint32_t*)0x90000000)) & 0xF;
-            local_wb_dat_i <= {28'h0, MY_ID};
-        else if (cpu_read)
-            // Bit 31 = eject valid (so C's "& 0x80000000" ready-poll works).
-            // Bits [28:0] = payload (bit 28 is always 0 per inject packing,
-            //               so effective payload is bits [27:0]).
-            local_wb_dat_i <= {eject_reg[33], 2'b0, eject_reg[28:0]};
-        else
-            local_wb_dat_i <= 32'h0;
+        if (rst) fifo_head_reg <= 34'h0;
+        else     fifo_head_reg <= fifo_head_comb;
     end
 
-    // Wishbone ACK: combinatorial, one cycle.
-    // Covers all three mapped addresses: 0x80000000, 0x80000004, 0x90000000.
-    assign local_wb_ack = (~rst) & local_wb_stb &
-                          ((local_wb_adr == 32'h80000000) |
-                           (local_wb_adr == 32'h80000004) |
-                           (local_wb_adr == 32'h90000000));
+    assign local_wb_dat_i =
+        (local_wb_stb && !local_wb_we && local_wb_adr == 32'h80000008)
+            ? {28'b0, MY_ID}
+        : (local_wb_stb && !local_wb_we && local_wb_adr == 32'h80000004)
+            ? {3'b0, fifo_head_comb[28:0]}
+        : 32'h0;
+
+    assign local_wb_ack = (~rst) & local_wb_stb;
 
     // -------------------------------------------------------------------------
     // Routing — XY dimension-order, combinatorial
-    //
-    // Priority: inject > n_in > s_in > e_in > w_in > ne_in > nw_in > se_in > sw_in
-    // First valid flit wins each output port.  This is a simple but correct
-    // approach for low-traffic scenarios; add arbitration for production use.
-    //
-    // Packets addressed to this tile go to eject_flit_next (NOT onto any link).
     // -------------------------------------------------------------------------
     reg [33:0] next_n, next_s, next_e, next_w;
     reg [33:0] next_ne, next_nw, next_se, next_sw;
     reg [33:0] next_eject;
 
-    // Route a single flit — updates the appropriate next_* register only if
-    // that register hasn't already been claimed this cycle (first-wins).
     task automatic route_one;
         input [33:0] flit;
         reg [1:0] tgt_row, tgt_col;
@@ -181,31 +223,23 @@ module mesh_router #(
             tgt_col = flit[30:29];
 
             if (tgt_row == my_row && tgt_col == my_col) begin
-                // Local delivery
-                if (!next_eject[33]) next_eject = flit;
-
+                // Accept only if FIFO has room (FIX 2 back-pressure).
+                if (!next_eject[33] && !fifo_full) next_eject = flit;
             end else if (tgt_row > my_row && tgt_col > my_col) begin
                 if (!next_se[33]) next_se = flit;
-
             end else if (tgt_row > my_row && tgt_col < my_col) begin
                 if (!next_sw[33]) next_sw = flit;
-
             end else if (tgt_row < my_row && tgt_col > my_col) begin
                 if (!next_ne[33]) next_ne = flit;
-
             end else if (tgt_row < my_row && tgt_col < my_col) begin
                 if (!next_nw[33]) next_nw = flit;
-
             end else if (tgt_row > my_row) begin
                 if (!next_s[33])  next_s  = flit;
-
             end else if (tgt_row < my_row) begin
                 if (!next_n[33])  next_n  = flit;
-
             end else if (tgt_col > my_col) begin
                 if (!next_e[33])  next_e  = flit;
-
-            end else begin   // tgt_col < my_col
+            end else begin
                 if (!next_w[33])  next_w  = flit;
             end
         end
@@ -215,7 +249,6 @@ module mesh_router #(
         {next_n, next_s, next_e, next_w,
          next_ne, next_nw, next_se, next_sw, next_eject} = 0;
 
-        // Priority order: inject first, then cardinal, then diagonal
         if (inject_flit[33]) route_one(inject_flit);
         if (n_in[33])        route_one(n_in);
         if (s_in[33])        route_one(s_in);
@@ -229,7 +262,6 @@ module mesh_router #(
 
     assign eject_flit_next = next_eject;
 
-    // Register all output links
     always @(posedge clk) begin
         if (rst) begin
             {n_out, s_out, e_out, w_out,

@@ -13,7 +13,9 @@
 
 class Vtop__Syms;
 class Vtop___024root;
-class Vtop_subservient_core__M400;
+class VerilatedFstC;
+class Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1;
+class Vtop_subservient_core__M800;
 
 
 // This class is the main interface to the Verilated model
@@ -26,7 +28,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
 
     // CONSTEXPR CAPABILITIES
     // Verilated with --trace?
-    static constexpr bool traceCapable = false;
+    static constexpr bool traceCapable = true;
 
     // PORTS
     // The application code writes and reads these signals to
@@ -38,13 +40,29 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_OUT8(&flash_clk,0,0);
     VL_OUT8(&flash_mosi,0,0);
     VL_IN64(&inject_00_nw,33,0);
-    VL_OUT64(&monitor_01_se,33,0);
+    VL_OUT64(&monitor_22_se,33,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
-    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M800* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.
@@ -92,6 +110,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     /// Re-init after cloning the model at the process level (e.g. fork in Linux)
     /// Re-allocate necessary resources. Called after cloning.
     void atClone() const;
+    std::unique_ptr<VerilatedTraceConfig> traceConfig() const override final;
   private:
     // Internal functions - trace registration
     void traceBaseModel(VerilatedTraceBaseC* tfp, int levels, int options);

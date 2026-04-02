@@ -8,10 +8,10 @@
 `default_nettype none
 module subservient_core
   #(//Memory parameters
-    parameter memsize = 512,
+    parameter memsize = 2048,
     parameter RESET_STRATEGY = "MINI",
     parameter WITH_CSR = 1,
-    parameter aw    = $clog2(memsize))
+    parameter aw    = 11)
   (
    input wire 		i_clk,
    input wire 		i_rst,

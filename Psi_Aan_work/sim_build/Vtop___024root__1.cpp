@@ -4,9 +4,380 @@
 
 #include "Vtop__pch.h"
 
+void Vtop___024root___ico_sequent__TOP__1(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___ico_sequent__TOP__1\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_ren 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_ren;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wdata;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_waddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_raddr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_sram_wen;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_data;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write 
+            = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_wen)));
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_addr;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_d 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wdata;
+        if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_wen) {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 1U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_waddr;
+        } else {
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_write = 0U;
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__final_a 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_raddr;
+        }
+    }
+}
+
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1(Vtop_subservient_core__M800* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+
+void Vtop___024root___eval_ico(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_ico\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    if ((1ULL & vlSelfRef.__VicoTriggered[0U])) {
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop___024root___ico_sequent__TOP__0(vlSelf);
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_subservient_core__M800___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___ico_sequent__TOP__1(vlSelf);
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ico_sequent__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst__2((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+    }
+}
+
 void Vtop___024root___eval_triggers__ico(Vtop___024root* vlSelf);
 bool Vtop___024root___trigger_anySet__ico(const VlUnpacked<QData/*63:0*/, 1> &in);
-void Vtop___024root___eval_ico(Vtop___024root* vlSelf);
 
 bool Vtop___024root___eval_phase__ico(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_phase__ico\n"); );
@@ -1775,18 +2146,18 @@ void Vtop___024root___act_comb__TOP__8(Vtop___024root* vlSelf) {
         = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.Q;
 }
 
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M400* vlSelf);
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf);
-void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0(Vtop_subservient_core__M800* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
 
 void Vtop___024root___eval_act(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_act\n"); );
@@ -1795,148 +2166,139 @@ void Vtop___024root___eval_act(Vtop___024root* vlSelf) {
     // Body
     if ((0x0000012000000000ULL & vlSelfRef.__VactTriggered
          [2U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__0(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
     }
     if ((0x0200002000000000ULL & vlSelfRef.__VactTriggered
          [2U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__1(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000000000000400ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__2(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000000008000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__3(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000100000000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__4(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x2000000000000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__5(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0000000000004000ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__6(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0000000080000000ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__7(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0001000000000000ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_rdata 
-            = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst.Q;
-        Vtop_subservient_core__M400___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop___024root___act_comb__TOP__8(vlSelf);
+        Vtop_subservient_core__M800___act_comb__TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst));
     }
     if ((1ULL & vlSelfRef.__VactTriggered[0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((2ULL & vlSelfRef.__VactTriggered[0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((4ULL & vlSelfRef.__VactTriggered[0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((8ULL & vlSelfRef.__VactTriggered[0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000000000000010ULL & vlSelfRef.__VactTriggered
          [0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000000000000020ULL & vlSelfRef.__VactTriggered
          [0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000000000000040ULL & vlSelfRef.__VactTriggered
          [0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000000000000080ULL & vlSelfRef.__VactTriggered
          [0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000000000000100ULL & vlSelfRef.__VactTriggered
          [0U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_sequent__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__0((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0000003000000000ULL & vlSelfRef.__VactTriggered
          [2U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if ((0x0040002000000000ULL & vlSelfRef.__VactTriggered
          [2U])) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000000000000080ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000000001000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000020000000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0400000000000000ULL & vlSelfRef.__VactTriggered
           [3U]) | (0x0000002000000000ULL & vlSelfRef.__VactTriggered
                    [2U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0000000000000800ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0000000010000000ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst));
     }
     if (((0x0000002000000000ULL & vlSelfRef.__VactTriggered
           [2U]) | (0x0000200000000000ULL & vlSelfRef.__VactTriggered
                    [4U]))) {
-        Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
+        Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___act_comb__TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst__1((&vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst));
     }
 }
 
@@ -1944,81 +2306,1654 @@ void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=0 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=0 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=0 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb))) {
+            VL_WRITEF_NX("[WB0 t=%0t] ID=0 we=%b adr=0x%08x dat_o=0x%08x dat_i=0x%08x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,1,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we),
+                         32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr,
+                         32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i);
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__1(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__1\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=1 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=1 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=1 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__2(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__2\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=2 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=2 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=2 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__3(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__3\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=4 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=4 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=4 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb))) {
+            VL_WRITEF_NX("[WB  t=%0t] ID=4 stb=%b we=%b adr=0x%08x dat_o=0x%08x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,1,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb),
+                         1,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we,
+                         32,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr,
+                         32,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o);
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__4(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__4\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=5 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=5 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=5 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__5(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__5\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=6 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=6 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=6 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__6(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__6\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=8 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=8 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=8 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__7(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__7\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=9 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=9 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=9 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__8(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__8\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Locals
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0;
+    CData/*1:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0;
+    CData/*2:0*/ __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 = 0;
+    QData/*33:0*/ __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
+    CData/*1:0*/ __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1;
+    __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 = 0;
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr = 0U;
+        __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count = 0U;
+        while (VL_GTS_III(32, 4U, vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i)) {
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0 
+                = (3U & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(0ULL, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v0));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i 
+                = ((IData)(1U) + vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__i);
+        }
+    } else {
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=10 EJECT_IN  type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next)),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+            __VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
+            __VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1 
+                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+            vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.enqueue(__VdlyVal__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1, (IData)(__VdlyDim0__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem__v1));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr)));
+        }
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=10 EJECT_OUT type=%0# bmap=0x%03x count %0#->%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,4,(0x0000000fU & (IData)(
+                                                     (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                      [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr] 
+                                                      >> 0x18U))),
+                         10,(0x000003ffU & (IData)(
+                                                   vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+                                                   [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr])),
+                         3,(IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count),
+                         32,((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                             - (IData)(1U)));
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+                = (3U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr)));
+        }
+        if (((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push) 
+             & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop)))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(1U) + (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count)));
+        } else if (((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push)) 
+                    & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop))) {
+            __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+                = (7U & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count) 
+                         - (IData)(1U)));
+        }
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)) 
+           & ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) 
+              & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty))));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb);
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
+        if (VL_UNLIKELY((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_write_now))) {
+            VL_WRITEF_NX("[NOC t=%0t] ID=10 INJECT raw=0x%08x dest=%0# type=%0# bmap=0x%03x\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,32,vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o,
+                         4,(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                            >> 0x1cU),4,(0x0000000fU 
+                                         & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                            >> 0x18U)),
+                         10,(0x000003ffU & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o));
+            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
+                = (0x0000000200000000ULL | (((QData)((IData)(
+                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+                                                              >> 0x1cU))) 
+                                             << 0x0000001dU) 
+                                            | (QData)((IData)(
+                                                              (0x1fffffffU 
+                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))));
+        }
+    }
+    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
+    } else {
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
+        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
+            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
+    }
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_wr_ptr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr;
+    vlSelfRef.__VdlyCommitQueuemesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem.commit(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem);
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count 
+        = __Vdly__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty 
+        = (0U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full 
+        = (4U == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_count));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_pop 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)) 
+           & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read_q));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_empty)
+            ? 0ULL : vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_mem
+           [vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_rd_ptr]);
+    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
+    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
+    vlSelfRef.mesh_3x3__DOT__grid_se[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
+    vlSelfRef.mesh_3x3__DOT__grid_s[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
+    vlSelfRef.mesh_3x3__DOT__grid_n[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
+    vlSelfRef.mesh_3x3__DOT__grid_e[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
+    vlSelfRef.mesh_3x3__DOT__grid_w[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
 }
 
 void Vtop___024root___nba_sequent__TOP__9(Vtop___024root* vlSelf) {
@@ -2026,8 +3961,14 @@ void Vtop___024root___nba_sequent__TOP__9(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    if (VL_UNLIKELY(((((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode)) 
+                       & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_wen)) 
+                      & (0U != (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d)))))) {
+        VL_WRITEF_NX("[SRAM t=%0t] MY_ID=4 WRITE addr=0x%03x data=0x%02x\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,11,
+                     (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_a),
+                     8,vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__final_d);
+    }
 }
 
 void Vtop___024root___nba_sequent__TOP__10(Vtop___024root* vlSelf) {
@@ -2035,8 +3976,10 @@ void Vtop___024root___nba_sequent__TOP__10(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__11(Vtop___024root* vlSelf) {
@@ -2044,8 +3987,10 @@ void Vtop___024root___nba_sequent__TOP__11(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__12(Vtop___024root* vlSelf) {
@@ -2053,8 +3998,10 @@ void Vtop___024root___nba_sequent__TOP__12(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__13(Vtop___024root* vlSelf) {
@@ -2062,8 +4009,10 @@ void Vtop___024root___nba_sequent__TOP__13(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__14(Vtop___024root* vlSelf) {
@@ -2071,8 +4020,10 @@ void Vtop___024root___nba_sequent__TOP__14(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__15(Vtop___024root* vlSelf) {
@@ -2080,8 +4031,10 @@ void Vtop___024root___nba_sequent__TOP__15(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__16(Vtop___024root* vlSelf) {
@@ -2089,8 +4042,10 @@ void Vtop___024root___nba_sequent__TOP__16(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__17(Vtop___024root* vlSelf) {
@@ -2098,12 +4053,124 @@ void Vtop___024root___nba_sequent__TOP__17(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
 }
 
 void Vtop___024root___nba_sequent__TOP__18(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__18\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_dat;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
+}
+
+void Vtop___024root___nba_sequent__TOP__19(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__19\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__20(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__20\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__21(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__21\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__22(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__22\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__23(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__23\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__24(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__24\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__25(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__25\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__26(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__26\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__27(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__27\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
+}
+
+void Vtop___024root___nba_sequent__TOP__28(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__28\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
@@ -2208,11 +4275,11 @@ void Vtop___024root___nba_sequent__TOP__18(Vtop___024root* vlSelf) {
             } else {
                 vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_wen = 1U;
                 __Vdly__mesh_3x3__DOT__boot_inst__DOT__spi_phase = 0U;
-                if ((0x03ffU == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr))) {
+                if ((0x07ffU == (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr))) {
                     __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 5U;
                 } else {
                     vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr 
-                        = (0x000003ffU & ((IData)(1U) 
+                        = (0x000007ffU & ((IData)(1U) 
                                           + (IData)(vlSelfRef.mesh_3x3__DOT__boot_inst__DOT__sram_waddr)));
                     __Vdly__mesh_3x3__DOT__boot_inst__DOT__state = 3U;
                 }
@@ -2307,257 +4374,15 @@ void Vtop___024root___nba_sequent__TOP__18(Vtop___024root* vlSelf) {
     vlSelfRef.mesh_3x3__DOT__boot_mode = (1U & (~ (IData)(vlSelfRef.mesh_3x3__DOT__cpu_rst_n)));
 }
 
-void Vtop___024root___nba_sequent__TOP__19(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__19\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__20(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__20\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__21(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__21\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__22(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__22\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__23(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__23\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__24(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__24\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__25(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__25\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__26(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__26\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__27(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__27\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
-        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__28(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__28\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[0U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
-}
-
 void Vtop___024root___nba_sequent__TOP__29(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__29\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[0U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__30(Vtop___024root* vlSelf) {
@@ -2565,85 +4390,10 @@ void Vtop___024root___nba_sequent__TOP__30(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[0U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__31(Vtop___024root* vlSelf) {
@@ -2651,85 +4401,10 @@ void Vtop___024root___nba_sequent__TOP__31(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[1U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__32(Vtop___024root* vlSelf) {
@@ -2737,85 +4412,10 @@ void Vtop___024root___nba_sequent__TOP__32(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[1U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__33(Vtop___024root* vlSelf) {
@@ -2823,85 +4423,10 @@ void Vtop___024root___nba_sequent__TOP__33(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[1U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__34(Vtop___024root* vlSelf) {
@@ -2909,85 +4434,10 @@ void Vtop___024root___nba_sequent__TOP__34(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[2U][0U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__35(Vtop___024root* vlSelf) {
@@ -2995,85 +4445,10 @@ void Vtop___024root___nba_sequent__TOP__35(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[2U][1U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__36(Vtop___024root* vlSelf) {
@@ -3081,89 +4456,25 @@ void Vtop___024root___nba_sequent__TOP__36(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__rst) {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i = 0U;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out = 0ULL;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-    } else {
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i 
-            = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read)
-                ? (0x1fffffffU & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg))
-                : 0U);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit 
-            = ((((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_stb) 
-                 & (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we)) 
-                & (0x80000000U == vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr))
-                ? (0x0000000200000000ULL | (((QData)((IData)(
-                                                             (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-                                                              >> 0x1cU))) 
-                                             << 0x0000001dU) 
-                                            | (QData)((IData)(
-                                                              (0x0fffffffU 
-                                                               & vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o)))))
-                : 0ULL);
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
-        vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out 
-            = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_w;
-        if ((1U & (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
-                           >> 0x21U)))) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg 
-                = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
-        } else if (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__cpu_read) {
-            vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_reg = 0ULL;
-        }
-    }
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_r2c 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
-    vlSelfRef.mesh_3x3__DOT__grid_ne[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__ne_out;
-    vlSelfRef.mesh_3x3__DOT__grid_nw[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__nw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_sw[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sw_out;
-    vlSelfRef.mesh_3x3__DOT__grid_se[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__se_out;
-    vlSelfRef.mesh_3x3__DOT__grid_s[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__south_out;
-    vlSelfRef.mesh_3x3__DOT__grid_n[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__north_out;
-    vlSelfRef.mesh_3x3__DOT__grid_e[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__east_out;
-    vlSelfRef.mesh_3x3__DOT__grid_w[2U][2U] = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__west_out;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
 }
 
 void Vtop___024root___nba_sequent__TOP__37(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__37\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we 
+        = vlSymsp->TOP__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst.o_wb_we;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
+        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
+}
+
+void Vtop___024root___nba_sequent__TOP__38(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__38\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3172,8 +4483,8 @@ void Vtop___024root___nba_sequent__TOP__37(Vtop___024root* vlSelf) {
            | (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode));
 }
 
-void Vtop___024root___nba_sequent__TOP__38(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__38\n"); );
+void Vtop___024root___nba_sequent__TOP__39(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__39\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
@@ -3182,24 +4493,14 @@ void Vtop___024root___nba_sequent__TOP__38(Vtop___024root* vlSelf) {
            | (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__boot_mode));
 }
 
-void Vtop___024root___nba_sequent__TOP__39(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__39\n"); );
+void Vtop___024root___nba_sequent__TOP__40(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__40\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode_q 
         = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__rst) 
            | (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__boot_mode));
-}
-
-void Vtop___024root___nba_sequent__TOP__40(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__40\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode_q 
-        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst) 
-           | (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode));
 }
 
 void Vtop___024root___nba_sequent__TOP__41(Vtop___024root* vlSelf) {
@@ -3257,242 +4558,9 @@ void Vtop___024root___nba_sequent__TOP__46(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__47(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__47\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__48(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__48\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__49(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__49\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__50(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__50\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__51(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__51\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__52(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__52\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__53(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__53\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__54(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__54\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__55(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__55\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__56(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__56\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__57(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__57\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__58(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__58\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__59(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__59\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__60(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__60\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__61(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__61\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__62(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__62\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__63(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__63\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__64(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__64\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__65(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__65\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__66(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__66\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__67(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__67\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__68(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__68\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__69(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__69\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
-}
-
-void Vtop___024root___nba_sequent__TOP__70(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__70\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_dat_c2r;
-}
-
-void Vtop___024root___nba_sequent__TOP__71(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__71\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_we 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_we;
-}
-
-void Vtop___024root___nba_sequent__TOP__72(Vtop___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__72\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr 
-        = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__wb_adr;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode_q 
+        = ((IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__rst) 
+           | (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__boot_mode));
 }
 
 void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
@@ -3766,8 +4834,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__18__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__18__flit;
             }
@@ -3848,8 +4916,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__19__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__19__flit;
             }
@@ -3930,8 +4998,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__20__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__20__flit;
             }
@@ -4012,8 +5080,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__21__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__21__flit;
             }
@@ -4094,8 +5162,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__22__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__22__flit;
             }
@@ -4176,8 +5244,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__23__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__23__flit;
             }
@@ -4258,8 +5326,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__24__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__24__flit;
             }
@@ -4340,8 +5408,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__25__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__25__flit;
             }
@@ -4422,8 +5490,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__26__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__26__flit;
             }
@@ -4513,8 +5581,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__45__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__45__flit;
             }
@@ -4595,8 +5663,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__46__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__46__flit;
             }
@@ -4677,8 +5745,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__47__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__47__flit;
             }
@@ -4759,8 +5827,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__48__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__48__flit;
             }
@@ -4841,8 +5909,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__49__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__49__flit;
             }
@@ -4923,8 +5991,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__50__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__50__flit;
             }
@@ -5005,8 +6073,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__51__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__51__flit;
             }
@@ -5087,8 +6155,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__52__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__52__flit;
             }
@@ -5169,8 +6237,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__53__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__53__flit;
             }
@@ -5260,8 +6328,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__72__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__72__flit;
             }
@@ -5342,8 +6410,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__73__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__73__flit;
             }
@@ -5424,8 +6492,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__74__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__74__flit;
             }
@@ -5506,8 +6574,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__75__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__75__flit;
             }
@@ -5588,8 +6656,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__76__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__76__flit;
             }
@@ -5670,8 +6738,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__77__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__77__flit;
             }
@@ -5752,8 +6820,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__78__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__78__flit;
             }
@@ -5834,8 +6902,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__79__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__79__flit;
             }
@@ -5916,8 +6984,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__80__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__80__flit;
             }
@@ -6007,8 +7075,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__0__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__0__flit;
             }
@@ -6089,8 +7157,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__1__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__1__flit;
             }
@@ -6171,8 +7239,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__2__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__2__flit;
             }
@@ -6253,8 +7321,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__3__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__3__flit;
             }
@@ -6335,8 +7403,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__4__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__4__flit;
             }
@@ -6417,8 +7485,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__5__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__5__flit;
             }
@@ -6499,8 +7567,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__6__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__6__flit;
             }
@@ -6581,8 +7649,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__7__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__7__flit;
             }
@@ -6663,8 +7731,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__8__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__8__flit;
             }
@@ -6754,8 +7822,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__9__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__9__flit;
             }
@@ -6836,8 +7904,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__10__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__10__flit;
             }
@@ -6918,8 +7986,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__11__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__11__flit;
             }
@@ -7000,8 +8068,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__12__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__12__flit;
             }
@@ -7082,8 +8150,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__13__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__13__flit;
             }
@@ -7164,8 +8232,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__14__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__14__flit;
             }
@@ -7246,8 +8314,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__15__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__15__flit;
             }
@@ -7328,8 +8396,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__16__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__16__flit;
             }
@@ -7410,8 +8478,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__17__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__17__flit;
             }
@@ -7501,8 +8569,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__27__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__27__flit;
             }
@@ -7583,8 +8651,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__28__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__28__flit;
             }
@@ -7665,8 +8733,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__29__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__29__flit;
             }
@@ -7747,8 +8815,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__30__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__30__flit;
             }
@@ -7829,8 +8897,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__31__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__31__flit;
             }
@@ -7911,8 +8979,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__32__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__32__flit;
             }
@@ -7993,8 +9061,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__33__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__33__flit;
             }
@@ -8075,8 +9143,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__34__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__34__flit;
             }
@@ -8157,8 +9225,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__35__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__35__flit;
             }
@@ -8248,8 +9316,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__36__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__36__flit;
             }
@@ -8330,8 +9398,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__37__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__37__flit;
             }
@@ -8412,8 +9480,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__38__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__38__flit;
             }
@@ -8494,8 +9562,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__39__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__39__flit;
             }
@@ -8576,8 +9644,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__40__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__40__flit;
             }
@@ -8658,8 +9726,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__41__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__41__flit;
             }
@@ -8740,8 +9808,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__42__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__42__flit;
             }
@@ -8822,8 +9890,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__43__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__43__flit;
             }
@@ -8904,8 +9972,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__44__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__44__flit;
             }
@@ -8995,8 +10063,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__54__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__54__flit;
             }
@@ -9077,8 +10145,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__55__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__55__flit;
             }
@@ -9159,8 +10227,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__56__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__56__flit;
             }
@@ -9241,8 +10309,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__57__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__57__flit;
             }
@@ -9323,8 +10391,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__58__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__58__flit;
             }
@@ -9405,8 +10473,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__59__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__59__flit;
             }
@@ -9487,8 +10555,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__60__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__60__flit;
             }
@@ -9569,8 +10637,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__61__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__61__flit;
             }
@@ -9651,8 +10719,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__62__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__62__flit;
             }
@@ -9742,8 +10810,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__63__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__63__flit;
             }
@@ -9824,8 +10892,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__64__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__64__flit;
             }
@@ -9906,8 +10974,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__65__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__65__flit;
             }
@@ -9988,8 +11056,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__66__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__66__flit;
             }
@@ -10070,8 +11138,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__67__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__67__flit;
             }
@@ -10152,8 +11220,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__68__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__68__flit;
             }
@@ -10234,8 +11302,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__69__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__69__flit;
             }
@@ -10316,8 +11384,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__70__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__70__flit;
             }
@@ -10398,8 +11466,8 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
               == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_row)) 
              & ((IData)(vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__71__tgt_col) 
                 == (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__my_col)))) {
-            if ((1U & (~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
-                                  >> 0x21U))))) {
+            if ((1U & ((~ (IData)((vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
+                                   >> 0x21U))) & (~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full))))) {
                 vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject 
                     = vlSelfRef.__Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__71__flit;
             }
@@ -10484,4 +11552,40 @@ void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject;
     vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
         = vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject;
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
+    vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_push 
+        = ((~ (IData)(vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_full)) 
+           & (vlSelfRef.mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next 
+              >> 0x00000021U));
 }

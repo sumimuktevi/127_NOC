@@ -12,11 +12,11 @@ VM_TIMING = 1
 # Coverage output mode?  0/1 (from --coverage)
 VM_COVERAGE = 0
 # Parallel builds?  0/1 (from --output-split)
-VM_PARALLEL_BUILDS = 0
+VM_PARALLEL_BUILDS = 1
 # Tracing output mode?  0/1 (from --trace-fst/--trace-saif/--trace-vcd)
-VM_TRACE = 0
+VM_TRACE = 1
 # Tracing output mode in FST format?  0/1 (from --trace-fst)
-VM_TRACE_FST = 0
+VM_TRACE_FST = 1
 # Tracing output mode in SAIF format?  0/1 (from --trace-saif)
 VM_TRACE_SAIF = 0
 # Tracing output mode in VCD format?  0/1 (from --trace-vcd)
@@ -27,29 +27,45 @@ VM_TRACE_VCD = 0
 VM_CLASSES_FAST += \
   Vtop \
   Vtop___024root__0 \
-  Vtop_subservient_core__M400__0 \
+  Vtop___024root__1 \
+  Vtop___024root__2 \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__0 \
+  Vtop_subservient_core__M800__0 \
+  Vtop_subservient_core__M800__1 \
+  Vtop_subservient_core__M800__2 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
   Vtop__ConstPool__0__Slow \
   Vtop___024root__Slow \
   Vtop___024root__0__Slow \
-  Vtop_subservient_core__M400__Slow \
-  Vtop_subservient_core__M400__0__Slow \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__Slow \
+  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__0__Slow \
+  Vtop_subservient_core__M800__Slow \
+  Vtop_subservient_core__M800__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
   Vtop__Dpi \
+  Vtop__Trace__0 \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
+  Vtop__Syms__ctor__0__Slow \
+  Vtop__Syms__ctor__1__Slow \
+  Vtop__Syms__ctor__2__Slow \
+  Vtop__Syms__ctor__3__Slow \
+  Vtop__Syms__dtor__0__Slow \
   Vtop__Syms__Slow \
+  Vtop__Trace__0__Slow \
+  Vtop__TraceDecls__0__Slow \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \
   verilated \
   verilated_dpi \
   verilated_vpi \
+  verilated_fst_c \
   verilated_timing \
   verilated_threads \
 

@@ -6,7 +6,7 @@ module boot_controller (
     output reg  flash_mosi,
     input  wire flash_miso,
     output reg  [7:0] sram_wdata,
-    output reg  [9:0] sram_waddr,
+    output reg  [10:0] sram_waddr,
     output reg        sram_wen,
     output reg        cpu_reset_n
 );
@@ -107,7 +107,7 @@ module boot_controller (
                     end else begin
                         sram_wen <= 1; // Pulse end
                         spi_phase <= 0;
-                        if (sram_waddr == 10'h3FF) state <= DONE;
+                        if (sram_waddr == 11'h7FF) state <= DONE;
                         else begin
                             sram_waddr <= sram_waddr + 1;
                             state <= READ;

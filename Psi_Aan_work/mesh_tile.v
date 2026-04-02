@@ -6,7 +6,7 @@ module mesh_tile #(
     input wire clk,
     input wire rst,
     input wire boot_mode,
-    input wire [9:0] boot_addr,
+    input wire [10:0] boot_addr,
     input wire [7:0] boot_data,
     input wire       boot_wen,
 
@@ -20,7 +20,7 @@ module mesh_tile #(
     wire [3:0]  wb_sel;
     wire        wb_we, wb_stb, wb_ack;
 
-    wire [9:0] sram_waddr, sram_raddr;
+    wire [10:0] sram_waddr, sram_raddr;
     wire [7:0] sram_wdata, sram_rdata;
     wire       sram_wen, sram_ren;
 
@@ -77,7 +77,7 @@ module mesh_tile #(
     // Boot mode : use raw bootloader signals (the bootloader is slow enough
     //             that its address/data are stable well before the clock edge).
     // CPU mode  : bypass the extra register to provide 1-cycle latency.
-    wire [9:0] final_a = boot_mode ? boot_addr  : (sram_wen ? sram_waddr : sram_raddr);
+    wire [10:0] final_a = boot_mode ? boot_addr  : (sram_wen ? sram_waddr : sram_raddr);
     wire [7:0] final_d = boot_mode ? boot_data  : sram_wdata;
 
     // -----------------------------------------------------------------------
@@ -93,7 +93,7 @@ module mesh_tile #(
     // -----------------------------------------------------------------------
     // Subservient RISC-V core
     // -----------------------------------------------------------------------
-    subservient_core #(.memsize(1024)) core_inst (
+    subservient_core #(.memsize(2048)) core_inst (
         .i_clk       (clk),
         .i_rst       (rst | boot_mode),
         .o_sram_waddr(sram_waddr),
@@ -112,9 +112,9 @@ module mesh_tile #(
     );
 
     // -----------------------------------------------------------------------
-    // GF180 1024×8 SRAM
+    // GF180 2048×8 SRAM
     // -----------------------------------------------------------------------
-    gf180mcu_fd_ip_sram__sram1024x8m8wm1 sram_inst (
+    gf180mcu_fd_ip_sram__sram2048x8m8wm1 sram_inst (
         .CLK (clk),
         .CEN (~sram_active),  // Active-LOW chip enable
         .GWEN(~sram_write),   // Active-LOW global write enable
@@ -125,6 +125,14 @@ module mesh_tile #(
         .VDD (),
         .VSS ()
     );
+
+    // DEBUG: monitor ALL non-zero SRAM writes (to find where do_recv writes go)
+    always @(posedge clk) begin
+        if (!boot_mode && sram_wen && final_d != 8'h00 && TILE_ID == 4) begin
+            $display("[SRAM t=%0t] MY_ID=%0d WRITE addr=0x%03x data=0x%02x",
+                     $time, TILE_ID, final_a, final_d);
+        end
+    end
 
     // -----------------------------------------------------------------------
     // Mesh router
