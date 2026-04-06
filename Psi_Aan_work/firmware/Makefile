@@ -29,8 +29,7 @@ $(TARGET_HEX): $(TARGET_BIN)
 size_check: firmware.elf
 	@echo "--- FIRMWARE SIZE REPORT ---"
 	@riscv64-unknown-elf-size firmware.elf
-	@echo "Targeting Grid Base @ 0x2F8 (760 bytes). Text + Data must be smaller than this."
-
+	
 clean:
 	rm -f *.elf *.hex
 	rm -f $(TARGET_BIN)
