@@ -13,8 +13,8 @@ RESET_HOLD_MS     = 2
 SEED_SAMPLE_US    = 2000
 ITER_TIMEOUT_MS   = 200
 
-# Grid at hardcoded address — matches firmware GRID_BASE = 0x0600
-SRAM_GRID_BASE = 0x0600
+# Grid at hardcoded address — matches firmware GRID_BASE = 0x0500
+SRAM_GRID_BASE = 0x0500
 print(f"[testbench] current_grid @ 0x{SRAM_GRID_BASE:04x}")
 
 def load_firmware_binary():
@@ -56,39 +56,31 @@ def sram_read_byte(tile, cpu_addr):
     word = int(mem[word_index].value)
     return (word >> (8 * byte_lane)) & 0xFF
 
-async def wait_for_all_noc_signals(dut, target_payload, timeout_ms):
-    """Wait until EVERY tile has injected the target payload at least once."""
+async def wait_for_noc_signal(dut, target_payload, timeout_ms):
     max_cycles = timeout_ms * 1000 * 100
     target = target_payload & 0x1FFFFFFF
-    seen_mask = 0
-    REQUIRED_MASK = (1 << (MESH_R * MESH_C)) - 1
-    
     for _ in range(max_cycles):
         await RisingEdge(dut.clk)
         for tr in range(MESH_R):
             for tc in range(MESH_C):
-                tile_idx = tr * MESH_C + tc
-                if not (seen_mask & (1 << tile_idx)):
-                    try:
-                        flit_raw = int(dut.rows[tr].cols[tc].tile_inst.router_inst.inject_flit.value)
-                        if flit_raw & (1 << 33):
-                            if (flit_raw & 0x1FFFFFFF) == target:
-                                seen_mask |= (1 << tile_idx)
-                    except Exception:
-                        pass
-        if seen_mask == REQUIRED_MASK:
-            return True
-    
-    # Report who didn't finish
-    missing = []
-    for i in range(MESH_R * MESH_C):
-        if not (seen_mask & (1 << i)):
-            missing.append(f"({i//MESH_C}, {i%MESH_C})")
-    dut._log.error(f"Timeout waiting for SIG_GEN_STABLE. Missing tiles: {', '.join(missing)}")
+                try:
+                    flit_raw = int(dut.rows[tr].cols[tc].tile_inst.router_inst.inject_flit.value)
+                    if flit_raw & (1 << 33):
+                        if (flit_raw & 0x1FFFFFFF) == target:
+                            return True
+                except Exception:
+                    pass
+        try:
+            mon = int(dut.monitor_22_se.value)
+            if mon & (1 << 33):
+                if (mon & 0x1FFFFFFF) == target:
+                    return True
+        except Exception:
+            pass
     return False
 
 # ---- Pure-Python GoL on 30x30 global grid ----
-# ... (intermediate code remains the same)
+
 GLOBAL_ROWS = MESH_R * SIZE
 GLOBAL_COLS = MESH_C * SIZE
 
@@ -226,13 +218,14 @@ async def test_gol_iter1_iter2(dut):
         dut._log.error(f"Iter 0: {iter0_mismatches} mismatches")
 
     # Iter 1
-    dut._log.info("Waiting for all tiles SIG_GEN_STABLE (Iter 1)...")
-    seen = await wait_for_all_noc_signals(dut, 0x10000004, ITER_TIMEOUT_MS)
+    dut._log.info("Waiting for iter 1 SIG_GEN_STABLE...")
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
-        dut._log.warning("Not all tiles finished Iter 1 — proceeding to check results anyway")
+        dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
+        await Timer(ITER_TIMEOUT_MS, unit="ms")
     else:
         await Timer(10, unit="us")
-        dut._log.info("Iter 1 complete on all tiles.")
+        dut._log.info("Iter 1 stable.")
 
     print("\n\n******** ITERATION 1 ********")
     iter1_mismatches = 0
@@ -244,16 +237,17 @@ async def test_gol_iter1_iter2(dut):
     else:
         dut._log.error(f"Iter 1: {iter1_mismatches} mismatches")
         dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
-        dump_region(get_tile(dut, 0, 0), 0x0670, 48)
+        dump_region(get_tile(dut, 0, 0), 0x0600, 40)
 
     # Iter 2
-    dut._log.info("Waiting for all tiles SIG_GEN_STABLE (Iter 2)...")
-    seen = await wait_for_all_noc_signals(dut, 0x10000004, ITER_TIMEOUT_MS)
+    dut._log.info("Waiting for iter 2 SIG_GEN_STABLE...")
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
-        dut._log.warning("Not all tiles finished Iter 2 — proceeding to check results anyway")
+        dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
+        await Timer(ITER_TIMEOUT_MS, unit="ms")
     else:
         await Timer(10, unit="us")
-        dut._log.info("Iter 2 complete on all tiles.")
+        dut._log.info("Iter 2 stable.")
 
     print("\n\n******** ITERATION 2 ********")
     iter2_mismatches = 0

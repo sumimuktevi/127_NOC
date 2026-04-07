@@ -25,51 +25,47 @@ VM_TRACE_VCD = 0
 ### Object file lists...
 # Generated module classes, fast-path, compile with highest optimization
 VM_CLASSES_FAST += \
-  Vtop \
-  Vtop___024root__0 \
-  Vtop___024root__1 \
-  Vtop___024root__2 \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__0 \
-  Vtop_subservient_core__M800__0 \
-  Vtop_subservient_core__M800__1 \
-  Vtop_subservient_core__M800__2 \
+	Vtop \
+	Vtop___024root__DepSet_h84412442__0 \
+	Vtop___024root__DepSet_h84412442__1 \
+	Vtop___024root__DepSet_heccd7ead__0 \
+	Vtop___024root__DepSet_heccd7ead__1 \
+	Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h2318f0ad__0 \
+	Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0 \
+	Vtop_subservient_core__DepSet_h03262aef__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
-  Vtop__ConstPool__0__Slow \
-  Vtop___024root__Slow \
-  Vtop___024root__0__Slow \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__Slow \
-  Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__0__Slow \
-  Vtop_subservient_core__M800__Slow \
-  Vtop_subservient_core__M800__0__Slow \
+	Vtop___024root__Slow \
+	Vtop___024root__DepSet_h84412442__0__Slow \
+	Vtop___024root__DepSet_heccd7ead__0__Slow \
+	Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__Slow \
+	Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0__Slow \
+	Vtop_subservient_core__Slow \
+	Vtop_subservient_core__DepSet_h03262aef__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
-  Vtop__Dpi \
-  Vtop__Trace__0 \
+	Vtop__Dpi \
+	Vtop__Trace__0 \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
-  Vtop__Syms__ctor__0__Slow \
-  Vtop__Syms__ctor__1__Slow \
-  Vtop__Syms__ctor__2__Slow \
-  Vtop__Syms__ctor__3__Slow \
-  Vtop__Syms__dtor__0__Slow \
-  Vtop__Syms__Slow \
-  Vtop__Trace__0__Slow \
-  Vtop__TraceDecls__0__Slow \
+	Vtop__Syms \
+	Vtop__Trace__0__Slow \
+	Vtop__TraceDecls__0__Slow \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \
-  verilated \
-  verilated_dpi \
-  verilated_vpi \
-  verilated_fst_c \
-  verilated_timing \
-  verilated_threads \
+	verilated \
+	verilated_dpi \
+	verilated_vpi \
+	verilated_fst_c \
+	verilated_timing \
+	verilated_threads \
 
 # Global classes, need linked once per executable, non-fast-path, compile with low/medium optimization
 VM_GLOBAL_SLOW += \
+
 
 # Verilated -*- Makefile -*-
