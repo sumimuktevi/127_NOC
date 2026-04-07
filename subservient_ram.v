@@ -1,76 +1,107 @@
-/*
- * subservient_ram.v : Shared RF I/D SRAM interface for the subservient SoC
- *
- * SPDX-FileCopyrightText: 2021 Olof Kindgren <olof.kindgren@gmail.com>
- * SPDX-License-Identifier: Apache-2.0
- */
+// =============================================================================
+// subservient_ram.v
+//
+// Drop-in replacement for the subservient project's subservient_ram.v.
+// Replace the original file with this one to give subservient 2 KiB of SRAM
+// using two gf180mcu_ocd_ip_sram__sram1024x8m8wm1 macros banked together
+// via the sram2048x8_gf180 wrapper.
+//
+// This module implements the interface that subservient_core drives:
+//
+//   i_clk       – system clock
+//   i_rst       – synchronous reset (held high keeps SRAMs idle via CEN)
+//   i_addr      – byte address from subservient_core  [aw-1:0]
+//   i_wdata     – write data                          [7:0]
+//   i_we        – write enable, active-high
+//   i_ce        – chip enable, active-high (from subservient rf_ram_if)
+//   o_rdata     – read data to subservient_core       [7:0]
+//
+// Signal mapping to the GF180 macro convention:
+//
+//   subservient signal   GF180 macro signal   Notes
+//   ─────────────────────────────────────────────────────────────────────
+//   i_clk                CLK
+//   !i_ce | i_rst        CEN     active-low; deassert only when enabled
+//   !i_we                GWEN    0=write, 1=read; invert subservient i_we
+//   8'h00 (write) /      WEN     all-zeros means write all bits;
+//   8'hFF (read)                 all-ones  means don't write any bit
+//   i_addr               A
+//   i_wdata              D
+//   Q                    o_rdata
+//
+// Parameter:
+//   aw  – address width.  Set to 11 for 2 KiB (default).
+//         To shrink back to 1 KiB set aw=10 and swap the 2K wrapper for
+//         a direct instantiation of gf180mcu_ocd_ip_sram__sram1024x8m8wm1.
+// =============================================================================
 
-`default_nettype none
+`timescale 1 ps / 1 ps
+
 module subservient_ram
-  #(//Memory parameters
-    parameter depth = 256,
-    parameter aw    = $clog2(depth))
-   (input wire 		 i_clk,
-    input wire 		 i_rst,
-    input wire [aw-1:0]  i_waddr,
-    input wire [7:0] 	 i_wdata,
-    input wire 		 i_wen,
-    input wire [aw-1:0]  i_raddr,
-    output wire [7:0] 	 o_rdata,
-    input wire 		 i_ren,
+  #(parameter aw = 11)   // 11-bit address = 2048 byte locations
+(
+`ifdef USE_POWER_PINS
+    VDD,
+    VSS,
+`endif
+    i_clk,
+    i_rst,
+    i_addr,
+    i_wdata,
+    i_we,
+    i_ce,
+    o_rdata
+);
 
-    output wire [aw-1:0] o_sram_waddr,
-    output wire [7:0] 	 o_sram_wdata,
-    output wire 	 o_sram_wen,
-    output wire [aw-1:0] o_sram_raddr,
-    input wire [7:0] 	 i_sram_rdata,
-    output wire 	 o_sram_ren,
+// ---------------------------------------------------------------------------
+// Ports
+// ---------------------------------------------------------------------------
+`ifdef USE_POWER_PINS
+    inout           VDD;
+    inout           VSS;
+`endif
 
-    input wire [aw-1:2]  i_wb_adr,
-    input wire [31:0] 	 i_wb_dat,
-    input wire [3:0] 	 i_wb_sel,
-    input wire 		 i_wb_we,
-    input wire 		 i_wb_stb,
-    output wire [31:0] 	 o_wb_rdt,
-    output reg 		 o_wb_ack);
+input               i_clk;
+input               i_rst;
+input  [aw-1:0]     i_addr;
+input  [7:0]        i_wdata;
+input               i_we;    // 1 = write, 0 = read
+input               i_ce;    // 1 = chip active
+output [7:0]        o_rdata;
 
-   reg [aw-1:0]		 rf_waddr_r;
-   reg [7:0]		 rf_wdata_r;
-   reg			 rf_wen_r;
+// ---------------------------------------------------------------------------
+// GF180 macro control signal derivation
+// ---------------------------------------------------------------------------
 
-   reg [1:0] 		bsel;
+// CEN (active-low):  assert (go low) only when enabled and not in reset.
+wire sram_cen  = ~i_ce | i_rst;
 
-   wire 		wb_en = i_wb_stb & !rf_wen_r & !o_wb_ack;
+// GWEN: GF180 convention is 0=write, 1=read.  Subservient i_we is 1=write.
+wire sram_gwen = ~i_we;
 
-   wire 		wb_we = i_wb_we & i_wb_sel[bsel];
+// WEN[7:0]: per-bit write mask.  Writing: 8'h00 (all bits enabled).
+//           Reading: 8'hFF (all bits masked – no write side-effects).
+wire [7:0] sram_wen = i_we ? 8'h00 : 8'hFF;
 
-   assign o_sram_waddr = wb_en ? {i_wb_adr[aw-1:2],bsel} : rf_waddr_r;
-   assign o_sram_wdata = wb_en ? i_wb_dat[bsel*8+:8]     : rf_wdata_r;
-   assign o_sram_wen   = wb_en ? wb_we : rf_wen_r;
-   assign o_sram_raddr = wb_en ? {i_wb_adr[aw-1:2],bsel} : i_raddr;
-   assign o_sram_ren   = wb_en ? !i_wb_we : i_ren;
-
-   reg [23:0] 		wb_rdt;
-   assign o_wb_rdt = {i_sram_rdata, wb_rdt};
-
-   reg 			regzero;
-   always @(posedge i_clk) begin
-      rf_waddr_r <= i_waddr;
-      rf_wdata_r <= i_wdata;
-      rf_wen_r   <= i_wen;
-
-      if (wb_en) bsel <= bsel + 2'd1;
-      o_wb_ack <= wb_en & &bsel;
-      if (bsel == 2'b01) wb_rdt[7:0]   <= i_sram_rdata;
-      if (bsel == 2'b10) wb_rdt[15:8]  <= i_sram_rdata;
-      if (bsel == 2'b11) wb_rdt[23:16] <= i_sram_rdata;
-      if (i_rst) begin
-	 bsel <= 2'd0;
-	 o_wb_ack <= 1'b0;
-      end
-      regzero <= &i_raddr[aw-1:2];
-   end
-
-   assign o_rdata = regzero ? 8'd0 : i_sram_rdata;
+// ---------------------------------------------------------------------------
+// 2 KiB SRAM (two 1 KiB macros banked)
+// ---------------------------------------------------------------------------
+sram2048x8_gf180
+`ifdef USE_POWER_PINS
+  #()
+`endif
+u_sram2k (
+`ifdef USE_POWER_PINS
+    .VDD  (VDD),
+    .VSS  (VSS),
+`endif
+    .CLK  (i_clk),
+    .CEN  (sram_cen),
+    .GWEN (sram_gwen),
+    .WEN  (sram_wen),
+    .A    (i_addr),
+    .D    (i_wdata),
+    .Q    (o_rdata)
+);
 
 endmodule

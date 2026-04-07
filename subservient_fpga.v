@@ -7,7 +7,7 @@ module subservient_fpga
 
    //parameter memfile = "hello.hex";  gf180 SRAM doesn't support loading hex files at startup 
 
-   parameter memsize = 1024;   // size of the SRAM beign used
+   parameter memsize = 2048;   // size of the SRAM beign used
 
    localparam aw    = $clog2(memsize);
 
@@ -27,7 +27,7 @@ module subservient_fpga
       .o_clk (clk),
       .o_rst (rst));
 
-   subservient_gf180_ram_1024x8
+   subservient_ram
     #(.depth (memsize))
    memory
     (.i_clk   (clk),
