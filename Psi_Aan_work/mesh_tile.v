@@ -134,6 +134,50 @@ module mesh_tile #(
         end
     end
 
+    // ── TILE(0,0) ghost buffer write monitor ─────────────────────────────────
+    // ghost_N  @ 0x0600..0x0609  — bottom row of north neighbour  (none for (0,0), should stay 0)
+    // ghost_S  @ 0x060A..0x0613  — top    row of south neighbour  tile(1,0)
+    // ghost_W  @ 0x0614..0x061D  — right  col of west  neighbour  (none for (0,0), should stay 0)
+    // ghost_E  @ 0x061E..0x0627  — left   col of east  neighbour  tile(0,1)
+    // Watching these writes confirms recv_ghost() decoded the bitmap correctly
+    // and stored it into the right buffer slot.
+    always @(posedge clk) begin
+        if (!boot_mode && TILE_ID == 0 && sram_wen) begin
+            if (final_a >= 11'h600 && final_a <= 11'h609)
+                $display("[GHOST_BUF t=%0t] TILE(0,0) ghost_N[%0d] <= %0d  (addr=0x%03x)",
+                         $time, {21'b0, final_a} - 32'h600, final_d, final_a);
+            if (final_a >= 11'h60A && final_a <= 11'h613)
+                $display("[GHOST_BUF t=%0t] TILE(0,0) ghost_S[%0d] <= %0d  (addr=0x%03x)",
+                         $time, {21'b0, final_a} - 32'h60A, final_d, final_a);
+            if (final_a >= 11'h614 && final_a <= 11'h61D)
+                $display("[GHOST_BUF t=%0t] TILE(0,0) ghost_W[%0d] <= %0d  (addr=0x%03x)",
+                         $time, {21'b0, final_a} - 32'h614, final_d, final_a);
+            if (final_a >= 11'h61E && final_a <= 11'h627)
+                $display("[GHOST_BUF t=%0t] TILE(0,0) ghost_E[%0d] <= %0d  (addr=0x%03x)",
+                         $time, {21'b0, final_a} - 32'h61E, final_d, final_a);
+        end
+    end
+
+    // ── TILE(0,0) next_grid boundary cell write monitor ───────────────────────
+    // next_grid @ 0x0640..0x06A3  (10x10 = 100 bytes, row-major)
+    // Only prints border cells (row 0, row 9, col 0, col 9) because those are
+    // the cells whose neighbour_count() uses ghost buffer values — interior
+    // cells only touch grid[] which is always local and unambiguous.
+    always @(posedge clk) begin
+        if (!boot_mode && TILE_ID == 0 && sram_wen &&
+            final_a >= 11'h640 && final_a <= 11'h6A3) begin
+            begin : ng_block
+                integer ng_off, ng_row, ng_col;
+                ng_off = {21'b0, final_a} - 32'h640;
+                ng_row = ng_off / 10;
+                ng_col = ng_off % 10;
+                if (ng_row == 0 || ng_row == 9 || ng_col == 0 || ng_col == 9)
+                    $display("[NEXT_GRID t=%0t] TILE(0,0) next_grid[%0d][%0d] <= %0d  (addr=0x%03x)",
+                             $time, ng_row, ng_col, final_d, final_a);
+            end
+        end
+    end
+
     // -----------------------------------------------------------------------
     // Mesh router
     // -----------------------------------------------------------------------

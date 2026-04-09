@@ -11,7 +11,7 @@
 
 class Vtop__Syms;
 
-class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public VerilatedModule {
+class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -121,7 +121,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__mux__DOT__halt_en;
         CData/*0:0*/ servile__DOT__mux__DOT__sim_ack;
         CData/*0:0*/ servile__DOT__mux__DOT__ext;
-        CData/*0:0*/ servile__DOT__mux__DOT____VdfgRegularize_h4f837215_0_0;
+        CData/*0:0*/ servile__DOT__mux__DOT____VdfgRegularize_h6c257bca_0_0;
         CData/*3:0*/ servile__DOT__arbiter__DOT__i_wb_cpu_dbus_sel;
         CData/*0:0*/ servile__DOT__arbiter__DOT__i_wb_cpu_dbus_we;
         CData/*0:0*/ servile__DOT__arbiter__DOT__i_wb_cpu_dbus_stb;
@@ -288,7 +288,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*1:0*/ servile__DOT__cpu__DOT__lsb;
         CData/*0:0*/ servile__DOT__cpu__DOT__wb_ibus_cyc;
         CData/*0:0*/ servile__DOT__cpu__DOT__wb_ibus_ack;
-        CData/*0:0*/ servile__DOT__cpu__DOT____Vcellinp__ctrl__i_trap;
         CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT__i_clk;
         CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT__i_rst;
         CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT__i_new_irq;
@@ -345,9 +344,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT__trap_pending;
         CData/*3:0*/ servile__DOT__cpu__DOT__state__DOT__gen_cnt_w_eq_1__DOT__cnt_lsb;
         CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT__gen_csr__DOT__misalign_trap_sync_r;
+        CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT____VdfgRegularize_h2f4d1f67_0_2;
     };
     struct {
-        CData/*0:0*/ servile__DOT__cpu__DOT__state__DOT____VdfgRegularize_h92c49826_1_3;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__clk;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__i_wb_en;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__o_sh_right;
@@ -411,9 +410,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_mem_word;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_rd_alu_en;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_rd_mem_en;
+        CData/*2:0*/ servile__DOT__cpu__DOT__decode__DOT__co_ext_funct3;
     };
     struct {
-        CData/*2:0*/ servile__DOT__cpu__DOT__decode__DOT__co_ext_funct3;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_bufreg_rs1_en;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_bufreg_imm_en;
         CData/*0:0*/ servile__DOT__cpu__DOT__decode__DOT__co_bufreg_clr_lsb;
@@ -477,9 +476,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_mdu_op;
         CData/*1:0*/ servile__DOT__cpu__DOT__bufreg__DOT__o_lsb;
         CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_rs1_en;
+        CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en;
     };
     struct {
-        CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_imm_en;
         CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_clr_lsb;
         CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_shift_op;
         CData/*0:0*/ servile__DOT__cpu__DOT__bufreg__DOT__i_right_shift_op;
@@ -543,9 +542,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__pc_plus_offset_aligned;
         CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__plus_4;
         CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__pc;
+        CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__new_pc;
     };
     struct {
-        CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__new_pc;
         CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__offset_a;
         CData/*0:0*/ servile__DOT__cpu__DOT__ctrl__DOT__offset_b;
         CData/*0:0*/ servile__DOT__cpu__DOT__alu__DOT__clk;
@@ -609,9 +608,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__o_rs2;
         CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__rd_wen;
         CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__gen_csr__DOT__rd;
+        CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__gen_csr__DOT__mtval;
     };
     struct {
-        CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__gen_csr__DOT__mtval;
         CData/*0:0*/ servile__DOT__cpu__DOT__rf_if__DOT__gen_csr__DOT__sel_rs2;
         CData/*0:0*/ servile__DOT__cpu__DOT__mem_if__DOT__i_clk;
         CData/*1:0*/ servile__DOT__cpu__DOT__mem_if__DOT__i_bytecnt;
@@ -666,17 +665,36 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__d;
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__mstatus;
         CData/*0:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__timer_irq;
-        VL_OUT16(o_sram_waddr,9,0);
-        VL_OUT16(o_sram_raddr,9,0);
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_0;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_1;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_2;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_3;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_4;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_5;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_6;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_7;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_8;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_9;
+    };
+    struct {
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_10;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_11;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_12;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_13;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_14;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_15;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_16;
+        CData/*0:0*/ __VdfgRegularize_hebeb780c_0_17;
+        VL_OUT16(o_sram_waddr,10,0);
+        VL_OUT16(o_sram_raddr,10,0);
         SData/*10:0*/ rf_mem_if__DOT__o_sram_waddr;
         SData/*10:0*/ rf_mem_if__DOT__o_sram_raddr;
         SData/*8:0*/ rf_mem_if__DOT__i_wb_adr;
         SData/*10:0*/ rf_mem_if__DOT__rf_waddr;
         SData/*10:0*/ rf_mem_if__DOT__rf_raddr;
+        SData/*10:0*/ rf_mem_if__DOT____VdfgRegularize_h104632ec_0_0;
         SData/*8:0*/ servile__DOT__rf_ram_if__DOT__wdata1_r;
         SData/*8:0*/ servile__DOT__cpu__DOT__immdec__DOT__gen_immdec_w_eq_1__DOT__imm19_12_20;
-    };
-    struct {
         VL_OUT(o_wb_adr,31,0);
         VL_OUT(o_wb_dat,31,0);
         VL_IN(i_wb_rdt,31,0);
@@ -723,6 +741,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         IData/*31:0*/ servile__DOT__cpu__DOT__o_ibus_adr;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_ibus_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__o_dbus_adr;
+    };
+    struct {
         IData/*31:0*/ servile__DOT__cpu__DOT__o_dbus_dat;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_dbus_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__i_ext_rd;
@@ -732,8 +752,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         IData/*31:0*/ servile__DOT__cpu__DOT__i_wb_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__wb_ibus_adr;
         IData/*31:0*/ servile__DOT__cpu__DOT__wb_ibus_rdt;
-        IData/*29:0*/ servile__DOT__cpu__DOT____Vcellinp__decode__i_wb_rdt;
-        IData/*24:0*/ servile__DOT__cpu__DOT____Vcellinp__immdec__i_wb_rdt;
         IData/*29:0*/ servile__DOT__cpu__DOT__decode__DOT__i_wb_rdt;
         IData/*24:0*/ servile__DOT__cpu__DOT__immdec__DOT__i_wb_rdt;
         IData/*31:0*/ servile__DOT__cpu__DOT__bufreg__DOT__o_dbus_adr;
@@ -741,14 +759,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
         IData/*31:0*/ servile__DOT__cpu__DOT__bufreg__DOT__data;
         IData/*31:0*/ servile__DOT__cpu__DOT__bufreg2__DOT__o_dat;
         IData/*31:0*/ servile__DOT__cpu__DOT__bufreg2__DOT__i_dat;
-    };
-    struct {
         IData/*23:0*/ servile__DOT__cpu__DOT__bufreg2__DOT__dlo;
         IData/*31:0*/ servile__DOT__cpu__DOT__ctrl__DOT__o_ibus_adr;
     };
 
     // INTERNAL VARIABLES
-    Vtop__Syms* const vlSymsp;
+    Vtop__Syms* vlSymsp;
+    const char* vlNamep;
 
     // PARAMETERS
     static constexpr CData/*0:0*/ servile__DOT__sim = 0U;
@@ -776,7 +793,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
     static constexpr IData/*31:0*/ memsize = 0x00000800U;
     static constexpr IData/*31:0*/ RESET_STRATEGY = 0x4d494e49U;
     static constexpr IData/*31:0*/ WITH_CSR = 1U;
-    static constexpr IData/*31:0*/ aw = 0x0000000aU;
+    static constexpr IData/*31:0*/ aw = 0x0000000bU;
     static constexpr IData/*31:0*/ regs = 0x00000024U;
     static constexpr IData/*31:0*/ rf_width = 8U;
     static constexpr IData/*31:0*/ rf_mem_if__DOT__depth = 0x00000800U;
@@ -833,8 +850,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_subservient_core__M800 final : public Ve
     static constexpr IData/*31:0*/ servile__DOT__cpu__DOT__gen_csr__DOT__csr__DOT__B = 0U;
 
     // CONSTRUCTORS
-    Vtop_subservient_core__M800(Vtop__Syms* symsp, const char* v__name);
-    ~Vtop_subservient_core__M800();
+    Vtop_subservient_core__M800() = default;
+    ~Vtop_subservient_core__M800() = default;
+    void ctor(Vtop__Syms* symsp, const char* namep);
+    void dtor();
     VL_UNCOPYABLE(Vtop_subservient_core__M800);
 
     // INTERNAL METHODS

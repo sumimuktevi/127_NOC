@@ -3,8 +3,6 @@
 // See Vtop.h for the primary calling header
 
 #include "Vtop__pch.h"
-#include "Vtop__Syms.h"
-#include "Vtop_subservient_core__M800.h"
 
 // Parameter definitions for Vtop_subservient_core__M800
 constexpr CData/*0:0*/ Vtop_subservient_core__M800::servile__DOT__sim;
@@ -91,10 +89,9 @@ constexpr IData/*31:0*/ Vtop_subservient_core__M800::servile__DOT__cpu__DOT__gen
 
 void Vtop_subservient_core__M800___ctor_var_reset(Vtop_subservient_core__M800* vlSelf);
 
-Vtop_subservient_core__M800::Vtop_subservient_core__M800(Vtop__Syms* symsp, const char* v__name)
-    : VerilatedModule{v__name}
-    , vlSymsp{symsp}
- {
+void Vtop_subservient_core__M800::ctor(Vtop__Syms* symsp, const char* namep) {
+    vlSymsp = symsp;
+    vlNamep = strdup(Verilated::catName(vlSymsp->name(), namep));
     // Reset structure values
     Vtop_subservient_core__M800___ctor_var_reset(this);
 }
@@ -103,5 +100,6 @@ void Vtop_subservient_core__M800::__Vconfigure(bool first) {
     (void)first;  // Prevent unused variable warning
 }
 
-Vtop_subservient_core__M800::~Vtop_subservient_core__M800() {
+void Vtop_subservient_core__M800::dtor() {
+    VL_DO_DANGLING(std::free(const_cast<char*>(vlNamep)), vlNamep);
 }

@@ -3,8 +3,6 @@
 // See Vtop.h for the primary calling header
 
 #include "Vtop__pch.h"
-#include "Vtop__Syms.h"
-#include "Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1.h"
 
 // Parameter definitions for Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
 constexpr IData/*31:0*/ Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::Tdly;
@@ -26,10 +24,9 @@ constexpr IData/*31:0*/ Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::ta;
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ctor_var_reset(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1* vlSelf);
 
-Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1(Vtop__Syms* symsp, const char* v__name)
-    : VerilatedModule{v__name}
-    , vlSymsp{symsp}
- {
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::ctor(Vtop__Syms* symsp, const char* namep) {
+    vlSymsp = symsp;
+    vlNamep = strdup(Verilated::catName(vlSymsp->name(), namep));
     // Reset structure values
     Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1___ctor_var_reset(this);
 }
@@ -38,5 +35,6 @@ void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::__Vconfigure(bool first) {
     (void)first;  // Prevent unused variable warning
 }
 
-Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::~Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1() {
+void Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1::dtor() {
+    VL_DO_DANGLING(std::free(const_cast<char*>(vlNamep)), vlNamep);
 }
