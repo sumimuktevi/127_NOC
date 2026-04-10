@@ -28,6 +28,20 @@ DESIGN_NAME: chip_top
 VERILOG_FILES:
 - dir::../src/chip_top.sv
 - dir::../src/chip_core.sv
+- dir::../src/gf180mcu_fd_ip_sram__sram1024x8m8wm1.v
+- dir::../src/boot_loader.v
+- dir::../src/mesh_router.v
+- dir::../src/mesh_tile.v
+- dir::../src/mesh_3x3.v
+- dir::../src/subservient_core.v
+- glob::../src/serv/**/*.v
+- glob::../src/subservient/**/*.v
+# VERILOG_FILES:
+# - dir::../src/chip_top.sv
+# - dir::../src/chip_core.sv
+
+
+
 
 # Enable plugin for better SystemVerilog support
 # USE_SLANG: True
