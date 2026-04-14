@@ -1,0 +1,1171 @@
+librelane librelane/slots/slot_1x1.yaml librelane/config.yaml --save-views-to /Users/andreaarreortua/gf180mcu-project-template/final --pdk gf180mcuD --pdk-root /Users/andreaarreortua/gf180mcu-project-template/gf180mcu --manual-pdk
+[15:32:16] INFO     Starting a new run of the 'Chip' flow with the tag 'RUN_2026-04-14_15-32-16'.                  flow.py:654
+[15:32:16] INFO     Starting…                                                                                sequential.py:339
+─────────────────────────────────────────────────────── Verilator Lint ───────────────────────────────────────────────────────
+[15:32:16] VERBOSE  Running 'Verilator.Lint' at 'librelane/runs/RUN_2026-04-14_15-32-16/01-verilator-lint'…       step.py:1138
+[15:32:16] VERBOSE  Logging subprocess to                                                                         step.py:1338
+                    'librelane/runs/RUN_2026-04-14_15-32-16/01-verilator-lint/verilator-lint.log'…                            
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:256:10: Instance pin connected by 
+name with empty reference: 'tile_rd_data_0'                                                                                   
+  256 |         .tile_rd_data_0(), .tile_rd_data_1(), .tile_rd_data_2(),                                                      
+      |          ^~~~~~~~~~~~~~                                                                                               
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.044                  
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this        
+message.                                                                                                                      
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:256:29: Instance pin connected by 
+name with empty reference: 'tile_rd_data_1'                                                                                   
+  256 |         .tile_rd_data_0(), .tile_rd_data_1(), .tile_rd_data_2(),                                                      
+      |                             ^~~~~~~~~~~~~~                                                                            
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:256:48: Instance pin connected by 
+name with empty reference: 'tile_rd_data_2'                                                                                   
+  256 |         .tile_rd_data_0(), .tile_rd_data_1(), .tile_rd_data_2(),                                                      
+      |                                                ^~~~~~~~~~~~~~                                                         
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:257:10: Instance pin connected by 
+name with empty reference: 'tile_rd_data_3'                                                                                   
+  257 |         .tile_rd_data_3(), .tile_rd_data_4(), .tile_rd_data_5(),                                                      
+      |          ^~~~~~~~~~~~~~                                                                                               
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:257:29: Instance pin connected by 
+name with empty reference: 'tile_rd_data_4'                                                                                   
+  257 |         .tile_rd_data_3(), .tile_rd_data_4(), .tile_rd_data_5(),                                                      
+      |                             ^~~~~~~~~~~~~~                                                                            
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:257:48: Instance pin connected by 
+name with empty reference: 'tile_rd_data_5'                                                                                   
+  257 |         .tile_rd_data_3(), .tile_rd_data_4(), .tile_rd_data_5(),                                                      
+      |                                                ^~~~~~~~~~~~~~                                                         
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:258:10: Instance pin connected by 
+name with empty reference: 'tile_rd_data_6'                                                                                   
+  258 |         .tile_rd_data_6(), .tile_rd_data_7(), .tile_rd_data_8()                                                       
+      |          ^~~~~~~~~~~~~~                                                                                               
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:258:29: Instance pin connected by 
+name with empty reference: 'tile_rd_data_7'                                                                                   
+  258 |         .tile_rd_data_6(), .tile_rd_data_7(), .tile_rd_data_8()                                                       
+      |                             ^~~~~~~~~~~~~~                                                                            
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:258:48: Instance pin connected by 
+name with empty reference: 'tile_rd_data_8'                                                                                   
+  258 |         .tile_rd_data_6(), .tile_rd_data_7(), .tile_rd_data_8()                                                       
+      |                                                ^~~~~~~~~~~~~~                                                         
+%Warning-PINMISSING: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:232:14: Instance has missing pin: 'VDD'
+  232 |     mesh_3x3 noc_mesh (                                                                                               
+      |              ^~~~~~~~                                                                                                 
+                     /Users/andreaarreortua/gf180mcu-project-template/src/mesh_3x3.v:72:16: ... Location of port declaration  
+   72 |     inout wire VDD,                                                                                                   
+      |                ^~~                                                                                                    
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.044                            
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.         
+%Warning-PINMISSING: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:232:14: Instance has missing pin: 'VSS'
+  232 |     mesh_3x3 noc_mesh (                                                                                               
+      |              ^~~~~~~~                                                                                                 
+                     /Users/andreaarreortua/gf180mcu-project-template/src/mesh_3x3.v:73:16: ... Location of port declaration  
+   73 |     inout wire VSS,                                                                                                   
+      |                ^~~                                                                                                    
+%Warning-PINMISSING: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v:68:4: Instance has    
+missing pin: 'o_ren'                                                                                                          
+   68 |    rf_ram_if                                                                                                          
+      |    ^~~~~~~~~                                                                                                          
+                     /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram_if.v:49:20: ... Location of    
+port declaration                                                                                                              
+   49 |    output wire     o_ren,                                                                                             
+      |                    ^~~~~                                                                                              
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v:129:8: Instance  
+pin connected by name with empty reference: 'o_ext_funct3'                                                                    
+  129 |       .o_ext_funct3 (),                                                                                               
+      |        ^~~~~~~~~~~~                                                                                                   
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v:132:8: Instance  
+pin connected by name with empty reference: 'o_ext_rs1'                                                                       
+  132 |       .o_ext_rs1    (),                                                                                               
+      |        ^~~~~~~~~                                                                                                      
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v:133:8: Instance  
+pin connected by name with empty reference: 'o_ext_rs2'                                                                       
+  133 |       .o_ext_rs2    (),                                                                                               
+      |        ^~~~~~~~~                                                                                                      
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v:135:8: Instance  
+pin connected by name with empty reference: 'o_mdu_valid'                                                                     
+  135 |       .o_mdu_valid  ());                                                                                              
+      |        ^~~~~~~~~~~                                                                                                    
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_fpga.v:64:8:       
+Instance pin connected by name with empty reference: 'o_wb_dbg_rdt'                                                           
+   64 |       .o_wb_dbg_rdt (),                                                                                               
+      |        ^~~~~~~~~~~~                                                                                                   
+%Warning-PINCONNECTEMPTY: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_fpga.v:65:8:       
+Instance pin connected by name with empty reference: 'o_wb_dbg_ack'                                                           
+   65 |       .o_wb_dbg_ack (),                                                                                               
+      |        ^~~~~~~~~~~~                                                                                                   
+%Warning-PINCONNECTEMPTY:                                                                                                     
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v:21:8: Instance pin      
+connected by name with empty reference: 'CLKOUT1'                                                                             
+   21 |       .CLKOUT1(),                                                                                                     
+      |        ^~~~~~~                                                                                                        
+%Warning-PINCONNECTEMPTY:                                                                                                     
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v:22:8: Instance pin      
+connected by name with empty reference: 'CLKOUT2'                                                                             
+   22 |       .CLKOUT2(),                                                                                                     
+      |        ^~~~~~~                                                                                                        
+%Warning-PINCONNECTEMPTY:                                                                                                     
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v:23:8: Instance pin      
+connected by name with empty reference: 'CLKOUT3'                                                                             
+   23 |       .CLKOUT3(),                                                                                                     
+      |        ^~~~~~~                                                                                                        
+%Warning-PINCONNECTEMPTY:                                                                                                     
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v:24:8: Instance pin      
+connected by name with empty reference: 'CLKOUT4'                                                                             
+   24 |       .CLKOUT4(),                                                                                                     
+      |        ^~~~~~~                                                                                                        
+%Warning-PINCONNECTEMPTY:                                                                                                     
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v:25:8: Instance pin      
+connected by name with empty reference: 'CLKOUT5'                                                                             
+   25 |       .CLKOUT5(),                                                                                                     
+      |        ^~~~~~~                                                                                                        
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:58:29:      
+Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   58 |    generate if (width == 2) begin                                                                                     
+      |                             ^~~~~                                                                                     
+                     ... For warning description see https://verilator.org/warn/GENUNNAMED?v=5.044                            
+                     ... Use "/* verilator lint_off GENUNNAMED */" and lint_on around source to disable this message.         
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:61:13:      
+Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   61 |    end else begin                                                                                                     
+      |             ^~~~~                                                                                                     
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:75:21:      
+Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   75 |      assign o_waddr = wreg;                                                                                           
+      |                     ^                                                                                                 
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:77:21:      
+Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   77 |      assign o_waddr = {wreg, wcnt[4:l2w]};                                                                            
+      |                     ^                                                                                                 
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:83:6:       
+Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                      : ...   
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   83 |      always @(posedge i_clk) wdata0_r  <= {i_wdata0, wdata0_r[width-2:1]};                                            
+      |      ^~~~~~                                                                                                           
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:85:6:       
+Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                      : ...   
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+   85 |      always @(posedge i_clk) wdata0_r  <= i_wdata0;                                                                   
+      |      ^~~~~~                                                                                                           
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:107:21:     
+Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                        : ... 
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+  107 |      assign o_raddr = rreg;                                                                                           
+      |                     ^                                                                                                 
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:109:21:     
+Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                        : ... 
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+  109 |      assign o_raddr = {rreg, rcnt[4:l2w]};                                                                            
+      |                     ^                                                                                                 
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:127:6:      
+Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+  127 |      always @(posedge i_clk) begin                                                                                    
+      |      ^~~~~~                                                                                                           
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v:133:6:      
+Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)                                                                        
+                                                                                                                       : ...  
+Suggest assign a label with 'begin : gen_<label_name>'                                                                        
+  133 |      always @(posedge i_clk) if (rtrig1) rdata1 <= i_rdata[1];                                                        
+      |      ^~~~~~                                                                                                           
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v:194:16: Unnamed generate     
+block 'genblk1' (IEEE 1800-2023 27.6)                                                                                         
+                                                                                                       : ... Suggest assign a 
+label with 'begin : gen_<label_name>'                                                                                         
+  194 |       end else begin                                                                                                  
+      |                ^~~~~                                                                                                  
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v:62:16: Unnamed generate  
+block 'genblk1' (IEEE 1800-2023 27.6)                                                                                         
+                                                                                                          : ... Suggest assign
+a label with 'begin : gen_<label_name>'                                                                                       
+   62 |       if (sim) begin                                                                                                  
+      |                ^~~~~                                                                                                  
+%Warning-GENUNNAMED: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v:93:16: Unnamed generate  
+block 'genblk1' (IEEE 1800-2023 27.6)                                                                                         
+                                                                                                          : ... Suggest assign
+a label with 'begin : gen_<label_name>'                                                                                       
+   93 |       end else begin                                                                                                  
+      |                ^~~~~                                                                                                  
+%Warning-WIDTHEXPAND: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:265:22: Operator ASSIGNW expects 40   
+bits on the Assign RHS, but Assign RHS's REPLICATE generates 8 bits.                                                          
+                                                                                              : ... note: In instance         
+'chip_top.i_chip_core'                                                                                                        
+  265 |     assign bidir_out = {                                                                                              
+      |                      ^                                                                                                
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.044                          
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.       
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:155:40: Bits of signal are not used: 
+'input_in'[11:1]                                                                                                              
+                                                                                               : ... note: In instance        
+'chip_top.i_chip_core'                                                                                                        
+  155 |     input  wire [NUM_INPUT_PADS-1:0]   input_in,                                                                      
+      |                                        ^~~~~~~~                                                                       
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.044                        
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.     
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:160:40: Signal is not used:          
+'bidir_in'                                                                                                                    
+                                                                                               : ... note: In instance        
+'chip_top.i_chip_core'                                                                                                        
+  160 |     input  wire [NUM_BIDIR_PADS-1:0]   bidir_in,                                                                      
+      |                                        ^~~~~~~~                                                                       
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv:230:17: Bits of signal are not used: 
+'noc_monitor_se'[29:0]                                                                                                        
+                                                                                               : ... note: In instance        
+'chip_top.i_chip_core'                                                                                                        
+  230 |     wire [33:0] noc_monitor_se;                                                                                       
+      |                 ^~~~~~~~~~~~~~                                                                                        
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v:127:24: Signal is not used: 'rd_addr' 
+                                                                                              : ... note: In instance         
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst'                                                                     
+  127 |     input  wire [9:0]  rd_addr,                                                                                       
+      |                        ^~~~~~~                                                                                        
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v:128:24: Signal is not used: 'rd_req'  
+                                                                                              : ... note: In instance         
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst'                                                                     
+  128 |     input  wire        rd_req,                                                                                        
+      |                        ^~~~~~                                                                                         
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v:133:17: Signal is not used: 'wb_sel'  
+                                                                                              : ... note: In instance         
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst'                                                                     
+  133 |     wire [3:0]  wb_sel;                                                                                               
+      |                 ^~~~~~                                                                                                
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v:138:26: Signal is not used: 'sram_ren'
+                                                                                              : ... note: In instance         
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst'                                                                     
+  138 |     wire       sram_wen, sram_ren;                                                                                    
+      |                          ^~~~~~~~                                                                                     
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:116:17: Bits of signal are not used:
+'eject_reg'[33:29]                                                                                                            
+                                                                                                : ... note: In instance       
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.router_inst'                                                         
+  116 |     reg  [33:0] eject_reg;                                                                                            
+      |                 ^~~~~~~~~                                                                                             
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/subservient_core.v:41:17: Bits of signal are not  
+used: 'wb_mem_adr'[31:10,1:0]                                                                                                 
+                                                                                                    : ... note: In instance   
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst'                                                           
+   41 |    wire [31:0]  wb_mem_adr;                                                                                           
+      |                 ^~~~~~~~~~                                                                                            
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v:92:20: Signal is not used: 
+'mdu_rs1'                                                                                                                     
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile'                                          
+   92 |    wire [31:0]     mdu_rs1;                                                                                           
+      |                    ^~~~~~~                                                                                            
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v:93:20: Signal is not used: 
+'mdu_rs2'                                                                                                                     
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile'                                          
+   93 |    wire [31:0]     mdu_rs2;                                                                                           
+      |                    ^~~~~~~                                                                                            
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v:94:20: Signal is not used: 
+'mdu_op'                                                                                                                      
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile'                                          
+   94 |    wire [ 2:0]     mdu_op;                                                                                            
+      |                    ^~~~~~                                                                                             
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v:95:14: Signal is not used: 
+'mdu_valid'                                                                                                                   
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile'                                          
+   95 |    wire      mdu_valid;                                                                                               
+      |              ^~~~~~~~~                                                                                                
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram_if.v:65:24: Bits of signal   
+are not used: 'wcnt'[2:1]                                                                                                     
+                                                                                                           : ... note: In     
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.rf_ram_if'                                
+   65 |    wire [CMSB:0]       wcnt;                                                                                          
+      |                        ^~~~                                                                                           
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v:13:23: Signal is not   
+used: 'i_clk'                                                                                                                 
+                                                                                                            : ... note: In    
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.mux'                                      
+   13 |     input wire        i_clk,                                                                                          
+      |                       ^~~~~                                                                                           
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v:14:23: Signal is not   
+used: 'i_rst'                                                                                                                 
+                                                                                                            : ... note: In    
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.mux'                                      
+   14 |     input wire        i_rst,                                                                                          
+      |                       ^~~~~                                                                                           
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_top.v:76:23: Signal is not used:    
+'i_ext_rd'                                                                                                                    
+                                                                                                     : ... note: In instance  
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu'                                               
+   76 |    input wire  [31:0] i_ext_rd,                                                                                       
+      |                       ^~~~~~~~                                                                                        
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_top.v:185:16: Bits of signal are not
+used: 'i_wb_rdt'[1:0]                                                                                                         
+                                                                                                      : ... note: In instance 
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu'                                               
+  185 |    wire [31:0] i_wb_rdt;                                                                                              
+      |                ^~~~~~~~                                                                                               
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_decode.v:14:22: Bits of signal are  
+not used: 'i_wb_rdt'[31,29:27,24:23,19:15,11:7]                                                                               
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu.decode'                               
+   14 |    input wire [31:2] i_wb_rdt,                                                                                        
+      |                      ^~~~~~~~                                                                                         
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v:16:22: Signal is not used: 
+'i_cnt_done'                                                                                                                  
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu.bufreg'                               
+   16 |    input wire        i_cnt_done,                                                                                      
+      |                      ^~~~~~~~~~                                                                                       
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v:25:22: Signal is not used: 
+'i_shift_op'                                                                                                                  
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu.bufreg'                               
+   25 |    input wire        i_shift_op,                                                                                      
+      |                      ^~~~~~~~~~                                                                                       
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v:26:22: Signal is not used: 
+'i_right_shift_op'                                                                                                            
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu.bufreg'                               
+   26 |    input wire        i_right_shift_op,                                                                                
+      |                      ^~~~~~~~~~~~~~~~                                                                                 
+%Warning-UNUSEDSIGNAL: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v:27:23: Signal is not used: 
+'i_shamt'                                                                                                                     
+                                                                                                        : ... note: In        
+instance 'chip_top.i_chip_core.noc_mesh.rows[2].cols[2].tile_inst.core_inst.servile.cpu.bufreg'                               
+   27 |    input wire [2:0]   i_shamt,                                                                                        
+      |                       ^~~~~~~                                                                                         
+%Warning-UNSIGNED: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:175:54: Comparison is constant due to   
+unsigned arithmetic                                                                                                           
+                                                                                            : ... note: In instance           
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[0].tile_inst.router_inst'                                                         
+  175 |             end else if (tgt_row > my_row && tgt_col < my_col) begin                                                  
+      |                                                      ^                                                                
+                   ... For warning description see https://verilator.org/warn/UNSIGNED?v=5.044                                
+                   ... Use "/* verilator lint_off UNSIGNED */" and lint_on around source to disable this message.             
+%Warning-UNSIGNED: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:181:54: Comparison is constant due to   
+unsigned arithmetic                                                                                                           
+                                                                                            : ... note: In instance           
+'chip_top.i_chip_core.noc_mesh.rows[2].cols[0].tile_inst.router_inst'                                                         
+  181 |             end else if (tgt_row < my_row && tgt_col < my_col) begin                                                  
+      |                                                      ^                                                                
+%Warning-UNSIGNED: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:178:34: Comparison is constant due to   
+unsigned arithmetic                                                                                                           
+                                                                                            : ... note: In instance           
+'chip_top.i_chip_core.noc_mesh.rows[0].cols[2].tile_inst.router_inst'                                                         
+  178 |             end else if (tgt_row < my_row && tgt_col > my_col) begin                                                  
+      |                                  ^                                                                                    
+%Warning-UNSIGNED: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:181:34: Comparison is constant due to   
+unsigned arithmetic                                                                                                           
+                                                                                            : ... note: In instance           
+'chip_top.i_chip_core.noc_mesh.rows[0].cols[2].tile_inst.router_inst'                                                         
+  181 |             end else if (tgt_row < my_row && tgt_col < my_col) begin                                                  
+      |                                  ^                                                                                    
+%Warning-UNSIGNED: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:187:34: Comparison is constant due to   
+unsigned arithmetic                                                                                                           
+                                                                                            : ... note: In instance           
+'chip_top.i_chip_core.noc_mesh.rows[0].cols[2].tile_inst.router_inst'                                                         
+  187 |             end else if (tgt_row < my_row) begin                                                                      
+      |                                  ^                                                                                    
+%Warning-SYNCASYNCNET: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_3x3.v:76:16: Signal flopped as both          
+synchronous and async: 'chip_top.i_chip_core.__Vcellinp__noc_mesh__rst'                                                       
+                       /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v:145:13: ... Location of async usage   
+  145 |         if (rst) boot_mode_q <= 1'b1;                                                                                 
+      |             ^~~                                                                                                       
+                       /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v:101:13: ... Location of sync usage  
+  101 |         if (rst)                                                                                                      
+      |             ^~~                                                                                                       
+                       ... For warning description see https://verilator.org/warn/SYNCASYNCNET?v=5.044                        
+                       ... Use "/* verilator lint_off SYNCASYNCNET */" and lint_on around source to disable this message.     
+- V e r i l a t i o n   R e p o r t: Verilator 5.044 2026-01-01 rev v5.040                                                    
+- Verilator: Built from 10.789 MB sources in 358 modules, into 0.020 MB in 4 C++ files needing 0.000 MB                       
+- Verilator: Walltime 0.356 s (elab=0.039, cvt=0.264, bld=0.000); cpu 0.329 s on 1 threads; alloced 48.438 MB                 
+───────────────────────────────────────────────── Lint Timing Errors Checker ─────────────────────────────────────────────────
+[15:32:17] VERBOSE  Running 'Checker.LintTimingConstructs' at                                                     step.py:1138
+                    'librelane/runs/RUN_2026-04-14_15-32-16/02-checker-linttimingconstructs'…                                 
+[15:32:17] INFO     Check for Lint Timing Errors clear.                                                         checker.py:412
+──────────────────────────────────────────────────── Lint Errors Checker ─────────────────────────────────────────────────────
+[15:32:17] VERBOSE  Running 'Checker.LintErrors' at                                                               step.py:1138
+                    'librelane/runs/RUN_2026-04-14_15-32-16/03-checker-linterrors'…                                           
+[15:32:17] INFO     Check for Lint errors clear.                                                                checker.py:131
+─────────────────────────────────────────────────── Lint Warnings Checker ────────────────────────────────────────────────────
+[15:32:17] VERBOSE  Running 'Checker.LintWarnings' at                                                             step.py:1138
+                    'librelane/runs/RUN_2026-04-14_15-32-16/04-checker-lintwarnings'…                                         
+[15:32:17] WARNING  66 Lint warnings found.                                                                     checker.py:122
+──────────────────────────────────────────────────── Generate JSON Header ────────────────────────────────────────────────────
+[15:32:17] VERBOSE  Running 'Yosys.JsonHeader' at 'librelane/runs/RUN_2026-04-14_15-32-16/05-yosys-jsonheader'…   step.py:1138
+[15:32:17] VERBOSE  Logging subprocess to                                                                         step.py:1338
+                    'librelane/runs/RUN_2026-04-14_15-32-16/05-yosys-jsonheader/yosys-jsonheader.log'…                        
+                                                                                                                              
+ /----------------------------------------------------------------------------\                                               
+ |  yosys -- Yosys Open SYnthesis Suite                                       |                                               
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |                                               
+ |  Distributed under an ISC-like license, type "license" to see terms        |                                               
+ \----------------------------------------------------------------------------/                                               
+ Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)                                     
+                                                                                                                              
+1. Executing Verilog-2005 frontend:                                                                                           
+/Users/andreaarreortua/gf180mcu-project-template/librelane/runs/RUN_2026-04-14_15-32-16/tmp/18ef391498dd4f03aa70edb496ab33a8.b
+b.v                                                                                                                           
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/librelane/runs/RUN_2026-04-14_15-32-16/tmp/18ef391498dd4f03aa70edb496ab33a8.
+bb.v' to AST representation.                                                                                                  
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__antenna'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__antenna_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_1'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_12'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_16'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_2'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_20'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_3'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_4'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_8'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_func'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_12'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_16'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_3'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_8'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_12'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_16'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_20'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_3'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_8'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_12'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_16'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_20'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_3'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_8'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_1'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_2'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_4'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_func'.                                         
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__endcap'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__endcap_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_16'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_32'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_64'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_8'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_16'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_32'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_64'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_8'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__filltie'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__filltie_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__hold'.                                                  
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__hold_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_1'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_12'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_16'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_2'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_20'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_3'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_4'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_8'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_func'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_12'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_16'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_3'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_8'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_1'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_2'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_4'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_func'.                                           
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_1'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_2'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_4'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_func'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_1'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_2'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_4'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_func'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_1'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_2'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_4'.                                                 
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_func'.                                              
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_1'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_2'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_4'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_func'.                                         
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_1'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_2'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_4'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_func'.                                          
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tieh'.                                                  
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tieh_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tiel'.                                                  
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tiel_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_1'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_2'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_4'.                                               
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_func'.                                            
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_func'.                                             
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_1'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_2'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_4'.                                                
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_func'.                                             
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+2. Executing Verilog-2005 frontend:                                                                                           
+/Users/andreaarreortua/gf180mcu-project-template/librelane/runs/RUN_2026-04-14_15-32-16/tmp/483e889326ac4f8fb3f45bf8ad307ebd.b
+b.v                                                                                                                           
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/librelane/runs/RUN_2026-04-14_15-32-16/tmp/483e889326ac4f8fb3f45bf8ad307ebd.
+bb.v' to AST representation.                                                                                                  
+Generating RTLIL representation for module `\gf180mcu_ef_io__bi_t'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__asig_5p0'.                                                       
+Generating RTLIL representation for module `\gf180mcu_fd_io__bi_24t'.                                                         
+Generating RTLIL representation for module `\gf180mcu_fd_io__bi_t'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__brk2'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__brk5'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__cor'.                                                            
+Generating RTLIL representation for module `\gf180mcu_fd_io__dvdd'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__dvss'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__fill1'.                                                          
+Generating RTLIL representation for module `\gf180mcu_fd_io__fill10'.                                                         
+Generating RTLIL representation for module `\gf180mcu_fd_io__fill5'.                                                          
+Generating RTLIL representation for module `\gf180mcu_fd_io__fillnc'.                                                         
+Generating RTLIL representation for module `\gf180mcu_fd_io__in_c'.                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_io__in_s'.                                                           
+Generating RTLIL representation for module `\gf180mcu_ws_io__dvdd'.                                                           
+Generating RTLIL representation for module `\gf180mcu_ws_io__dvss'.                                                           
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+3. Executing Verilog-2005 frontend:                                                                                           
+/Users/andreaarreortua/gf180mcu-project-template/ip/gf180mcu_ws_ip__id/vh/gf180mcu_ws_ip__id.v                                
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/ip/gf180mcu_ws_ip__id/vh/gf180mcu_ws_ip__id.v' to AST representation.       
+Generating RTLIL representation for module `\gf180mcu_ws_ip__id'.                                                             
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+4. Executing Verilog-2005 frontend:                                                                                           
+/Users/andreaarreortua/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/vh/gf180mcu_ws_ip__logo.v                            
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/vh/gf180mcu_ws_ip__logo.v' to AST representation.   
+Generating RTLIL representation for module `\gf180mcu_ws_ip__logo'.                                                           
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+5. Executing Verilog-2005 frontend:                                                                                           
+/Users/andreaarreortua/gf180mcu-project-template/gf180mcu/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/verilog/gf180mcu_fd_ip_sram__
+sram512x8m8wm1__blackbox.v                                                                                                    
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/gf180mcu/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/verilog/gf180mcu_fd_ip_sram_
+_sram512x8m8wm1__blackbox.v' to AST representation.                                                                           
+Generating RTLIL representation for module `\gf180mcu_fd_ip_sram__sram512x8m8wm1'.                                            
+Successfully finished Verilog frontend.                                                                                       
+wtaf                                                                                                                          
+                                                                                                                              
+6. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/chip_top.sv                          
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/chip_top.sv' to AST representation.    
+Storing AST representation for module `$abstract\chip_top'.                                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+7. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv                         
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/chip_core.sv' to AST representation.   
+Storing AST representation for module `$abstract\chip_core'.                                                                  
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+8. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/boot_loader.v                        
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/boot_loader.v' to AST representation.  
+Storing AST representation for module `$abstract\boot_controller'.                                                            
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+9. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v                        
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/mesh_router.v' to AST representation.  
+Storing AST representation for module `$abstract\mesh_router'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+10. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v                         
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/mesh_tile.v' to AST representation.    
+Storing AST representation for module `$abstract\mesh_tile'.                                                                  
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+11. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/mesh_3x3.v                          
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/mesh_3x3.v' to AST representation.     
+Storing AST representation for module `$abstract\mesh_3x3'.                                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+12. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/subservient_core.v                  
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/subservient_core.v' to AST             
+representation.                                                                                                               
+Storing AST representation for module `$abstract\subservient_core'.                                                           
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+13. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_aligner.v             
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_aligner.v' to AST        
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_aligner'.                                                               
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+14. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_alu.v                 
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_alu.v' to AST            
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_alu'.                                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+15. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_bufreg'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+16. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg2.v             
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_bufreg2.v' to AST        
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_bufreg2'.                                                               
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+17. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_compdec.v             
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_compdec.v' to AST        
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_compdec'.                                                               
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+18. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_csr.v                 
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_csr.v' to AST            
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_csr'.                                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+19. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_ctrl.v                
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_ctrl.v' to AST           
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_ctrl'.                                                                  
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+20. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_debug.v               
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_debug.v' to AST          
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_debug'.                                                                 
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+21. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_decode.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_decode.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_decode'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+22. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_immdec.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_immdec.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_immdec'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+23. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_mem_if.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_mem_if.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_mem_if'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+24. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_if.v               
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_if.v' to AST          
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_rf_if'.                                                                 
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+25. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram_if.v           
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram_if.v' to AST      
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_rf_ram_if'.                                                             
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+26. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_ram.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_rf_ram'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+27. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_top.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_rf_top.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_rf_top'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+28. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_state.v               
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_state.v' to AST          
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_state'.                                                                 
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+29. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v       
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_synth_wrapper.v' to AST  
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_synth_wrapper'.                                                         
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+30. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_top.v                 
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/rtl/serv_top.v' to AST            
+representation.                                                                                                               
+Storing AST representation for module `$abstract\serv_top'.                                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+31. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_arbiter.v      
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_arbiter.v' to AST 
+representation.                                                                                                               
+Storing AST representation for module `$abstract\servile_arbiter'.                                                            
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+32. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v          
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_mux.v' to AST     
+representation.                                                                                                               
+Storing AST representation for module `$abstract\servile_mux'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+33. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_rf_mem_if.v    
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile_rf_mem_if.v' to   
+AST representation.                                                                                                           
+Storing AST representation for module `$abstract\servile_rf_mem_if'.                                                          
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+34. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v              
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/serv/servile/servile.v' to AST         
+representation.                                                                                                               
+Storing AST representation for module `$abstract\servile'.                                                                    
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+35. Executing Verilog-2005 frontend:                                                                                          
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_debug_switch.v                               
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_debug_switch.v' to AST representation.      
+Storing AST representation for module `$abstract\subservient_debug_switch'.                                                   
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+36. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_fpga.v  
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_fpga.v' to 
+AST representation.                                                                                                           
+Storing AST representation for module `$abstract\subservient_fpga'.                                                           
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+37. Executing Verilog-2005 frontend:                                                                                          
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_generic_ram.v                                
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_generic_ram.v' to AST representation.       
+Storing AST representation for module `$abstract\subservient_generic_ram'.                                                    
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+38. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_gpio.v  
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_gpio.v' to 
+AST representation.                                                                                                           
+Storing AST representation for module `$abstract\subservient_gpio'.                                                           
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+39. Executing Verilog-2005 frontend:                                                                                          
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v                         
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_nexys_a7_clock_gen.v' to AST representation.
+Storing AST representation for module `$abstract\subservient_fpga_clock_gen'.                                                 
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+40. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_ram.v   
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_ram.v' to  
+AST representation.                                                                                                           
+Storing AST representation for module `$abstract\subservient_ram'.                                                            
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+41. Executing Verilog-2005 frontend:                                                                                          
+/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v                                  
+Parsing SystemVerilog input from                                                                                              
+`/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient_rf_ram_if.v' to AST representation.         
+Storing AST representation for module `$abstract\subservient_rf_ram_if'.                                                      
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+42. Executing Verilog-2005 frontend: /Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient.v       
+Parsing SystemVerilog input from `/Users/andreaarreortua/gf180mcu-project-template/src/subservient/rtl/subservient.v' to AST  
+representation.                                                                                                               
+Storing AST representation for module `$abstract\subservient'.                                                                
+Successfully finished Verilog frontend.                                                                                       
+                                                                                                                              
+43. Executing HIERARCHY pass (managing design hierarchy).                                                                     
+                                                                                                                              
+44. Executing AST frontend in derive mode using pre-parsed AST for module `\chip_top'.                                        
+Generating RTLIL representation for module `\chip_top'.                                                                       
+                                                                                                                              
+44.1. Analyzing design hierarchy..                                                                                            
+Top module:  \chip_top                                                                                                        
+Parameter \NUM_INPUT_PADS = 12                                                                                                
+Parameter \NUM_BIDIR_PADS = 40                                                                                                
+Parameter \NUM_ANALOG_PADS = 2                                                                                                
+                                                                                                                              
+44.2. Executing AST frontend in derive mode using pre-parsed AST for module `\chip_core'.                                     
+Parameter \NUM_INPUT_PADS = 12                                                                                                
+Parameter \NUM_BIDIR_PADS = 40                                                                                                
+Parameter \NUM_ANALOG_PADS = 2                                                                                                
+Generating RTLIL representation for module `$paramod$ed291dec179c34131aa205671b4b793400660fca\chip_core'.                     
+                                                                                                                              
+44.3. Analyzing design hierarchy..                                                                                            
+Top module:  \chip_top                                                                                                        
+Used module:     $paramod$ed291dec179c34131aa205671b4b793400660fca\chip_core                                                  
+                                                                                                                              
+44.4. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_3x3'.                                      
+Generating RTLIL representation for module `\mesh_3x3'.                                                                       
+                                                                                                                              
+44.5. Executing AST frontend in derive mode using pre-parsed AST for module `\boot_controller'.                               
+Generating RTLIL representation for module `\boot_controller'.                                                                
+                                                                                                                              
+44.6. Analyzing design hierarchy..                                                                                            
+Top module:  \chip_top                                                                                                        
+Used module:     $paramod$ed291dec179c34131aa205671b4b793400660fca\chip_core                                                  
+Used module:         \mesh_3x3                                                                                                
+Used module:         \boot_controller                                                                                         
+Parameter \TILE_ID = 4'1010                                                                                                   
+                                                                                                                              
+44.7. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                     
+Parameter \TILE_ID = 4'1010                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1010'.                                               
+Parameter \TILE_ID = 4'1001                                                                                                   
+                                                                                                                              
+44.8. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                     
+Parameter \TILE_ID = 4'1001                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1001'.                                               
+Parameter \TILE_ID = 4'1000                                                                                                   
+                                                                                                                              
+44.9. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                     
+Parameter \TILE_ID = 4'1000                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1000'.                                               
+Parameter \TILE_ID = 4'0110                                                                                                   
+                                                                                                                              
+44.10. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0110                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0110'.                                               
+Parameter \TILE_ID = 4'0101                                                                                                   
+                                                                                                                              
+44.11. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0101                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0101'.                                               
+Parameter \TILE_ID = 4'0100                                                                                                   
+                                                                                                                              
+44.12. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0100                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0100'.                                               
+Parameter \TILE_ID = 4'0010                                                                                                   
+                                                                                                                              
+44.13. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0010                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0010'.                                               
+Parameter \TILE_ID = 4'0001                                                                                                   
+                                                                                                                              
+44.14. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0001                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0001'.                                               
+Parameter \TILE_ID = 4'0000                                                                                                   
+                                                                                                                              
+44.15. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_tile'.                                    
+Parameter \TILE_ID = 4'0000                                                                                                   
+Generating RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0000'.                                               
+Reprocessing module mesh_3x3 because instantiated module $paramod\mesh_tile\TILE_ID=4'1010 has become available.              
+Generating RTLIL representation for module `\mesh_3x3'.                                                                       
+                                                                                                                              
+44.16. Analyzing design hierarchy..                                                                                           
+Top module:  \chip_top                                                                                                        
+Used module:     $paramod$ed291dec179c34131aa205671b4b793400660fca\chip_core                                                  
+Used module:         \mesh_3x3                                                                                                
+Used module:         \boot_controller                                                                                         
+Parameter \TILE_ID = 4'1010                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1010'.                                             
+Parameter \TILE_ID = 4'1001                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1001'.                                             
+Parameter \TILE_ID = 4'1000                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'1000'.                                             
+Parameter \TILE_ID = 4'0110                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0110'.                                             
+Parameter \TILE_ID = 4'0101                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0101'.                                             
+Parameter \TILE_ID = 4'0100                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0100'.                                             
+Parameter \TILE_ID = 4'0010                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0010'.                                             
+Parameter \TILE_ID = 4'0001                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0001'.                                             
+Parameter \TILE_ID = 4'0000                                                                                                   
+Found cached RTLIL representation for module `$paramod\mesh_tile\TILE_ID=4'0000'.                                             
+                                                                                                                              
+44.17. Analyzing design hierarchy..                                                                                           
+Top module:  \chip_top                                                                                                        
+Used module:     $paramod$ed291dec179c34131aa205671b4b793400660fca\chip_core                                                  
+Used module:         \mesh_3x3                                                                                                
+Used module:             $paramod\mesh_tile\TILE_ID=4'1010                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'1001                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'1000                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0110                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0101                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0100                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0010                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0001                                                                    
+Used module:             $paramod\mesh_tile\TILE_ID=4'0000                                                                    
+Used module:         \boot_controller                                                                                         
+Parameter \MY_ID = 4'0000                                                                                                     
+                                                                                                                              
+44.18. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0000                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0000'.                                               
+Parameter \memsize = 1024                                                                                                     
+                                                                                                                              
+44.19. Executing AST frontend in derive mode using pre-parsed AST for module `\subservient_core'.                             
+Parameter \memsize = 1024                                                                                                     
+Generating RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.          
+Parameter \MY_ID = 4'0001                                                                                                     
+                                                                                                                              
+44.20. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0001                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0001'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'0010                                                                                                     
+                                                                                                                              
+44.21. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0010                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0010'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'0100                                                                                                     
+                                                                                                                              
+44.22. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0100                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0100'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'0101                                                                                                     
+                                                                                                                              
+44.23. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0101                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0101'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'0110                                                                                                     
+                                                                                                                              
+44.24. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'0110                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'0110'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'1000                                                                                                     
+                                                                                                                              
+44.25. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'1000                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'1000'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'1001                                                                                                     
+                                                                                                                              
+44.26. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Parameter \MY_ID = 4'1001                                                                                                     
+Generating RTLIL representation for module `$paramod\mesh_router\MY_ID=4'1001'.                                               
+Parameter \memsize = 1024                                                                                                     
+Found cached RTLIL representation for module `$paramod\subservient_core\memsize=s32'00000000000000000000010000000000'.        
+Parameter \MY_ID = 4'1010                                                                                                     
+                                                                                                                              
+44.27. Executing AST frontend in derive mode using pre-parsed AST for module `\mesh_router'.                                  
+Chip - Stage 5 - Generate JSON Header ━╸                                        4/83 0:00:02
+[15:32:18] WARNING  The following warnings were generated by the flow:                                             flow.py:699
+[15:32:18] WARNING  [Checker.LintWarnings] 66 Lint warnings found.                                                 flow.py:701
+
+Aborted!
+make: *** [Makefile:42: librelane] Error 1

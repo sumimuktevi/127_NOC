@@ -106,6 +106,10 @@
 module mesh_tile #(
     parameter [3:0] TILE_ID = 4'b0000
 )(
+    `ifdef USE_POWER_PINS
+    inout wire VDD,
+    inout wire VSS,
+    `endif
     input wire clk,
     input wire rst,
     input wire boot_mode,
@@ -177,6 +181,7 @@ module mesh_tile #(
     // -----------------------------------------------------------------------
     // GF180 512x8 SRAM — low bank (0x000-0x1FF)
     // -----------------------------------------------------------------------
+    (* keep *)
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram_lo (
         .CLK (clk),
         .CEN (cen_lo),
@@ -185,13 +190,19 @@ module mesh_tile #(
         .A   (bank_addr),
         .D   (final_d),
         .Q   (sram_lo_q),
+        `ifdef USE_POWER_PINS
+        .VDD (VDD),
+        .VSS (VSS)
+        `else
         .VDD (),
         .VSS ()
+        `endif
     );
 
     // -----------------------------------------------------------------------
     // GF180 512x8 SRAM — high bank (0x200-0x3FF)
     // -----------------------------------------------------------------------
+    (* keep *)
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram_hi (
         .CLK (clk),
         .CEN (cen_hi),
@@ -200,8 +211,13 @@ module mesh_tile #(
         .A   (bank_addr),
         .D   (final_d),
         .Q   (sram_hi_q),
+        `ifdef USE_POWER_PINS
+        .VDD (VDD),
+        .VSS (VSS)
+        `else
         .VDD (),
         .VSS ()
+        `endif
     );
 
     // -----------------------------------------------------------------------

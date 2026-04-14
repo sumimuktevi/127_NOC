@@ -68,6 +68,10 @@
 // ============================================================================
 
 module mesh_3x3 (
+    `ifdef USE_POWER_PINS
+    inout wire VDD,
+    inout wire VSS,
+    `endif
     input wire clk,
     input wire rst,
 
@@ -142,6 +146,10 @@ module mesh_3x3 (
                                    (r>0  && c>0)   ? grid_se[r-1][c-1] : 34'b0;
 
                 mesh_tile #(.TILE_ID({2'(r),2'(c)})) tile_inst (
+                    `ifdef USE_POWER_PINS
+                    .VDD (VDD),
+                    .VSS (VSS),
+                    `endif
                     .clk      (clk),       .rst      (rst),
                     .boot_mode(boot_mode), .boot_addr(boot_addr),
                     .boot_data(boot_data), .boot_wen (boot_wen),
