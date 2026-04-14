@@ -16,10 +16,10 @@ VERILOG_SOURCES = \
 SIM = verilator
 
 # Suppress known-harmless warnings
-COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-SPECIFYIGN -Wno-MODDUP -Wno-MINTYPMAXDLY
+COMPILE_ARGS += --timing -Wno-PINMISSING -Wno-MODDUP -Wno-MINTYPMAXDLY
 
 # Waveform dump — add FST support at compile time
-COMPILE_ARGS += --trace --trace-depth 6
+COMPILE_ARGS += --trace-fst --trace-depth 6
 
 # Tell the Verilator binary where to write the FST and when to start tracing
 SIM_ARGS += --trace --trace-file sim_build/dump.fst

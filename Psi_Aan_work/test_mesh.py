@@ -17,6 +17,24 @@ ITER_TIMEOUT_MS   = 200
 SRAM_GRID_BASE = 0x0500
 print(f"[testbench] current_grid @ 0x{SRAM_GRID_BASE:04x}")
 
+# Debug MMIO addresses — must match firmware main.c exactly:
+#   DEBUG_BASE       = 0x0700
+#   +0  : last bitmap recv from North  (uint32)
+#   +4  : last bitmap recv from South  (uint32)
+#   +8  : last bitmap recv from West   (uint32)
+#   +12 : last bitmap recv from East   (uint32)
+#   +16 : neighbor histogram, 9 bytes  (n=0..8)
+#   +28 : iteration counter            (uint32)   <- after 9 hist bytes + 3 pad
+#   +32 : ghost exchange flags         (uint32)
+DEBUG_BASE           = 0x0700
+DEBUG_LAST_RECV_N    = DEBUG_BASE + 0
+DEBUG_LAST_RECV_S    = DEBUG_BASE + 4
+DEBUG_LAST_RECV_W    = DEBUG_BASE + 8
+DEBUG_LAST_RECV_E    = DEBUG_BASE + 12
+DEBUG_NEIGHBOR_HIST  = DEBUG_BASE + 16   # 9 bytes
+DEBUG_ITER_COUNT     = DEBUG_BASE + 28   # uint32
+DEBUG_GHOST_FLAGS    = DEBUG_BASE + 32   # uint32
+
 def load_firmware_binary():
     bin_file = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
     if os.path.exists(bin_file):
@@ -56,6 +74,14 @@ def sram_read_byte(tile, cpu_addr):
     word = int(mem[word_index].value)
     return (word >> (8 * byte_lane)) & 0xFF
 
+def sram_read_word(tile, cpu_addr):
+    """Read a 32-bit little-endian word from SRAM (cpu_addr need not be aligned)."""
+    b0 = sram_read_byte(tile, cpu_addr)
+    b1 = sram_read_byte(tile, cpu_addr + 1)
+    b2 = sram_read_byte(tile, cpu_addr + 2)
+    b3 = sram_read_byte(tile, cpu_addr + 3)
+    return b0 | (b1 << 8) | (b2 << 16) | (b3 << 24)
+
 async def wait_for_noc_signal(dut, target_payload, timeout_ms):
     max_cycles = timeout_ms * 1000 * 100
     target = target_payload & 0x1FFFFFFF
@@ -79,7 +105,54 @@ async def wait_for_noc_signal(dut, target_payload, timeout_ms):
             pass
     return False
 
-# ---- Pure-Python GoL on 30x30 global grid ----
+# ---- Debug helpers ----
+
+def read_debug_bitmaps(tile, label=""):
+    """Read the last received ghost bitmaps and exchange flags from this tile."""
+    recv_n      = sram_read_word(tile, DEBUG_LAST_RECV_N)
+    recv_s      = sram_read_word(tile, DEBUG_LAST_RECV_S)
+    recv_w      = sram_read_word(tile, DEBUG_LAST_RECV_W)
+    recv_e      = sram_read_word(tile, DEBUG_LAST_RECV_E)
+    ghost_flags = sram_read_word(tile, DEBUG_GHOST_FLAGS)
+
+    sent_s = (ghost_flags >> 0) & 1
+    sent_n = (ghost_flags >> 1) & 1
+    sent_e = (ghost_flags >> 2) & 1
+    sent_w = (ghost_flags >> 3) & 1
+
+    print(f"\n{label} Ghost Exchange (flags=0x{ghost_flags:02x}):")
+    print(f"  Sent  : N={sent_n} S={sent_s} E={sent_e} W={sent_w}")
+    if sent_n: print(f"  Recv N: 0x{recv_n:03x}  bits={recv_n:010b}")
+    if sent_s: print(f"  Recv S: 0x{recv_s:03x}  bits={recv_s:010b}")
+    if sent_e: print(f"  Recv E: 0x{recv_e:03x}  bits={recv_e:010b}")
+    if sent_w: print(f"  Recv W: 0x{recv_w:03x}  bits={recv_w:010b}")
+    return recv_n, recv_s, recv_w, recv_e, ghost_flags
+
+def read_debug_neighbor_histogram(tile, label=""):
+    """Read the per-cell neighbor-count histogram (buckets 0-8)."""
+    hist = [sram_read_byte(tile, DEBUG_NEIGHBOR_HIST + i) for i in range(9)]
+    total = sum(hist)
+    print(f"\n{label} Neighbor Histogram (total cells={total}):")
+    for n in range(9):
+        bar = "#" * min(hist[n], 40)
+        print(f"  n={n}: {hist[n]:4d}  {bar}")
+    return hist
+
+def read_debug_iter_count(tile):
+    return sram_read_word(tile, DEBUG_ITER_COUNT)
+
+def print_debug_state(dut, r, c, label=""):
+    """Print all debug info for tile (r,c)."""
+    tile     = get_tile(dut, r, c)
+    iter_num = read_debug_iter_count(tile)
+    hdr      = label if label else f"TILE ({r},{c})  iter={iter_num}"
+    print(f"\n{'='*60}")
+    print(hdr)
+    print('='*60)
+    read_debug_bitmaps(tile, hdr)
+    read_debug_neighbor_histogram(tile, hdr)
+
+# ---- Pure-Python GoL reference on 30x30 global grid ----
 
 GLOBAL_ROWS = MESH_R * SIZE
 GLOBAL_COLS = MESH_C * SIZE
@@ -129,13 +202,10 @@ GOL_GLOBAL.append(gol_step_global(GOL_GLOBAL[1]))
 # ---- SRAM helpers ----
 
 def read_grid_from_sram(tile):
-    g = []
-    for y in range(SIZE):
-        row = []
-        for x in range(SIZE):
-            row.append(sram_read_byte(tile, SRAM_GRID_BASE + y * SIZE + x))
-        g.append(row)
-    return g
+    return [
+        [sram_read_byte(tile, SRAM_GRID_BASE + y * SIZE + x) for x in range(SIZE)]
+        for y in range(SIZE)
+    ]
 
 def dump_region(tile, base, count_bytes=64):
     print(f"\nDUMP @ 0x{base:04x} ({count_bytes} bytes):")
@@ -145,6 +215,7 @@ def dump_region(tile, base, count_bytes=64):
         print("0x{:04x}: ".format(base + off) + " ".join(f"{b:02x}" for b in chunk))
 
 def print_iter_comparison(dut, r, c, iteration):
+    """Print expected vs actual grid; return number of mismatched cells."""
     tile = get_tile(dut, r, c)
     exp  = get_tile_expected(iteration, r, c)
     act  = read_grid_from_sram(tile)
@@ -188,6 +259,9 @@ async def test_iter0_seed_only(dut):
     dut._log.info(f"SRAM_GRID_BASE = 0x{SRAM_GRID_BASE:04x}")
     dump_region(tile00, SRAM_GRID_BASE, 100)
 
+    # Debug state for tile (0,0) at seed
+    print_debug_state(dut, 0, 0, "TILE (0,0) SEED STATE")
+
     print("\n\n******** ITERATION 0 (seed) ********")
     total = 0
     for r in range(MESH_R):
@@ -205,7 +279,7 @@ async def test_gol_iter1_iter2(dut):
     """Run 2 GoL iterations with ghost exchange and verify results."""
     await boot_mesh(dut)
 
-    # Iter 0
+    # ── Iteration 0: seed check ───────────────────────────────────────────
     await Timer(SEED_SAMPLE_US, unit="us")
     print("\n\n******** ITERATION 0 (seed) ********")
     iter0_mismatches = 0
@@ -217,7 +291,7 @@ async def test_gol_iter1_iter2(dut):
     else:
         dut._log.error(f"Iter 0: {iter0_mismatches} mismatches")
 
-    # Iter 1
+    # ── Iteration 1 ───────────────────────────────────────────────────────
     dut._log.info("Waiting for iter 1 SIG_GEN_STABLE...")
     seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
@@ -231,15 +305,26 @@ async def test_gol_iter1_iter2(dut):
     iter1_mismatches = 0
     for r in range(MESH_R):
         for c in range(MESH_C):
-            iter1_mismatches += print_iter_comparison(dut, r, c, 1)
+            # Single call — count mismatches AND print in one pass
+            m = print_iter_comparison(dut, r, c, 1)
+            iter1_mismatches += m
+            if m > 0:
+                print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=1 MISMATCH debug")
+
     if iter1_mismatches == 0:
         dut._log.info("Iter 1: ALL tiles match")
     else:
         dut._log.error(f"Iter 1: {iter1_mismatches} mismatches")
         dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
         dump_region(get_tile(dut, 0, 0), 0x0600, 40)
+        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 36)
+        # Print debug for all tiles so we can see cross-tile ghost state
+        print("\n[DEBUG] Ghost exchange state — all tiles, iteration 1:")
+        for r in range(MESH_R):
+            for c in range(MESH_C):
+                print_debug_state(dut, r, c)
 
-    # Iter 2
+    # ── Iteration 2 ───────────────────────────────────────────────────────
     dut._log.info("Waiting for iter 2 SIG_GEN_STABLE...")
     seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
@@ -253,12 +338,21 @@ async def test_gol_iter1_iter2(dut):
     iter2_mismatches = 0
     for r in range(MESH_R):
         for c in range(MESH_C):
-            iter2_mismatches += print_iter_comparison(dut, r, c, 2)
+            m = print_iter_comparison(dut, r, c, 2)
+            iter2_mismatches += m
+            if m > 0:
+                print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=2 MISMATCH debug")
+
     if iter2_mismatches == 0:
         dut._log.info("Iter 2: ALL tiles match")
     else:
         dut._log.error(f"Iter 2: {iter2_mismatches} mismatches")
         dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
+        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 36)
+        print("\n[DEBUG] Ghost exchange state — all tiles, iteration 2:")
+        for r in range(MESH_R):
+            for c in range(MESH_C):
+                print_debug_state(dut, r, c)
 
     total = iter0_mismatches + iter1_mismatches + iter2_mismatches
     assert total == 0, (

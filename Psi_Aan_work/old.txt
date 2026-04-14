@@ -1,0 +1,17 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/psi19/127_NOC/Psi_Aan_work'
+rm -f results.xml
+COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=mesh_3x3 TOPLEVEL_LANG=verilog \
+         sim_build/Vtop --trace --trace-file sim_build/dump.fst    
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/psi19/127_NOC/venv/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.036 2025-04-27
+     0.00ns INFO     cocotb                             Seeding Python random module with 1776152782
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/psi19/127_NOC/venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+[testbench] current_grid @ 0x0500
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_mesh.test_iter0_seed_only (1/2)
+                                                            Boot and verify seed matches firmware initial pattern.
+make[1]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work'
