@@ -1,106 +1,55 @@
-# NocNoc, Who's There?
+1. System Requirements
+The following tools must be installed and present in your system's $PATH:
 
-**Date:** 13 March 2026
-**Members:** Aan Yadav, Psi Padhya, Sumedha Muktevi, Paul Lee, Andrea Arreortua, Ethan Francis
+Compiler: riscv64-unknown-elf-gcc (RV32I architecture support).
 
----
+HDL Simulation: iverilog (Icarus Verilog).
 
-## Overview
+Waveform Analysis: gtkwave.
 
-This project implements a **3×3 mesh network of SERV RISC-V CPUs** running Conway’s Game of Life (GoL). Each tile runs a Subservient SoClet, interacting with SRAM, SPI Flash, and the NoC. The repository contains **RTL, firmware, and a Cocotb testbench** to simulate the system without hardware.
+Test Environment: Python 3.8+ with cocotb and cocotb-test packages.
 
----
+2. Directory Structure
+/rtl: Verilog source files for the mesh tiles, routers, and SERV core.
 
-## Getting Started
+/firmware: C source code, linker scripts, and hex generation utilities.
 
-### Clone Repository
+/tests: Python-based cocotb test scripts.
 
-```bash
-git clone https://github.com/sumimuktevi/127_NOC.git
-cd 127_NOC/Psi_Aan_work
-git clone https://github.com/olofk/subservient.git
-git clone https://github.com/olofk/serv.git
-```
+3. Standard Development Workflow
+Strictly follow these steps to implement and verify logic changes.
 
-### Build and Run
+Step A: Update Firmware Logic
+Modify main.c. Use the noc_send function to signal milestones to the hardware monitor.
 
-```bash
-make clean
+0xAAAAAAAA: Heartbeat (Signifies CPU has successfully entered main).
+
+0xCCCCCCCC: Generation Complete (Triggers automated memory verification in the testbench).
+
+Step B: Compile Binary
+Navigate to the /firmware directory and execute:
+
+Bash
+make clean && make
+This generates firmware.bin. This file contains the machine code and the initialized .data section (the starting Game of Life seed).
+
+Step C: Hardware Synchronization
+The Verilog simulator expects the binary at the project root. Copy the new bin file out of the firmware directory:
+
+Bash
+cp firmware.hex ../rtl/
+Step D: Execution
+From the root directory where the Verilog and Python tests reside, run:
+
+Bash
 make
-```
+The simulation will load the bin into the SPI Flash model, the hardware bootloader will copy it to SRAM, and the CPU will begin execution.
 
----
+4. Verification of Iteration 1
+The testbench validates the Game of Life logic by monitoring the NoC. Once the CPU sends the completion signal (0xCCCCCCCC), the testbench performs a direct memory "peek":
 
-## Toolchain
+Check Alive: Verifies indices [54, 55, 56] are logic HIGH.
 
-**Windows / Linux**
+Check Dead: Verifies indices [45, 65] are logic LOW.
 
-```bash
-sudo apt update
-sudo apt install verilator gtkwave python3-pip -y
-python3 -m pip install --user pipx
-pipx ensurepath
-```
-
-**macOS**
-
-```bash
-brew install verilator gtkwave
-python3 -m venv .venv
-
-```
-
-**RISC-V Compiler (for firmware.bin)**
-
-```bash
-pipx install riscv-assembler
-# or
-python3 -m pip install riscv-assembler
-```
-
----
-
-## Running Firmware
-
-```bash
-# Build top-level project
-source .venv/bin/activate
-pip install cocotb-bus
-brew install icarus-verilog
-make
-
-# Inside /firmware folder to build new binary
-cd firmware
-make clean
-make
-cd ..
-```
-
-* Optional: convert firmware.bin to hex for memory init:
-
-```bash
-python3 bin2hex.py firmware.bin firmware.hex
-```
-
----
-
-## Project Layout
-
-* `mesh_tile.v` – Tile with SERV core, local SRAM, NoC interface
-* `mesh_router.v` – XY-routing mesh router (N/S/E/W)
-* `boot_loader.v` – Loads instructions from Flash to SRAM
-* `main.c` – GoL firmware using flits for inter-tile communication
-* `tb_integration.v` – Testbench for the whole NoC system
-
----
-
-### Running Flash Test
-
-* run /psmake.ps1 to run how Flash populates all of the nodes 
-* run it in the "hardware" folder
-
-## Notes
-
-* Each tile runs a **10×10 GoL grid**; nine tiles form a 30×30 grid.
-* SRAM per core: **1024×8 bits** for instructions and data.
-* Pinout supports **3×3 mesh** with full Wishbone connectivity.
+Result: If the "Blinker" has rotated 90 degrees from vertical to horizontal, the test reports a PASS.
