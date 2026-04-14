@@ -20,7 +20,6 @@
 #define SIG_GEN_STABLE   0xF0000004u   /* testbench watches for this       */
 #define SIG_STOP         0xF0000005u   /* host sends this to halt          */
 
-
 #define SIZE       10
 #define MESH_ROWS  3
 #define MESH_COLS  3
@@ -36,18 +35,18 @@
  *   +8  : last bitmap received from West  (uint32)
  *   +12 : last bitmap received from East  (uint32)
  *   +16 : neighbor-count histogram, 9 bytes (counts for n=0..8)
- *   +28 : iteration counter (uint32) 
+ *   +28 : iteration counter (uint32)
  *   +32 : ghost exchange flags (uint32): bit0=S,bit1=N,bit2=E,bit3=W
  * Total: 36 bytes → zero 0x0700–0x0724 in _start.
  */
 #define DEBUG_BASE           0x0700u
-#define DEBUG_LAST_RECV_N    (DEBUG_BASE +  0) // last bitmap from North
-#define DEBUG_LAST_RECV_S    (DEBUG_BASE +  4) // last bitmap from South
-#define DEBUG_LAST_RECV_W    (DEBUG_BASE +  8) // last bitmap from West
-#define DEBUG_LAST_RECV_E    (DEBUG_BASE + 12) // last bitmap from East
-#define DEBUG_NEIGHBOR_HIST  (DEBUG_BASE + 16)  // 9 bytes, indices 0-8 
-#define DEBUG_ITER_COUNT     (DEBUG_BASE + 28)  // iteration counter, after 9 hist bytes + 3 pad
-#define DEBUG_GHOST_FLAGS    (DEBUG_BASE + 32)  // uint32 -> which neghbors were exchanged
+#define DEBUG_LAST_RECV_N    (DEBUG_BASE +  0)
+#define DEBUG_LAST_RECV_S    (DEBUG_BASE +  4)
+#define DEBUG_LAST_RECV_W    (DEBUG_BASE +  8)
+#define DEBUG_LAST_RECV_E    (DEBUG_BASE + 12)
+#define DEBUG_NEIGHBOR_HIST  (DEBUG_BASE + 16)
+#define DEBUG_ITER_COUNT     (DEBUG_BASE + 28)
+#define DEBUG_GHOST_FLAGS    (DEBUG_BASE + 32)
 
 #define grid      ((volatile uint8_t *)GRID_BASE)
 #define ghost_N   ((volatile uint8_t *)(GHOST_BASE +  0))
@@ -109,18 +108,14 @@ static inline void send_ghost(uint32_t dest_id, uint32_t bm)
 }
 
 /*
- * recv_ghost() — spin until a flit with FLIT_VALID_BIT arrives, then
- * CLEAR the receive register so the next call doesn't re-consume the same
- * flit.  This is the fix vs. the broken MMIO version: noc_recv_raw() alone
- * never cleared the register, so a tile expecting two ghost flits would
- * "receive" the first one twice and deadlock waiting for the second.
+ * Keep the debug version's instrumentation, but do NOT write back to
+ * NOC_RECV_BASE. The simpler version that progresses through iter 1
+ * only waits for a valid flit and returns its bitmap.
  */
 static inline uint32_t recv_ghost(void)
 {
-    volatile uint32_t *reg = (volatile uint32_t *)NOC_RECV_BASE;
     uint32_t p;
-    do { p = *reg; } while (!(p & FLIT_VALID_BIT));
-    *reg = 0;                       /* consume: clear for next recv */
+    do { p = noc_recv_raw(); } while (!(p & FLIT_VALID_BIT));
     return p & FLIT_BMAP_MASK;
 }
 
@@ -136,6 +131,7 @@ void _start(void)
         "   sb   zero, 0(t0)\n"
         "   addi t0, t0, 1\n"
         "   j    1b\n"
+
         /* zero next_grid: 0x0640–0x06a3 (100 bytes) */
         "2: li   t0, 0x0640\n"
         "li   t1, 0x06a4\n"
@@ -143,6 +139,7 @@ void _start(void)
         "   sb   zero, 0(t0)\n"
         "   addi t0, t0, 1\n"
         "   j    3b\n"
+
         /* zero debug region: 0x0700–0x0723 (36 bytes — covers all debug regs) */
         "4: li   t0, 0x0700\n"
         "li   t1, 0x0724\n"
@@ -150,6 +147,7 @@ void _start(void)
         "   sb   zero, 0(t0)\n"
         "   addi t0, t0, 1\n"
         "   j    5b\n"
+
         "6: call main\n"
         "7: j    7b\n"
     );
@@ -161,15 +159,15 @@ static void ghost_exchange(int my_row, int my_col,
 {
     uint32_t ghost_flags = 0;
 
-    /* ── Phase 1: everyone sends, nobody blocks ─────────────────────────── */
-    if (has_S) { send_ghost(TILE_ID(my_row+1, my_col), row_bitmap(SIZE-1)); ghost_flags |= 0x1; }
-    if (has_N) { send_ghost(TILE_ID(my_row-1, my_col), row_bitmap(0));      ghost_flags |= 0x2; }
-    if (has_E) { send_ghost(TILE_ID(my_row, my_col+1), col_bitmap(SIZE-1)); ghost_flags |= 0x4; }
-    if (has_W) { send_ghost(TILE_ID(my_row, my_col-1), col_bitmap(0));      ghost_flags |= 0x8; }
+    /* Phase 1: everyone sends, nobody blocks */
+    if (has_S) { send_ghost(TILE_ID(my_row + 1, my_col), row_bitmap(SIZE - 1)); ghost_flags |= 0x1; }
+    if (has_N) { send_ghost(TILE_ID(my_row - 1, my_col), row_bitmap(0));        ghost_flags |= 0x2; }
+    if (has_E) { send_ghost(TILE_ID(my_row, my_col + 1), col_bitmap(SIZE - 1)); ghost_flags |= 0x4; }
+    if (has_W) { send_ghost(TILE_ID(my_row, my_col - 1), col_bitmap(0));        ghost_flags |= 0x8; }
 
-    /* ── Phase 2: receive in the same direction order on every tile ──────── */
+    /* Phase 2: receive in the same direction order on every tile */
 
-    /* ghost_N ← northern neighbour's row 0 (they sent us their row 0) */
+    /* ghost_N ← northern neighbour's row 0 */
     if (has_N) {
         uint32_t bm = recv_ghost();
         *debug_last_recv_n = bm;
@@ -254,9 +252,9 @@ int main(void)
     noc_signal(SIG_BOOT_ALIVE);
 
     for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
-    grid[4*SIZE+5] = 1; grid[5*SIZE+5] = 1; grid[6*SIZE+5] = 1;
-    grid[8*SIZE+0] = 1; grid[9*SIZE+0] = 1;
-    grid[8*SIZE+9] = 1; grid[9*SIZE+9] = 1;
+    grid[4 * SIZE + 5] = 1; grid[5 * SIZE + 5] = 1; grid[6 * SIZE + 5] = 1;
+    grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
+    grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
 
     noc_signal(SIG_SEED_LIVE);
 
@@ -273,7 +271,7 @@ int main(void)
                 int alive = grid[row * SIZE + col] & 1;
                 int n     = neighbour_count(row, col);
                 next_grid[row * SIZE + col] =
-                    (uint8_t)(alive ? (n==2||n==3) : (n==3));
+                    (uint8_t)(alive ? (n == 2 || n == 3) : (n == 3));
                 if (n <= 8) neighbor_counts[n]++;
             }
         }
