@@ -43,6 +43,7 @@ VERILOG_SOURCES = \
     rd_crossbar.v \
     spi_arbiter.v \
     boot_loader.v \
+    hk_boot_adapter.v \
     gf180mcu_fd_ip_sram__sram1024x8m8wm1.v \
     $(VERILOG_EXTRA)
 
@@ -52,7 +53,6 @@ COMPILE_ARGS += \
     --timing \
     $(addprefix -I,$(VERILOG_EXTRA_DIRS)) \
     -Wno-PINMISSING \
-    -Wno-SPECIFYIGN \
     -Wno-MODDUP \
     -Wno-MINTYPMAXDLY \
     -Wno-MULTIDRIVEN

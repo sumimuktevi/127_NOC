@@ -38,7 +38,7 @@ FRAME_SIZE = 30
 FIRMWARE_BIN  = "firmware.bin"
 FIRMWARE_ELF  = os.path.join("firmware", "firmware.elf")
 
-RESET_HOLD_MS   = 2
+RESET_HOLD_MS   = .01
 ITER_TIMEOUT_MS = 200
 SEED_WAIT_US    = 500    # wait after releasing reset before GoL starts
 
@@ -488,6 +488,7 @@ async def do_boot(dut):
     dut.host_csb.value  = 1
     dut.host_sclk.value = 0
     dut.host_mosi.value = 0
+    
 
     await Timer(RESET_HOLD_MS, unit="ms")
     dut.rst.value = 0
@@ -573,6 +574,10 @@ async def host_write_seed(dut):
         dut._log.info("[stage2] ✓ Blinker seed written and verified")
     return errors
 
+    dut.host_rst_en.value = 0
+    await Timer(10, unit="ns")  # Give it a few clocks to propagate
+    dut._log.info(f"VERIFY: host_rst_en is now {dut.host_rst_en.value}")
+
 # ============================================================
 # STAGE 3: Release reset, run GoL, wait for stable signal
 # ============================================================
@@ -587,6 +592,35 @@ async def run_gol(dut):
     SIG_GEN_STABLE   = 0x0CCCCCCC   # lower 29 bits of 0xCCCCCCCC
     SIG_BOOT_ALIVE   = 0x0AAAAAAA   # lower 29 bits of 0xAAAAAAAA
     SIG_MATH_DONE    = 0x0DDDDDDD   # lower 29 bits of 0xDDDDDDDD
+    
+    # --- HARDWARE PROBE START ---
+    dut._log.info("="*30)
+    dut._log.info("CORE HARDWARE PROBE")
+    try:
+        # Check Top Level Control
+        dut._log.info(f"Top: host_rst_en    = {dut.host_rst_en.value}")
+        dut._log.info(f"Top: cpu_rst_n      = {dut.cpu_rst_n.value}")
+        
+        # Probe Tile 0,0 (Top-Left)
+        t00 = dut.mesh_inst.rows[0].cols[0].tile_inst
+        dut._log.info(f"T00: rst_internal   = {t00.rst.value}")
+        dut._log.info(f"T00: boot_mode      = {t00.boot_mode.value}")
+        dut._log.info(f"T00: sram_wen       = {t00.sram_wen.value}")
+        
+        # Check if the seed actually exists in SRAM
+        # Reads the first byte of the grid directly from memory
+        grid_byte = t00.sram_inst.mem[SRAM_GRID_BASE].value
+        dut._log.info(f"T00: SRAM[0x{SRAM_GRID_BASE:03x}] = {grid_byte}")
+        
+        if int(t00.rst.value) == 1:
+            dut._log.error("!!! PROBE ALERT: Tile is still in RESET !!!")
+        if int(t00.boot_mode.value) == 1:
+            dut._log.error("!!! PROBE ALERT: Tile is still in BOOT_MODE (SRAM blocked) !!!")
+            
+    except Exception as e:
+        dut._log.warning(f"Probe failed to access internal signals: {e}")
+    dut._log.info("="*30)
+    # --- HARDWARE PROBE END ---
 
     dut._log.info("[stage3] Releasing reset via host SPI — cores starting...")
     await host_set_reset(dut, hold=False)

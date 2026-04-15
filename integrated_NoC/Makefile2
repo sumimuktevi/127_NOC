@@ -1,0 +1,8 @@
+SIM      = icarus
+TOPLEVEL = hk_boot_adapter
+MODULE   = test_hk_boot_adapter
+VERILOG_SOURCES = hk_boot_adapter.v
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+

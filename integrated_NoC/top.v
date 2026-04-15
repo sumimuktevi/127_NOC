@@ -75,7 +75,8 @@ module top (
     wire       cpu_rst_n;           // high when boot is done
 
     // boot_mode: high during boot, low when CPUs should run
-    wire boot_mode = ~cpu_rst_n;
+    //wire boot_mode = ~cpu_rst_n;
+    //wire boot_mode = host_rst_en; //chnaged this line for flash
 
     // host_spi_slave outputs
     wire [9:0] host_sram_waddr;
@@ -114,9 +115,9 @@ module top (
     //   boot_mode = 1  →  boot_controller drives the bus
     //   boot_mode = 0  →  host_spi_slave drives the bus
     // -----------------------------------------------------------------------
-    wire [9:0] mux_boot_addr = boot_mode ? boot_addr       : host_sram_waddr;
-    wire [7:0] mux_boot_data = boot_mode ? boot_data       : host_sram_wdata;
-    wire       mux_boot_wen  = boot_mode ? boot_wen        : host_sram_wen;
+   // wire [9:0] mux_boot_addr = boot_mode ? boot_addr       : host_sram_waddr;
+    //wire [7:0] mux_boot_data = boot_mode ? boot_data       : host_sram_wdata;
+    //wire       mux_boot_wen  = boot_mode ? boot_wen        : host_sram_wen;
 
     // -----------------------------------------------------------------------
     // CPU reset arbitration
@@ -128,7 +129,7 @@ module top (
     // -----------------------------------------------------------------------
     // boot_controller
     // -----------------------------------------------------------------------
-    boot_controller boot_inst (
+    /*boot_controller boot_inst (
         .clk        (clk),
         .rst_n      (~rst),
         .flash_cs_n (flash_csb),
@@ -139,7 +140,91 @@ module top (
         .sram_waddr (boot_addr),
         .sram_wen   (boot_wen),
         .cpu_reset_n(cpu_rst_n)
-    );
+    );*/
+
+// -----------------------------------------------------------------------
+// Housekeeping <-> Boot Adapter Instantiation
+// -----------------------------------------------------------------------
+wire [9:0] hk_boot_addr;
+wire [7:0] hk_boot_data;
+wire       hk_boot_wen;
+wire       wbs_ack_internal;
+// -----------------------------------------------------------------------
+    // Housekeeping Wishbone Interface
+    // -----------------------------------------------------------------------
+    wire [31:0] wbs_adr;
+    wire [31:0] wbs_dat;
+    wire        wbs_cyc;
+    wire        wbs_stb;
+    wire        wbs_we;
+    // took out boot loader therefore chnaging the test and top handshake
+    assign cpu_rst_n = 1'b1;
+
+    // boot_mode: HIGH only while bytes are actively being written to SRAM
+// Goes LOW automatically when no write is in progress
+// This decouples boot_mode from host_rst_en entirely
+
+wire any_sram_write = hk_boot_wen | host_sram_wen;
+
+reg  boot_mode_r;
+reg  write_active_prev;
+
+always @(posedge clk) begin
+    if (rst) begin
+        boot_mode_r       <= 1'b1;
+        write_active_prev <= 1'b0;
+    end else begin
+        write_active_prev <= any_sram_write;
+        if (any_sram_write)
+            boot_mode_r <= 1'b1;
+        // Add a small hold: stay in boot_mode for 4 cycles after last write
+        // so SRAM captures the final byte before CPUs start
+        else if (!write_active_prev)
+            boot_mode_r <= 1'b0;
+    end
+end
+
+wire boot_mode = boot_mode_r;
+// This adapter translates Housekeeping's 32-bit Wishbone writes 
+// into 4 sequential 8-bit SRAM writes for the 3x3 Mesh.
+hk_boot_adapter hk_adapt (
+    .clk       (clk),
+    .rst       (rst),
+
+    // Wishbone Slave Interface (Driven by housekeeping_fsm)
+    .wbs_adr   (wbs_adr),      // Address from Housekeeping FSM
+    .wbs_dat   (wbs_dat),      // Data from Housekeeping FSM
+    .wbs_cyc   (wbs_cyc),      // Cycle valid
+    .wbs_stb   (wbs_stb),      // Strobe
+    .wbs_we    (wbs_we),       // Write Enable (Should be 1 for boot)
+    .wbs_ack(wbs_ack_internal),
+
+    // Boot Bus Output (Connects to the 3-way Mux)
+    .boot_addr (hk_boot_addr),
+    .boot_data (hk_boot_data),
+    .boot_wen  (hk_boot_wen)
+);
+
+// -----------------------------------------------------------------------
+// SRAM Write Bus 3-Way Mux
+// -----------------------------------------------------------------------
+// Phase 1: boot_mode (High) -> boot_controller owns the bus
+// Phase 2: host_rst_en (High) -> host_spi_slave owns the bus (Seeding)
+// Phase 3: Default -> hk_boot_adapter owns the bus (Runtime/Housekeeping)
+// -----------------------------------------------------------------------
+// If we are in Host Reset mode, Host SPI Slave owns everything.
+// Otherwise, the Housekeeping adapter owns it.
+wire [9:0] mux_boot_addr = hk_boot_wen    ? hk_boot_addr    : host_sram_waddr;
+wire [7:0] mux_boot_data = hk_boot_wen    ? hk_boot_data    : host_sram_wdata;
+wire       mux_boot_wen  = hk_boot_wen    | host_sram_wen;
+//wire [9:0] mux_boot_addr = boot_mode     ? boot_addr       : 
+                           //host_rst_en   ? host_sram_waddr : hk_boot_addr;
+
+//wire [7:0] mux_boot_data = boot_mode     ? boot_data       : 
+                           //host_rst_en   ? host_sram_wdata : hk_boot_data;
+
+//wire       mux_boot_wen  = boot_mode     ? boot_wen        : 
+                          // host_rst_en   ? host_sram_wen   : hk_boot_wen;
 
     // -----------------------------------------------------------------------
     // mesh_3x3
