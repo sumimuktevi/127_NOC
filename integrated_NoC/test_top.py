@@ -1,25 +1,3 @@
-"""
-test_top.py — Cocotb testbench for top.v full pipeline
-=======================================================
-
-Tests the complete flow:
-  1. BOOT    — SPI flash model loads firmware into all 9 tile SRAMs
-               via boot_controller. Verifies firmware bytes in SRAM.
-  2. SEED    — Host SPI bit-bang sends CMD 0x03/0xFF (hold reset),
-               then CMD 0x00 writes to overwrite current_grid with
-               blinker pattern in all 9 tiles.
-  3. RUN     — Host SPI sends CMD 0x03/0x00 (release reset).
-               Testbench waits for 0xCCCCCCCC on monitor_22_se.
-  4. READBACK — Cocotb reads all 9 tile SRAMs via hierarchy probing,
-                assembles 30x30 frame, asserts pixel-level correctness,
-                writes gol_gen1.pbm.
-
-SPI bit-bang timing:
-  Host SPI clock = sys_clk / 8 (12.5 MHz at 100 MHz sys_clk).
-  All SPI transactions use Mode 0 (CPOL=0, CPHA=0).
-  host_spi_slave samples MOSI on rising edge of host_sclk.
-"""
-
 import os
 import struct
 import cocotb
@@ -743,7 +721,8 @@ async def test_full_pipeline(dut):
         show_full_sram=False)
 
     # ---- STAGE 3: run GoL ----
-    await run_gol(dut)
+    gol_ok = await run_gol(dut)
+    assert gol_ok, "Stage 3 FAILED: 0xCCCCCCCC never seen — NoC signaling is broken"
 
     # ──────────────────────────────────────────────────────────
     # CHECKPOINT C: after 0xCCCCCCCC — generation 1 stable

@@ -34,36 +34,61 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
-    VL_OUT8(&flash_csb,0,0);
-    VL_OUT8(&flash_clk,0,0);
-    VL_OUT8(&flash_mosi,0,0);
-    VL_IN8(&flash_miso,0,0);
-    VL_IN8(&host_csb,0,0);
-    VL_IN8(&host_sclk,0,0);
-    VL_IN8(&host_mosi,0,0);
-    VL_OUT8(&host_miso,0,0);
+    VL_IN8(&boot_mode,0,0);
+    VL_IN8(&boot_wen,0,0);
+    VL_IN8(&boot_data,7,0);
+    VL_IN8(&tile_rd_req_0,0,0);
+    VL_IN8(&tile_rd_req_1,0,0);
+    VL_IN8(&tile_rd_req_2,0,0);
+    VL_IN8(&tile_rd_req_3,0,0);
+    VL_IN8(&tile_rd_req_4,0,0);
+    VL_IN8(&tile_rd_req_5,0,0);
+    VL_IN8(&tile_rd_req_6,0,0);
+    VL_IN8(&tile_rd_req_7,0,0);
+    VL_IN8(&tile_rd_req_8,0,0);
+    VL_OUT8(&tile_rd_data_0,7,0);
+    VL_OUT8(&tile_rd_data_1,7,0);
+    VL_OUT8(&tile_rd_data_2,7,0);
+    VL_OUT8(&tile_rd_data_3,7,0);
+    VL_OUT8(&tile_rd_data_4,7,0);
+    VL_OUT8(&tile_rd_data_5,7,0);
+    VL_OUT8(&tile_rd_data_6,7,0);
+    VL_OUT8(&tile_rd_data_7,7,0);
+    VL_OUT8(&tile_rd_data_8,7,0);
+    VL_IN16(&boot_addr,9,0);
+    VL_IN16(&tile_rd_addr_0,9,0);
+    VL_IN16(&tile_rd_addr_1,9,0);
+    VL_IN16(&tile_rd_addr_2,9,0);
+    VL_IN16(&tile_rd_addr_3,9,0);
+    VL_IN16(&tile_rd_addr_4,9,0);
+    VL_IN16(&tile_rd_addr_5,9,0);
+    VL_IN16(&tile_rd_addr_6,9,0);
+    VL_IN16(&tile_rd_addr_7,9,0);
+    VL_IN16(&tile_rd_addr_8,9,0);
+    VL_IN64(&inject_00_nw,33,0);
+    VL_OUT64(&monitor_22_se,33,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
-    Vtop_subservient_core__M400* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
-    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__top__DOT__mesh_inst__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sram_inst;
+    Vtop_subservient_core__M400* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__core_inst;
+    Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* const __PVT__mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__sram_inst;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.

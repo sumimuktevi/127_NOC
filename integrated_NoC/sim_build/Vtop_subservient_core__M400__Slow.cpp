@@ -89,6 +89,9 @@ constexpr IData/*31:0*/ Vtop_subservient_core__M400::servile__DOT__cpu__DOT__gen
 
 void Vtop_subservient_core__M400___ctor_var_reset(Vtop_subservient_core__M400* vlSelf);
 
+Vtop_subservient_core__M400::Vtop_subservient_core__M400() = default;
+Vtop_subservient_core__M400::~Vtop_subservient_core__M400() = default;
+
 void Vtop_subservient_core__M400::ctor(Vtop__Syms* symsp, const char* namep) {
     vlSymsp = symsp;
     vlNamep = strdup(Verilated::catName(vlSymsp->name(), namep));

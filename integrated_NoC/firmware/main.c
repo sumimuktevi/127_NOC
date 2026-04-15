@@ -105,7 +105,7 @@
  * Upper nibble [31:28] = hardware destination.
  * Lower 28 bits [27:0] = opaque payload.
  * Call only through the wrappers below.                                     */
-static inline void noc_write(uint32_t word)
+static void __attribute__((noinline)) noc_write(uint32_t word)
 {
     volatile uint32_t *reg = (volatile uint32_t *)NOC_INJECT_BASE;
     *reg = word;

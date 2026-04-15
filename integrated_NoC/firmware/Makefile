@@ -1,6 +1,6 @@
 #Toolchain configuration
-CC      = riscv64-unknown-elf-gcc
-OBJCOPY = riscv64-unknown-elf-objcopy
+CC      = riscv64-elf-gcc
+OBJCOPY = riscv64-elf-objcopy
 
 # File Paths
 TARGET_BIN = ../firmware.bin
@@ -25,7 +25,7 @@ $(TARGET_HEX): $(TARGET_BIN)
 
 size_check: firmware.elf
 	@echo "--- FIRMWARE SIZE REPORT ---"
-	@riscv64-unknown-elf-size firmware.elf
+	@riscv64-elf-size firmware.elf
 	@echo "Targeting Grid Base @ 0x2F8 (760 bytes). Text + Data must be smaller than this."
 
 clean:

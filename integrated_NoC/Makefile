@@ -55,6 +55,7 @@ COMPILE_ARGS += \
     -Wno-SPECIFYIGN \
     -Wno-MODDUP \
     -Wno-MINTYPMAXDLY \
-    -Wno-MULTIDRIVEN
+    -Wno-MULTIDRIVEN \
+    -Wno-UNSIGNED
 
 include $(shell cocotb-config --makefiles)/Makefile.sim

@@ -24,6 +24,9 @@ constexpr IData/*31:0*/ Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1::ta;
 
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1___ctor_var_reset(Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1* vlSelf);
 
+Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1::Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1() = default;
+Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1::~Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1() = default;
+
 void Vtop_gf180mcu_fd_ip_sram___05Fsram1024x8m8wm1::ctor(Vtop__Syms* symsp, const char* namep) {
     vlSymsp = symsp;
     vlNamep = strdup(Verilated::catName(vlSymsp->name(), namep));

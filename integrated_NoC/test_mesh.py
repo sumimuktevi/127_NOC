@@ -1,38 +1,3 @@
-"""
-test_mesh.py — Cocotb testbench for SERV 3×3 GoL Mesh
-======================================================
-
-KEY CHANGE from the original:
-  The original testbench used blind Timer() waits (200 ms/iter), which caused
-  iteration-2 to see the iteration-0 grid.  Root cause:
-
-    original main.c called noc_read() after computing each generation, which
-    BLOCKS THE CPU FOREVER because cocotb never drives NOC_RECV_BASE.  So:
-
-      iter 0 → CPU seeds current_grid, sends 0xAAAA/0xBBBB, starts loop.
-      iter 1 → CPU computes next_grid, sends 0xDDDD … then STALLS.
-               current_grid has NOT been updated yet (copy happens AFTER noc_read).
-      iter 2 → testbench wakes up, reads current_grid → still sees ITER 0 SEED.
-               (iter 1's result is in next_grid, not current_grid)
-
-  The fix has two parts:
-    1. main.c no longer calls noc_read() as a barrier.  It computes → copies →
-       signals 0xCCCC → broadcasts → loops immediately.
-    2. This testbench polls the NOC inject port (via the mesh_router's
-       inject_flit register, or by watching monitor_22_se) to detect the
-       0xCCCC "grid stable" signal, THEN reads current_grid from SRAM.
-
-  Handshake protocol (from revised main.c):
-    0xAAAAAAAA  — firmware boot, seed is live in current_grid
-    0xBBBBBBBB  — (second boot signal, legacy; ignored here)
-    0xDDDDDDDD  — math done, copy about to happen (do NOT sample yet)
-    0xCCCCCCCC  — copy complete, current_grid is STABLE (safe to sample)
-    0x0F??xxxx  — row broadcast (optional, used for extra debug)
-
-  We detect these by watching the NW inject port of tile(0,0):
-    dut.rows[0].cols[0].tile_inst.router_inst.inject_flit
-"""
-
 import os
 import struct
 import cocotb
@@ -322,18 +287,45 @@ def print_iter_comparison(dut, r, c, iteration):
 # ============================================================
 
 async def boot_mesh(dut):
-    """Start clock, reset, load SPI firmware, wait for cpu_rst_n."""
+    """
+    Load firmware directly onto the boot bus and release reset.
+
+    mesh_3x3 no longer contains boot_controller or SPI flash pins —
+    those live in top.v.  We drive boot_mode/boot_addr/boot_data/boot_wen
+    directly, which is equivalent to what boot_controller does over SPI
+    but without the SPI overhead.
+
+    boot_wen is active-LOW (matches mesh_tile.v: CEN = boot_wen in boot mode).
+    """
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
-    dut.rst.value = 1
-    dut.flash_miso.value = 0
+
+    dut.rst.value      = 1
+    dut.boot_mode.value = 1
+    dut.boot_wen.value  = 1    # deasserted (active-low)
+    dut.boot_addr.value = 0
+    dut.boot_data.value = 0
     if hasattr(dut, "inject_00_nw"):
         dut.inject_00_nw.value = 0
+
     await Timer(RESET_HOLD_MS, unit="ms")
+
+    # Write each firmware byte into all tile SRAMs simultaneously
+    for addr, byte in enumerate(FIRMWARE):
+        dut.boot_addr.value = addr
+        dut.boot_data.value = byte
+        dut.boot_wen.value  = 0    # assert write (active-low)
+        await RisingEdge(dut.clk)  # SRAM captures on this edge
+        dut.boot_wen.value  = 1    # deassert
+        await RisingEdge(dut.clk)  # one idle cycle between writes
+
+    # Exit boot mode — triggers the CEN startup pulse in mesh_tile
+    dut.boot_mode.value = 0
+    await RisingEdge(dut.clk)
+    await RisingEdge(dut.clk)
+
+    # Release reset — CPUs start executing
     dut.rst.value = 0
-    cocotb.start_soon(spi_flash_responder(dut))
-    while int(dut.cpu_rst_n.value) == 0:
-        await Timer(10, unit="us")
-    dut._log.info("[boot] cpu_rst_n asserted — CPU running.")
+    dut._log.info(f"[boot] {len(FIRMWARE)} bytes loaded directly, CPUs running.")
 
 # ============================================================
 # TEST 1: Iteration 0 seed check only
@@ -401,14 +393,9 @@ async def test_gol_iter1_iter2(dut):
     seen = await wait_for_noc_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
     #                                          ^^^^^^^^ lower 29 bits of 0xCCCCCCCC
 
-    if not seen:
-        # Fallback: maybe already past it, or signal format differs — try a brief extra wait
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
-    else:
-        # Give SERV a tiny margin to finish the last current_grid[i] = next_grid[i] store
-        await Timer(5, unit="us")
-        dut._log.info("[iter_test] 0xCCCC signal received — iter 1 stable.")
+    assert seen, "Iter 1 FAILED: 0xCCCCCCCC never received — NoC off-mesh routing is broken"
+    await Timer(5, unit="us")
+    dut._log.info("[iter_test] 0xCCCC signal received — iter 1 stable.")
 
     print("\n\n******** ITERATION 1 ********")
     iter1_mismatches = 0
@@ -428,12 +415,9 @@ async def test_gol_iter1_iter2(dut):
     dut._log.info(f"[iter_test] Waiting for iter 2 completion signal (0xCCCCCCCC)...")
     seen = await wait_for_noc_signal(dut, 0x0CCCCCCC, ITER_TIMEOUT_MS)
 
-    if not seen:
-        dut._log.warning("[iter_test] 0xCCCC not seen in time — waiting 200ms fallback")
-        await Timer(ITER_TIMEOUT_MS, unit="ms")
-    else:
-        await Timer(5, unit="us")
-        dut._log.info("[iter_test] 0xCCCC signal received — iter 2 stable.")
+    assert seen, "Iter 2 FAILED: 0xCCCCCCCC never received — NoC off-mesh routing is broken"
+    await Timer(5, unit="us")
+    dut._log.info("[iter_test] 0xCCCC signal received — iter 2 stable.")
 
     print("\n\n******** ITERATION 2 ********")
     iter2_mismatches = 0
@@ -452,4 +436,198 @@ async def test_gol_iter1_iter2(dut):
     assert total == 0, (
         f"GoL iteration test failed: iter0={iter0_mismatches}, "
         f"iter1={iter1_mismatches}, iter2={iter2_mismatches} mismatches."
+    )
+
+# ============================================================
+# DIAGNOSTIC TEST 3: What does the CPU actually write to the NOC?
+# ============================================================
+
+@cocotb.test()
+async def test_diag_wb_noc_writes(dut):
+    """
+    Watch local_wb_dat_o on tile(0,0)'s router for all writes to 0x80000000.
+    This is the raw Wishbone data *before* inject_flit packs it — shows exactly
+    what value the CPU is writing to the NOC inject port.
+
+    If we see 0xAF000000 → the row broadcast header is correct.
+    If we see 0xA0000070 → t2=0 (register file corruption in SRAM).
+    If we see 0xDDDDDDDD → SIG_MATH_DONE is being sent.
+    """
+    from cocotb.utils import get_sim_time
+
+    NOC_ADDR = 0x80000000
+    captures = []
+    capturing = True
+
+    async def wb_monitor():
+        while capturing:
+            await RisingEdge(dut.clk)
+            try:
+                router = dut.rows[0].cols[0].tile_inst.router_inst
+                stb = int(router.local_wb_stb.value)
+                we  = int(router.local_wb_we.value)
+                adr = int(router.local_wb_adr.value)
+                dat = int(router.local_wb_dat_o.value)
+                if stb and we and (adr == NOC_ADDR):
+                    t_us = get_sim_time(units="us")
+                    captures.append((t_us, dat))
+            except Exception:
+                pass
+
+    await boot_mesh(dut)
+    mon = cocotb.start_soon(wb_monitor())
+
+    # Run for 15ms — enough to see boot signals + at least one GoL iteration
+    await Timer(15, unit="ms")
+    capturing = False
+
+    SIG_NAMES = {
+        0xAAAAAAAA: "SIG_BOOT_ALIVE",
+        0xBBBBBBBB: "SIG_SEED_LIVE",
+        0xDDDDDDDD: "SIG_MATH_DONE",
+        0xCCCCCCCC: "SIG_GEN_STABLE",
+        0x0DEAD001: "SIG_STOP",
+    }
+
+    dut._log.info(f"[diag_wb] {len(captures)} NOC writes to 0x80000000 in 15ms:")
+    for t_us, dat in captures[:60]:
+        name = SIG_NAMES.get(dat, f"dest=0x{(dat>>28)&0xF:X} pay=0x{dat&0x0FFFFFFF:07X}")
+        dut._log.info(f"  t={t_us:10.1f} us   0x{dat:08X}  ({name})")
+
+    assert captures, "No writes to 0x80000000 seen — CPU is not reaching NOC inject code"
+
+    seen_vals = {d for _, d in captures}
+    assert 0xDDDDDDDD in seen_vals or 0xCCCCCCCC in seen_vals, (
+        f"Neither SIG_MATH_DONE nor SIG_GEN_STABLE seen in Wishbone writes.\n"
+        f"Unique values written: {[hex(v) for v in sorted(seen_vals)]}"
+    )
+
+
+# ============================================================
+# DIAGNOSTIC TEST 1: Did the CPU execute at all?
+# ============================================================
+
+@cocotb.test()
+async def test_diag_cpu_executing(dut):
+    """
+    Boot the mesh, then watch next_grid (0x340) on tile(0,0) for changes.
+    If the CPU is running GoL, next_grid bytes will change within a few ms.
+    This confirms firmware execution independent of the NoC signal path.
+    """
+    await boot_mesh(dut)
+
+    tile = get_tile(dut, 0, 0)
+    NEXT_GRID = 0x340
+
+    # Snapshot next_grid right after boot
+    snap_before = [sram_read_byte(tile, NEXT_GRID + i) for i in range(SIZE * SIZE)]
+
+    # Wait 2ms — enough for several GoL iterations at 100 MHz / ~32 cyc/instr
+    await Timer(2, unit="ms")
+
+    snap_after = [sram_read_byte(tile, NEXT_GRID + i) for i in range(SIZE * SIZE)]
+    changed = sum(1 for a, b in zip(snap_before, snap_after) if a != b)
+
+    dut._log.info(f"[diag_cpu] next_grid cells changed in 2ms: {changed}/{SIZE*SIZE}")
+    dut._log.info(f"[diag_cpu] Before: {snap_before}")
+    dut._log.info(f"[diag_cpu]  After: {snap_after}")
+
+    assert changed > 0, (
+        "CPU does not appear to be executing — next_grid unchanged after 2ms. "
+        "Check boot sequence, SRAM CEN init, or firmware entry point."
+    )
+
+
+# ============================================================
+# DIAGNOSTIC TEST 2: What signals is the NoC actually sending?
+# ============================================================
+
+@cocotb.test()
+async def test_diag_noc_signals(dut):
+    """
+    Boot the mesh, then run a background coroutine that captures every
+    inject_flit pulse on tile(0,0) for 50ms. Reports all unique payloads seen
+    and prints them in CHRONOLOGICAL order with simulation timestamps.
+
+    inject_flit is a ONE-CYCLE pulse. The background coroutine fires at every
+    rising edge so it cannot miss it the way a polling loop can.
+
+    Expected to see (in order):
+      0x0AAAAAAA  (SIG_BOOT_ALIVE,  dest=0xA)
+      0x0BBBBBBB  (SIG_SEED_LIVE,   dest=0xB)
+      0x0DDDDDDD  (SIG_MATH_DONE,   dest=0xD)  -- repeating
+      0x0CCCCCCC  (SIG_GEN_STABLE,  dest=0xC)  -- repeating
+      0x0F0?????  (ROW_BROADCAST,   dest=0xA→tile(2,2), payload has FLIT_TYPE_ROW)
+
+    If 0x0CCCCCCC is absent, the firmware is not reaching noc_signal(SIG_GEN_STABLE).
+    If NO signals are seen, the CPU is not executing or the Wishbone path is broken.
+
+    NOTE: 50ms at 100 MHz = 5,000,000 cycles = ~156,000 instructions at 32 cyc/instr.
+    A full GoL iteration (100 cells × ~30 instr) ≈ 3000 instr ≈ 1ms. So 50ms = ~50 iters.
+    """
+    SIG_NAMES = {
+        0x0AAAAAAA: "SIG_BOOT_ALIVE",
+        0x0BBBBBBB: "SIG_SEED_LIVE",
+        0x0DDDDDDD: "SIG_MATH_DONE",
+        0x0CCCCCCC: "SIG_GEN_STABLE",
+        0x0DEAD001: "SIG_STOP",
+    }
+
+    CAPTURE_MS = 50
+
+    # List of (time_us, payload) in chronological order
+    seen_events = []
+    capturing = True
+
+    async def background_flit_capture():
+        """Fires at every rising edge — cannot miss a 1-cycle inject_flit pulse."""
+        from cocotb.utils import get_sim_time
+        while capturing:
+            await RisingEdge(dut.clk)
+            try:
+                raw = int(dut.rows[0].cols[0].tile_inst.router_inst.inject_flit.value)
+                if raw & (1 << 33):
+                    payload = raw & 0x1FFFFFFF
+                    t_us = get_sim_time(units="us")
+                    seen_events.append((t_us, payload))
+            except Exception:
+                pass
+
+    await boot_mesh(dut)
+
+    # Launch background monitor BEFORE the wait so it catches boot signals
+    monitor = cocotb.start_soon(background_flit_capture())
+
+    dut._log.info(f"[diag_noc] Running for {CAPTURE_MS}ms ...")
+    await Timer(CAPTURE_MS, unit="ms")
+    capturing = False
+
+    # --- Chronological listing (first 80 events) ---
+    dut._log.info(f"[diag_noc] Chronological flit log (first 80 of {len(seen_events)}):")
+    for t_us, p in seen_events[:80]:
+        name = SIG_NAMES.get(p, f"UNKNOWN dest=0x{(p>>25)&0xF:X} pay=0x{p&0x1FFFFFF:07X}")
+        dut._log.info(f"  t={t_us:10.1f} us   0x{p:08x}  ({name})")
+
+    # --- Summary by payload ---
+    unique = {}
+    for _, p in seen_events:
+        unique[p] = unique.get(p, 0) + 1
+
+    dut._log.info(f"[diag_noc] Summary ({CAPTURE_MS}ms, {len(seen_events)} total events):")
+    if not unique:
+        dut._log.error("[diag_noc] NO flits seen — CPU is not writing to NOC_INJECT_BASE")
+    for payload, count in sorted(unique.items()):
+        name = SIG_NAMES.get(payload, "unknown")
+        dut._log.info(f"  0x{payload:08x}  ({name})  × {count}")
+
+    assert unique, \
+        f"No inject_flit pulses seen on tile(0,0) in {CAPTURE_MS}ms — CPU not executing or Wishbone broken."
+
+    assert 0x0CCCCCCC in unique, (
+        f"SIG_GEN_STABLE (0xCCCCCCCC) never seen in {CAPTURE_MS}ms.\n"
+        f"Signals that WERE seen: {[hex(p) for p in sorted(unique)]}\n"
+        f"Hint: if SIG_MATH_DONE (0xDDDDDDDD) is seen but not SIG_GEN_STABLE, "
+        f"the CPU is stalling during the next_grid → current_grid copy.\n"
+        f"Hint: if neither is seen, GoL computation is taking >50ms (very unlikely) "
+        f"or the firmware is looping before reaching the NOC signal."
     )

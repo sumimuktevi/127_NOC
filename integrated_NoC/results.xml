@@ -1,6 +1,18 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1773463682" />
-    <testcase name="test_full_pipeline" classname="test_top" file="/Users/andreaarreortua/Desktop/127_NOC/Psi_Aan_work/test_top.py" lineno="699" time="899.6387979984283" sim_time_ns="202758430.0" ratio_time="225377.5964877342" />
+    <property name="random_seed" value="1776200698" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/fanshenglee/127_NOC/integrated_NoC/test_mesh.py" lineno="369" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/Users/fanshenglee/127_NOC/integrated_NoC/test_mesh.py" lineno="397" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="test_diag_wb_noc_writes" classname="test_mesh" file="/Users/fanshenglee/127_NOC/integrated_NoC/test_mesh.py" lineno="480" time="40.712392807006836" sim_time_ns="17014650.0" ratio_time="417923.11448399274" />
+    <testcase name="test_diag_cpu_executing" classname="test_mesh" file="/Users/fanshenglee/127_NOC/integrated_NoC/test_mesh.py" lineno="545" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="test_diag_noc_signals" classname="test_mesh" file="/Users/fanshenglee/127_NOC/integrated_NoC/test_mesh.py" lineno="580" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
   </testsuite>
 </testsuites>
