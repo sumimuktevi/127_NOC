@@ -5,6 +5,9 @@
 #define NOC_ID_BASE      0x80000008u
 
 #define TILE_ID(r,c)     (((uint32_t)(r) << 2) | (uint32_t)(c))
+#define TILE_ROW(id)     (((uint32_t)(id) >> 2) & 0x3u)
+#define TILE_COL(id)     ((uint32_t)(id) & 0x3u)
+
 #define FLIT_DEST_SHIFT  28u
 #define FLIT_BMAP_MASK   0x3FFu
 #define FLIT_VALID_BIT   0x400u
@@ -13,12 +16,12 @@
  * Payload lower 28 bits must NOT have bit 10 set (FLIT_VALID_BIT) to avoid
  * being mistaken for ghost flits by recv_ghost().
  * Pattern: 0xFXXXXXXX where payload bits 10 = 0.
- * Using 0xF0000xNN where NN is a unique tag.                              */
-#define SIG_BOOT_ALIVE   0xF0000001u   /* dest=0xF off-mesh, no bit10     */
+ */
+#define SIG_BOOT_ALIVE   0xF0000001u
 #define SIG_SEED_LIVE    0xF0000002u
 #define SIG_MATH_DONE    0xF0000003u
-#define SIG_GEN_STABLE   0xF0000004u   /* testbench watches for this       */
-#define SIG_STOP         0xF0000005u   /* host sends this to halt          */
+#define SIG_GEN_STABLE   0xF0000004u
+#define SIG_STOP         0xF0000005u
 
 #define SIZE       10
 #define MESH_ROWS  3
@@ -28,17 +31,7 @@
 #define GHOST_BASE      0x0600u
 #define NEXT_GRID_BASE  0x0640u
 
-/* DEBUG MMIO: Diagnostic registers written by firmware, read by testbench.
- * Layout (all offsets from DEBUG_BASE = 0x0700):
- *   +0  : last bitmap received from North (uint32)
- *   +4  : last bitmap received from South (uint32)
- *   +8  : last bitmap received from West  (uint32)
- *   +12 : last bitmap received from East  (uint32)
- *   +16 : neighbor-count histogram, 9 bytes (counts for n=0..8)
- *   +28 : iteration counter (uint32)
- *   +32 : ghost exchange flags (uint32): bit0=S,bit1=N,bit2=E,bit3=W
- * Total: 36 bytes → zero 0x0700–0x0724 in _start.
- */
+/* DEBUG MMIO / SRAM region */
 #define DEBUG_BASE           0x0700u
 #define DEBUG_LAST_RECV_N    (DEBUG_BASE +  0)
 #define DEBUG_LAST_RECV_S    (DEBUG_BASE +  4)
@@ -55,7 +48,6 @@
 #define ghost_E   ((volatile uint8_t *)(GHOST_BASE + 30))
 #define next_grid ((volatile uint8_t *)NEXT_GRID_BASE)
 
-/* Debug register pointers (written by firmware, read by testbench) */
 #define debug_last_recv_n   ((volatile uint32_t *)DEBUG_LAST_RECV_N)
 #define debug_last_recv_s   ((volatile uint32_t *)DEBUG_LAST_RECV_S)
 #define debug_last_recv_w   ((volatile uint32_t *)DEBUG_LAST_RECV_W)
@@ -107,11 +99,7 @@ static inline void send_ghost(uint32_t dest_id, uint32_t bm)
     noc_write((dest_id << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm & FLIT_BMAP_MASK));
 }
 
-/*
- * Keep the debug version's instrumentation, but do NOT write back to
- * NOC_RECV_BASE. The simpler version that progresses through iter 1
- * only waits for a valid flit and returns its bitmap.
- */
+/* Wait for a valid ghost flit and return its 10-bit bitmap. */
 static inline uint32_t recv_ghost(void)
 {
     uint32_t p;
@@ -123,7 +111,7 @@ __attribute__((section(".text.init"), naked))
 void _start(void)
 {
     __asm__ volatile (
-        /* zero ghost buffers: 0x0600–0x0627 (ghost N/S/W/E = 40 bytes) */
+        /* zero ghost buffers: 0x0600–0x0627 (40 bytes) */
         "li   sp, 0x7fc\n"
         "li   t0, 0x0600\n"
         "li   t1, 0x0628\n"
@@ -140,7 +128,7 @@ void _start(void)
         "   addi t0, t0, 1\n"
         "   j    3b\n"
 
-        /* zero debug region: 0x0700–0x0723 (36 bytes — covers all debug regs) */
+        /* zero debug region: 0x0700–0x0723 (36 bytes) */
         "4: li   t0, 0x0700\n"
         "li   t1, 0x0724\n"
         "5: bge  t0, t1, 6f\n"
@@ -159,40 +147,36 @@ static void ghost_exchange(int my_row, int my_col,
 {
     uint32_t ghost_flags = 0;
 
-    /* Phase 1: everyone sends, nobody blocks */
+    /* Phase 1: everyone sends */
     if (has_S) { send_ghost(TILE_ID(my_row + 1, my_col), row_bitmap(SIZE - 1)); ghost_flags |= 0x1; }
     if (has_N) { send_ghost(TILE_ID(my_row - 1, my_col), row_bitmap(0));        ghost_flags |= 0x2; }
     if (has_E) { send_ghost(TILE_ID(my_row, my_col + 1), col_bitmap(SIZE - 1)); ghost_flags |= 0x4; }
     if (has_W) { send_ghost(TILE_ID(my_row, my_col - 1), col_bitmap(0));        ghost_flags |= 0x8; }
 
-    /* Phase 2: receive in the same direction order on every tile */
+    /* Phase 2: receive in fixed order */
 
-    /* ghost_N ← northern neighbour's row 0 */
     if (has_N) {
         uint32_t bm = recv_ghost();
         *debug_last_recv_n = bm;
-        for (int i = 0; i < SIZE; i++) ghost_N[i] = (bm >> i) & 1u;
+        for (int i = 0; i < SIZE; i++) ghost_N[i] = (uint8_t)((bm >> i) & 1u);
     }
 
-    /* ghost_S ← southern neighbour's last row */
     if (has_S) {
         uint32_t bm = recv_ghost();
         *debug_last_recv_s = bm;
-        for (int i = 0; i < SIZE; i++) ghost_S[i] = (bm >> i) & 1u;
+        for (int i = 0; i < SIZE; i++) ghost_S[i] = (uint8_t)((bm >> i) & 1u);
     }
 
-    /* ghost_E ← eastern neighbour's col 0 */
     if (has_E) {
         uint32_t bm = recv_ghost();
         *debug_last_recv_e = bm;
-        for (int i = 0; i < SIZE; i++) ghost_E[i] = (bm >> i) & 1u;
+        for (int i = 0; i < SIZE; i++) ghost_E[i] = (uint8_t)((bm >> i) & 1u);
     }
 
-    /* ghost_W ← western neighbour's last col */
     if (has_W) {
         uint32_t bm = recv_ghost();
         *debug_last_recv_w = bm;
-        for (int i = 0; i < SIZE; i++) ghost_W[i] = (bm >> i) & 1u;
+        for (int i = 0; i < SIZE; i++) ghost_W[i] = (uint8_t)((bm >> i) & 1u);
     }
 
     *debug_ghost_flags = ghost_flags;
@@ -212,7 +196,6 @@ static inline int neighbour_count(int row, int col)
                    n += grid[idx - SIZE    ] & 1;
         if (right) n += grid[idx - SIZE + 1] & 1;
     } else {
-        /* top edge: use ghost_N row */
         if (left)  n += ghost_N[col - 1] & 1;
                    n += ghost_N[col    ] & 1;
         if (right) n += ghost_N[col + 1] & 1;
@@ -229,7 +212,6 @@ static inline int neighbour_count(int row, int col)
                    n += grid[idx + SIZE    ] & 1;
         if (right) n += grid[idx + SIZE + 1] & 1;
     } else {
-        /* bottom edge: use ghost_S row */
         if (left)  n += ghost_S[col - 1] & 1;
                    n += ghost_S[col    ] & 1;
         if (right) n += ghost_S[col + 1] & 1;
@@ -238,12 +220,28 @@ static inline int neighbour_count(int row, int col)
     return n;
 }
 
+static void seed_grid(void)
+{
+    for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
+
+    grid[4 * SIZE + 5] = 1;
+    grid[5 * SIZE + 5] = 1;
+    grid[6 * SIZE + 5] = 1;
+
+    grid[8 * SIZE + 0] = 1;
+    grid[9 * SIZE + 0] = 1;
+
+    grid[8 * SIZE + 9] = 1;
+    grid[9 * SIZE + 9] = 1;
+}
+
 int main(void)
 {
     uint32_t my_id  = noc_read_my_id();
-    int my_row = (int)((my_id >> 2) & 0x3u);
-    int my_col = (int)(my_id & 0x3u);
+    int my_row = (int)TILE_ROW(my_id);
+    int my_col = (int)TILE_COL(my_id);
 
+    /* Keep the original working rectangular mesh logic */
     int has_N = (my_row > 0);
     int has_S = (my_row < MESH_ROWS - 1);
     int has_W = (my_col > 0);
@@ -251,10 +249,7 @@ int main(void)
 
     noc_signal(SIG_BOOT_ALIVE);
 
-    for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
-    grid[4 * SIZE + 5] = 1; grid[5 * SIZE + 5] = 1; grid[6 * SIZE + 5] = 1;
-    grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
-    grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
+    seed_grid();
 
     noc_signal(SIG_SEED_LIVE);
 
@@ -264,19 +259,20 @@ int main(void)
 
         ghost_exchange(my_row, my_col, has_N, has_S, has_W, has_E);
 
-        /* Compute next gen and collect neighbor histogram */
         uint8_t neighbor_counts[9] = {0};
+
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
                 int alive = grid[row * SIZE + col] & 1;
                 int n     = neighbour_count(row, col);
+
                 next_grid[row * SIZE + col] =
                     (uint8_t)(alive ? (n == 2 || n == 3) : (n == 3));
+
                 if (n <= 8) neighbor_counts[n]++;
             }
         }
 
-        /* Write all 9 histogram buckets (n=0..8) to debug region */
         for (int i = 0; i <= 8; i++) {
             debug_neighbor_hist[i] = neighbor_counts[i];
         }
