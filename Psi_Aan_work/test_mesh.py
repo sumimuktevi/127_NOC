@@ -241,6 +241,7 @@ async def boot_mesh(dut):
 @cocotb.test()
 async def test_iter0_seed_only(dut):
     await boot_mesh(dut)
+    
     dut._log.info(f"Waiting {SEED_SAMPLE_US} us for seed init...")
     await Timer(SEED_SAMPLE_US, unit="us")
 
