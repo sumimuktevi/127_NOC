@@ -7,7 +7,7 @@ COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEV
      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/psi19/.local/share/pipx/venvs/cocotb/bin/python
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     cocotb                             Running on Verilator version 5.036 2025-04-27
-     0.00ns INFO     cocotb                             Seeding Python random module with 1776674981
+     0.00ns INFO     cocotb                             Seeding Python random module with 1776673304
      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
 [testbench] current_grid @ 0x0500
@@ -69,8 +69,8 @@ COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEV
 [NOC t=3367350000] ID=8 INJECT raw=0xf0000002 dest=15 bmap=0x002
 [NOC t=3367350000] ID=9 INJECT raw=0xf0000002 dest=15 bmap=0x002
 [NOC t=3367350000] ID=10 INJECT raw=0xf0000002 dest=15 bmap=0x002
-[NOC t=3424210000] ID=0 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=3424210000] ID=1 INJECT raw=0x000004c7 dest=04700000.00ns INFO     cocotb.mesh_3x3                    SRAM_GRID_BASE = 0x0500
+[NOC t=3424210000] ID=0 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=3424210000] ID=1 INJECT raw=0x00000474 dest=04700000.00ns INFO     cocotb.mesh_3x3                    SRAM_GRID_BASE = 0x0500
 
 DUMP @ 0x0500 (100 bytes):
 0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -87,8 +87,8 @@ TILE (0,0) SEED STATE
 
 TILE (0,0) SEED STATE Ghost Exchange (flags=0x05):
   Sent  : N=0 S=1 E=1 W=0
-  Recv S: 0x0c7  bits=0011000111
-  Recv E: 0x0c7  bits=0011000111
+  Recv S: 0x074  bits=0001110100
+  Recv E: 0x074  bits=0001110100
 
 TILE (0,0) SEED STATE Neighbor Histogram (total cells=0):
   n=0:    0  
@@ -251,17 +251,17 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 4700000.00ns INFO     cocotb.regression                  test_mesh.test_iter0_seed_only passed
 4700000.00ns INFO     cocotb.regression                  running test_mesh.test_gol_iter1_iter2 (2/2)
 7400000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
- bmap=0x0c7
-[NOC t=3424210000] ID=2 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=3424210000] ID=4 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=3424210000] ID=5 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=3424210000] ID=6 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=3424210000] ID=8 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3424210000] ID=9 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3424210000] ID=10 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3424220000] ID=0 EJECT_IN  bmap=0x0c7 count 0->1
-[NOC t=3424230000] ID=0 EJECT_IN  bmap=0x0c7 count 1->2
-[NOC t=3424240000] ID=0 EJECT_IN  bmap=0x075 count 2->3
+ bmap=0x074
+[NOC t=3424210000] ID=2 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=3424210000] ID=4 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=3424210000] ID=5 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=3424210000] ID=6 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=3424210000] ID=8 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3424210000] ID=9 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3424210000] ID=10 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3424220000] ID=0 EJECT_IN  bmap=0x074 count 0->1
+[NOC t=3424230000] ID=0 EJECT_IN  bmap=0x074 count 1->2
+[NOC t=3424240000] ID=0 EJECT_IN  bmap=0x053 count 2->3
 [NOC t=3469070000] ID=8 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=3469070000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=3469070000] ID=10 INJECT raw=0x00000400 dest=0 bmap=0x000
@@ -269,11 +269,11 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 [NOC t=3470890000] ID=0 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=3470890000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=3470890000] ID=2 INJECT raw=0x00000400 dest=0 bmap=0x000
-[NOC t=3470910000] ID=4 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3470910000] ID=5 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3470910000] ID=6 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=3475360000] ID=0 EJECT_OUT bmap=0x0c7 count 4->3
-[NOC t=3512760000] ID=0 EJECT_OUT bmap=0x0c7 count 3->2
+[NOC t=3470910000] ID=4 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3470910000] ID=5 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3470910000] ID=6 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=3475360000] ID=0 EJECT_OUT bmap=0x074 count 4->3
+[NOC t=3513480000] ID=0 EJECT_OUT bmap=0x074 count 3->2
 [NOC t=3514330000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=3514360000] ID=0 EJECT_IN  bmap=0x000 count 2->3
 [NOC t=3515770000] ID=4 INJECT raw=0x00000400 dest=0 bmap=0x000
@@ -300,18 +300,18 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 [NOC t=8067350000] ID=8 INJECT raw=0xf0000002 dest=15 bmap=0x002
 [NOC t=8067350000] ID=9 INJECT raw=0xf0000002 dest=15 bmap=0x002
 [NOC t=8067350000] ID=10 INJECT raw=0xf0000002 dest=15 bmap=0x002
-[NOC t=8124210000] ID=0 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=1 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=2 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=4 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=5 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=6 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
-[NOC t=8124210000] ID=8 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=8124210000] ID=9 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=8124210000] ID=10 INJECT raw=0x00000475 dest=0 bmap=0x075
-[NOC t=8124220000] ID=0 EJECT_IN  bmap=0x0c7 count 0->1
-[NOC t=8124230000] ID=0 EJECT_IN  bmap=0x0c7 count 1->2
-[NOC t=8124240000] ID=0 EJECT_IN  bmap=0x075 count 2->3
+[NOC t=8124210000] ID=0 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=1 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=2 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=4 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=5 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=6 INJECT raw=0x00000474 dest=0 bmap=0x074
+[NOC t=8124210000] ID=8 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8124210000] ID=9 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8124210000] ID=10 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8124220000] ID=0 EJECT_IN  bmap=0x074 count 0->1
+[NOC t=8124230000] ID=0 EJECT_IN  bmap=0x074 count 1->2
+[NOC t=8124240000] ID=0 EJECT_IN  bmap=0x053 count 2->3
 [NOC t=8169070000] ID=8 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=8169070000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
 [NOC t=8169070000] ID=10 INJECT raw=0x00000400 dest=0 bmap=0x000
@@ -492,8 +492,8 @@ TILE (0,0) iter=1 MISMATCH debug
 
 TILE (0,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x05):
   Sent  : N=0 S=1 E=1 W=0
-  Recv S: 0x0c7  bits=0011000111
-  Recv E: 0x0c7  bits=0011000111
+  Recv S: 0x074  bits=0001110100
+  Recv E: 0x074  bits=0001110100
 
 TILE (0,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
   n=0:    0  
@@ -789,12 +789,12 @@ DUMP @ 0x0500 (100 bytes):
 0x0560: 00 00 00 00
 
 DUMP @ 0x0600 (40 bytes):
-0x0600: 00 00 00 00 00 00 00 00 00 00 01 01 01 00 00 00
-0x0610: 01 01 00 00 00 00 00 00 00 00 00 00 00 00 01 01
-0x0620: 01 00 00 00 01 01 00 00
+0x0600: 00 00 00 00 00 00 00 00 00 00 00 00 01 00 01 01
+0x0610: 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0620: 01 00 01 01 01 00 00 00
 
 DUMP @ 0x0700 (36 bytes):
-0x0700: 00 00 00 00 c7 00 00 00 00 00 00 00 c7 00 00 00
+0x0700: 00 00 00 00 74 00 00 00 00 00 00 00 74 00 00 00
 0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0720: 05 00 00 00
 
@@ -806,8 +806,8 @@ TILE (0,0)  iter=0
 
 TILE (0,0)  iter=0 Ghost Exchange (flags=0x05):
   Sent  : N=0 S=1 E=1 W=0
-  Recv S: 0x0c7  bits=0011000111
-  Recv E: 0x0c7  bits=0011000111
+  Recv S: 0x074  bits=0001110100
+  Recv E: 0x074  bits=0001110100
 
 TILE (0,0)  iter=0 Neighbor Histogram (total cells=0):
   n=0:    0  
@@ -964,3 +964,185 @@ TILE (2,2)  iter=0 Neighbor Histogram (total cells=0):
   n=7:    0  
   n=8:    0  
 14409990.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 2 ...
+19409980.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 2
+
+
+******** ITERATION 2 ********
+
+===================================================
+TILE (0,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+19419980.00ns INFO     cocotb.mesh_3x3                    Iter 2: ALL tiles match
+19419980.00ns WARNING  ..iter1_iter2.test_gol_iter1_iter2 GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
+                                                          Traceback (most recent call last):
+                                                            File "/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py", line 334, in test_gol_iter1_iter2
+                                                              assert total == 0, (
+                                                                     ^^^^^^^^^^
+                                                          AssertionError: GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
+19419980.00ns WARNING  cocotb.regression                  test_mesh.test_gol_iter1_iter2 failed
+19419980.00ns INFO     cocotb.regression                  ****************************************************************************************
+                                                          ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                          ****************************************************************************************
+                                                          ** test_mesh.test_iter0_seed_only   PASS     4700000.00          79.43      59172.67  **
+                                                          ** test_mesh.test_gol_iter1_iter2   FAIL    14719980.00         359.40      40957.14  **
+                                                          ****************************************************************************************
+                                                          ** TESTS=2 PASS=1 FAIL=1 SKIP=0             19419980.00         438.83      44253.63  **
+                                                          ****************************************************************************************
+000
+[NOC t=8170890000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8170890000] ID=2 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8170910000] ID=4 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8170910000] ID=5 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8170910000] ID=6 INJECT raw=0x00000453 dest=0 bmap=0x053
+[NOC t=8175360000] ID=0 EJECT_OUT bmap=0x074 count 4->3
+[NOC t=8213480000] ID=0 EJECT_OUT bmap=0x074 count 3->2
+[NOC t=8214330000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8214360000] ID=0 EJECT_IN  bmap=0x000 count 2->3
+[NOC t=8215770000] ID=4 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215770000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215770000] ID=6 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215790000] ID=0 EJECT_IN  bmap=0x000 count 3->4
+[NOC t=8216150000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8261030000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+- :0: Verilog $finish
+make[1]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work'

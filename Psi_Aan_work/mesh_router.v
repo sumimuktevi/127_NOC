@@ -163,7 +163,16 @@ module mesh_router #(
 
     // -------------------------------------------------------------------------
     // Routing — XY dimension-order, combinatorial
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // CRITICAL FIX: Tile ID extraction from flit
+    // Flit format: [33]=valid [32:29]=dest_id[3:0] [28:0]=payload
+    // dest_id is a 4-bit value where:
+    //   dest_id[3:2] = row (2 bits)
+    //   dest_id[1:0] = col (2 bits)
+    // In the flit: dest_id occupies bits [32:29]
+    //   flit[32:31] = dest_id[3:2] = row
+    //   flit[30:29] = dest_id[1:0] = col
+    // =========================================================================
     reg [33:0] next_n, next_s, next_e, next_w;
     reg [33:0] next_ne, next_nw, next_se, next_sw;
     reg [33:0] next_eject;
@@ -172,10 +181,9 @@ module mesh_router #(
         input [33:0] flit;
         reg [1:0] tgt_row, tgt_col;
         begin
-            // Flit layout: [33]=valid [32:29]=dest(4b) [28:0]=payload
-            // dest[3:2] = row, dest[1:0] = col → flit[32:31]=row, flit[30:29]=col
-            tgt_row = flit[32:31];
-            tgt_col = flit[30:29];
+            // Extract destination tile ID from bits [32:29]
+            tgt_row = flit[32:31];  // bits [32:31] = row
+            tgt_col = flit[30:29];  // bits [30:29] = col
 
             if (tgt_row == my_row && tgt_col == my_col) begin
                 if (!next_eject[33] && !fifo_full) next_eject = flit;
