@@ -804,9 +804,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-        IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ng_block__DOT__ng_off;
-        IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ng_block__DOT__ng_row;
-        IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ng_block__DOT__ng_col;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
@@ -828,11 +825,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_c2r;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__wb_dat_r2c;
-    };
-    struct {
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_o;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__local_wb_dat_i;
+    };
+    struct {
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__i;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_adr;
         IData/*31:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__wb_dat_c2r;
@@ -894,11 +891,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__s_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__e_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__w_i;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__ne_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__se_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__sw_i;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__nw_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__n_i;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__s_i;
@@ -960,11 +957,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_in;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_out;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
@@ -985,7 +982,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1026,13 +1022,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_in;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1077,7 +1072,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1092,14 +1086,14 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__se_in;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_out;
@@ -1124,7 +1118,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1158,8 +1151,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_out;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_in;
@@ -1167,11 +1158,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__se_in;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__sw_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1216,7 +1208,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1224,8 +1215,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_ne;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_nw;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_se;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_sw;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_eject;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_in;
@@ -1235,6 +1224,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__north_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__south_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__east_out;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__west_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__nw_in;
@@ -1263,7 +1254,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1290,8 +1280,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__se_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__sw_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_out;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_out;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_out;
@@ -1302,6 +1290,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__n_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__s_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__e_in;
+    };
+    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__w_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__ne_in;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__nw_in;
@@ -1310,7 +1300,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1355,9 +1344,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__inject_flit;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__eject_flit_next;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_comb;
-        QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__fifo_head_reg;
-    };
-    struct {
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_n;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_s;
         QData/*33:0*/ mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__next_e;
@@ -1370,6 +1356,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__0__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__1__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__2__flit;
+    };
+    struct {
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__3__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__4__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__0__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__5__flit;
@@ -1422,8 +1410,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__52__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__1__KET____DOT__cols__BRA__2__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__53__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__54__flit;
-    };
-    struct {
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__55__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__56__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__0__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__57__flit;
@@ -1436,6 +1422,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__64__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__65__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__66__flit;
+    };
+    struct {
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__67__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__68__flit;
         QData/*33:0*/ __Vtask_mesh_3x3__DOT__rows__BRA__2__KET____DOT__cols__BRA__1__KET____DOT__tile_inst__DOT__router_inst__DOT__route_one__69__flit;

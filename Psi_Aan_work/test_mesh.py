@@ -143,10 +143,6 @@ def expected_blinker_seed():
     exp[4][5] = 1
     exp[5][5] = 1
     exp[6][5] = 1
-    exp[8][0] = 1
-    exp[9][0] = 1
-    exp[8][9] = 1
-    exp[9][9] = 1
     return exp
 
 

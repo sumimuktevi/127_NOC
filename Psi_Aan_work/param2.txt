@@ -1,0 +1,1187 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/psi19/127_NOC/Psi_Aan_work'
+/usr/local/bin/verilator -cc --exe -Mdir sim_build --top-module mesh_3x3 --timing -Wno-PINMISSING -Wno-MODDUP -Wno-MINTYPMAXDLY --trace-fst --trace-depth 6 --timescale 1ns/1ps --vpi --public-flat-rw --prefix Vtop -o Vtop -LDFLAGS "-Wl,-rpath,/home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/libs -L/home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/libs -lcocotbvpi_verilator"  mesh_3x3.v mesh_tile.v mesh_router.v gf180mcu_fd_ip_sram__sram2048x8m8wm1.v boot_loader.v fusesoc_libraries/serv/rtl/serv_aligner.v fusesoc_libraries/serv/rtl/serv_alu.v fusesoc_libraries/serv/rtl/serv_bufreg.v fusesoc_libraries/serv/rtl/serv_bufreg2.v fusesoc_libraries/serv/rtl/serv_compdec.v fusesoc_libraries/serv/rtl/serv_csr.v fusesoc_libraries/serv/rtl/serv_ctrl.v fusesoc_libraries/serv/rtl/serv_debug.v fusesoc_libraries/serv/rtl/serv_decode.v fusesoc_libraries/serv/rtl/serv_immdec.v fusesoc_libraries/serv/rtl/serv_mem_if.v fusesoc_libraries/serv/rtl/serv_rf_if.v fusesoc_libraries/serv/rtl/serv_rf_ram.v fusesoc_libraries/serv/rtl/serv_rf_ram_if.v fusesoc_libraries/serv/rtl/serv_rf_top.v fusesoc_libraries/serv/rtl/serv_state.v fusesoc_libraries/serv/rtl/serv_synth_wrapper.v fusesoc_libraries/serv/rtl/serv_top.v fusesoc_libraries/serv/servile/servile.v fusesoc_libraries/serv/servile/servile_arbiter.v fusesoc_libraries/serv/servile/servile_mux.v fusesoc_libraries/serv/servile/servile_rf_mem_if.v /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/share/lib/verilator/verilator.cpp
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev v5.036
+- Verilator: Built from 2.644 MB sources in 30 modules, into 11.154 MB in 20 C++ files needing 0.001 MB
+- Verilator: Walltime 0.706 s (elab=0.019, cvt=0.567, bld=0.000); cpu 0.720 s on 1 threads; alloced 79.156 MB
+make -C sim_build  -f Vtop.mk
+make[2]: Entering directory '/home/psi19/127_NOC/Psi_Aan_work/sim_build'
+ccache g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -Os  -c -o verilator.o /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/share/lib/verilator/verilator.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated_vpi.o /usr/local/share/verilator/include/verilated_vpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated_fst_c.o /usr/local/share/verilator/include/verilated_fst_c.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated_timing.o /usr/local/share/verilator/include/verilated_timing.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -x c++-header Vtop__pch.h -o Vtop__pch.h.fast.gch
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop.o Vtop.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop___024root__DepSet_h84412442__0.o Vtop___024root__DepSet_h84412442__0.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop___024root__DepSet_h84412442__1.o Vtop___024root__DepSet_h84412442__1.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop___024root__DepSet_heccd7ead__0.o Vtop___024root__DepSet_heccd7ead__0.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop___024root__DepSet_heccd7ead__1.o Vtop___024root__DepSet_heccd7ead__1.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h2318f0ad__0.o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h2318f0ad__0.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0.o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop_subservient_core__DepSet_h03262aef__0.o Vtop_subservient_core__DepSet_h03262aef__0.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop__Dpi.o Vtop__Dpi.cpp
+ccache g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.fast -c -o Vtop__Trace__0.o Vtop__Trace__0.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -x c++-header Vtop__pch.h -o Vtop__pch.h.slow.gch
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop___024root__Slow.o Vtop___024root__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop___024root__DepSet_h84412442__0__Slow.o Vtop___024root__DepSet_h84412442__0__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop___024root__DepSet_heccd7ead__0__Slow.o Vtop___024root__DepSet_heccd7ead__0__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__Slow.o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0__Slow.o Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1__DepSet_h8795d250__0__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop_subservient_core__Slow.o Vtop_subservient_core__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop_subservient_core__DepSet_h03262aef__0__Slow.o Vtop_subservient_core__DepSet_h03262aef__0__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop__Syms.o Vtop__Syms.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop__Trace__0__Slow.o Vtop__Trace__0__Slow.cpp
+ccache g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -fcoroutines -include Vtop__pch.h.slow -c -o Vtop__TraceDecls__0__Slow.o Vtop__TraceDecls__0__Slow.cpp
+echo "" > Vtop__ALL.verilator_deplist.tmp
+g++    verilator.o verilated.o verilated_dpi.o verilated_vpi.o verilated_fst_c.o verilated_timing.o verilated_threads.o Vtop__ALL.a   -lz -Wl,-rpath,/home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/libs -L/home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb/libs -lcocotbvpi_verilator  -pthread -lpthread -latomic   -o Vtop
+rm Vtop__ALL.verilator_deplist.tmp
+make[2]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work/sim_build'
+rm -f results.xml
+COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=mesh_3x3 TOPLEVEL_LANG=verilog \
+         sim_build/Vtop --trace --trace-file sim_build/dump.fst    
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/psi19/.local/share/pipx/venvs/cocotb/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.036 2025-04-27
+     0.00ns INFO     cocotb                             Seeding Python random module with 1776670231
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+[testbench] current_grid @ 0x0500
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_mesh.test_iter0_seed_only (1/2)
+2700000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
+2700000.00ns INFO     cocotb.mesh_3x3                    Waiting 2000 us for seed init...
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[0].cols[0].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[0].cols[1].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[0].cols[2].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[1].cols[0].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[1].cols[1].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[1].cols[2].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[2].cols[0].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[2].cols[1].tile_inst.sram_inst ---------
+-------- WARNING: CEN is not reset, memory is not operational ---------
+-------- @Time 0: scope = mesh_3x3.rows[2].cols[2].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[0].cols[0].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[0].cols[1].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[0].cols[2].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[1].cols[0].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[1].cols[1].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[1].cols[2].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[0].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[1].tile_inst.sram_inst ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[2].tile_inst.sram_inst ---------
+[NOC t=3173390000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=1 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=2 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=4 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=5 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=6 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=8 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=9 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3173390000] ID=10 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3367350000] ID=0 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=1 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=2 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=4 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=5 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=6 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=8 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=9 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3367350000] ID=10 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=3424210000] ID=0 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=3424210000] ID=1 INJECT raw=0x000004c7 dest=04700000.00ns INFO     cocotb.mesh_3x3                    SRAM_GRID_BASE = 0x0500
+
+DUMP @ 0x0500 (100 bytes):
+0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0510: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0520: 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00
+0x0530: 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00
+0x0540: 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0560: 00 00 00 00
+
+============================================================
+TILE (0,0) SEED STATE
+============================================================
+
+TILE (0,0) SEED STATE Ghost Exchange (flags=0x05):
+  Sent  : N=0 S=1 E=1 W=0
+  Recv S: 0x0c7  bits=0011000111
+  Recv E: 0x0c7  bits=0011000111
+
+TILE (0,0) SEED STATE Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+
+******** ITERATION 0 (seed) ********
+
+===================================================
+TILE (0,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+4700000.00ns INFO     cocotb.mesh_3x3                    ALL TILES: seed matches
+4700000.00ns INFO     cocotb.regression                  test_mesh.test_iter0_seed_only passed
+4700000.00ns INFO     cocotb.regression                  running test_mesh.test_gol_iter1_iter2 (2/2)
+7400000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
+ bmap=0x0c7
+[NOC t=3424210000] ID=2 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=3424210000] ID=4 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=3424210000] ID=5 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=3424210000] ID=6 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=3424210000] ID=8 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3424210000] ID=9 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3424210000] ID=10 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3424220000] ID=0 EJECT_IN  bmap=0x0c7 count 0->1
+[NOC t=3424230000] ID=0 EJECT_IN  bmap=0x0c7 count 1->2
+[NOC t=3424240000] ID=0 EJECT_IN  bmap=0x075 count 2->3
+[NOC t=3469070000] ID=8 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3469070000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3469070000] ID=10 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3469100000] ID=0 EJECT_IN  bmap=0x000 count 3->4
+[NOC t=3470890000] ID=0 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3470890000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3470890000] ID=2 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3470910000] ID=4 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3470910000] ID=5 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3470910000] ID=6 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=3475360000] ID=0 EJECT_OUT bmap=0x0c7 count 4->3
+[NOC t=3512760000] ID=0 EJECT_OUT bmap=0x0c7 count 3->2
+[NOC t=3514330000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3514360000] ID=0 EJECT_IN  bmap=0x000 count 2->3
+[NOC t=3515770000] ID=4 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3515770000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3515770000] ID=6 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3515790000] ID=0 EJECT_IN  bmap=0x000 count 3->4
+[NOC t=3516150000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=3561030000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=7873390000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=1 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=2 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=4 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=5 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=6 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=8 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=9 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7873390000] ID=10 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=8067350000] ID=0 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=1 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=2 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=4 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=5 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=6 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=8 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=9 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8067350000] ID=10 INJECT raw=0xf0000002 dest=15 bmap=0x002
+[NOC t=8124210000] ID=0 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=1 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=2 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=4 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=5 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=6 INJECT raw=0x000004c7 dest=0 bmap=0x0c7
+[NOC t=8124210000] ID=8 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8124210000] ID=9 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8124210000] ID=10 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8124220000] ID=0 EJECT_IN  bmap=0x0c7 count 0->1
+[NOC t=8124230000] ID=0 EJECT_IN  bmap=0x0c7 count 1->2
+[NOC t=8124240000] ID=0 EJECT_IN  bmap=0x075 count 2->3
+[NOC t=8169070000] ID=8 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8169070000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8169070000] ID=10 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8169100000] ID=0 EJECT_IN  bmap=0x000 count 3->4
+[NOC t=8170890000] ID=0 INJECT raw=0x00000400 dest=0 bmap=0x
+
+******** ITERATION 0 (seed) ********
+
+===================================================
+TILE (0,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,0)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,1)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,2)  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+9400000.00ns INFO     cocotb.mesh_3x3                    Iter 0: ALL tiles match seed
+9400000.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 1 ...
+14399990.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 1
+
+
+******** ITERATION 1 ********
+
+===================================================
+TILE (0,0)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (0,0) iter=1 MISMATCH debug
+============================================================
+
+TILE (0,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x05):
+  Sent  : N=0 S=1 E=1 W=0
+  Recv S: 0x0c7  bits=0011000111
+  Recv E: 0x0c7  bits=0011000111
+
+TILE (0,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (0,1)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (0,1) iter=1 MISMATCH debug
+============================================================
+
+TILE (0,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (0,2)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (0,2) iter=1 MISMATCH debug
+============================================================
+
+TILE (0,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (1,0)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (1,0) iter=1 MISMATCH debug
+============================================================
+
+TILE (1,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (1,1)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (1,1) iter=1 MISMATCH debug
+============================================================
+
+TILE (1,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (1,2)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (1,2) iter=1 MISMATCH debug
+============================================================
+
+TILE (1,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (2,0)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (2,0) iter=1 MISMATCH debug
+============================================================
+
+TILE (2,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (2,1)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (2,1) iter=1 MISMATCH debug
+============================================================
+
+TILE (2,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+===================================================
+TILE (2,2)  ITERATION 1
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+##########    #####.####  <- MISMATCH
+####...###    #####.####  <- MISMATCH
+##########    #####.####  <- MISMATCH
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+============================================================
+TILE (2,2) iter=1 MISMATCH debug
+============================================================
+
+TILE (2,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+14409990.00ns ERROR    cocotb.mesh_3x3                    Iter 1: 36 mismatches
+
+DUMP @ 0x0500 (100 bytes):
+0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0510: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0520: 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00
+0x0530: 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00
+0x0540: 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0560: 00 00 00 00
+
+DUMP @ 0x0600 (40 bytes):
+0x0600: 00 00 00 00 00 00 00 00 00 00 01 01 01 00 00 00
+0x0610: 01 01 00 00 00 00 00 00 00 00 00 00 00 00 01 01
+0x0620: 01 00 00 00 01 01 00 00
+
+DUMP @ 0x0700 (36 bytes):
+0x0700: 00 00 00 00 c7 00 00 00 00 00 00 00 c7 00 00 00
+0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0720: 05 00 00 00
+
+[DEBUG] Ghost exchange state — all tiles, iteration 1:
+
+============================================================
+TILE (0,0)  iter=0
+============================================================
+
+TILE (0,0)  iter=0 Ghost Exchange (flags=0x05):
+  Sent  : N=0 S=1 E=1 W=0
+  Recv S: 0x0c7  bits=0011000111
+  Recv E: 0x0c7  bits=0011000111
+
+TILE (0,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (0,1)  iter=0
+============================================================
+
+TILE (0,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (0,2)  iter=0
+============================================================
+
+TILE (0,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,0)  iter=0
+============================================================
+
+TILE (1,0)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,1)  iter=0
+============================================================
+
+TILE (1,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,2)  iter=0
+============================================================
+
+TILE (1,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,0)  iter=0
+============================================================
+
+TILE (2,0)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,1)  iter=0
+============================================================
+
+TILE (2,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,2)  iter=0
+============================================================
+
+TILE (2,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+14409990.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 2 ...
+19409980.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 2
+
+
+******** ITERATION 2 ********
+
+===================================================
+TILE (0,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,0)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,1)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,2)  ITERATION 2
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+19419980.00ns INFO     cocotb.mesh_3x3                    Iter 2: ALL tiles match
+19419980.00ns WARNING  ..iter1_iter2.test_gol_iter1_iter2 GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
+                                                          Traceback (most recent call last):
+                                                            File "/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py", line 334, in test_gol_iter1_iter2
+                                                              assert total == 0, (
+                                                                     ^^^^^^^^^^
+                                                          AssertionError: GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
+19419980.00ns WARNING  cocotb.regression                  test_mesh.test_gol_iter1_iter2 failed
+19419980.00ns INFO     cocotb.regression                  ****************************************************************************************
+                                                          ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                          ****************************************************************************************
+                                                          ** test_mesh.test_iter0_seed_only   PASS     4700000.00          84.28      55766.48  **
+                                                          ** test_mesh.test_gol_iter1_iter2   FAIL    14719980.00         358.96      41006.88  **
+                                                          ****************************************************************************************
+                                                          ** TESTS=2 PASS=1 FAIL=1 SKIP=0             19419980.00         443.25      43812.48  **
+                                                          ****************************************************************************************
+000
+[NOC t=8170890000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8170890000] ID=2 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8170910000] ID=4 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8170910000] ID=5 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8170910000] ID=6 INJECT raw=0x00000475 dest=0 bmap=0x075
+[NOC t=8175360000] ID=0 EJECT_OUT bmap=0x0c7 count 4->3
+[NOC t=8212760000] ID=0 EJECT_OUT bmap=0x0c7 count 3->2
+[NOC t=8214330000] ID=9 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8214360000] ID=0 EJECT_IN  bmap=0x000 count 2->3
+[NOC t=8215770000] ID=4 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215770000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215770000] ID=6 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8215790000] ID=0 EJECT_IN  bmap=0x000 count 3->4
+[NOC t=8216150000] ID=1 INJECT raw=0x00000400 dest=0 bmap=0x000
+[NOC t=8261030000] ID=5 INJECT raw=0x00000400 dest=0 bmap=0x000
+- :0: Verilog $finish
+make[1]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work'
