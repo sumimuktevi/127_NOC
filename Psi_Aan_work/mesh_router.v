@@ -4,33 +4,42 @@
 `default_nettype none
 
 // ============================================================================
-// mesh_router — generic XY-routed mesh router for a tiled NoC
+// mesh_router — generic XY-routed mesh router
 // ============================================================================
 //
 // Flit format (34 bits):
 //   [33]     = Valid
-//   [32:29]  = Destination tile ID  {dest_row[1:0], dest_col[1:0]}
-//   [28:0]   = Payload (opaque to hardware)
+//   [32:29]  = Destination ID {dest_row[1:0], dest_col[1:0]}
+//   [28:0]   = Payload — 29 bits, opaque to hardware
 //
-// CPU Wishbone interface:
-//   WRITE 0x80000000  inject flit:
-//       word[31:28] = dest tile ID  → flit[32:29]
-//       word[28:0]  = payload       → flit[28:0]
-//       flit[33]    = 1 (valid, set by hardware)
-//   READ  0x80000004  receive flit:
-//       returns {3'b0, flit[28:0]} from head of ejection FIFO
-//       FIFO pops automatically one cycle after the read (cpu_read_q)
-//   READ  0x80000008  tile ID:
-//       returns {28'b0, MY_ID}
+// CPU interface (Wishbone):
+//   WRITE 0x80000000 — inject flit:
+//       word[31:28] = dest id  (stored in flit[32:29])
+//       word[27:24] = type     (lives in payload[27:24])
+//       word[9:0]   = bitmap   (lives in payload[9:0])
+//   READ  0x80000004 — receive flit: returns {3'b0, flit[28:0]}
+//       do_recv checks (p>>24)&0xF == FLIT_TYPE_GHOST, p&0x3FF == bitmap
+//   READ  0x80000008 — tile ID: returns {28'b0, MY_ID}
 //
-// Ghost flit convention (firmware):
-//   Firmware marks ghost flits with FLIT_VALID_BIT = bit10 of the payload
-//   (0x400).  This is distinct from flit[33] which is the router valid bit.
-//   recv_ghost() spins on bit10 of the WB read data.
+// FIX LOG
+// =======
+// Fix 1 — inject_flit bit width:
+//   Was: {1'b1, dat_o[31:28], 1'b0, dat_o[27:0]}  — 35 bits (Verilator
+//        truncated MSB, losing valid flag; 1'b0 padding corrupted alignment).
+//   Now: {1'b1, dat_o[31:28], dat_o[28:0]}         — 34 bits correct.
 //
-// Ejection FIFO depth = 4 (one slot per possible direction).
-// All tiles send simultaneously; the FIFO must hold all arriving flits before
-// the CPU reads the first one.
+// Fix 2 — eject path (1-slot mailbox → 4-deep FIFO):
+//   Was: single eject_reg overwritten unconditionally on every new flit.
+//        A second ghost flit arriving before the CPU read the first was
+//        silently dropped, causing do_recv() to hang forever.
+//   Now: 4-deep FIFO; route_one only claims eject slot when !fifo_full;
+//        CPU pops one entry per read transaction.
+//
+// SERV WISHBONE NOTE
+// ==================
+// SERV holds stb HIGH across multiple cycles; we latch inject_flit only on
+// every stb+we write cycle. Since ack=stb (immediate), each transaction is
+// Reads: ack = stb (combinatorial), so SERV samples dat_i on cycle 1. OK.
 // ============================================================================
 
 module mesh_router #(
@@ -56,12 +65,16 @@ module mesh_router #(
     wire [1:0] my_col = MY_ID[1:0];
 
     // -------------------------------------------------------------------------
-    // Injection — latch every write cycle
+    // Injection — latch every write cycle (no edge detection needed)
     // -------------------------------------------------------------------------
-    // ack = stb (immediate), so SERV deasserts stb the cycle after receiving
-    // ack.  Each transaction is exactly one clock cycle; no edge detection
-    // needed or correct.
+    // FIX 3: ack = stb (combinatorial, immediate). SERV deasserts stb the very
+    // next cycle after receiving ack, so each transaction occupies exactly one
+    // clock cycle. There is therefore no risk of double-latching the same write,
+    // and no edge detection (stb_rise / we_rise) is needed or correct.
     //
+    // The original stb_rise approach misfired in Verilator because stb_prev
+    // and stb are updated in the same delta cycle, causing stb_rise to
+    // occasionally evaluate to 0 on legitimate new write transactions.
     reg [33:0] inject_flit;
 
     wire inject_write_now = local_wb_stb && local_wb_we &&
@@ -71,32 +84,53 @@ module mesh_router #(
         if (rst) begin
             inject_flit <= 34'h0;
         end else begin
-            inject_flit <= 34'h0;   // default: no active flit this cycle
+            inject_flit <= 34'h0;  // default: no active flit this cycle
 
             if (inject_write_now) begin
-                // [33]=valid, [32:29]=dest(4b), [28:0]=payload(29b)
+                // FIX 1: 34 bits — [33]=valid, [32:29]=dest(4b), [28:0]=payload(29b)
                 inject_flit <= {1'b1,
                                 local_wb_dat_o[31:28],
                                 local_wb_dat_o[28:0]};
 
-                $display("[NOC t=%0t] ID=%0d INJECT raw=0x%08x dest=%0d bmap=0x%03x",
+                $display("[NOC t=%0t] ID=%0d INJECT raw=0x%08x dest=%0d type=%0d bmap=0x%03x",
                          $time, MY_ID,
                          local_wb_dat_o,
                          local_wb_dat_o[31:28],
+                         local_wb_dat_o[27:24],
                          local_wb_dat_o[9:0]);
+            end
+
+            // ── WB MONITORS ──────────────────────────────────────────────────
+            // Tile 4 (1,0): show all WB transactions
+            if (MY_ID == 4 && local_wb_stb) begin
+                $display("[WB  t=%0t] ID=%0d stb=%b we=%b adr=0x%08x dat_o=0x%08x",
+                         $time, MY_ID,
+                         local_wb_stb, local_wb_we,
+                         local_wb_adr, local_wb_dat_o);
+            end
+            // Tile 0 (0,0): show ALL WB transactions
+            if (MY_ID == 0 && local_wb_stb) begin
+                $display("[WB0 t=%0t] ID=0 we=%b adr=0x%08x dat_o=0x%08x dat_i=0x%08x",
+                         $time,
+                         local_wb_we,
+                         local_wb_adr, local_wb_dat_o,
+                         local_wb_dat_i);
             end
         end
     end
 
     // -------------------------------------------------------------------------
-    // Ejection FIFO — 4 entries (one per cardinal direction)
+    // Ejection — 4-deep synchronous FIFO  (FIX 2)
     // -------------------------------------------------------------------------
+    // Depth 4: each tile receives at most 4 ghost flits (N/S/E/W), all of
+    // which can arrive before the CPU reads the first one.
+    //
     localparam FIFO_DEPTH = 4;
-    localparam FIFO_BITS  = 2;
+    localparam FIFO_BITS  = 2;   // log2(4)
 
     reg [33:0]          fifo_mem   [0:FIFO_DEPTH-1];
     reg [FIFO_BITS-1:0] fifo_wr_ptr, fifo_rd_ptr;
-    reg [FIFO_BITS:0]   fifo_count;
+    reg [FIFO_BITS:0]   fifo_count;   // extra bit distinguishes full/empty
 
     wire fifo_empty = (fifo_count == 0);
     wire fifo_full  = (fifo_count == FIFO_DEPTH[FIFO_BITS:0]);
@@ -104,18 +138,21 @@ module mesh_router #(
     wire cpu_read = local_wb_stb && !local_wb_we &&
                     (local_wb_adr == 32'h80000004);
 
-    wire [33:0] eject_flit_next;    // driven combinatorially by route_one
+    // eject_flit_next driven combinationally by route_one below.
+    wire [33:0] eject_flit_next;
 
     wire fifo_push = eject_flit_next[33] && !fifo_full;
 
-    // Pop one cycle after a successful (non-empty) read so the flit stays
-    // in the FIFO while SERV samples dat_i on the same cycle as ack.
+    // Pop 1 cycle after a cpu_read that saw a valid (non-empty) flit.
+    // dat_i is now combinatorial from fifo_head_comb, so SERV sees the
+    // flit on the same cycle it reads. We pop on the next cycle so the
+    // flit is still present when SERV samples dat_i.
     reg cpu_read_q;
     always @(posedge clk) begin
         if (rst) cpu_read_q <= 1'b0;
         else     cpu_read_q <= cpu_read && !fifo_empty;
     end
-    wire fifo_pop = cpu_read_q && !fifo_empty;
+    wire fifo_pop  = cpu_read_q && !fifo_empty;
 
     integer i;
     always @(posedge clk) begin
@@ -129,29 +166,59 @@ module mesh_router #(
             if (fifo_push) begin
                 fifo_mem[fifo_wr_ptr] <= eject_flit_next;
                 fifo_wr_ptr           <= fifo_wr_ptr + 1;
-                $display("[NOC t=%0t] ID=%0d EJECT_IN  bmap=0x%03x count %0d->%0d",
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_IN  type=%0d bmap=0x%03x count %0d->%0d",
                          $time, MY_ID,
-                         eject_flit_next[9:0],
+                         eject_flit_next[27:24], eject_flit_next[9:0],
                          fifo_count, fifo_count + 1);
+                // ── TILE(0,0) ghost decode ────────────────────────────────────
+                // A ghost flit has bit10 (FLIT_VALID_BIT) set in payload[10].
+                // The direction it came FROM tells us which ghost buffer it fills:
+                //   sent by tile(1,0) via s_out→n_in  : ghost_N for (0,0) (N nbr bottom row)
+                //   sent by tile(0,1) via e_out→w_in  : ghost_E for (0,0) (E nbr left col)
+                // (0,0 has no N or W neighbour, so only S-sourced and E-sourced ghosts arrive)
+                if (MY_ID == 0 && eject_flit_next[10]) begin
+                    $display("[GHOST_IN t=%0t] TILE(0,0) ghost flit LANDED  bmap=0x%03x  raw_flit=0x%09x",
+                             $time, eject_flit_next[9:0], eject_flit_next);
+                end
+            end
+            // ── TILE(0,0): detect ghost flit arriving when FIFO is full (dropped) ──
+            if (MY_ID == 0 && eject_flit_next[33] && eject_flit_next[10] && fifo_full) begin
+                $display("[GHOST_DROP t=%0t] TILE(0,0) ghost DROPPED (FIFO full) bmap=0x%03x  raw_flit=0x%09x",
+                         $time, eject_flit_next[9:0], eject_flit_next);
             end
             if (fifo_pop) begin
-                $display("[NOC t=%0t] ID=%0d EJECT_OUT bmap=0x%03x count %0d->%0d",
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_OUT type=%0d bmap=0x%03x count %0d->%0d",
                          $time, MY_ID,
-                         fifo_mem[fifo_rd_ptr][9:0],
+                         fifo_mem[fifo_rd_ptr][27:24], fifo_mem[fifo_rd_ptr][9:0],
                          fifo_count, fifo_count - 1);
+                // ── TILE(0,0) ghost decode ────────────────────────────────────
+                if (MY_ID == 0 && fifo_mem[fifo_rd_ptr][10]) begin
+                    $display("[GHOST_OUT t=%0t] TILE(0,0) ghost flit CPU-READ bmap=0x%03x  raw_flit=0x%09x",
+                             $time, fifo_mem[fifo_rd_ptr][9:0], fifo_mem[fifo_rd_ptr]);
+                end
                 fifo_rd_ptr <= fifo_rd_ptr + 1;
             end
+
             if      ( fifo_push && !fifo_pop) fifo_count <= fifo_count + 1;
             else if (!fifo_push &&  fifo_pop) fifo_count <= fifo_count - 1;
         end
     end
 
-    // Combinatorial FIFO head — SERV sees valid data on the same cycle as ack.
+    // Combinatorial head — SERV samples dat_i on the same cycle ack fires.
+    // We must present valid data combinatorially so SERV sees it immediately.
+    // The pop is delayed by 1 cycle (cpu_read_q) so the flit stays in the
+    // FIFO long enough for SERV to read it before it disappears.
     wire [33:0] fifo_head_comb = fifo_empty ? 34'h0 : fifo_mem[fifo_rd_ptr];
 
-    // -------------------------------------------------------------------------
-    // Wishbone response
-    // -------------------------------------------------------------------------
+    // Keep fifo_head_reg for the WB monitor display only
+    reg  [33:0] fifo_head_reg;
+    always @(posedge clk) begin
+        if (rst) fifo_head_reg <= 34'h0;
+        else     fifo_head_reg <= fifo_head_comb;
+    end
+
     assign local_wb_dat_i =
         (local_wb_stb && !local_wb_we && local_wb_adr == 32'h80000008)
             ? {28'b0, MY_ID}
@@ -163,16 +230,7 @@ module mesh_router #(
 
     // -------------------------------------------------------------------------
     // Routing — XY dimension-order, combinatorial
-    // =========================================================================
-    // CRITICAL FIX: Tile ID extraction from flit
-    // Flit format: [33]=valid [32:29]=dest_id[3:0] [28:0]=payload
-    // dest_id is a 4-bit value where:
-    //   dest_id[3:2] = row (2 bits)
-    //   dest_id[1:0] = col (2 bits)
-    // In the flit: dest_id occupies bits [32:29]
-    //   flit[32:31] = dest_id[3:2] = row
-    //   flit[30:29] = dest_id[1:0] = col
-    // =========================================================================
+    // -------------------------------------------------------------------------
     reg [33:0] next_n, next_s, next_e, next_w;
     reg [33:0] next_ne, next_nw, next_se, next_sw;
     reg [33:0] next_eject;
@@ -181,11 +239,11 @@ module mesh_router #(
         input [33:0] flit;
         reg [1:0] tgt_row, tgt_col;
         begin
-            // Extract destination tile ID from bits [32:29]
-            tgt_row = flit[32:31];  // bits [32:31] = row
-            tgt_col = flit[30:29];  // bits [30:29] = col
+            tgt_row = flit[32:31];
+            tgt_col = flit[30:29];
 
             if (tgt_row == my_row && tgt_col == my_col) begin
+                // Accept only if FIFO has room (FIX 2 back-pressure).
                 if (!next_eject[33] && !fifo_full) next_eject = flit;
             end else if (tgt_row > my_row && tgt_col > my_col) begin
                 if (!next_se[33]) next_se = flit;
@@ -223,6 +281,38 @@ module mesh_router #(
     end
 
     assign eject_flit_next = next_eject;
+
+    // ── TILE(0,0) transit & misroute monitor ─────────────────────────────────
+    // Shows every flit that passes THROUGH tile (0,0) without being ejected,
+    // and flags any ghost flit that is being forwarded instead of ejected
+    // (which would indicate a destination ID mismatch / routing bug).
+    // Combinatorial — fires in the same always @(*) evaluation window.
+    always @(*) begin
+        if (MY_ID == 0) begin
+            // South-bound transit (heading to row 1 or 2)
+            if (next_s[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->S  dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_s[32:29]}, next_s[9:0], next_s[10], next_s);
+            // East-bound transit (heading to col 1 or 2)
+            if (next_e[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->E  dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_e[32:29]}, next_e[9:0], next_e[10], next_e);
+            // SE diagonal transit
+            if (next_se[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->SE dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_se[32:29]}, next_se[9:0], next_se[10], next_se);
+            // Ghost flit being forwarded instead of ejected — this is a bug
+            if (next_s[33]  && next_s[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->S  dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_s[32:29]}, next_s);
+            if (next_e[33]  && next_e[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->E  dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_e[32:29]}, next_e);
+            if (next_se[33] && next_se[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->SE dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_se[32:29]}, next_se);
+        end
+    end
 
     always @(posedge clk) begin
         if (rst) begin
