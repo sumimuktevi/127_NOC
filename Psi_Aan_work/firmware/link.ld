@@ -1,6 +1,3 @@
-OUTPUT_ARCH(riscv)
-ENTRY(_start)
-
 MEMORY {
     sram (rwx) : ORIGIN = 0x00000000, LENGTH = 2048
 }
@@ -10,27 +7,22 @@ SECTIONS {
         *(.text.init)
         *(.text)
         *(.rodata*)
-        . = ALIGN(4);
-        *(.data)
-        *(.data.*)
-        *(.sdata)
-        *(.sdata.*)
+    } > sram
+
+    /* Force the data/bss to end before your manual GRID_BASE */
+    .data : {
+        *(.data*)
+        *(.sdata*)
     } > sram
 
     .bss : {
-        . = ALIGN(4);
         _bss_start = .;
-        *(.bss)
-        *(.bss.*)
-        *(.sbss)
-        *(.sbss.*)
-        *(COMMON)
+        *(.bss*)
+        *(.sbss*)
         _bss_end = .;
     } > sram
 
-    /DISCARD/ : {
-        *(.comment)
-        *(.riscv.attributes)
-        *(.eh_frame)
-    }
+    /* Create a "Guard" to ensure code + stack doesn't hit 0x0500 */
+    _end = .;
+    ASSERT(_end < 0x0400, "Error: code too large, overlaps stack region!")
 }

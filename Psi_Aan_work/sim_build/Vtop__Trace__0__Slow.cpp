@@ -214,6 +214,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->pushPrefix("rows[0]", VerilatedTracePrefixType::SCOPE_MODULE);
     tracep->pushPrefix("cols[0]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8419,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+184,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+186,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+188,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -345,6 +346,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[1]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8420,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+353,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+355,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+357,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -471,6 +473,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[2]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8421,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+519,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+521,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+523,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -599,6 +602,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->pushPrefix("rows[1]", VerilatedTracePrefixType::SCOPE_MODULE);
     tracep->pushPrefix("cols[0]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8422,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+685,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+687,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+689,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -725,6 +729,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[1]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8423,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+851,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+853,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+855,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -851,6 +856,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[2]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8424,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+1017,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1019,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1021,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -979,6 +985,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->pushPrefix("rows[2]", VerilatedTracePrefixType::SCOPE_MODULE);
     tracep->pushPrefix("cols[0]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8425,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+1183,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1185,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1187,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -1105,6 +1112,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[1]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8426,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+1349,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1351,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1353,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
@@ -1231,6 +1239,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popPrefix();
     tracep->popPrefix();
     tracep->pushPrefix("cols[2]", VerilatedTracePrefixType::SCOPE_MODULE);
+    tracep->declBus(c+8427,0,"THIS_TILE_ID",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
     tracep->declQuad(c+1515,0,"n_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1517,0,"s_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);
     tracep->declQuad(c+1519,0,"e_i",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 33,0);

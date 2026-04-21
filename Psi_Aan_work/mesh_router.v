@@ -81,6 +81,13 @@ module mesh_router #(
                             (local_wb_adr == 32'h80000000);
 
     always @(posedge clk) begin
+        if (local_wb_stb && !local_wb_we && local_wb_adr == 32'h80000008) begin
+            $display("[ID_READ t=%0t] TILE MY_ID=%0d returning dat_i=0x%08x",
+                    $time, MY_ID, local_wb_dat_i);
+        end
+    end
+
+    always @(posedge clk) begin
         if (rst) begin
             inject_flit <= 34'h0;
         end else begin

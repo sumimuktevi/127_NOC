@@ -149,6 +149,7 @@ void _start(void)
 int main(void)
 {
     uint32_t my_id = noc_read_my_id();
+    *(volatile uint32_t *)(0x0700u + 44u) = my_id; 
     int my_row = (int)((my_id >> 2) & 0x3u);
     int my_col = (int)(my_id & 0x3u);
 
@@ -161,30 +162,34 @@ int main(void)
 
     noc_signal(SIG_SEED_LIVE);
 
-    uint32_t iter = 0;
-    while (1) {
-        *debug_iter_count = iter;
+    /* PRIMING: exchange ghosts once before the loop so iter 0 has valid ghost data */
+    if (my_row == 0 && my_col == 1) {
+        // Read raw bytes directly, bypassing the macro
+        volatile uint8_t *raw = (volatile uint8_t *)0x0500u;
+        *(volatile uint32_t *)(DEBUG_BASE + 40) = raw[80];  // grid[8][0]
+        *(volatile uint32_t *)(DEBUG_BASE + 48) = raw[90];  // grid[9][0]
+        uint32_t bm = col_bitmap(0);
+        *(volatile uint32_t *)(DEBUG_BASE + 52) = bm;
+        noc_write((TILE_ID(0,0) << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | bm);
+    }
 
-        /* TEST: only tile (0,1) sends col 0 to tile (0,0).
-         * Only tile (0,0) receives.
-         * Everyone else does nothing in ghost exchange.
-         * Expected: tile (0,0) debug_last_recv_e = 0x300
-         *           (bits 8,9 set — seed has live cells at rows 8,9 col 0)
-         */
+    uint32_t iter = 1;
+    while (1) {
+        // 1. Exchange ghosts
         if (my_row == 0 && my_col == 1) {
-            /* tile (0,1): send col 0 to tile (0,0) */
-            uint32_t bm = 0x3FF; // TEST: send all ones
+            uint32_t bm = 0x3ff;
+            *(volatile uint32_t *)(DEBUG_BASE + 40) = bm;
+            *(volatile uint32_t *)(DEBUG_BASE + 48) = bm;
             noc_write((TILE_ID(0,0) << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | bm);
-            *debug_ghost_flags = 0x8; /* flag: sent W */
+            *debug_ghost_flags = 0x8;
         } else if (my_row == 0 && my_col == 0) {
-            /* tile (0,0): receive one flit, store as E ghost */
-            uint32_t bm = recv_ghost();
+            uint32_t bm = recv_ghost();   // consumes priming flit on iter 1
             *debug_last_recv_e = bm;
             for (int i = 0; i < SIZE; i++) ghost_E[i] = (bm >> i) & 1u;
-            *debug_ghost_flags = 0x4; /* flag: received E */
+            *debug_ghost_flags = 0x4;
         }
-        /* all other tiles: do nothing */
 
+        // 2. Compute
         uint8_t neighbor_counts[9] = {0};
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
@@ -200,10 +205,14 @@ int main(void)
 
         noc_signal(SIG_MATH_DONE);
 
+        // 3. Commit
         for (int i = 0; i < SIZE * SIZE; i++)
             grid[i] = next_grid[i];
 
         noc_signal(SIG_GEN_STABLE);
+
+        // 4. Announce AFTER grid is stable — testbench samples here
+        *debug_iter_count = iter;
         iter++;
     }
     return 0;

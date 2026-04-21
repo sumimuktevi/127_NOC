@@ -1,0 +1,12 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1776750239" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="303" time="24.207062244415283" sim_time_ns="4700000.0" ratio_time="194158.21517476035" />
+    <testcase name="test_col_bitmap_diagnostic" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="330" time="37.992424964904785" sim_time_ns="6454960.0" ratio_time="169901.23704824634">
+      <failure error_type="AssertionError" error_msg="col_bitmap test: 2 cell mismatches in tile(0,0) iter=1" />
+    </testcase>
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="398" time="59.02705407142639" sim_time_ns="9493000.0" ratio_time="160824.56001468212">
+      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=24, iter2=24 mismatches." />
+    </testcase>
+  </testsuite>
+</testsuites>
