@@ -160,36 +160,48 @@ int main(void)
     grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
     grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
 
-    noc_signal(SIG_SEED_LIVE);
+   noc_signal(SIG_SEED_LIVE);
 
-    /* PRIMING: exchange ghosts once before the loop so iter 0 has valid ghost data */
-    if (my_row == 0 && my_col == 1) {
-        // Read raw bytes directly, bypassing the macro
-        volatile uint8_t *raw = (volatile uint8_t *)0x0500u;
-        *(volatile uint32_t *)(DEBUG_BASE + 40) = raw[80];  // grid[8][0]
-        *(volatile uint32_t *)(DEBUG_BASE + 48) = raw[90];  // grid[9][0]
-        uint32_t bm = col_bitmap(0);
-        *(volatile uint32_t *)(DEBUG_BASE + 52) = bm;
-        noc_write((TILE_ID(0,0) << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | bm);
-    }
 
-    uint32_t iter = 1;
+    uint32_t iter = 0;
     while (1) {
-        // 1. Exchange ghosts
-        if (my_row == 0 && my_col == 1) {
-            uint32_t bm = 0x3ff;
-            *(volatile uint32_t *)(DEBUG_BASE + 40) = bm;
-            *(volatile uint32_t *)(DEBUG_BASE + 48) = bm;
-            noc_write((TILE_ID(0,0) << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | bm);
-            *debug_ghost_flags = 0x8;
-        } else if (my_row == 0 && my_col == 0) {
-            uint32_t bm = recv_ghost();   // consumes priming flit on iter 1
-            *debug_last_recv_e = bm;
-            for (int i = 0; i < SIZE; i++) ghost_E[i] = (bm >> i) & 1u;
-            *debug_ghost_flags = 0x4;
-        }
+        *debug_iter_count = iter;
+        *debug_last_recv_e = grid[8 * SIZE + 0];
+        /* TEST: only tile (0,1) sends col 0 to tile (0,0).
+         * Only tile (0,0) receives.
+         * Everyone else does nothing in ghost exchange.
+         * Expected: tile (0,0) debug_last_recv_e = 0x300
+         *           (bits 8,9 set — seed has live cells at rows 8,9 col 0)
+         */
+        // --- Ghost exchange: send west edge (col 0) to western neighbour ---
+if (my_col > 0) {
+    // I have a western neighbour: send them my leftmost column
+    uint32_t dest = TILE_ID(my_row, my_col - 1);
+    uint32_t bm   = col_bitmap(0);          // col 0 = my west edge
+    noc_write((dest << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm & FLIT_BMAP_MASK));
+    *debug_ghost_flags |= 0x8;
+}
 
-        // 2. Compute
+if (my_col < MESH_COLS - 1) {
+    // I have an eastern neighbour: send them my rightmost column
+    uint32_t dest = TILE_ID(my_row, my_col + 1);
+    uint32_t bm   = col_bitmap(SIZE - 1);   // col 9 = my east edge
+    noc_write((dest << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm & FLIT_BMAP_MASK));
+    *debug_ghost_flags |= 0x4;
+}
+
+// Receive ghost from west neighbour (they sent their col 9 = our ghost_W)
+if (my_col > 0) {
+    uint32_t bm = recv_ghost();
+    for (int i = 0; i < SIZE; i++) ghost_W[i] = (bm >> i) & 1u;
+}
+
+// Receive ghost from east neighbour (they sent their col 0 = our ghost_E)
+if (my_col < MESH_COLS - 1) {
+    uint32_t bm = recv_ghost();
+    for (int i = 0; i < SIZE; i++) ghost_E[i] = (bm >> i) & 1u;
+}
+
         uint8_t neighbor_counts[9] = {0};
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
@@ -205,14 +217,10 @@ int main(void)
 
         noc_signal(SIG_MATH_DONE);
 
-        // 3. Commit
         for (int i = 0; i < SIZE * SIZE; i++)
             grid[i] = next_grid[i];
 
         noc_signal(SIG_GEN_STABLE);
-
-        // 4. Announce AFTER grid is stable — testbench samples here
-        *debug_iter_count = iter;
         iter++;
     }
     return 0;
