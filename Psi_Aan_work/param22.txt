@@ -7,7 +7,7 @@ COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEV
      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/psi19/.local/share/pipx/venvs/cocotb/bin/python
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     cocotb                             Running on Verilator version 5.036 2025-04-27
-     0.00ns INFO     cocotb                             Seeding Python random module with 1776733920
+     0.00ns INFO     cocotb                             Seeding Python random module with 1776724305
      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
 [testbench] current_grid @ 0x0500
@@ -26,35 +26,23 @@ DUMP @ 0x0500 (100 bytes):
 0x0550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0560: 00 00 00 00
 
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-
 ============================================================
 TILE (0,0) SEED STATE
 ============================================================
-
-TILE (0,0) SEED STATE Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
 
 TILE (0,0) SEED STATE Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (0,0) SEED STATE Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 
 ******** ITERATION 0 (seed) ********
@@ -202,6 +190,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ##########    ##########
 ##########    ##########
 ===================================================
+4700000.00ns INFO     cocotb.mesh_3x3                    ALL TILES: seed matches
 4700000.00ns INFO     cocotb.regression                  test_mesh.test_iter0_seed_only passed
 4700000.00ns INFO     cocotb.regression                  running test_mesh.test_gol_iter1_iter2 (2/2)
 7400000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
@@ -352,38 +341,9 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ##########    ##########
 ##########    ##########
 ===================================================
+9400000.00ns INFO     cocotb.mesh_3x3                    Iter 0: ALL tiles match seed
 9400000.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 1 ...
 14399990.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 1
-
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-
-============================================================
-TILE (0,0) timeout-before-iter1
-============================================================
-
-TILE (0,0) timeout-before-iter1 Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) timeout-before-iter1 Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,0) timeout-before-iter1 Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
 
 
 ******** ITERATION 1 ********
@@ -408,25 +368,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (0,0) iter=1 MISMATCH debug
 ============================================================
 
-TILE (0,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (0,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (0,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (0,1)  ITERATION 1
@@ -448,25 +402,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (0,1) iter=1 MISMATCH debug
 ============================================================
 
-TILE (0,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (0,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (0,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (0,2)  ITERATION 1
@@ -488,25 +436,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (0,2) iter=1 MISMATCH debug
 ============================================================
 
-TILE (0,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (0,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (0,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (1,0)  ITERATION 1
@@ -528,25 +470,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (1,0) iter=1 MISMATCH debug
 ============================================================
 
-TILE (1,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (1,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (1,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (1,1)  ITERATION 1
@@ -568,25 +504,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (1,1) iter=1 MISMATCH debug
 ============================================================
 
-TILE (1,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (1,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (1,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (1,2)  ITERATION 1
@@ -608,25 +538,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (1,2) iter=1 MISMATCH debug
 ============================================================
 
-TILE (1,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (1,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (1,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (2,0)  ITERATION 1
@@ -648,25 +572,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (2,0) iter=1 MISMATCH debug
 ============================================================
 
-TILE (2,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (2,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (2,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (2,1)  ITERATION 1
@@ -688,25 +606,19 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (2,1) iter=1 MISMATCH debug
 ============================================================
 
-TILE (2,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (2,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (2,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
 
 ===================================================
 TILE (2,2)  ITERATION 1
@@ -728,25 +640,20 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 TILE (2,2) iter=1 MISMATCH debug
 ============================================================
 
-TILE (2,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
 TILE (2,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
 TILE (2,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+14409990.00ns ERROR    cocotb.mesh_3x3                    Iter 1: 36 mismatches
 
 DUMP @ 0x0500 (100 bytes):
 0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -762,43 +669,176 @@ DUMP @ 0x0600 (40 bytes):
 0x0610: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0620: 00 00 00 00 00 00 00 00
 
-DUMP @ 0x0700 (52 bytes):
+DUMP @ 0x0700 (36 bytes):
 0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-14409990.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 2 ...
-19409980.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 2
+0x0720: 00 00 00 00
 
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
+[DEBUG] Ghost exchange state — all tiles, iteration 1:
 
 ============================================================
-TILE (0,0) timeout-before-iter2
+TILE (0,0)  iter=0
 ============================================================
 
-TILE (0,0) timeout-before-iter2 Breadcrumbs:
-  STAGE0 = 0x00000000
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) timeout-before-iter2 Ghost Exchange (flags=0x00):
+TILE (0,0)  iter=0 Ghost Exchange (flags=0x00):
   Sent  : N=0 S=0 E=0 W=0
 
-TILE (0,0) timeout-before-iter2 Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+TILE (0,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (0,1)  iter=0
+============================================================
+
+TILE (0,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (0,2)  iter=0
+============================================================
+
+TILE (0,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (0,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,0)  iter=0
+============================================================
+
+TILE (1,0)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,1)  iter=0
+============================================================
+
+TILE (1,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (1,2)  iter=0
+============================================================
+
+TILE (1,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (1,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,0)  iter=0
+============================================================
+
+TILE (2,0)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,0)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,1)  iter=0
+============================================================
+
+TILE (2,1)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,1)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+
+============================================================
+TILE (2,2)  iter=0
+============================================================
+
+TILE (2,2)  iter=0 Ghost Exchange (flags=0x00):
+  Sent  : N=0 S=0 E=0 W=0
+
+TILE (2,2)  iter=0 Neighbor Histogram (total cells=0):
+  n=0:    0  
+  n=1:    0  
+  n=2:    0  
+  n=3:    0  
+  n=4:    0  
+  n=5:    0  
+  n=6:    0  
+  n=7:    0  
+  n=8:    0  
+14409990.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 2 ...
+19409980.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 2
 
 
 ******** ITERATION 2 ********
@@ -946,9 +986,10 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ##########    ##########
 ##########    ##########
 ===================================================
+19419980.00ns INFO     cocotb.mesh_3x3                    Iter 2: ALL tiles match
 19419980.00ns WARNING  ..iter1_iter2.test_gol_iter1_iter2 GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
                                                           Traceback (most recent call last):
-                                                            File "/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py", line 336, in test_gol_iter1_iter2
+                                                            File "/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py", line 334, in test_gol_iter1_iter2
                                                               assert total == 0, (
                                                                      ^^^^^^^^^^
                                                           AssertionError: GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
@@ -956,10 +997,10 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 19419980.00ns INFO     cocotb.regression                  ****************************************************************************************
                                                           ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                                                           ****************************************************************************************
-                                                          ** test_mesh.test_iter0_seed_only   PASS     4700000.00         208.88      22500.53  **
-                                                          ** test_mesh.test_gol_iter1_iter2   FAIL    14719980.00         907.90      16213.23  **
+                                                          ** test_mesh.test_iter0_seed_only   PASS     4700000.00          79.52      59107.07  **
+                                                          ** test_mesh.test_gol_iter1_iter2   FAIL    14719980.00         332.57      44260.73  **
                                                           ****************************************************************************************
-                                                          ** TESTS=2 PASS=1 FAIL=1 SKIP=0             19419980.00        1116.80      17388.92  **
+                                                          ** TESTS=2 PASS=1 FAIL=1 SKIP=0             19419980.00         412.10      47124.81  **
                                                           ****************************************************************************************
 -------- WARNING: CEN is not reset, memory is not operational ---------
 -------- @Time 0: scope = mesh_3x3.rows[0].cols[0].tile_inst.sram_inst ---------
@@ -997,7 +1038,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 -------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[1].tile_inst.sram_inst ---------
 -------- MESSAGE: CEN is just reset, memory is operational ---------
 -------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[2].tile_inst.sram_inst ---------
-[NOC t=3253460000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
-[NOC t=7953460000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=3170900000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
+[NOC t=7870900000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
 - :0: Verilog $finish
 make[1]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work'

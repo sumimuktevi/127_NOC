@@ -1,5 +1,4 @@
 import os
-import struct
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import Timer, RisingEdge
@@ -24,6 +23,11 @@ DEBUG_LAST_RECV_E    = DEBUG_BASE + 12
 DEBUG_NEIGHBOR_HIST  = DEBUG_BASE + 16
 DEBUG_ITER_COUNT     = DEBUG_BASE + 28
 DEBUG_GHOST_FLAGS    = DEBUG_BASE + 32
+
+DEBUG_STAGE0         = DEBUG_BASE + 36
+DEBUG_STAGE1         = DEBUG_BASE + 40
+DEBUG_STAGE2         = DEBUG_BASE + 44
+DEBUG_STAGE3         = DEBUG_BASE + 48
 
 
 def load_firmware_binary():
@@ -88,6 +92,24 @@ async def wait_for_iter(tile, target_iter, timeout_us=ITER_TIMEOUT_US):
     return False
 
 
+def read_breadcrumbs(tile):
+    return (
+        sram_read_word(tile, DEBUG_STAGE0),
+        sram_read_word(tile, DEBUG_STAGE1),
+        sram_read_word(tile, DEBUG_STAGE2),
+        sram_read_word(tile, DEBUG_STAGE3),
+    )
+
+
+def print_breadcrumbs(tile, label=""):
+    s0, s1, s2, s3 = read_breadcrumbs(tile)
+    print(f"\n{label} Breadcrumbs:")
+    print(f"  STAGE0 = 0x{s0:08x}")
+    print(f"  STAGE1 = 0x{s1:08x}")
+    print(f"  STAGE2 = 0x{s2:08x}")
+    print(f"  STAGE3 = 0x{s3:08x}")
+
+
 def read_debug_bitmaps(tile, label=""):
     recv_n      = sram_read_word(tile, DEBUG_LAST_RECV_N)
     recv_s      = sram_read_word(tile, DEBUG_LAST_RECV_S)
@@ -102,10 +124,10 @@ def read_debug_bitmaps(tile, label=""):
 
     print(f"\n{label} Ghost Exchange (flags=0x{ghost_flags:02x}):")
     print(f"  Sent  : N={sent_n} S={sent_s} E={sent_e} W={sent_w}")
-    if sent_n: print(f"  Recv N: 0x{recv_n:03x}  bits={recv_n:010b}")
-    if sent_s: print(f"  Recv S: 0x{recv_s:03x}  bits={recv_s:010b}")
-    if sent_e: print(f"  Recv E: 0x{recv_e:03x}  bits={recv_e:010b}")
-    if sent_w: print(f"  Recv W: 0x{recv_w:03x}  bits={recv_w:010b}")
+    if recv_n: print(f"  Recv N: 0x{recv_n:03x}  bits={recv_n:010b}")
+    if recv_s: print(f"  Recv S: 0x{recv_s:03x}  bits={recv_s:010b}")
+    if recv_e: print(f"  Recv E: 0x{recv_e:03x}  bits={recv_e:010b}")
+    if recv_w: print(f"  Recv W: 0x{recv_w:03x}  bits={recv_w:010b}")
     return recv_n, recv_s, recv_w, recv_e, ghost_flags
 
 
@@ -114,8 +136,7 @@ def read_debug_neighbor_histogram(tile, label=""):
     total = sum(hist)
     print(f"\n{label} Neighbor Histogram (total cells={total}):")
     for n in range(9):
-        bar = "#" * min(hist[n], 40)
-        print(f"  n={n}: {hist[n]:4d}  {bar}")
+        print(f"  n={n}: {hist[n]:4d}")
     return hist
 
 
@@ -130,6 +151,7 @@ def print_debug_state(dut, r, c, label=""):
     print(f"\n{'='*60}")
     print(hdr)
     print('='*60)
+    print_breadcrumbs(tile, hdr)
     read_debug_bitmaps(tile, hdr)
     read_debug_neighbor_histogram(tile, hdr)
 
@@ -243,6 +265,7 @@ async def test_iter0_seed_only(dut):
     tile00 = get_tile(dut, 0, 0)
     dut._log.info(f"SRAM_GRID_BASE = 0x{SRAM_GRID_BASE:04x}")
     dump_region(tile00, SRAM_GRID_BASE, 100)
+    dump_region(tile00, DEBUG_BASE, 52)
 
     print_debug_state(dut, 0, 0, "TILE (0,0) SEED STATE")
 
@@ -252,10 +275,6 @@ async def test_iter0_seed_only(dut):
         for c in range(MESH_C):
             total += print_iter_comparison(dut, r, c, 0)
 
-    if total == 0:
-        dut._log.info("ALL TILES: seed matches")
-    else:
-        dut._log.error(f"{total} mismatches in seed")
     assert total == 0, f"Seed mismatch: {total} cells wrong."
 
 
@@ -270,17 +289,15 @@ async def test_gol_iter1_iter2(dut):
         for c in range(MESH_C):
             iter0_mismatches += print_iter_comparison(dut, r, c, 0)
 
-    if iter0_mismatches == 0:
-        dut._log.info("Iter 0: ALL tiles match seed")
-    else:
-        dut._log.error(f"Iter 0: {iter0_mismatches} mismatches")
-
     tile00 = get_tile(dut, 0, 0)
 
     dut._log.info("Waiting for debug_iter_count >= 1 ...")
     seen = await wait_for_iter(tile00, 1)
     if not seen:
         dut._log.warning("iter_count did not advance to 1")
+        dump_region(tile00, DEBUG_BASE, 52)
+        print_debug_state(dut, 0, 0, "TILE (0,0) timeout-before-iter1")
+
     await Timer(10, unit="us")
 
     print("\n\n******** ITERATION 1 ********")
@@ -292,22 +309,18 @@ async def test_gol_iter1_iter2(dut):
             if m > 0:
                 print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=1 MISMATCH debug")
 
-    if iter1_mismatches == 0:
-        dut._log.info("Iter 1: ALL tiles match")
-    else:
-        dut._log.error(f"Iter 1: {iter1_mismatches} mismatches")
+    if iter1_mismatches != 0:
         dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
         dump_region(get_tile(dut, 0, 0), 0x0600, 40)
-        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 36)
-        print("\n[DEBUG] Ghost exchange state — all tiles, iteration 1:")
-        for r in range(MESH_R):
-            for c in range(MESH_C):
-                print_debug_state(dut, r, c)
+        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 52)
 
     dut._log.info("Waiting for debug_iter_count >= 2 ...")
     seen = await wait_for_iter(tile00, 2)
     if not seen:
         dut._log.warning("iter_count did not advance to 2")
+        dump_region(tile00, DEBUG_BASE, 52)
+        print_debug_state(dut, 0, 0, "TILE (0,0) timeout-before-iter2")
+
     await Timer(10, unit="us")
 
     print("\n\n******** ITERATION 2 ********")
@@ -318,17 +331,6 @@ async def test_gol_iter1_iter2(dut):
             iter2_mismatches += m
             if m > 0:
                 print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=2 MISMATCH debug")
-
-    if iter2_mismatches == 0:
-        dut._log.info("Iter 2: ALL tiles match")
-    else:
-        dut._log.error(f"Iter 2: {iter2_mismatches} mismatches")
-        dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
-        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 36)
-        print("\n[DEBUG] Ghost exchange state — all tiles, iteration 2:")
-        for r in range(MESH_R):
-            for c in range(MESH_C):
-                print_debug_state(dut, r, c)
 
     total = iter0_mismatches + iter1_mismatches + iter2_mismatches
     assert total == 0, (
