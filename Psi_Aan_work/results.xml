@@ -1,9 +1,9 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1776755165" />
-    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="259" time="143.13336849212646" sim_time_ns="4700000.0" ratio_time="32836.50800308343" />
-    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="281" time="600.2978031635284" sim_time_ns="14719979.999999998" ratio_time="24521.129216909856">
-      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=40, iter2=6 mismatches." />
+    <property name="random_seed" value="1776808658" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="206" time="168.99061822891235" sim_time_ns="4700000.0" ratio_time="27812.19483813856" />
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="234" time="356.9625563621521" sim_time_ns="9098300.0" ratio_time="25488.107471892454">
+      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=34, iter2=4 mismatches." />
     </testcase>
   </testsuite>
 </testsuites>

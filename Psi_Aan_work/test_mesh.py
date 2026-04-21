@@ -10,25 +10,25 @@ MESH_C = 3
 FIRMWARE_BIN_NAME = "firmware.bin"
 RESET_HOLD_MS     = 2
 SEED_SAMPLE_US    = 2000
-ITER_TIMEOUT_US   = 5000
+ITER_TIMEOUT_MS   = 200   # ms — matches working version
 
 SRAM_GRID_BASE = 0x0500
 print(f"[testbench] current_grid @ 0x{SRAM_GRID_BASE:04x}")
 
-DEBUG_BASE           = 0x0700
-DEBUG_LAST_RECV_N    = DEBUG_BASE + 0
-DEBUG_LAST_RECV_S    = DEBUG_BASE + 4
-DEBUG_LAST_RECV_W    = DEBUG_BASE + 8
-DEBUG_LAST_RECV_E    = DEBUG_BASE + 12
-DEBUG_NEIGHBOR_HIST  = DEBUG_BASE + 16
-DEBUG_ITER_COUNT     = DEBUG_BASE + 28
-DEBUG_GHOST_FLAGS    = DEBUG_BASE + 32
 
-DEBUG_STAGE0         = DEBUG_BASE + 36
-DEBUG_STAGE1         = DEBUG_BASE + 40
-DEBUG_STAGE2         = DEBUG_BASE + 44
-DEBUG_STAGE3         = DEBUG_BASE + 48
+# ── ID helpers — (row<<2)|col matches Verilog {2'(r),2'(c)} ───────────────
 
+def tile_id(r, c):
+    return (r << 2) | c
+
+def tile_row(tid):
+    return (tid >> 2) & 0x3
+
+def tile_col(tid):
+    return tid & 0x3
+
+
+# ── Firmware loading ───────────────────────────────────────────────────────
 
 def load_firmware_binary():
     bin_file = os.path.join(os.path.dirname(__file__), FIRMWARE_BIN_NAME)
@@ -36,7 +36,6 @@ def load_firmware_binary():
         with open(bin_file, "rb") as f:
             return list(f.read())
     return [0] * 1024
-
 
 FIRMWARE = load_firmware_binary()
 
@@ -58,9 +57,10 @@ async def spi_flash_responder(dut):
                 break
 
 
+# ── DUT accessors ──────────────────────────────────────────────────────────
+
 def get_tile(dut, r, c):
     return dut.rows[r].cols[c].tile_inst
-
 
 def sram_read_byte(tile, cpu_addr):
     mem = tile.sram_inst.mem
@@ -74,99 +74,42 @@ def sram_read_byte(tile, cpu_addr):
     return (word >> (8 * byte_lane)) & 0xFF
 
 
-def sram_read_word(tile, cpu_addr):
-    b0 = sram_read_byte(tile, cpu_addr)
-    b1 = sram_read_byte(tile, cpu_addr + 1)
-    b2 = sram_read_byte(tile, cpu_addr + 2)
-    b3 = sram_read_byte(tile, cpu_addr + 3)
-    return b0 | (b1 << 8) | (b2 << 16) | (b3 << 24)
+# ── NOC signal watcher — same as working version ───────────────────────────
 
-
-async def wait_for_iter(tile, target_iter, timeout_us=ITER_TIMEOUT_US):
-    cycles = int(timeout_us * 100)
-    for _ in range(cycles):
-        await RisingEdge(tile.clk)
-        cur = sram_read_word(tile, DEBUG_ITER_COUNT)
-        if cur >= target_iter:
-            return True
+async def wait_for_noc_signal(dut, target_payload, timeout_ms):
+    max_cycles = timeout_ms * 1000 * 100
+    target = target_payload & 0x1FFFFFFF
+    for _ in range(max_cycles):
+        await RisingEdge(dut.clk)
+        for tr in range(MESH_R):
+            for tc in range(MESH_C):
+                try:
+                    flit_raw = int(dut.rows[tr].cols[tc].tile_inst.router_inst.inject_flit.value)
+                    if flit_raw & (1 << 33):
+                        if (flit_raw & 0x1FFFFFFF) == target:
+                            return True
+                except Exception:
+                    pass
+        try:
+            mon = int(dut.monitor_22_se.value)
+            if mon & (1 << 33):
+                if (mon & 0x1FFFFFFF) == target:
+                    return True
+        except Exception:
+            pass
     return False
 
 
-def read_breadcrumbs(tile):
-    return (
-        sram_read_word(tile, DEBUG_STAGE0),
-        sram_read_word(tile, DEBUG_STAGE1),
-        sram_read_word(tile, DEBUG_STAGE2),
-        sram_read_word(tile, DEBUG_STAGE3),
-    )
-
-
-def print_breadcrumbs(tile, label=""):
-    s0, s1, s2, s3 = read_breadcrumbs(tile)
-    print(f"\n{label} Breadcrumbs:")
-    print(f"  STAGE0 = 0x{s0:08x}")
-    print(f"  STAGE1 = 0x{s1:08x}")
-    print(f"  STAGE2 = 0x{s2:08x}")
-    print(f"  STAGE3 = 0x{s3:08x}")
-
-
-def read_debug_bitmaps(tile, label=""):
-    recv_n      = sram_read_word(tile, DEBUG_LAST_RECV_N)
-    recv_s      = sram_read_word(tile, DEBUG_LAST_RECV_S)
-    recv_w      = sram_read_word(tile, DEBUG_LAST_RECV_W)
-    recv_e      = sram_read_word(tile, DEBUG_LAST_RECV_E)
-    ghost_flags = sram_read_word(tile, DEBUG_GHOST_FLAGS)
-
-    sent_s = (ghost_flags >> 0) & 1
-    sent_n = (ghost_flags >> 1) & 1
-    sent_e = (ghost_flags >> 2) & 1
-    sent_w = (ghost_flags >> 3) & 1
-
-    print(f"\n{label} Ghost Exchange (flags=0x{ghost_flags:02x}):")
-    print(f"  Sent  : N={sent_n} S={sent_s} E={sent_e} W={sent_w}")
-    if recv_n: print(f"  Recv N: 0x{recv_n:03x}  bits={recv_n:010b}")
-    if recv_s: print(f"  Recv S: 0x{recv_s:03x}  bits={recv_s:010b}")
-    if recv_e: print(f"  Recv E: 0x{recv_e:03x}  bits={recv_e:010b}")
-    if recv_w: print(f"  Recv W: 0x{recv_w:03x}  bits={recv_w:010b}")
-    return recv_n, recv_s, recv_w, recv_e, ghost_flags
-
-
-def read_debug_neighbor_histogram(tile, label=""):
-    hist = [sram_read_byte(tile, DEBUG_NEIGHBOR_HIST + i) for i in range(9)]
-    total = sum(hist)
-    print(f"\n{label} Neighbor Histogram (total cells={total}):")
-    for n in range(9):
-        print(f"  n={n}: {hist[n]:4d}")
-    return hist
-
-
-def read_debug_iter_count(tile):
-    return sram_read_word(tile, DEBUG_ITER_COUNT)
-
-
-def print_debug_state(dut, r, c, label=""):
-    tile     = get_tile(dut, r, c)
-    iter_num = read_debug_iter_count(tile)
-    hdr      = label if label else f"TILE ({r},{c})  iter={iter_num}"
-    print(f"\n{'='*60}")
-    print(hdr)
-    print('='*60)
-    print_breadcrumbs(tile, hdr)
-    read_debug_bitmaps(tile, hdr)
-    read_debug_neighbor_histogram(tile, hdr)
-
+# ── Pure-Python GoL reference ──────────────────────────────────────────────
 
 GLOBAL_ROWS = MESH_R * SIZE
 GLOBAL_COLS = MESH_C * SIZE
 
-
 def expected_blinker_seed():
+    """Matches firmware seed exactly — vertical blinker only."""
     exp = [[0] * SIZE for _ in range(SIZE)]
-    exp[4][5] = 1
-    exp[5][5] = 1
-    exp[6][5] = 1
+    exp[4][5] = 1; exp[5][5] = 1; exp[6][5] = 1
     return exp
-
 
 def build_global_seed():
     tile_seed = expected_blinker_seed()
@@ -177,7 +120,6 @@ def build_global_seed():
                 for x in range(SIZE):
                     g[tr * SIZE + y][tc * SIZE + x] = tile_seed[y][x]
     return g
-
 
 def gol_step_global(grid):
     new_grid = [[0] * GLOBAL_COLS for _ in range(GLOBAL_ROWS)]
@@ -195,23 +137,25 @@ def gol_step_global(grid):
             new_grid[y][x] = 1 if (cell and n in (2, 3)) or (not cell and n == 3) else 0
     return new_grid
 
-
 def get_tile_expected(iteration, tr, tc):
     g = GOL_GLOBAL[iteration]
     return [g[tr * SIZE + y][tc * SIZE: tc * SIZE + SIZE] for y in range(SIZE)]
-
 
 GOL_GLOBAL = [build_global_seed()]
 GOL_GLOBAL.append(gol_step_global(GOL_GLOBAL[0]))
 GOL_GLOBAL.append(gol_step_global(GOL_GLOBAL[1]))
 
 
-def read_grid_from_sram(tile):
-    return [
-        [sram_read_byte(tile, SRAM_GRID_BASE + y * SIZE + x) for x in range(SIZE)]
-        for y in range(SIZE)
-    ]
+# ── SRAM helpers ───────────────────────────────────────────────────────────
 
+def read_grid_from_sram(tile):
+    g = []
+    for y in range(SIZE):
+        row = []
+        for x in range(SIZE):
+            row.append(sram_read_byte(tile, SRAM_GRID_BASE + y * SIZE + x))
+        g.append(row)
+    return g
 
 def dump_region(tile, base, count_bytes=64):
     print(f"\nDUMP @ 0x{base:04x} ({count_bytes} bytes):")
@@ -220,13 +164,12 @@ def dump_region(tile, base, count_bytes=64):
                  for i in range(min(16, count_bytes - off))]
         print("0x{:04x}: ".format(base + off) + " ".join(f"{b:02x}" for b in chunk))
 
-
 def print_iter_comparison(dut, r, c, iteration):
     tile = get_tile(dut, r, c)
     exp  = get_tile_expected(iteration, r, c)
     act  = read_grid_from_sram(tile)
     print(f"\n===================================================")
-    print(f"TILE ({r},{c})  ITERATION {iteration}")
+    print(f"TILE ({r},{c})  hw_id=0x{tile_id(r,c):x}  ITERATION {iteration}")
     print("EXPECTED (Python GoL)   ACTUAL (SRAM)")
     print("---------------------------------------------------")
     mismatches = 0
@@ -242,6 +185,8 @@ def print_iter_comparison(dut, r, c, iteration):
     return mismatches
 
 
+# ── Boot ───────────────────────────────────────────────────────────────────
+
 async def boot_mesh(dut):
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
     dut.rst.value = 1
@@ -256,18 +201,22 @@ async def boot_mesh(dut):
     dut._log.info("[boot] cpu_rst_n asserted — CPU running.")
 
 
+# ── Tests ──────────────────────────────────────────────────────────────────
+
 @cocotb.test()
 async def test_iter0_seed_only(dut):
+    """Boot and verify seed matches firmware initial pattern."""
     await boot_mesh(dut)
     dut._log.info(f"Waiting {SEED_SAMPLE_US} us for seed init...")
     await Timer(SEED_SAMPLE_US, unit="us")
 
     tile00 = get_tile(dut, 0, 0)
-    dut._log.info(f"SRAM_GRID_BASE = 0x{SRAM_GRID_BASE:04x}")
     dump_region(tile00, SRAM_GRID_BASE, 100)
-    dump_region(tile00, DEBUG_BASE, 52)
 
-    print_debug_state(dut, 0, 0, "TILE (0,0) SEED STATE")
+    print("\n[testbench] Hardware tile ID mapping (row<<2)|col:")
+    for r in range(MESH_R):
+        for c in range(MESH_C):
+            print(f"  TILE ({r},{c}) -> hw_id=0x{tile_id(r,c):x}")
 
     print("\n\n******** ITERATION 0 (seed) ********")
     total = 0
@@ -275,62 +224,72 @@ async def test_iter0_seed_only(dut):
         for c in range(MESH_C):
             total += print_iter_comparison(dut, r, c, 0)
 
+    if total == 0:
+        dut._log.info("ALL TILES: seed matches")
+    else:
+        dut._log.error(f"{total} mismatches in seed")
     assert total == 0, f"Seed mismatch: {total} cells wrong."
 
 
 @cocotb.test()
 async def test_gol_iter1_iter2(dut):
+    """Run 2 GoL iterations with ghost exchange and verify results."""
     await boot_mesh(dut)
 
+    # Iter 0
     await Timer(SEED_SAMPLE_US, unit="us")
     print("\n\n******** ITERATION 0 (seed) ********")
     iter0_mismatches = 0
     for r in range(MESH_R):
         for c in range(MESH_C):
             iter0_mismatches += print_iter_comparison(dut, r, c, 0)
+    if iter0_mismatches == 0:
+        dut._log.info("Iter 0: ALL tiles match seed")
+    else:
+        dut._log.error(f"Iter 0: {iter0_mismatches} mismatches")
 
-    tile00 = get_tile(dut, 0, 0)
-
-    dut._log.info("Waiting for debug_iter_count >= 1 ...")
-    seen = await wait_for_iter(tile00, 1)
+    # Iter 1 — watch for SIG_GEN_STABLE on the NOC (same as working version)
+    dut._log.info("Waiting for iter 1 SIG_GEN_STABLE...")
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
-        dut._log.warning("iter_count did not advance to 1")
-        dump_region(tile00, DEBUG_BASE, 52)
-        print_debug_state(dut, 0, 0, "TILE (0,0) timeout-before-iter1")
-
-    await Timer(10, unit="us")
+        dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
+        await Timer(ITER_TIMEOUT_MS, unit="ms")
+    else:
+        await Timer(10, unit="us")
+        dut._log.info("Iter 1 stable.")
 
     print("\n\n******** ITERATION 1 ********")
     iter1_mismatches = 0
     for r in range(MESH_R):
         for c in range(MESH_C):
-            m = print_iter_comparison(dut, r, c, 1)
-            iter1_mismatches += m
-            if m > 0:
-                print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=1 MISMATCH debug")
-
-    if iter1_mismatches != 0:
+            iter1_mismatches += print_iter_comparison(dut, r, c, 1)
+    if iter1_mismatches == 0:
+        dut._log.info("Iter 1: ALL tiles match")
+    else:
+        dut._log.error(f"Iter 1: {iter1_mismatches} mismatches")
         dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
         dump_region(get_tile(dut, 0, 0), 0x0600, 40)
-        dump_region(get_tile(dut, 0, 0), DEBUG_BASE, 52)
 
-    dut._log.info("Waiting for debug_iter_count >= 2 ...")
-    seen = await wait_for_iter(tile00, 2)
+    # Iter 2
+    dut._log.info("Waiting for iter 2 SIG_GEN_STABLE...")
+    seen = await wait_for_noc_signal(dut, 0x10000004, ITER_TIMEOUT_MS)
     if not seen:
-        dut._log.warning("iter_count did not advance to 2")
-        dump_region(tile00, DEBUG_BASE, 52)
-        print_debug_state(dut, 0, 0, "TILE (0,0) timeout-before-iter2")
-
-    await Timer(10, unit="us")
+        dut._log.warning("SIG_GEN_STABLE not seen — fallback wait")
+        await Timer(ITER_TIMEOUT_MS, unit="ms")
+    else:
+        await Timer(10, unit="us")
+        dut._log.info("Iter 2 stable.")
 
     print("\n\n******** ITERATION 2 ********")
     iter2_mismatches = 0
     for r in range(MESH_R):
         for c in range(MESH_C):
-            m = print_iter_comparison(dut, r, c, 2)
-            iter2_mismatches += m
-            if m > 0:
-                print_debug_state(dut, r, c, f"TILE ({r},{c}) iter=2 MISMATCH debug")
+            iter2_mismatches += print_iter_comparison(dut, r, c, 2)
+    if iter2_mismatches == 0:
+        dut._log.info("Iter 2: ALL tiles match")
+    else:
+        dut._log.error(f"Iter 2: {iter2_mismatches} mismatches")
+        dump_region(get_tile(dut, 0, 0), SRAM_GRID_BASE, 100)
 
     total = iter0_mismatches + iter1_mismatches + iter2_mismatches
     assert total == 0, (
