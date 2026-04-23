@@ -28,7 +28,6 @@ module mesh_3x3 (
     generate
         for (r = 0; r < 3; r = r + 1) begin : rows
             for (c = 0; c < 3; c = c + 1) begin : cols
-                localparam [3:0] THIS_TILE_ID = (r * 4) + c; 
                 wire [33:0] n_i  = (r > 0) ? grid_s[r-1][c] : 34'b0;
                 wire [33:0] s_i  = (r < 2) ? grid_n[r+1][c] : 34'b0;
                 wire [33:0] e_i  = (c < 2) ? grid_w[r][c+1] : 34'b0;
@@ -39,7 +38,7 @@ module mesh_3x3 (
                 wire [33:0] nw_i = (r == 0 && c == 0) ? inject_00_nw : 
                                   (r > 0 && c > 0)   ? grid_se[r-1][c-1] : 34'b0;
 
-                mesh_tile #(.TILE_ID(THIS_TILE_ID)) tile_inst (
+                mesh_tile #(.TILE_ID({2'(r), 2'(c)})) tile_inst (
                     .clk(clk), .rst(!cpu_rst_n), .boot_mode(boot_mode),
                     .boot_addr(boot_addr), .boot_data(boot_data), .boot_wen(boot_wen),
                     .north_in(n_i), .south_in(s_i), .east_in(e_i), .west_in(w_i),

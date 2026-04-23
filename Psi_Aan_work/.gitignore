@@ -1,5 +1,6 @@
 sim_build/
 fusesoc_libraries/
+subservient/
 __pycache__/
 firmware.bin
 test.txt

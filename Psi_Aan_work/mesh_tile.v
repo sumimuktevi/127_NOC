@@ -16,11 +16,6 @@ module mesh_tile #(
     output wire [33:0] ne_out, nw_out, se_out, sw_out
 );
 
-    initial begin
-        $display("[TILE_ID_CHECK] TILE_ID param = %0d  (row=%0d col=%0d)",
-                TILE_ID, TILE_ID[3:2], TILE_ID[1:0]);
-    end
-
     wire [31:0] wb_adr, wb_dat_c2r, wb_dat_r2c;
     wire [3:0]  wb_sel;
     wire        wb_we, wb_stb, wb_ack;
@@ -32,37 +27,6 @@ module mesh_tile #(
     // -----------------------------------------------------------------------
     // Address pipeline registers
     // -----------------------------------------------------------------------
-    // SRAM input registers (to satisfy synchronous SRAM timing)
-    reg [10:0] sram_raddr_reg;
-    reg [10:0] sram_waddr_reg;
-    reg [7:0]  sram_wdata_reg;
-    reg        sram_wen_reg;
-
-    always @(posedge clk) begin
-        if (rst) begin
-            sram_raddr_reg <= 0;
-            sram_waddr_reg <= 0;
-            sram_wdata_reg <= 0;
-            sram_wen_reg   <= 0;
-        end else begin
-            sram_raddr_reg <= sram_raddr;
-            sram_waddr_reg <= sram_waddr;
-            sram_wdata_reg <= sram_wdata;
-            sram_wen_reg   <= sram_wen;
-        end
-    end
-
-    // in mesh_tile.v
-    always @(posedge clk) begin
-        if (!boot_mode && TILE_ID == 1) begin
-            if (sram_wen && final_a >= 11'h500 && final_a <= 11'h563)
-                $display("[SEED_WRITE t=%0t] TILE=1 addr=0x%03x data=0x%02x",
-                        $time, final_a, final_d);
-            if (!sram_wen && final_a >= 11'h500 && final_a <= 11'h563)
-                $display("[SEED_READ  t=%0t] TILE=1 addr=0x%03x data=0x%02x",
-                        $time, final_a, sram_rdata);
-        end
-    end
     // The GF180 SRAM is fully synchronous: it captures address and control
     // signals on the RISING edge of CLK (when CEN=0), then presents read data
     // after an internal access time ta=45ns — well within the 60ns cycle.
@@ -162,30 +126,12 @@ module mesh_tile #(
         .VSS ()
     );
 
-    // DEBUG: monitor SRAM writes for tile 1
+    // DEBUG: monitor ALL non-zero SRAM writes (to find where do_recv writes go)
     always @(posedge clk) begin
-        if (!boot_mode && sram_wen && final_d != 8'h00 && TILE_ID == 1) begin
+        if (!boot_mode && sram_wen && final_d != 8'h00 && TILE_ID == 4) begin
             $display("[SRAM t=%0t] MY_ID=%0d WRITE addr=0x%03x data=0x%02x",
                      $time, TILE_ID, final_a, final_d);
         end
-    end
-
-    // DEBUG: monitor SRAM reads for tile 1 — print addr presented THIS cycle,
-    // data returned is from the PREVIOUS cycle's address (synchronous SRAM latency).
-    // So we register the address and print it one cycle later with the data.
-    reg [10:0] prev_raddr_t1;
-    reg        prev_rvalid_t1;
-    always @(posedge clk) begin
-        if (!boot_mode && TILE_ID == 1) begin
-            prev_raddr_t1  <= final_a;
-            prev_rvalid_t1 <= !sram_wen;
-        end else begin
-            prev_rvalid_t1 <= 1'b0;
-        end
-        // Print: address from last cycle, data available this cycle
-        if (prev_rvalid_t1)
-            $display("[SRAM_READ t=%0t] MY_ID=%0d READ addr=0x%03x data=0x%02x (1-cycle-delayed)",
-                     $time, TILE_ID, prev_raddr_t1, sram_rdata);
     end
 
     // ── TILE(0,0) ghost buffer write monitor ─────────────────────────────────

@@ -81,13 +81,6 @@ module mesh_router #(
                             (local_wb_adr == 32'h80000000);
 
     always @(posedge clk) begin
-        if (local_wb_stb && !local_wb_we && local_wb_adr == 32'h80000008) begin
-            $display("[ID_READ t=%0t] TILE MY_ID=%0d returning dat_i=0x%08x",
-                    $time, MY_ID, local_wb_dat_i);
-        end
-    end
-
-    always @(posedge clk) begin
         if (rst) begin
             inject_flit <= 34'h0;
         end else begin
@@ -99,25 +92,30 @@ module mesh_router #(
                                 local_wb_dat_o[31:28],
                                 local_wb_dat_o[28:0]};
 
-                // Unified logging will catch this
+                $display("[NOC t=%0t] ID=%0d INJECT raw=0x%08x dest=%0d type=%0d bmap=0x%03x",
+                         $time, MY_ID,
+                         local_wb_dat_o,
+                         local_wb_dat_o[31:28],
+                         local_wb_dat_o[27:24],
+                         local_wb_dat_o[9:0]);
             end
 
             // ── WB MONITORS ──────────────────────────────────────────────────
             // Tile 4 (1,0): show all WB transactions
-            // if (MY_ID == 4 && local_wb_stb) begin
-            //     $display("[WB  t=%0t] ID=%0d stb=%b we=%b adr=0x%08x dat_o=0x%08x",
-            //              $time, MY_ID,
-            //              local_wb_stb, local_wb_we,
-            //              local_wb_adr, local_wb_dat_o);
-            // end
+            if (MY_ID == 4 && local_wb_stb) begin
+                $display("[WB  t=%0t] ID=%0d stb=%b we=%b adr=0x%08x dat_o=0x%08x",
+                         $time, MY_ID,
+                         local_wb_stb, local_wb_we,
+                         local_wb_adr, local_wb_dat_o);
+            end
             // Tile 0 (0,0): show ALL WB transactions
-            // if (MY_ID == 0 && local_wb_stb) begin
-            //     $display("[WB0 t=%0t] ID=0 we=%b adr=0x%08x dat_o=0x%08x dat_i=0x%08x",
-            //              $time,
-            //              local_wb_we,
-            //              local_wb_adr, local_wb_dat_o,
-            //              local_wb_dat_i);
-            // end
+            if (MY_ID == 0 && local_wb_stb) begin
+                $display("[WB0 t=%0t] ID=0 we=%b adr=0x%08x dat_o=0x%08x dat_i=0x%08x",
+                         $time,
+                         local_wb_we,
+                         local_wb_adr, local_wb_dat_o,
+                         local_wb_dat_i);
+            end
         end
     end
 
@@ -168,13 +166,38 @@ module mesh_router #(
             if (fifo_push) begin
                 fifo_mem[fifo_wr_ptr] <= eject_flit_next;
                 fifo_wr_ptr           <= fifo_wr_ptr + 1;
-                if (MY_ID == 0 && eject_flit_next[33] && eject_flit_next[10] && fifo_full) begin
-                    $display("[GHOST_DROP t=%0t] TILE(0,0) ghost DROPPED (FIFO full) bmap=0x%03x  raw_flit=0x%09x",
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_IN  type=%0d bmap=0x%03x count %0d->%0d",
+                         $time, MY_ID,
+                         eject_flit_next[27:24], eject_flit_next[9:0],
+                         fifo_count, fifo_count + 1);
+                // ── TILE(0,0) ghost decode ────────────────────────────────────
+                // A ghost flit has bit10 (FLIT_VALID_BIT) set in payload[10].
+                // The direction it came FROM tells us which ghost buffer it fills:
+                //   sent by tile(1,0) via s_out→n_in  : ghost_N for (0,0) (N nbr bottom row)
+                //   sent by tile(0,1) via e_out→w_in  : ghost_E for (0,0) (E nbr left col)
+                // (0,0 has no N or W neighbour, so only S-sourced and E-sourced ghosts arrive)
+                if (MY_ID == 0 && eject_flit_next[10]) begin
+                    $display("[GHOST_IN t=%0t] TILE(0,0) ghost flit LANDED  bmap=0x%03x  raw_flit=0x%09x",
                              $time, eject_flit_next[9:0], eject_flit_next);
                 end
             end
+            // ── TILE(0,0): detect ghost flit arriving when FIFO is full (dropped) ──
+            if (MY_ID == 0 && eject_flit_next[33] && eject_flit_next[10] && fifo_full) begin
+                $display("[GHOST_DROP t=%0t] TILE(0,0) ghost DROPPED (FIFO full) bmap=0x%03x  raw_flit=0x%09x",
+                         $time, eject_flit_next[9:0], eject_flit_next);
+            end
             if (fifo_pop) begin
-                // Unified logging will catch this
+                // ── DEBUG ────────────────────────────────────────────────────
+                $display("[NOC t=%0t] ID=%0d EJECT_OUT type=%0d bmap=0x%03x count %0d->%0d",
+                         $time, MY_ID,
+                         fifo_mem[fifo_rd_ptr][27:24], fifo_mem[fifo_rd_ptr][9:0],
+                         fifo_count, fifo_count - 1);
+                // ── TILE(0,0) ghost decode ────────────────────────────────────
+                if (MY_ID == 0 && fifo_mem[fifo_rd_ptr][10]) begin
+                    $display("[GHOST_OUT t=%0t] TILE(0,0) ghost flit CPU-READ bmap=0x%03x  raw_flit=0x%09x",
+                             $time, fifo_mem[fifo_rd_ptr][9:0], fifo_mem[fifo_rd_ptr]);
+                end
                 fifo_rd_ptr <= fifo_rd_ptr + 1;
             end
 
@@ -222,6 +245,14 @@ module mesh_router #(
             if (tgt_row == my_row && tgt_col == my_col) begin
                 // Accept only if FIFO has room (FIX 2 back-pressure).
                 if (!next_eject[33] && !fifo_full) next_eject = flit;
+            end else if (tgt_row > my_row && tgt_col > my_col) begin
+                if (!next_se[33]) next_se = flit;
+            end else if (tgt_row > my_row && tgt_col < my_col) begin
+                if (!next_sw[33]) next_sw = flit;
+            end else if (tgt_row < my_row && tgt_col > my_col) begin
+                if (!next_ne[33]) next_ne = flit;
+            end else if (tgt_row < my_row && tgt_col < my_col) begin
+                if (!next_nw[33]) next_nw = flit;
             end else if (tgt_row > my_row) begin
                 if (!next_s[33])  next_s  = flit;
             end else if (tgt_row < my_row) begin
@@ -256,7 +287,32 @@ module mesh_router #(
     // and flags any ghost flit that is being forwarded instead of ejected
     // (which would indicate a destination ID mismatch / routing bug).
     // Combinatorial — fires in the same always @(*) evaluation window.
-    // Unified logging below
+    always @(*) begin
+        if (MY_ID == 0) begin
+            // South-bound transit (heading to row 1 or 2)
+            if (next_s[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->S  dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_s[32:29]}, next_s[9:0], next_s[10], next_s);
+            // East-bound transit (heading to col 1 or 2)
+            if (next_e[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->E  dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_e[32:29]}, next_e[9:0], next_e[10], next_e);
+            // SE diagonal transit
+            if (next_se[33])
+                $display("[TRANSIT t=%0t] TILE(0,0) ->SE dest=%0d bmap=0x%03x bit10=%0b raw=0x%09x",
+                         $time, {next_se[32:29]}, next_se[9:0], next_se[10], next_se);
+            // Ghost flit being forwarded instead of ejected — this is a bug
+            if (next_s[33]  && next_s[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->S  dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_s[32:29]}, next_s);
+            if (next_e[33]  && next_e[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->E  dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_e[32:29]}, next_e);
+            if (next_se[33] && next_se[10])
+                $display("[MISROUTE t=%0t] TILE(0,0) ghost going ->SE dest=%0d (expected dest=0) raw=0x%09x",
+                         $time, {next_se[32:29]}, next_se);
+        end
+    end
 
     always @(posedge clk) begin
         if (rst) begin
@@ -267,28 +323,6 @@ module mesh_router #(
             e_out  <= next_e;   w_out  <= next_w;
             ne_out <= next_ne;  nw_out <= next_nw;
             se_out <= next_se;  sw_out <= next_sw;
-
-            // ── UNIFIED FLIT LOGGING ─────────────────────────────────────────
-            if (inject_write_now)
-                $display("[FLIT t=%0t] TILE=%0d INJECT dest=%0d payload=0x%08x",
-                         $time, MY_ID, local_wb_dat_o[31:28], local_wb_dat_o[28:0]);
-
-            if (fifo_push)
-                $display("[FLIT t=%0t] TILE=%0d EJECT  payload=0x%08x",
-                         $time, MY_ID, eject_flit_next[28:0]);
-
-            if (next_n[33])  $display("[FLIT t=%0t] TILE=%0d ->N  dest=%0d payload=0x%08x", $time, MY_ID, next_n [32:29], next_n [28:0]);
-            if (next_s[33])  $display("[FLIT t=%0t] TILE=%0d ->S  dest=%0d payload=0x%08x", $time, MY_ID, next_s [32:29], next_s [28:0]);
-            if (next_e[33])  $display("[FLIT t=%0t] TILE=%0d ->E  dest=%0d payload=0x%08x", $time, MY_ID, next_e [32:29], next_e [28:0]);
-            if (next_w[33])  $display("[FLIT t=%0t] TILE=%0d ->W  dest=%0d payload=0x%08x", $time, MY_ID, next_w [32:29], next_w [28:0]);
-            if (next_ne[33]) $display("[FLIT t=%0t] TILE=%0d ->NE dest=%0d payload=0x%08x", $time, MY_ID, next_ne[32:29], next_ne[28:0]);
-            if (next_nw[33]) $display("[FLIT t=%0t] TILE=%0d ->NW dest=%0d payload=0x%08x", $time, MY_ID, next_nw[32:29], next_nw[28:0]);
-            if (next_se[33]) $display("[FLIT t=%0t] TILE=%0d ->SE dest=%0d payload=0x%08x", $time, MY_ID, next_se[32:29], next_se[28:0]);
-            if (next_sw[33]) $display("[FLIT t=%0t] TILE=%0d ->SW dest=%0d payload=0x%08x", $time, MY_ID, next_sw[32:29], next_sw[28:0]);
-            $fflush();
-        end
-        if (local_wb_stb && local_wb_we && local_wb_adr == 32'h80000000) begin
-            $display("[WB_INJECT t=%0t] ID=%0d val=0x%08x", $time, MY_ID, local_wb_dat_o);
         end
     end
 

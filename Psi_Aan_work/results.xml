@@ -1,12 +1,9 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1776764861" />
-    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="303" time="26.466598987579346" sim_time_ns="4700000.0" ratio_time="177582.3180834715" />
-    <testcase name="test_col_bitmap_diagnostic" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="330" time="38.43465614318848" sim_time_ns="6461710.0" ratio_time="168121.96721435132">
-      <failure error_type="AssertionError" error_msg="col_bitmap test: 2 cell mismatches in tile(0,0) iter=1" />
-    </testcase>
-    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="398" time="61.71106719970703" sim_time_ns="9622790.0" ratio_time="155932.97015686164">
-      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=15, iter2=24 mismatches." />
+    <property name="random_seed" value="1776987180" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="180" time="24.256453275680542" sim_time_ns="4700000.0" ratio_time="193762.86988799833" />
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/Users/aanyadav/Desktop/127_NOC/Psi_Aan_work/test_mesh.py" lineno="203" time="35.7021210193634" sim_time_ns="6143380.0" ratio_time="172073.2501205762">
+      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=16, iter2=52 mismatches." />
     </testcase>
   </testsuite>
 </testsuites>
