@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1777222389" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="206" time="275.28328585624695" sim_time_ns="4700000.0" ratio_time="17073.321343796884" />
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="234" time="562.2080638408661" sim_time_ns="9099720.0" ratio_time="16185.680329508206">
+      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=0, iter1=32, iter2=2 mismatches." />
+    </testcase>
+  </testsuite>
+</testsuites>
