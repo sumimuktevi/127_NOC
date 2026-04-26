@@ -7,204 +7,15 @@ COCOTB_TEST_MODULES=test_mesh COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEV
      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/psi19/.local/share/pipx/venvs/cocotb/bin/python
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     cocotb                             Running on Verilator version 5.036 2025-04-27
-     0.00ns INFO     cocotb                             Seeding Python random module with 1776738789
+     0.00ns INFO     cocotb                             Seeding Python random module with 1777183295
      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/psi19/.local/share/pipx/venvs/cocotb/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
 [testbench] current_grid @ 0x0500
      0.00ns INFO     cocotb                             Running tests
      0.00ns INFO     cocotb.regression                  running test_mesh.test_iter0_seed_only (1/2)
+                                                            Boot and verify seed matches firmware initial pattern.
 2700000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
 2700000.00ns INFO     cocotb.mesh_3x3                    Waiting 2000 us for seed init...
-4700000.00ns INFO     cocotb.mesh_3x3                    SRAM_GRID_BASE = 0x0500
-
-DUMP @ 0x0500 (100 bytes):
-0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0510: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0520: 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00
-0x0530: 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00
-0x0540: 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0560: 00 00 00 00
-
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 11 11 11 11 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-
-============================================================
-TILE (0,0) SEED STATE
-============================================================
-
-TILE (0,0) SEED STATE Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) SEED STATE Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,0) SEED STATE Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
-
-
-******** ITERATION 0 (seed) ********
-
-===================================================
-TILE (0,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (0,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (0,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-4700000.00ns INFO     cocotb.regression                  test_mesh.test_iter0_seed_only passed
-4700000.00ns INFO     cocotb.regression                  running test_mesh.test_gol_iter1_iter2 (2/2)
-7400000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
 -------- WARNING: CEN is not reset, memory is not operational ---------
 -------- @Time 0: scope = mesh_3x3.rows[0].cols[0].tile_inst.sram_inst ---------
 -------- WARNING: CEN is not reset, memory is not operational ---------
@@ -241,570 +52,667 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 -------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[1].tile_inst.sram_inst ---------
 -------- MESSAGE: CEN is just reset, memory is operational ---------
 -------- @Time 2001290000: scope = mesh_3x3.rows[2].cols[2].tile_inst.sram_inst ---------
-[NOC t=3247540000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
-[NOC t=3504570000] ID=0 INJECT raw=0xf0000002 dest=15 bmap=0x002
-[NOC t=3526760000] ID=5 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3526780000] ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=3574800000] ID=4 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3574820000] ID=0 EJECT_IN  bmap=0x035 count 1->2
-[NOC t=3577420000] ID=6 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3577420000] ID=9 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3577450000] ID=0 EJECT_IN  bmap=0x035 count 2->3
-[NOC t=3582570000] ID=0 EJECT_OUT bmap=0x035 count 3->2
-[NOC t=3584410000] ID=0 EJECT_OUT bmap=0x035 count 2->1
-[NOC t=3586250000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-[NOC t=3625460000] ID=8 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3625490000] ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=3626730000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-[NOC t=3628080000] ID=10 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=3628110000] ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=3628570000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-[NOC t=7947540000] ID=0 INJECT raw=0xf0000001 dest=15 bmap=0x001
-[NOC t=8204570000] ID=0 INJECT raw=0xf0000002 dest=15 bmap=0x002
-[NOC t=8226760000] ID=5 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8226780000] 
-
-******** ITERATION 0 (seed) ********
-
-===================================================
-TILE (0,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (0,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (0,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (1,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,0)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,1)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-===================================================
-TILE (2,2)  ITERATION 0
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-#####.####    #####.####
-#####.####    #####.####
-#####.####    #####.####
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-9400000.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 1 ...
-14399990.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 1
-
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 11 11 11 11 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-
-============================================================
-TILE (0,0) timeout-before-iter1
-============================================================
-
-TILE (0,0) timeout-before-iter1 Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) timeout-before-iter1 Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,0) timeout-before-iter1 Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
-
-
-******** ITERATION 1 ********
-
-===================================================
-TILE (0,0)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (0,0) iter=1 MISMATCH debug
-============================================================
-
-TILE (0,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
-
-===================================================
-TILE (0,1)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (0,1) iter=1 MISMATCH debug
-============================================================
-
-TILE (0,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
-
-===================================================
-TILE (0,2)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (0,2) iter=1 MISMATCH debug
-============================================================
-
-TILE (0,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
-
-===================================================
-TILE (1,0)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (1,0) iter=1 MISMATCH debug
-============================================================
-
-TILE (1,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (1,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (1,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=228):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   42
-  n=5:   36
-  n=6:   15
-  n=7:    5
-  n=8:    2
-
-===================================================
-TILE (1,1)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (1,1) iter=1 MISMATCH debug
-============================================================
-
-TILE (1,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (1,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (1,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=230):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   43
-  n=5:   37
-  n=6:   15
-  n=7:    5
-  n=8:    2
-
-===================================================
-TILE (1,2)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (1,2) iter=1 MISMATCH debug
-============================================================
-
-TILE (1,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (1,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (1,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=228):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   42
-  n=5:   36
-  n=6:   15
-  n=7:    5
-  n=8:    2
-
-===================================================
-TILE (2,0)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (2,0) iter=1 MISMATCH debug
-============================================================
-
-TILE (2,0) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (2,0) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (2,0) iter=1 MISMATCH debug Neighbor Histogram (total cells=226):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   42
-  n=5:   35
-  n=6:   15
-  n=7:    4
-  n=8:    2
-
-===================================================
-TILE (2,1)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (2,1) iter=1 MISMATCH debug
-============================================================
-
-TILE (2,1) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (2,1) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (2,1) iter=1 MISMATCH debug Neighbor Histogram (total cells=228):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   42
-  n=5:   36
-  n=6:   15
-  n=7:    5
-  n=8:    2
-
-===================================================
-TILE (2,2)  ITERATION 1
-EXPECTED (Python GoL)   ACTUAL (SRAM)
----------------------------------------------------
-##########    ##########
-##########    ##########
-##########    ##########
-##########    ##########
-##########    #####.####  <- MISMATCH
-####...###    #####.####  <- MISMATCH
-##########    #####.####  <- MISMATCH
-##########    ##########
-##########    ##########
-##########    ##########
-===================================================
-
-============================================================
-TILE (2,2) iter=1 MISMATCH debug
-============================================================
-
-TILE (2,2) iter=1 MISMATCH debug Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (2,2) iter=1 MISMATCH debug Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (2,2) iter=1 MISMATCH debug Neighbor Histogram (total cells=226):
-  n=0:   25
-  n=1:   33
-  n=2:   34
-  n=3:   36
-  n=4:   42
-  n=5:   35
-  n=6:   15
-  n=7:    4
-  n=8:    2
-
+[SRAM t=2697450000] MY_ID=4 WRITE addr=0x7f7 data=0xfc
+[SRAM t=2697530000] MY_ID=4 WRITE addr=0x7f6 data=0x07
+[SRAM t=2697930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2698250000] MY_ID=4 WRITE addr=0x7e7 data=0x28
+[SRAM t=2698330000] MY_ID=4 WRITE addr=0x7e6 data=0x06
+[GHOST_BUF t=2699600000] TILE(0,0) ghost_N[0] <= 0  (addr=0x600)
+[SRAM t=2700120000] MY_ID=4 WRITE addr=0x7eb data=0x01
+[SRAM t=2700200000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2702190000] TILE(0,0) ghost_N[1] <= 0  (addr=0x601)
+[SRAM t=2702700000] MY_ID=4 WRITE addr=0x7eb data=0x02
+[SRAM t=2702780000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2704780000] TILE(0,0) ghost_N[2] <= 0  (addr=0x602)
+[SRAM t=2705280000] MY_ID=4 WRITE addr=0x7eb data=0x03
+[SRAM t=2705360000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2707370000] TILE(0,0) ghost_N[3] <= 0  (addr=0x603)
+[SRAM t=2707860000] MY_ID=4 WRITE addr=0x7eb data=0x04
+[SRAM t=2707940000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2709920000] TILE(0,0) ghost_N[4] <= 0  (addr=0x604)
+[SRAM t=2710440000] MY_ID=4 WRITE addr=0x7eb data=0x05
+[SRAM t=2710520000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2712510000] TILE(0,0) ghost_N[5] <= 0  (addr=0x605)
+[SRAM t=2713020000] MY_ID=4 WRITE addr=0x7eb data=0x06
+[SRAM t=2713100000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2715100000] TILE(0,0) ghost_N[6] <= 0  (addr=0x606)
+[SRAM t=2715600000] MY_ID=4 WRITE addr=0x7eb data=0x07
+[SRAM t=2715680000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2717690000] TILE(0,0) ghost_N[7] <= 0  (addr=0x607)
+[SRAM t=2718180000] MY_ID=4 WRITE addr=0x7eb data=0x08
+[SRAM t=2718260000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2720240000] TILE(0,0) ghost_N[8] <= 0  (addr=0x608)
+[SRAM t=2720760000] MY_ID=4 WRITE addr=0x7eb data=0x09
+[SRAM t=2720840000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2722830000] TILE(0,0) ghost_N[9] <= 0  (addr=0x609)
+[SRAM t=2723340000] MY_ID=4 WRITE addr=0x7eb data=0x0a
+[SRAM t=2723420000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2725420000] TILE(0,0) ghost_S[0] <= 0  (addr=0x60a)
+[SRAM t=2725920000] MY_ID=4 WRITE addr=0x7eb data=0x0b
+[SRAM t=2726000000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2728010000] TILE(0,0) ghost_S[1] <= 0  (addr=0x60b)
+[SRAM t=2728500000] MY_ID=4 WRITE addr=0x7eb data=0x0c
+[SRAM t=2728580000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2730560000] TILE(0,0) ghost_S[2] <= 0  (addr=0x60c)
+[SRAM t=2731080000] MY_ID=4 WRITE addr=0x7eb data=0x0d
+[SRAM t=2731160000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2733150000] TILE(0,0) ghost_S[3] <= 0  (addr=0x60d)
+[SRAM t=2733660000] MY_ID=4 WRITE addr=0x7eb data=0x0e
+[SRAM t=2733740000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2735740000] TILE(0,0) ghost_S[4] <= 0  (addr=0x60e)
+[SRAM t=2736240000] MY_ID=4 WRITE addr=0x7eb data=0x0f
+[SRAM t=2736320000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2738330000] TILE(0,0) ghost_S[5] <= 0  (addr=0x60f)
+[SRAM t=2738820000] MY_ID=4 WRITE addr=0x7eb data=0x10
+[SRAM t=2738900000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2740880000] TILE(0,0) ghost_S[6] <= 0  (addr=0x610)
+[SRAM t=2741400000] MY_ID=4 WRITE addr=0x7eb data=0x11
+[SRAM t=2741480000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2743470000] TILE(0,0) ghost_S[7] <= 0  (addr=0x611)
+[SRAM t=2743980000] MY_ID=4 WRITE addr=0x7eb data=0x12
+[SRAM t=2744060000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2746060000] TILE(0,0) ghost_S[8] <= 0  (addr=0x612)
+[SRAM t=2746560000] MY_ID=4 WRITE addr=0x7eb data=0x13
+[SRAM t=2746640000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2748650000] TILE(0,0) ghost_S[9] <= 0  (addr=0x613)
+[SRAM t=2749140000] MY_ID=4 WRITE addr=0x7eb data=0x14
+[SRAM t=2749220000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2751200000] TILE(0,0) ghost_W[0] <= 0  (addr=0x614)
+[SRAM t=2751720000] MY_ID=4 WRITE addr=0x7eb data=0x15
+[SRAM t=2751800000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2753790000] TILE(0,0) ghost_W[1] <= 0  (addr=0x615)
+[SRAM t=2754300000] MY_ID=4 WRITE addr=0x7eb data=0x16
+[SRAM t=2754380000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2756380000] TILE(0,0) ghost_W[2] <= 0  (addr=0x616)
+[SRAM t=2756880000] MY_ID=4 WRITE addr=0x7eb data=0x17
+[SRAM t=2756960000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2758970000] TILE(0,0) ghost_W[3] <= 0  (addr=0x617)
+[SRAM t=2759460000] MY_ID=4 WRITE addr=0x7eb data=0x18
+[SRAM t=2759540000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2761520000] TILE(0,0) ghost_W[4] <= 0  (addr=0x618)
+[SRAM t=2762040000] MY_ID=4 WRITE addr=0x7eb data=0x19
+[SRAM t=2762120000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2764110000] TILE(0,0) ghost_W[5] <= 0  (addr=0x619)
+[SRAM t=2764620000] MY_ID=4 WRITE addr=0x7eb data=0x1a
+[SRAM t=2764700000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2766700000] TILE(0,0) ghost_W[6] <= 0  (addr=0x61a)
+[SRAM t=2767200000] MY_ID=4 WRITE addr=0x7eb data=0x1b
+[SRAM t=2767280000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2769290000] TILE(0,0) ghost_W[7] <= 0  (addr=0x61b)
+[SRAM t=2769780000] MY_ID=4 WRITE addr=0x7eb data=0x1c
+[SRAM t=2769860000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2771840000] TILE(0,0) ghost_W[8] <= 0  (addr=0x61c)
+[SRAM t=2772360000] MY_ID=4 WRITE addr=0x7eb data=0x1d
+[SRAM t=2772440000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2774430000] TILE(0,0) ghost_W[9] <= 0  (addr=0x61d)
+[SRAM t=2774940000] MY_ID=4 WRITE addr=0x7eb data=0x1e
+[SRAM t=2775020000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2777020000] TILE(0,0) ghost_E[0] <= 0  (addr=0x61e)
+[SRAM t=2777520000] MY_ID=4 WRITE addr=0x7eb data=0x1f
+[SRAM t=2777600000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2779610000] TILE(0,0) ghost_E[1] <= 0  (addr=0x61f)
+[SRAM t=2780100000] MY_ID=4 WRITE addr=0x7eb data=0x20
+[SRAM t=2780180000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2782160000] TILE(0,0) ghost_E[2] <= 0  (addr=0x620)
+[SRAM t=2782680000] MY_ID=4 WRITE addr=0x7eb data=0x21
+[SRAM t=2782760000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2784750000] TILE(0,0) ghost_E[3] <= 0  (addr=0x621)
+[SRAM t=2785260000] MY_ID=4 WRITE addr=0x7eb data=0x22
+[SRAM t=2785340000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2787340000] TILE(0,0) ghost_E[4] <= 0  (addr=0x622)
+[SRAM t=2787840000] MY_ID=4 WRITE addr=0x7eb data=0x23
+[SRAM t=2787920000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2789930000] TILE(0,0) ghost_E[5] <= 0  (addr=0x623)
+[SRAM t=2790420000] MY_ID=4 WRITE addr=0x7eb data=0x24
+[SRAM t=2790500000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2792480000] TILE(0,0) ghost_E[6] <= 0  (addr=0x624)
+[SRAM t=2793000000] MY_ID=4 WRITE addr=0x7eb data=0x25
+[SRAM t=2793080000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2795070000] TILE(0,0) ghost_E[7] <= 0  (addr=0x625)
+[SRAM t=2795580000] MY_ID=4 WRITE addr=0x7eb data=0x26
+[SRAM t=2795660000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2797660000] TILE(0,0) ghost_E[8] <= 0  (addr=0x626)
+[SRAM t=2798160000] MY_ID=4 WRITE addr=0x7eb data=0x27
+[SRAM t=2798240000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=2800250000] TILE(0,0) ghost_E[9] <= 0  (addr=0x627)
+[SRAM t=2800740000] MY_ID=4 WRITE addr=0x7eb data=0x28
+[SRAM t=2800820000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2802560000] MY_ID=4 WRITE addr=0x7eb data=0x40
+[SRAM t=2802640000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2802960000] MY_ID=4 WRITE addr=0x7e7 data=0xa4
+[SRAM t=2803040000] MY_ID=4 WRITE addr=0x7e6 data=0x06
+[NEXT_GRID t=2804310000] TILE(0,0) next_grid[0][0] <= 0  (addr=0x640)
+[SRAM t=2804830000] MY_ID=4 WRITE addr=0x7eb data=0x41
+[SRAM t=2804910000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2806900000] TILE(0,0) next_grid[0][1] <= 0  (addr=0x641)
+[SRAM t=2807410000] MY_ID=4 WRITE addr=0x7eb data=0x42
+[SRAM t=2807490000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2809490000] TILE(0,0) next_grid[0][2] <= 0  (addr=0x642)
+[SRAM t=2809990000] MY_ID=4 WRITE addr=0x7eb data=0x43
+[SRAM t=2810070000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2812080000] TILE(0,0) next_grid[0][3] <= 0  (addr=0x643)
+[SRAM t=2812570000] MY_ID=4 WRITE addr=0x7eb data=0x44
+[SRAM t=2812650000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2814630000] TILE(0,0) next_grid[0][4] <= 0  (addr=0x644)
+[SRAM t=2815150000] MY_ID=4 WRITE addr=0x7eb data=0x45
+[SRAM t=2815230000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2817220000] TILE(0,0) next_grid[0][5] <= 0  (addr=0x645)
+[SRAM t=2817730000] MY_ID=4 WRITE addr=0x7eb data=0x46
+[SRAM t=2817810000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2819810000] TILE(0,0) next_grid[0][6] <= 0  (addr=0x646)
+[SRAM t=2820310000] MY_ID=4 WRITE addr=0x7eb data=0x47
+[SRAM t=2820390000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2822400000] TILE(0,0) next_grid[0][7] <= 0  (addr=0x647)
+[SRAM t=2822890000] MY_ID=4 WRITE addr=0x7eb data=0x48
+[SRAM t=2822970000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2824950000] TILE(0,0) next_grid[0][8] <= 0  (addr=0x648)
+[SRAM t=2825470000] MY_ID=4 WRITE addr=0x7eb data=0x49
+[SRAM t=2825550000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2827540000] TILE(0,0) next_grid[0][9] <= 0  (addr=0x649)
+[SRAM t=2828050000] MY_ID=4 WRITE addr=0x7eb data=0x4a
+[SRAM t=2828130000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2830130000] TILE(0,0) next_grid[1][0] <= 0  (addr=0x64a)
+[SRAM t=2830630000] MY_ID=4 WRITE addr=0x7eb data=0x4b
+[SRAM t=2830710000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2833210000] MY_ID=4 WRITE addr=0x7eb data=0x4c
+[SRAM t=2833290000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2835790000] MY_ID=4 WRITE addr=0x7eb data=0x4d
+[SRAM t=2835870000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2838370000] MY_ID=4 WRITE addr=0x7eb data=0x4e
+[SRAM t=2838450000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2840950000] MY_ID=4 WRITE addr=0x7eb data=0x4f
+[SRAM t=2841030000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2843530000] MY_ID=4 WRITE addr=0x7eb data=0x50
+[SRAM t=2843610000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2846110000] MY_ID=4 WRITE addr=0x7eb data=0x51
+[SRAM t=2846190000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2848690000] MY_ID=4 WRITE addr=0x7eb data=0x52
+[SRAM t=2848770000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2851270000] MY_ID=4 WRITE addr=0x7eb data=0x53
+[SRAM t=2851350000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2853360000] TILE(0,0) next_grid[1][9] <= 0  (addr=0x653)
+[SRAM t=2853850000] MY_ID=4 WRITE addr=0x7eb data=0x54
+[SRAM t=2853930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2855910000] TILE(0,0) next_grid[2][0] <= 0  (addr=0x654)
+[SRAM t=2856430000] MY_ID=4 WRITE addr=0x7eb data=0x55
+[SRAM t=2856510000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2859010000] MY_ID=4 WRITE addr=0x7eb data=0x56
+[SRAM t=2859090000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2861590000] MY_ID=4 WRITE addr=0x7eb data=0x57
+[SRAM t=2861670000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2864170000] MY_ID=4 WRITE addr=0x7eb data=0x58
+[SRAM t=2864250000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2866750000] MY_ID=4 WRITE addr=0x7eb data=0x59
+[SRAM t=2866830000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2869330000] MY_ID=4 WRITE addr=0x7eb data=0x5a
+[SRAM t=2869410000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2871910000] MY_ID=4 WRITE addr=0x7eb data=0x5b
+[SRAM t=2871990000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2874490000] MY_ID=4 WRITE addr=0x7eb data=0x5c
+[SRAM t=2874570000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2877070000] MY_ID=4 WRITE addr=0x7eb data=0x5d
+[SRAM t=2877150000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2879140000] TILE(0,0) next_grid[2][9] <= 0  (addr=0x65d)
+[SRAM t=2879650000] MY_ID=4 WRITE addr=0x7eb data=0x5e
+[SRAM t=2879730000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2881730000] TILE(0,0) next_grid[3][0] <= 0  (addr=0x65e)
+[SRAM t=2882230000] MY_ID=4 WRITE addr=0x7eb data=0x5f
+[SRAM t=2882310000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2884810000] MY_ID=4 WRITE addr=0x7eb data=0x60
+[SRAM t=2884890000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2887390000] MY_ID=4 WRITE addr=0x7eb data=0x61
+[SRAM t=2887470000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2889970000] MY_ID=4 WRITE addr=0x7eb data=0x62
+[SRAM t=2890050000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2892550000] MY_ID=4 WRITE addr=0x7eb data=0x63
+[SRAM t=2892630000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2895130000] MY_ID=4 WRITE addr=0x7eb data=0x64
+[SRAM t=2895210000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2897710000] MY_ID=4 WRITE addr=0x7eb data=0x65
+[SRAM t=2897790000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2900290000] MY_ID=4 WRITE addr=0x7eb data=0x66
+[SRAM t=2900370000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2902870000] MY_ID=4 WRITE addr=0x7eb data=0x67
+[SRAM t=2902950000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2904960000] TILE(0,0) next_grid[3][9] <= 0  (addr=0x667)
+[SRAM t=2905450000] MY_ID=4 WRITE addr=0x7eb data=0x68
+[SRAM t=2905530000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2907510000] TILE(0,0) next_grid[4][0] <= 0  (addr=0x668)
+[SRAM t=2908030000] MY_ID=4 WRITE addr=0x7eb data=0x69
+[SRAM t=2908110000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2910610000] MY_ID=4 WRITE addr=0x7eb data=0x6a
+[SRAM t=2910690000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2913190000] MY_ID=4 WRITE addr=0x7eb data=0x6b
+[SRAM t=2913270000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2915770000] MY_ID=4 WRITE addr=0x7eb data=0x6c
+[SRAM t=2915850000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2918350000] MY_ID=4 WRITE addr=0x7eb data=0x6d
+[SRAM t=2918430000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2920930000] MY_ID=4 WRITE addr=0x7eb data=0x6e
+[SRAM t=2921010000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2923510000] MY_ID=4 WRITE addr=0x7eb data=0x6f
+[SRAM t=2923590000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2926090000] MY_ID=4 WRITE addr=0x7eb data=0x70
+[SRAM t=2926170000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2928670000] MY_ID=4 WRITE addr=0x7eb data=0x71
+[SRAM t=2928750000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2930740000] TILE(0,0) next_grid[4][9] <= 0  (addr=0x671)
+[SRAM t=2931250000] MY_ID=4 WRITE addr=0x7eb data=0x72
+[SRAM t=2931330000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2933330000] TILE(0,0) next_grid[5][0] <= 0  (addr=0x672)
+[SRAM t=2933830000] MY_ID=4 WRITE addr=0x7eb data=0x73
+[SRAM t=2933910000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2936410000] MY_ID=4 WRITE addr=0x7eb data=0x74
+[SRAM t=2936490000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2938990000] MY_ID=4 WRITE addr=0x7eb data=0x75
+[SRAM t=2939070000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2941570000] MY_ID=4 WRITE addr=0x7eb data=0x76
+[SRAM t=2941650000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2944150000] MY_ID=4 WRITE addr=0x7eb data=0x77
+[SRAM t=2944230000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2946730000] MY_ID=4 WRITE addr=0x7eb data=0x78
+[SRAM t=2946810000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2949310000] MY_ID=4 WRITE addr=0x7eb data=0x79
+[SRAM t=2949390000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2951890000] MY_ID=4 WRITE addr=0x7eb data=0x7a
+[SRAM t=2951970000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2954470000] MY_ID=4 WRITE addr=0x7eb data=0x7b
+[SRAM t=2954550000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2956560000] TILE(0,0) next_grid[5][9] <= 0  (addr=0x67b)
+[SRAM t=2957050000] MY_ID=4 WRITE addr=0x7eb data=0x7c
+[SRAM t=2957130000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2959110000] TILE(0,0) next_grid[6][0] <= 0  (addr=0x67c)
+[SRAM t=2959630000] MY_ID=4 WRITE addr=0x7eb data=0x7d
+[SRAM t=2959710000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2962210000] MY_ID=4 WRITE addr=0x7eb data=0x7e
+[SRAM t=2962290000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2964790000] MY_ID=4 WRITE addr=0x7eb data=0x7f
+[SRAM t=2964870000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2967370000] MY_ID=4 WRITE addr=0x7eb data=0x80
+[SRAM t=2967450000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2969950000] MY_ID=4 WRITE addr=0x7eb data=0x81
+[SRAM t=2970030000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2972530000] MY_ID=4 WRITE addr=0x7eb data=0x82
+[SRAM t=2972610000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2975110000] MY_ID=4 WRITE addr=0x7eb data=0x83
+[SRAM t=2975190000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2977690000] MY_ID=4 WRITE addr=0x7eb data=0x84
+[SRAM t=2977770000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2980270000] MY_ID=4 WRITE addr=0x7eb data=0x85
+[SRAM t=2980350000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2982340000] TILE(0,0) next_grid[6][9] <= 0  (addr=0x685)
+[SRAM t=2982850000] MY_ID=4 WRITE addr=0x7eb data=0x86
+[SRAM t=2982930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=2984930000] TILE(0,0) next_grid[7][0] <= 0  (addr=0x686)
+[SRAM t=2985430000] MY_ID=4 WRITE addr=0x7eb data=0x87
+[SRAM t=2985510000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2988010000] MY_ID=4 WRITE addr=0x7eb data=0x88
+[SRAM t=2988090000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2990590000] MY_ID=4 WRITE addr=0x7eb data=0x89
+[SRAM t=2990670000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2993170000] MY_ID=4 WRITE addr=0x7eb data=0x8a
+[SRAM t=2993250000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2995750000] MY_ID=4 WRITE addr=0x7eb data=0x8b
+[SRAM t=2995830000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=2998330000] MY_ID=4 WRITE addr=0x7eb data=0x8c
+[SRAM t=2998410000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3000910000] MY_ID=4 WRITE addr=0x7eb data=0x8d
+[SRAM t=3000990000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3003490000] MY_ID=4 WRITE addr=0x7eb data=0x8e
+[SRAM t=3003570000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3006070000] MY_ID=4 WRITE addr=0x7eb data=0x8f
+[SRAM t=3006150000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3008160000] TILE(0,0) next_grid[7][9] <= 0  (addr=0x68f)
+[SRAM t=3008650000] MY_ID=4 WRITE addr=0x7eb data=0x90
+[SRAM t=3008730000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3010710000] TILE(0,0) next_grid[8][0] <= 0  (addr=0x690)
+[SRAM t=3011230000] MY_ID=4 WRITE addr=0x7eb data=0x91
+[SRAM t=3011310000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3013810000] MY_ID=4 WRITE addr=0x7eb data=0x92
+[SRAM t=3013890000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3016390000] MY_ID=4 WRITE addr=0x7eb data=0x93
+[SRAM t=3016470000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3018970000] MY_ID=4 WRITE addr=0x7eb data=0x94
+[SRAM t=3019050000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3021550000] MY_ID=4 WRITE addr=0x7eb data=0x95
+[SRAM t=3021630000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3024130000] MY_ID=4 WRITE addr=0x7eb data=0x96
+[SRAM t=3024210000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3026710000] MY_ID=4 WRITE addr=0x7eb data=0x97
+[SRAM t=3026790000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3029290000] MY_ID=4 WRITE addr=0x7eb data=0x98
+[SRAM t=3029370000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3031870000] MY_ID=4 WRITE addr=0x7eb data=0x99
+[SRAM t=3031950000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3033940000] TILE(0,0) next_grid[8][9] <= 0  (addr=0x699)
+[SRAM t=3034450000] MY_ID=4 WRITE addr=0x7eb data=0x9a
+[SRAM t=3034530000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3036530000] TILE(0,0) next_grid[9][0] <= 0  (addr=0x69a)
+[SRAM t=3037030000] MY_ID=4 WRITE addr=0x7eb data=0x9b
+[SRAM t=3037110000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3039120000] TILE(0,0) next_grid[9][1] <= 0  (addr=0x69b)
+[SRAM t=3039610000] MY_ID=4 WRITE addr=0x7eb data=0x9c
+[SRAM t=3039690000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3041670000] TILE(0,0) next_grid[9][2] <= 0  (addr=0x69c)
+[SRAM t=3042190000] MY_ID=4 WRITE addr=0x7eb data=0x9d
+[SRAM t=3042270000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3044260000] TILE(0,0) next_grid[9][3] <= 0  (addr=0x69d)
+[SRAM t=3044770000] MY_ID=4 WRITE addr=0x7eb data=0x9e
+[SRAM t=3044850000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3046850000] TILE(0,0) next_grid[9][4] <= 0  (addr=0x69e)
+[SRAM t=3047350000] MY_ID=4 WRITE addr=0x7eb data=0x9f
+[SRAM t=3047430000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3049440000] TILE(0,0) next_grid[9][5] <= 0  (addr=0x69f)
+[SRAM t=3049930000] MY_ID=4 WRITE addr=0x7eb data=0xa0
+[SRAM t=3050010000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3051990000] TILE(0,0) next_grid[9][6] <= 0  (addr=0x6a0)
+[SRAM t=3052510000] MY_ID=4 WRITE addr=0x7eb data=0xa1
+[SRAM t=3052590000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3054580000] TILE(0,0) next_grid[9][7] <= 0  (addr=0x6a1)
+[SRAM t=3055090000] MY_ID=4 WRITE addr=0x7eb data=0xa2
+[SRAM t=3055170000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3057170000] TILE(0,0) next_grid[9][8] <= 0  (addr=0x6a2)
+[SRAM t=3057670000] MY_ID=4 WRITE addr=0x7eb data=0xa3
+[SRAM t=3057750000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=3059760000] TILE(0,0) next_grid[9][9] <= 0  (addr=0x6a3)
+[SRAM t=3060250000] MY_ID=4 WRITE addr=0x7eb data=0xa4
+[SRAM t=3060330000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=3062390000] MY_ID=4 WRITE addr=0x7fb data=0x38
+[SRAM t=3062790000] MY_ID=4 WRITE addr=0x7f7 data=0xac
+[SRAM t=3062870000] MY_ID=4 WRITE addr=0x7f6 data=0x07
+[SRAM t=3063430000] MY_ID=4 WRITE addr=0x7c0 data=0x80
+[WB  t=3064590000] ID=4 stb=1 we=0 adr=0x80000008 dat_o=0x00000008
+[WB0 t=3064590000] ID=0 we=0 adr=0x80000008 dat_o=0x00000008 dat_i=0x00000000
+[SRAM t=3064680000] MY_ID=4 WRITE addr=0x7df data=0x04
+[SRAM t=3066080000] MY_ID=4 WRITE addr=0x04c data=0x38
+[SRAM t=3066940000] MY_ID=4 WRITE addr=0x7db data=0x01
+[SRAM t=3074940000] MY_ID=4 WRITE addr=0x7db data=0x01
+[SRAM t=3075340000] MY_ID=4 WRITE addr=0x7c3 data=0x03
+[SRAM t=3077800000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=3077960000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=3078200000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=3078600000] MY_ID=4 WRITE addr=0x7d0 data=0x80
+[NOC t=3079000000] ID=1 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=2 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=5 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=6 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=8 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=9 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=10 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=3079000000] ID=4 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[WB  t=3079000000] ID=4 stb=1 we=1 adr=0x80000000 dat_o=0xf0000001
+[NOC t=3079000000] ID=0 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[WB0 t=3079000000] ID=0 we=1 adr=0x80000000 dat_o=0xf0000001 dat_i=0x00000000
+[TRANSIT t=3079000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079010000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=3079010000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[SRAM t=3079800000] MY_ID=4 WRITE addr=0x7b7 data=0x01
+[SRAM t=3080520000] MY_ID=4 WRITE addr=0x7cf data=0x01
+[SRAM t=3081960000] MY_ID=4 WRITE addr=0x7c7 data=0x01
+[SRAM t=3082440000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3082760000] MY_ID=4 WRITE addr=0x7d3 data=0x64
+[SRAM t=3082840000] MY_ID=4 WRITE addr=0x7d2 data=0x05
+[SRAM t=3083920000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=3084000000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3085790000] MY_ID=4 WRITE addr=0x7c3 data=0x02
+[SRAM t=3085870000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3087660000] MY_ID=4 WRITE addr=0x7c3 data=0x03
+[SRAM t=3087740000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3089530000] MY_ID=4 WRITE addr=0x7c3 data=0x04
+[SRAM t=3089610000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3091400000] MY_ID=4 WRITE addr=0x7c3 data=0x05
+[SRAM t=3091480000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3093270000] MY_ID=4 WRITE addr=0x7c3 data=0x06
+[SRAM t=3093350000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3095140000] MY_ID=4 WRITE addr=0x7c3 data=0x07
+[SRAM t=3095220000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3097010000] MY_ID=4 WRITE addr=0x7c3 data=0x08
+[SRAM t=3097090000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3098880000] MY_ID=4 WRITE addr=0x7c3 data=0x09
+[SRAM t=3098960000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3100750000] MY_ID=4 WRITE addr=0x7c3 data=0x0a
+[SRAM t=3100830000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3102620000] MY_ID=4 WRITE addr=0x7c3 data=0x0b
+[SRAM t=3102700000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3104490000] MY_ID=4 WRITE addr=0x7c3 data=0x0c
+[SRAM t=3104570000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3106360000] MY_ID=4 WRITE addr=0x7c3 data=0x0d
+[SRAM t=3106440000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3108230000] MY_ID=4 WRITE addr=0x7c3 data=0x0e
+[SRAM t=3108310000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3110100000] MY_ID=4 WRITE addr=0x7c3 data=0x0f
+[SRAM t=3110180000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3111970000] MY_ID=4 WRITE addr=0x7c3 data=0x10
+[SRAM t=3112050000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3113840000] MY_ID=4 WRITE addr=0x7c3 data=0x11
+[SRAM t=3113920000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3115710000] MY_ID=4 WRITE addr=0x7c3 data=0x12
+[SRAM t=3115790000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3117580000] MY_ID=4 WRITE addr=0x7c3 data=0x13
+[SRAM t=3117660000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3119450000] MY_ID=4 WRITE addr=0x7c3 data=0x14
+[SRAM t=3119530000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3121320000] MY_ID=4 WRITE addr=0x7c3 data=0x15
+[SRAM t=3121400000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3123190000] MY_ID=4 WRITE addr=0x7c3 data=0x16
+[SRAM t=3123270000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3125060000] MY_ID=4 WRITE addr=0x7c3 data=0x17
+[SRAM t=3125140000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3126930000] MY_ID=4 WRITE addr=0x7c3 data=0x18
+[SRAM t=3127010000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3128800000] MY_ID=4 WRITE addr=0x7c3 data=0x19
+[SRAM t=3128880000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3130670000] MY_ID=4 WRITE addr=0x7c3 data=0x1a
+[SRAM t=3130750000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3132540000] MY_ID=4 WRITE addr=0x7c3 data=0x1b
+[SRAM t=3132620000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3134410000] MY_ID=4 WRITE addr=0x7c3 data=0x1c
+[SRAM t=3134490000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3136280000] MY_ID=4 WRITE addr=0x7c3 data=0x1d
+[SRAM t=3136360000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3138150000] MY_ID=4 WRITE addr=0x7c3 data=0x1e
+[SRAM t=3138230000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3140020000] MY_ID=4 WRITE addr=0x7c3 data=0x1f
+[SRAM t=3140100000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3141890000] MY_ID=4 WRITE addr=0x7c3 data=0x20
+[SRAM t=3141970000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3143760000] MY_ID=4 WRITE addr=0x7c3 data=0x21
+[SRAM t=3143840000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3145630000] MY_ID=4 WRITE addr=0x7c3 data=0x22
+[SRAM t=3145710000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3147500000] MY_ID=4 WRITE addr=0x7c3 data=0x23
+[SRAM t=3147580000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3149370000] MY_ID=4 WRITE addr=0x7c3 data=0x24
+[SRAM t=3149450000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3151240000] MY_ID=4 WRITE addr=0x7c3 data=0x25
+[SRAM t=3151320000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3153110000] MY_ID=4 WRITE addr=0x7c3 data=0x26
+[SRAM t=3153190000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3154980000] MY_ID=4 WRITE addr=0x7c3 data=0x27
+[SRAM t=3155060000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3156850000] MY_ID=4 WRITE addr=0x7c3 data=0x28
+[SRAM t=3156930000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3158720000] MY_ID=4 WRITE addr=0x7c3 data=0x29
+[SRAM t=3158800000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3160590000] MY_ID=4 WRITE addr=0x7c3 data=0x2a
+[SRAM t=3160670000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3162460000] MY_ID=4 WRITE addr=0x7c3 data=0x2b
+[SRAM t=3162540000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3164330000] MY_ID=4 WRITE addr=0x7c3 data=0x2c
+[SRAM t=3164410000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3166200000] MY_ID=4 WRITE addr=0x7c3 data=0x2d
+[SRAM t=3166280000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3168070000] MY_ID=4 WRITE addr=0x7c3 data=0x2e
+[SRAM t=3168150000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3169940000] MY_ID=4 WRITE addr=0x7c3 data=0x2f
+[SRAM t=3170020000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3171810000] MY_ID=4 WRITE addr=0x7c3 data=0x30
+[SRAM t=3171890000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3173680000] MY_ID=4 WRITE addr=0x7c3 data=0x31
+[SRAM t=3173760000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3175550000] MY_ID=4 WRITE addr=0x7c3 data=0x32
+[SRAM t=3175630000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3177420000] MY_ID=4 WRITE addr=0x7c3 data=0x33
+[SRAM t=3177500000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3179290000] MY_ID=4 WRITE addr=0x7c3 data=0x34
+[SRAM t=3179370000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3181160000] MY_ID=4 WRITE addr=0x7c3 data=0x35
+[SRAM t=3181240000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3183030000] MY_ID=4 WRITE addr=0x7c3 data=0x36
+[SRAM t=3183110000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3184900000] MY_ID=4 WRITE addr=0x7c3 data=0x37
+[SRAM t=3184980000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3186770000] MY_ID=4 WRITE addr=0x7c3 data=0x38
+[SRAM t=3186850000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3188640000] MY_ID=4 WRITE addr=0x7c3 data=0x39
+[SRAM t=3188720000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3190510000] MY_ID=4 WRITE addr=0x7c3 data=0x3a
+[SRAM t=3190590000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3192380000] MY_ID=4 WRITE addr=0x7c3 data=0x3b
+[SRAM t=3192460000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3194250000] MY_ID=4 WRITE addr=0x7c3 data=0x3c
+[SRAM t=3194330000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3196120000] MY_ID=4 WRITE addr=0x7c3 data=0x3d
+[SRAM t=3196200000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3197990000] MY_ID=4 WRITE addr=0x7c3 data=0x3e
+[SRAM t=3198070000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3199860000] MY_ID=4 WRITE addr=0x7c3 data=0x3f
+[SRAM t=3199940000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3201730000] MY_ID=4 WRITE addr=0x7c3 data=0x40
+[SRAM t=3201810000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3203600000] MY_ID=4 WRITE addr=0x7c3 data=0x41
+[SRAM t=3203680000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3205470000] MY_ID=4 WRITE addr=0x7c3 data=0x42
+[SRAM t=3205550000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3207340000] MY_ID=4 WRITE addr=0x7c3 data=0x43
+[SRAM t=3207420000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3209210000] MY_ID=4 WRITE addr=0x7c3 data=0x44
+[SRAM t=3209290000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3211080000] MY_ID=4 WRITE addr=0x7c3 data=0x45
+[SRAM t=3211160000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3212950000] MY_ID=4 WRITE addr=0x7c3 data=0x46
+[SRAM t=3213030000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3214820000] MY_ID=4 WRITE addr=0x7c3 data=0x47
+[SRAM t=3214900000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3216690000] MY_ID=4 WRITE addr=0x7c3 data=0x48
+[SRAM t=3216770000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3218560000] MY_ID=4 WRITE addr=0x7c3 data=0x49
+[SRAM t=3218640000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3220430000] MY_ID=4 WRITE addr=0x7c3 data=0x4a
+[SRAM t=3220510000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3222300000] MY_ID=4 WRITE addr=0x7c3 data=0x4b
+[SRAM t=3222380000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3224170000] MY_ID=4 WRITE addr=0x7c3 data=0x4c
+[SRAM t=3224250000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3226040000] MY_ID=4 WRITE addr=0x7c3 data=0x4d
+[SRAM t=3226120000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3227910000] MY_ID=4 WRITE addr=0x7c3 data=0x4e
+[SRAM t=3227990000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3229780000] MY_ID=4 WRITE addr=0x7c3 data=0x4f
+[SRAM t=3229860000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3231650000] MY_ID=4 WRITE addr=0x7c3 data=0x50
+[SRAM t=3231730000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3233520000] MY_ID=4 WRITE addr=0x7c3 data=0x51
+[SRAM t=3233600000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3235390000] MY_ID=4 WRITE addr=0x7c3 data=0x52
+[SRAM t=3235470000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3237260000] MY_ID=4 WRITE addr=0x7c3 data=0x53
+[SRAM t=3237340000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3239130000] MY_ID=4 WRITE addr=0x7c3 data=0x54
+[SRAM t=3239210000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3241000000] MY_ID=4 WRITE addr=0x7c3 data=0x55
+[SRAM t=3241080000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3242870000] MY_ID=4 WRITE addr=0x7c3 data=0x56
+[SRAM t=3242950000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3244740000] MY_ID=4 WRITE addr=0x7c3 data=0x57
+[SRAM t=3244820000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3246610000] MY_ID=4 WRITE addr=0x7c3 data=0x58
+[SRAM t=3246690000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3248480000] MY_ID=4 WRITE addr=0x7c3 data=0x59
+[SRAM t=3248560000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3250350000] MY_ID=4 WRITE addr=0x7c3 data=0x5a
+[SRAM t=3250430000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3252220000] MY_ID=4 WRITE addr=0x7c3 data=0x5b
+[SRAM t=3252300000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3254090000] MY_ID=4 WRITE addr=0x7c3 data=0x5c
+[SRAM t=3254170000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3255960000] MY_ID=4 WRITE addr=0x7c3 data=0x5d
+[SRAM t=3256040000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3257830000] MY_ID=4 WRITE addr=0x7c3 data=0x5e
+[SRAM t=3257910000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3259700000] MY_ID=4 WRITE addr=0x7c3 data=0x5f
+[SRAM t=3259780000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3261570000] MY_ID=4 WRITE addr=0x7c3 data=0x60
+[SRAM t=3261650000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3263440000] MY_ID=4 WRITE addr=0x7c3 data=0x61
+[SRAM t=3263520000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3265310000] MY_ID=4 WRITE addr=0x7c3 data=0x62
+[SRAM t=3265390000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3267180000] MY_ID=4 WRITE addr=0x7c3 data=0x63
+[SRAM t=3267260000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3269050000] MY_ID=4 WRITE addr=0x7c3 data=0x64
+[SRAM t=3269130000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=3270160000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=3270810000] MY_ID=4 WRITE addr=0x52d data=0x01
+[SRAM t=3271590000] MY_ID=4 WRITE addr=0x537 data=0x01
+[SRAM t=3272330000] MY_ID=4 WRITE addr=0x541 data=0x01
+[SRAM t=3273080000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=3273240000] MY_ID=4 WRITE addr=0x7c3 data=0x02
+[SRAM t=3273480000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=3273880000] MY_ID=4 WRITE addr=0x7d0 data=0x80
+[SRAM t=3274440000] MY_ID=4 WRITE addr=0x7af data=0x02
+[NOC t=3275080000] ID=1 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=2 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=5 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=6 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=8 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=9 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=10 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=3275080000] ID=4 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[WB  t=3275080000] ID=4 stb=1 we=1 adr=0x80000000 dat_o=0xf0000002
+[NOC t=3275080000] ID=0 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[WB0 t=3275080000] ID=0 we=1 adr=0x80000000 dat_o=0xf0000002 dat_i=0x00000000
+[TRANSIT t=3275080000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275080000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275080000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275085000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275085000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275085000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275085000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275090000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[TRANSIT t=3275090000] TILE(0,0) ->SE dest=15 bmap=0x002 bit10=0 raw=0x3f0000002
+[SRAM t=3276600000] MY_ID=4 WRITE addr=0x7c3 data=0x04
+[SRAM t=3277320000] MY_ID=4 WRITE addr=0x7af data=0x08
+[SRAM t=3277720000] MY_ID=4 WRITE addr=0x7ab data=0xff
+[SRAM t=3277800000] MY_ID=4 WRITE addr=0x7aa data=0xff
+[SRAM t=3277880000] MY_ID=4 WRITE addr=0x7a9 data=0xff
+[SRAM t=3277960000] MY_ID=4 WRITE addr=0x7a8 data=0xff
+[SRAM t=3278120000] MY_ID=4 WRITE addr=0x7a7 data=0x01
+[SRAM t=3278520000] MY_ID=4 WRITE addr=0x7b7 data=0x02
+[SRAM t=3279320000] MY_ID=4 WRITE addr=0x7af data=0x08
+[SRAM t=3279720000] MY_ID=4 WRITE addr=0x7ab data=0xff
+[SRAM t=3279800000] MY_ID=4 WRITE addr=0x7aa data=0xff
+[SRAM t=3279880000] MY_ID=4 WRITE addr=0x7a9 data=0xff
+[SRAM t=3279960000] MY_ID=4 WRITE addr=0x7a8 data=0xff
+[SRAM t=3280120000] MY_ID=4 WRITE addr=0x7a7 data=0x05
+[SRAM t=3280600000] MY_ID=4 WRITE addr=0x79a data=0x10
+[SRAM t=3280920000] MY_ID=4 WRITE addr=0x7b7 data=0x02
+[SRAM t=3281560000] MY_ID=4 WRITE addr=0x7a0 data=0x80
+[SRAM t=3283000000] MY_ID=4 WRITE addr=0x7ac data=0x80
+[SRAM t=3283720000] MY_ID=4 WRITE addr=0x7a8 data=0xf0
+[SRAM t=3284440000] MY_ID=4 WRITE addr=0x7a4 data=0x50
+[SRAM t=3284600000] MY_ID=4 WRITE addr=0x79f data=0x02
+[SRAM t=3285080000] MY_ID=4 WRITE addr=0x79a data=0x0c
+[SRAM t=3285400000] MY_ID=4 WRITE addr=0x797 data=0x01
+[SRAM t=3285800000] MY_ID=4 WRITE addr=0x7b7 data=0x03
+[SRAM t=3286200000] MY_ID=4 WRITE addr=0x7a3 data=0x04
+[SRAM t=3286440000] MY_ID=4 WRI
 DUMP @ 0x0500 (100 bytes):
 0x0500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0510: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -814,54 +722,22 @@ DUMP @ 0x0500 (100 bytes):
 0x0550: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0x0560: 00 00 00 00
 
-DUMP @ 0x0600 (40 bytes):
-0x0600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0610: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0620: 00 00 00 00 00 00 00 00
-
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 11 11 11 11 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-14409990.00ns INFO     cocotb.mesh_3x3                    Waiting for debug_iter_count >= 2 ...
-19409980.00ns WARNING  cocotb.mesh_3x3                    iter_count did not advance to 2
-
-DUMP @ 0x0700 (52 bytes):
-0x0700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0710: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0x0720: 00 00 00 00 11 11 11 11 00 00 00 00 00 00 00 00
-0x0730: 00 00 00 00
-
-============================================================
-TILE (0,0) timeout-before-iter2
-============================================================
-
-TILE (0,0) timeout-before-iter2 Breadcrumbs:
-  STAGE0 = 0x11111111
-  STAGE1 = 0x00000000
-  STAGE2 = 0x00000000
-  STAGE3 = 0x00000000
-
-TILE (0,0) timeout-before-iter2 Ghost Exchange (flags=0x00):
-  Sent  : N=0 S=0 E=0 W=0
-
-TILE (0,0) timeout-before-iter2 Neighbor Histogram (total cells=0):
-  n=0:    0
-  n=1:    0
-  n=2:    0
-  n=3:    0
-  n=4:    0
-  n=5:    0
-  n=6:    0
-  n=7:    0
-  n=8:    0
+[testbench] Hardware tile ID mapping (row<<2)|col:
+  TILE (0,0) -> hw_id=0x0
+  TILE (0,1) -> hw_id=0x1
+  TILE (0,2) -> hw_id=0x2
+  TILE (1,0) -> hw_id=0x4
+  TILE (1,1) -> hw_id=0x5
+  TILE (1,2) -> hw_id=0x6
+  TILE (2,0) -> hw_id=0x8
+  TILE (2,1) -> hw_id=0x9
+  TILE (2,2) -> hw_id=0xa
 
 
-******** ITERATION 2 ********
+******** ITERATION 0 (seed) ********
 
 ===================================================
-TILE (0,0)  ITERATION 2
+TILE (0,0)  hw_id=0x0  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -877,7 +753,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (0,1)  ITERATION 2
+TILE (0,1)  hw_id=0x1  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -893,7 +769,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (0,2)  ITERATION 2
+TILE (0,2)  hw_id=0x2  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -909,7 +785,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (1,0)  ITERATION 2
+TILE (1,0)  hw_id=0x4  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -925,7 +801,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (1,1)  ITERATION 2
+TILE (1,1)  hw_id=0x5  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -941,7 +817,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (1,2)  ITERATION 2
+TILE (1,2)  hw_id=0x6  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -957,7 +833,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (2,0)  ITERATION 2
+TILE (2,0)  hw_id=0x8  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -973,7 +849,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (2,1)  ITERATION 2
+TILE (2,1)  hw_id=0x9  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -989,7 +865,7 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ===================================================
 
 ===================================================
-TILE (2,2)  ITERATION 2
+TILE (2,2)  hw_id=0xa  ITERATION 0
 EXPECTED (Python GoL)   ACTUAL (SRAM)
 ---------------------------------------------------
 ##########    ##########
@@ -1003,35 +879,796 @@ EXPECTED (Python GoL)   ACTUAL (SRAM)
 ##########    ##########
 ##########    ##########
 ===================================================
-19419980.00ns WARNING  ..iter1_iter2.test_gol_iter1_iter2 GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
-                                                          Traceback (most recent call last):
-                                                            File "/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py", line 336, in test_gol_iter1_iter2
-                                                              assert total == 0, (
-                                                                     ^^^^^^^^^^
-                                                          AssertionError: GoL test failed: iter0=0, iter1=36, iter2=0 mismatches.
-19419980.00ns WARNING  cocotb.regression                  test_mesh.test_gol_iter1_iter2 failed
-19419980.00ns INFO     cocotb.regression                  ****************************************************************************************
-                                                          ** TEST                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
-                                                          ****************************************************************************************
-                                                          ** test_mesh.test_iter0_seed_only   PASS     4700000.00         168.27      27930.88  **
-                                                          ** test_mesh.test_gol_iter1_iter2   FAIL    14719980.00         826.18      17817.00  **
-                                                          ****************************************************************************************
-                                                          ** TESTS=2 PASS=1 FAIL=1 SKIP=0             19419980.00         994.50      19527.48  **
-                                                          ****************************************************************************************
-ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=8274800000] ID=4 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8274820000] ID=0 EJECT_IN  bmap=0x035 count 1->2
-[NOC t=8277420000] ID=6 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8277420000] ID=9 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8277450000] ID=0 EJECT_IN  bmap=0x035 count 2->3
-[NOC t=8282570000] ID=0 EJECT_OUT bmap=0x035 count 3->2
-[NOC t=8284410000] ID=0 EJECT_OUT bmap=0x035 count 2->1
-[NOC t=8286250000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-[NOC t=8325460000] ID=8 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8325490000] ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=8326730000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-[NOC t=8328080000] ID=10 INJECT raw=0x00000035 dest=0 bmap=0x035
-[NOC t=8328110000] ID=0 EJECT_IN  bmap=0x035 count 0->1
-[NOC t=8328570000] ID=0 EJECT_OUT bmap=0x035 count 1->0
-- :0: Verilog $finish
-make[1]: Leaving directory '/home/psi19/127_NOC/Psi_Aan_work'
+4700000.00ns INFO     cocotb.mesh_3x3                    ALL TILES: seed matches
+4700000.00ns INFO     cocotb.regression                  test_mesh.test_iter0_seed_only passed
+4700000.00ns INFO     cocotb.regression                  running test_mesh.test_gol_iter1_iter2 (2/2)
+                                                             Run 2 GoL iterations with ghost exchange and verify results.
+7400000.00ns INFO     cocotb.mesh_3x3                    [boot] cpu_rst_n asserted — CPU running.
+TE addr=0x7a0 data=0x80
+[SRAM t=3286680000] MY_ID=4 WRITE addr=0x7d6 data=0x06
+[SRAM t=3288420000] MY_ID=4 WRITE addr=0x7d7 data=0x14
+[SRAM t=3288500000] MY_ID=4 WRITE addr=0x7d6 data=0x06
+[SRAM t=3289850000] MY_ID=4 WRITE addr=0x7fb data=0x24
+[SRAM t=3289930000] MY_ID=4 WRITE addr=0x7fa data=0x02
+[NOC t=3336060000] ID=5 INJECT raw=0x00000091 dest=0 type=0 bmap=0x091
+[NOC t=3336080000] ID=0 EJECT_IN  type=0 bmap=0x091 count 0->1
+[NOC t=3346890000] ID=2 INJECT raw=0x000004fd dest=0 type=0 bmap=0x0fd
+[NOC t=3346920000] ID=0 EJECT_IN  type=0 bmap=0x0fd count 1->2
+[GHOST_IN t=3346920000] TILE(0,0) ghost flit LANDED  bmap=0x0fd  raw_flit=0x2000004fd
+[NOC t=3383070000] ID=5 INJECT raw=0x000004fd dest=0 type=0 bmap=0x0fd
+[NOC t=3383090000] ID=0 EJECT_IN  type=0 bmap=0x0fd count 2->3
+[GHOST_IN t=3383090000] TILE(0,0) ghost flit LANDED  bmap=0x0fd  raw_flit=0x2000004fd
+[NOC t=3392150000] ID=2 INJECT raw=0x00000000 dest=0 type=0 bmap=0x000
+[NOC t=3392180000] ID=0 EJECT_IN  type=0 bmap=0x000 count 3->4
+[NOC t=3428330000] ID=5 INJECT raw=0x00000000 dest=0 type=0 bmap=0x000
+[NOC t=3474300000] ID=5 INJECT raw=0x00000000 dest=0 type=0 bmap=0x000
+[SRAM t=7397450000] MY_ID=4 WRITE addr=0x7f7 data=0xfc
+[SRAM t=7397530000] MY_ID=4 WRITE addr=0x7f6 data=0x07
+[SRAM t=7397930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7398250000] MY_ID=4 WRITE addr=0x7e7 data=0x28
+[SRAM t=7398330000] MY_ID=4 WRITE addr=0x7e6 data=0x06
+[GHOST_BUF t=7399600000] TILE(0,0) ghost_N[0] <= 0  (addr=0x600)
+[SRAM t=7400120000] MY_ID=4 WRITE addr=0x7eb data=0x01
+[SRAM t=7400200000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7402190000] TILE(0,0) ghost_N[1] <= 0  (addr=0x601)
+[SRAM t=7402700000] MY_ID=4 WRITE addr=0x7eb data=0x02
+[SRAM t=7402780000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7404780000] TILE(0,0) ghost_N[2] <= 0  (addr=0x602)
+[SRAM t=7405280000] MY_ID=4 WRITE addr=0x7eb data=0x03
+[SRAM t=7405360000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7407370000] TILE(0,0) ghost_N[3] <= 0  (addr=0x603)
+[SRAM t=7407860000] MY_ID=4 WRITE addr=0x7eb data=0x04
+[SRAM t=7407940000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7409920000] TILE(0,0) ghost_N[4] <= 0  (addr=0x604)
+[SRAM t=7410440000] MY_ID=4 WRITE addr=0x7eb data=0x05
+[SRAM t=7410520000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7412510000] TILE(0,0) ghost_N[5] <= 0  (addr=0x605)
+[SRAM t=7413020000] MY_ID=4 WRITE addr=0x7eb data=0x06
+[SRAM t=7413100000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7415100000] TILE(0,0) ghost_N[6] <= 0  (addr=0x606)
+[SRAM t=7415600000] MY_ID=4 WRITE addr=0x7eb data=0x07
+[SRAM t=7415680000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7417690000] TILE(0,0) ghost_N[7] <= 0  (addr=0x607)
+[SRAM t=7418180000] MY_ID=4 WRITE addr=0x7eb data=0x08
+[SRAM t=7418260000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7420240000] TILE(0,0) ghost_N[8] <= 0  (addr=0x608)
+[SRAM t=7420760000] MY_ID=4 WRITE addr=0x7eb data=0x09
+[SRAM t=7420840000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7422830000] TILE(0,0) ghost_N[9] <= 0  (addr=0x609)
+[SRAM t=7423340000] MY_ID=4 WRITE addr=0x7eb data=0x0a
+[SRAM t=7423420000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7425420000] TILE(0,0) ghost_S[0] <= 0  (addr=0x60a)
+[SRAM t=7425920000] MY_ID=4 WRITE addr=0x7eb data=0x0b
+[SRAM t=7426000000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7428010000] TILE(0,0) ghost_S[1] <= 0  (addr=0x60b)
+[SRAM t=7428500000] MY_ID=4 WRITE addr=0x7eb data=0x0c
+[SRAM t=7428580000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7430560000] TILE(0,0) ghost_S[2] <= 0  (addr=0x60c)
+[SRAM t=7431080000] MY_ID=4 WRITE addr=0x7eb data=0x0d
+[SRAM t=7431160000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7433150000] TILE(0,0) ghost_S[3] <= 0  (addr=0x60d)
+[SRAM t=7433660000] MY_ID=4 WRITE addr=0x7eb data=0x0e
+[SRAM t=7433740000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7435740000] TILE(0,0) ghost_S[4] <= 0  (addr=0x60e)
+[SRAM t=7436240000] MY_ID=4 WRITE addr=0x7eb data=0x0f
+[SRAM t=7436320000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7438330000] TILE(0,0) ghost_S[5] <= 0  (addr=0x60f)
+[SRAM t=7438820000] MY_ID=4 WRITE addr=0x7eb data=0x10
+[SRAM t=7438900000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7440880000] TILE(0,0) ghost_S[6] <= 0  (addr=0x610)
+[SRAM t=7441400000] MY_ID=4 WRITE addr=0x7eb data=0x11
+[SRAM t=7441480000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7443470000] TILE(0,0) ghost_S[7] <= 0  (addr=0x611)
+[SRAM t=7443980000] MY_ID=4 WRITE addr=0x7eb data=0x12
+[SRAM t=7444060000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7446060000] TILE(0,0) ghost_S[8] <= 0  (addr=0x612)
+[SRAM t=7446560000] MY_ID=4 WRITE addr=0x7eb data=0x13
+[SRAM t=7446640000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7448650000] TILE(0,0) ghost_S[9] <= 0  (addr=0x613)
+[SRAM t=7449140000] MY_ID=4 WRITE addr=0x7eb data=0x14
+[SRAM t=7449220000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7451200000] TILE(0,0) ghost_W[0] <= 0  (addr=0x614)
+[SRAM t=7451720000] MY_ID=4 WRITE addr=0x7eb data=0x15
+[SRAM t=7451800000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7453790000] TILE(0,0) ghost_W[1] <= 0  (addr=0x615)
+[SRAM t=7454300000] MY_ID=4 WRITE addr=0x7eb data=0x16
+[SRAM t=7454380000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7456380000] TILE(0,0) ghost_W[2] <= 0  (addr=0x616)
+[SRAM t=7456880000] MY_ID=4 WRITE addr=0x7eb data=0x17
+[SRAM t=7456960000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7458970000] TILE(0,0) ghost_W[3] <= 0  (addr=0x617)
+[SRAM t=7459460000] MY_ID=4 WRITE addr=0x7eb data=0x18
+[SRAM t=7459540000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7461520000] TILE(0,0) ghost_W[4] <= 0  (addr=0x618)
+[SRAM t=7462040000] MY_ID=4 WRITE addr=0x7eb data=0x19
+[SRAM t=7462120000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7464110000] TILE(0,0) ghost_W[5] <= 0  (addr=0x619)
+[SRAM t=7464620000] MY_ID=4 WRITE addr=0x7eb data=0x1a
+[SRAM t=7464700000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7466700000] TILE(0,0) ghost_W[6] <= 0  (addr=0x61a)
+[SRAM t=7467200000] MY_ID=4 WRITE addr=0x7eb data=0x1b
+[SRAM t=7467280000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7469290000] TILE(0,0) ghost_W[7] <= 0  (addr=0x61b)
+[SRAM t=7469780000] MY_ID=4 WRITE addr=0x7eb data=0x1c
+[SRAM t=7469860000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7471840000] TILE(0,0) ghost_W[8] <= 0  (addr=0x61c)
+[SRAM t=7472360000] MY_ID=4 WRITE addr=0x7eb data=0x1d
+[SRAM t=7472440000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7474430000] TILE(0,0) ghost_W[9] <= 0  (addr=0x61d)
+[SRAM t=7474940000] MY_ID=4 WRITE addr=0x7eb data=0x1e
+[SRAM t=7475020000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7477020000] TILE(0,0) ghost_E[0] <= 0  (addr=0x61e)
+[SRAM t=7477520000] MY_ID=4 WRITE addr=0x7eb data=0x1f
+[SRAM t=7477600000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7479610000] TILE(0,0) ghost_E[1] <= 0  (addr=0x61f)
+[SRAM t=7480100000] MY_ID=4 WRITE addr=0x7eb data=0x20
+[SRAM t=7480180000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7482160000] TILE(0,0) ghost_E[2] <= 0  (addr=0x620)
+[SRAM t=7482680000] MY_ID=4 WRITE addr=0x7eb data=0x21
+[SRAM t=7482760000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7484750000] TILE(0,0) ghost_E[3] <= 0  (addr=0x621)
+[SRAM t=7485260000] MY_ID=4 WRITE addr=0x7eb data=0x22
+[SRAM t=7485340000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7487340000] TILE(0,0) ghost_E[4] <= 0  (addr=0x622)
+[SRAM t=7487840000] MY_ID=4 WRITE addr=0x7eb data=0x23
+[SRAM t=7487920000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7489930000] TILE(0,0) ghost_E[5] <= 0  (addr=0x623)
+[SRAM t=7490420000] MY_ID=4 WRITE addr=0x7eb data=0x24
+[SRAM t=7490500000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7492480000] TILE(0,0) ghost_E[6] <= 0  (addr=0x624)
+[SRAM t=7493000000] MY_ID=4 WRITE addr=0x7eb data=0x25
+[SRAM t=7493080000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7495070000] TILE(0,0) ghost_E[7] <= 0  (addr=0x625)
+[SRAM t=7495580000] MY_ID=4 WRITE addr=0x7eb data=0x26
+[SRAM t=7495660000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7497660000] TILE(0,0) ghost_E[8] <= 0  (addr=0x626)
+[SRAM t=7498160000] MY_ID=4 WRITE addr=0x7eb data=0x27
+[SRAM t=7498240000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[GHOST_BUF t=7500250000] TILE(0,0) ghost_E[9] <= 0  (addr=0x627)
+[SRAM t=7500740000] MY_ID=4 WRITE addr=0x7eb data=0x28
+[SRAM t=7500820000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7502560000] MY_ID=4 WRITE addr=0x7eb data=0x40
+[SRAM t=7502640000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7502960000] MY_ID=4 WRITE addr=0x7e7 data=0xa4
+[SRAM t=7503040000] MY_ID=4 WRITE addr=0x7e6 data=0x06
+[NEXT_GRID t=7504310000] TILE(0,0) next_grid[0][0] <= 0  (addr=0x640)
+[SRAM t=7504830000] MY_ID=4 WRITE addr=0x7eb data=0x41
+[SRAM t=7504910000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7506900000] TILE(0,0) next_grid[0][1] <= 0  (addr=0x641)
+[SRAM t=7507410000] MY_ID=4 WRITE addr=0x7eb data=0x42
+[SRAM t=7507490000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7509490000] TILE(0,0) next_grid[0][2] <= 0  (addr=0x642)
+[SRAM t=7509990000] MY_ID=4 WRITE addr=0x7eb data=0x43
+[SRAM t=7510070000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7512080000] TILE(0,0) next_grid[0][3] <= 0  (addr=0x643)
+[SRAM t=7512570000] MY_ID=4 WRITE addr=0x7eb data=0x44
+[SRAM t=7512650000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7514630000] TILE(0,0) next_grid[0][4] <= 0  (addr=0x644)
+[SRAM t=7515150000] MY_ID=4 WRITE addr=0x7eb data=0x45
+[SRAM t=7515230000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7517220000] TILE(0,0) next_grid[0][5] <= 0  (addr=0x645)
+[SRAM t=7517730000] MY_ID=4 WRITE addr=0x7eb data=0x46
+[SRAM t=7517810000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7519810000] TILE(0,0) next_grid[0][6] <= 0  (addr=0x646)
+[SRAM t=7520310000] MY_ID=4 WRITE addr=0x7eb data=0x47
+[SRAM t=7520390000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7522400000] TILE(0,0) next_grid[0][7] <= 0  (addr=0x647)
+[SRAM t=7522890000] MY_ID=4 WRITE addr=0x7eb data=0x48
+[SRAM t=7522970000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7524950000] TILE(0,0) next_grid[0][8] <= 0  (addr=0x648)
+[SRAM t=7525470000] MY_ID=4 WRITE addr=0x7eb data=0x49
+[SRAM t=7525550000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7527540000] TILE(0,0) next_grid[0][9] <= 0  (addr=0x649)
+[SRAM t=7528050000] MY_ID=4 WRITE addr=0x7eb data=0x4a
+[SRAM t=7528130000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7530130000] TILE(0,0) next_grid[1][0] <= 0  (addr=0x64a)
+[SRAM t=7530630000] MY_ID=4 WRITE addr=0x7eb data=0x4b
+[SRAM t=7530710000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7533210000] MY_ID=4 WRITE addr=0x7eb data=0x4c
+[SRAM t=7533290000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7535790000] MY_ID=4 WRITE addr=0x7eb data=0x4d
+[SRAM t=7535870000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7538370000] MY_ID=4 WRITE addr=0x7eb data=0x4e
+[SRAM t=7538450000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7540950000] MY_ID=4 WRITE addr=0x7eb data=0x4f
+[SRAM t=7541030000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7543530000] MY_ID=4 WRITE addr=0x7eb data=0x50
+[SRAM t=7543610000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7546110000] MY_ID=4 WRITE addr=0x7eb data=0x51
+[SRAM t=7546190000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7548690000] MY_ID=4 WRITE addr=0x7eb data=0x52
+[SRAM t=7548770000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7551270000] MY_ID=4 WRITE addr=0x7eb data=0x53
+[SRAM t=7551350000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7553360000] TILE(0,0) next_grid[1][9] <= 0  (addr=0x653)
+[SRAM t=7553850000] MY_ID=4 WRITE addr=0x7eb data=0x54
+[SRAM t=7553930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7555910000] TILE(0,0) next_grid[2][0] <= 0  (addr=0x654)
+[SRAM t=7556430000] MY_ID=4 WRITE addr=0x7eb data=0x55
+[SRAM t=7556510000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7559010000] MY_ID=4 WRITE addr=0x7eb data=0x56
+[SRAM t=7559090000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7561590000] MY_ID=4 WRITE addr=0x7eb data=0x57
+[SRAM t=7561670000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7564170000] MY_ID=4 WRITE addr=0x7eb data=0x58
+[SRAM t=7564250000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7566750000] MY_ID=4 WRITE addr=0x7eb data=0x59
+[SRAM t=7566830000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7569330000] MY_ID=4 WRITE addr=0x7eb data=0x5a
+[SRAM t=7569410000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7571910000] MY_ID=4 WRITE addr=0x7eb data=0x5b
+[SRAM t=7571990000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7574490000] MY_ID=4 WRITE addr=0x7eb data=0x5c
+[SRAM t=7574570000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7577070000] MY_ID=4 WRITE addr=0x7eb data=0x5d
+[SRAM t=7577150000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7579140000] TILE(0,0) next_grid[2][9] <= 0  (addr=0x65d)
+[SRAM t=7579650000] MY_ID=4 WRITE addr=0x7eb data=0x5e
+[SRAM t=7579730000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7581730000] TILE(0,0) next_grid[3][0] <= 0  (addr=0x65e)
+[SRAM t=7582230000] MY_ID=4 WRITE addr=0x7eb data=0x5f
+[SRAM t=7582310000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7584810000] MY_ID=4 WRITE addr=0x7eb data=0x60
+[SRAM t=7584890000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7587390000] MY_ID=4 WRITE addr=0x7eb data=0x61
+[SRAM t=7587470000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7589970000] MY_ID=4 WRITE addr=0x7eb data=0x62
+[SRAM t=7590050000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7592550000] MY_ID=4 WRITE addr=0x7eb data=0x63
+[SRAM t=7592630000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7595130000] MY_ID=4 WRITE addr=0x7eb data=0x64
+[SRAM t=7595210000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7597710000] MY_ID=4 WRITE addr=0x7eb data=0x65
+[SRAM t=7597790000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7600290000] MY_ID=4 WRITE addr=0x7eb data=0x66
+[SRAM t=7600370000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7602870000] MY_ID=4 WRITE addr=0x7eb data=0x67
+[SRAM t=7602950000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7604960000] TILE(0,0) next_grid[3][9] <= 0  (addr=0x667)
+[SRAM t=7605450000] MY_ID=4 WRITE addr=0x7eb data=0x68
+[SRAM t=7605530000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7607510000] TILE(0,0) next_grid[4][0] <= 0  (addr=0x668)
+[SRAM t=7608030000] MY_ID=4 WRITE addr=0x7eb data=0x69
+[SRAM t=7608110000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7610610000] MY_ID=4 WRITE addr=0x7eb data=0x6a
+[SRAM t=7610690000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7613190000] MY_ID=4 WRITE addr=0x7eb data=0x6b
+[SRAM t=7613270000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7615770000] MY_ID=4 WRITE addr=0x7eb data=0x6c
+[SRAM t=7615850000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7618350000] MY_ID=4 WRITE addr=0x7eb data=0x6d
+[SRAM t=7618430000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7620930000] MY_ID=4 WRITE addr=0x7eb data=0x6e
+[SRAM t=7621010000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7623510000] MY_ID=4 WRITE addr=0x7eb data=0x6f
+[SRAM t=7623590000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7626090000] MY_ID=4 WRITE addr=0x7eb data=0x70
+[SRAM t=7626170000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7628670000] MY_ID=4 WRITE addr=0x7eb data=0x71
+[SRAM t=7628750000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7630740000] TILE(0,0) next_grid[4][9] <= 0  (addr=0x671)
+[SRAM t=7631250000] MY_ID=4 WRITE addr=0x7eb data=0x72
+[SRAM t=7631330000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7633330000] TILE(0,0) next_grid[5][0] <= 0  (addr=0x672)
+[SRAM t=7633830000] MY_ID=4 WRITE addr=0x7eb data=0x73
+[SRAM t=7633910000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7636410000] MY_ID=4 WRITE addr=0x7eb data=0x74
+[SRAM t=7636490000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7638990000] MY_ID=4 WRITE addr=0x7eb data=0x75
+[SRAM t=7639070000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7641570000] MY_ID=4 WRITE addr=0x7eb data=0x76
+[SRAM t=7641650000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7644150000] MY_ID=4 WRITE addr=0x7eb data=0x77
+[SRAM t=7644230000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7646730000] MY_ID=4 WRITE addr=0x7eb data=0x78
+[SRAM t=7646810000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7649310000] MY_ID=4 WRITE addr=0x7eb data=0x79
+[SRAM t=7649390000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7651890000] MY_ID=4 WRITE addr=0x7eb data=0x7a
+[SRAM t=7651970000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7654470000] MY_ID=4 WRITE addr=0x7eb data=0x7b
+[SRAM t=7654550000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7656560000] TILE(0,0) next_grid[5][9] <= 0  (addr=0x67b)
+[SRAM t=7657050000] MY_ID=4 WRITE addr=0x7eb data=0x7c
+[SRAM t=7657130000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7659110000] TILE(0,0) next_grid[6][0] <= 0  (addr=0x67c)
+[SRAM t=7659630000] MY_ID=4 WRITE addr=0x7eb data=0x7d
+[SRAM t=7659710000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7662210000] MY_ID=4 WRITE addr=0x7eb data=0x7e
+[SRAM t=7662290000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7664790000] MY_ID=4 WRITE addr=0x7eb data=0x7f
+[SRAM t=7664870000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7667370000] MY_ID=4 WRITE addr=0x7eb data=0x80
+[SRAM t=7667450000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7669950000] MY_ID=4 WRITE addr=0x7eb data=0x81
+[SRAM t=7670030000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7672530000] MY_ID=4 WRITE addr=0x7eb data=0x82
+[SRAM t=7672610000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7675110000] MY_ID=4 WRITE addr=0x7eb data=0x83
+[SRAM t=7675190000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7677690000] MY_ID=4 WRITE addr=0x7eb data=0x84
+[SRAM t=7677770000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7680270000] MY_ID=4 WRITE addr=0x7eb data=0x85
+[SRAM t=7680350000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7682340000] TILE(0,0) next_grid[6][9] <= 0  (addr=0x685)
+[SRAM t=7682850000] MY_ID=4 WRITE addr=0x7eb data=0x86
+[SRAM t=7682930000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7684930000] TILE(0,0) next_grid[7][0] <= 0  (addr=0x686)
+[SRAM t=7685430000] MY_ID=4 WRITE addr=0x7eb data=0x87
+[SRAM t=7685510000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7688010000] MY_ID=4 WRITE addr=0x7eb data=0x88
+[SRAM t=7688090000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7690590000] MY_ID=4 WRITE addr=0x7eb data=0x89
+[SRAM t=7690670000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7693170000] MY_ID=4 WRITE addr=0x7eb data=0x8a
+[SRAM t=7693250000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7695750000] MY_ID=4 WRITE addr=0x7eb data=0x8b
+[SRAM t=7695830000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7698330000] MY_ID=4 WRITE addr=0x7eb data=0x8c
+[SRAM t=7698410000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7700910000] MY_ID=4 WRITE addr=0x7eb data=0x8d
+[SRAM t=7700990000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7703490000] MY_ID=4 WRITE addr=0x7eb data=0x8e
+[SRAM t=7703570000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7706070000] MY_ID=4 WRITE addr=0x7eb data=0x8f
+[SRAM t=7706150000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7708160000] TILE(0,0) next_grid[7][9] <= 0  (addr=0x68f)
+[SRAM t=7708650000] MY_ID=4 WRITE addr=0x7eb data=0x90
+[SRAM t=7708730000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7710710000] TILE(0,0) next_grid[8][0] <= 0  (addr=0x690)
+[SRAM t=7711230000] MY_ID=4 WRITE addr=0x7eb data=0x91
+[SRAM t=7711310000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7713810000] MY_ID=4 WRITE addr=0x7eb data=0x92
+[SRAM t=7713890000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7716390000] MY_ID=4 WRITE addr=0x7eb data=0x93
+[SRAM t=7716470000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7718970000] MY_ID=4 WRITE addr=0x7eb data=0x94
+[SRAM t=7719050000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7721550000] MY_ID=4 WRITE addr=0x7eb data=0x95
+[SRAM t=7721630000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7724130000] MY_ID=4 WRITE addr=0x7eb data=0x96
+[SRAM t=7724210000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7726710000] MY_ID=4 WRITE addr=0x7eb data=0x97
+[SRAM t=7726790000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7729290000] MY_ID=4 WRITE addr=0x7eb data=0x98
+[SRAM t=7729370000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7731870000] MY_ID=4 WRITE addr=0x7eb data=0x99
+[SRAM t=7731950000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7733940000] TILE(0,0) next_grid[8][9] <= 0  (addr=0x699)
+[SRAM t=7734450000] MY_ID=4 WRITE addr=0x7eb data=0x9a
+[SRAM t=7734530000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7736530000] TILE(0,0) next_grid[9][0] <= 0  (addr=0x69a)
+[SRAM t=7737030000] MY_ID=4 WRITE addr=0x7eb data=0x9b
+[SRAM t=7737110000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7739120000] TILE(0,0) next_grid[9][1] <= 0  (addr=0x69b)
+[SRAM t=7739610000] MY_ID=4 WRITE addr=0x7eb data=0x9c
+[SRAM t=7739690000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7741670000] TILE(0,0) next_grid[9][2] <= 0  (addr=0x69c)
+[SRAM t=7742190000] MY_ID=4 WRITE addr=0x7eb data=0x9d
+[SRAM t=7742270000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7744260000] TILE(0,0) next_grid[9][3] <= 0  (addr=0x69d)
+[SRAM t=7744770000] MY_ID=4 WRITE addr=0x7eb data=0x9e
+[SRAM t=7744850000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7746850000] TILE(0,0) next_grid[9][4] <= 0  (addr=0x69e)
+[SRAM t=7747350000] MY_ID=4 WRITE addr=0x7eb data=0x9f
+[SRAM t=7747430000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7749440000] TILE(0,0) next_grid[9][5] <= 0  (addr=0x69f)
+[SRAM t=7749930000] MY_ID=4 WRITE addr=0x7eb data=0xa0
+[SRAM t=7750010000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7751990000] TILE(0,0) next_grid[9][6] <= 0  (addr=0x6a0)
+[SRAM t=7752510000] MY_ID=4 WRITE addr=0x7eb data=0xa1
+[SRAM t=7752590000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7754580000] TILE(0,0) next_grid[9][7] <= 0  (addr=0x6a1)
+[SRAM t=7755090000] MY_ID=4 WRITE addr=0x7eb data=0xa2
+[SRAM t=7755170000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7757170000] TILE(0,0) next_grid[9][8] <= 0  (addr=0x6a2)
+[SRAM t=7757670000] MY_ID=4 WRITE addr=0x7eb data=0xa3
+[SRAM t=7757750000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[NEXT_GRID t=7759760000] TILE(0,0) next_grid[9][9] <= 0  (addr=0x6a3)
+[SRAM t=7760250000] MY_ID=4 WRITE addr=0x7eb data=0xa4
+[SRAM t=7760330000] MY_ID=4 WRITE addr=0x7ea data=0x06
+[SRAM t=7762390000] MY_ID=4 WRITE addr=0x7fb data=0x38
+[SRAM t=7762790000] MY_ID=4 WRITE addr=0x7f7 data=0xac
+[SRAM t=7762870000] MY_ID=4 WRITE addr=0x7f6 data=0x07
+[SRAM t=7763430000] MY_ID=4 WRITE addr=0x7c0 data=0x80
+[WB  t=7764590000] ID=4 stb=1 we=0 adr=0x80000008 dat_o=0x00000008
+[WB0 t=7764590000] ID=0 we=0 adr=0x80000008 dat_o=0x00000008 dat_i=0x00000000
+[SRAM t=7764680000] MY_ID=4 WRITE addr=0x7df data=0x04
+[SRAM t=7766080000] MY_ID=4 WRITE addr=0x04c data=0x38
+[SRAM t=7766940000] MY_ID=4 WRITE addr=0x7db data=0x01
+[SRAM t=7774940000] MY_ID=4 WRITE addr=0x7db data=0x01
+[SRAM t=7775340000] MY_ID=4 WRITE addr=0x7c3 data=0x03
+[SRAM t=7777800000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=7777960000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=7778200000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=7778600000] MY_ID=4 WRITE addr=0x7d0 data=0x80
+[NOC t=7779000000] ID=1 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=2 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=5 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=6 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=8 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=9 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=10 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[NOC t=7779000000] ID=4 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[WB  t=7779000000] ID=4 stb=1 we=1 adr=0x80000000 dat_o=0xf0000001
+[NOC t=7779000000] ID=0 INJECT raw=0xf0000001 dest=15 type=0 bmap=0x001
+[WB0 t=7779000000] ID=0 we=1 adr=0x80000000 dat_o=0xf0000001 dat_i=0x00000000
+[TRANSIT t=7779000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779000000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779005000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779010000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[TRANSIT t=7779010000] TILE(0,0) ->SE dest=15 bmap=0x001 bit10=0 raw=0x3f0000001
+[SRAM t=7779800000] MY_ID=4 WRITE addr=0x7b7 data=0x01
+[SRAM t=7780520000] MY_ID=4 WRITE addr=0x7cf data=0x01
+[SRAM t=7781960000] MY_ID=4 WRITE addr=0x7c7 data=0x01
+[SRAM t=7782440000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7782760000] MY_ID=4 WRITE addr=0x7d3 data=0x64
+[SRAM t=7782840000] MY_ID=4 WRITE addr=0x7d2 data=0x05
+[SRAM t=7783920000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=7784000000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7785790000] MY_ID=4 WRITE addr=0x7c3 data=0x02
+[SRAM t=7785870000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7787660000] MY_ID=4 WRITE addr=0x7c3 data=0x03
+[SRAM t=7787740000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7789530000] MY_ID=4 WRITE addr=0x7c3 data=0x04
+[SRAM t=7789610000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7791400000] MY_ID=4 WRITE addr=0x7c3 data=0x05
+[SRAM t=7791480000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7793270000] MY_ID=4 WRITE addr=0x7c3 data=0x06
+[SRAM t=7793350000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7795140000] MY_ID=4 WRITE addr=0x7c3 data=0x07
+[SRAM t=7795220000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7797010000] MY_ID=4 WRITE addr=0x7c3 data=0x08
+[SRAM t=7797090000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7798880000] MY_ID=4 WRITE addr=0x7c3 data=0x09
+[SRAM t=7798960000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7800750000] MY_ID=4 WRITE addr=0x7c3 data=0x0a
+[SRAM t=7800830000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7802620000] MY_ID=4 WRITE addr=0x7c3 data=0x0b
+[SRAM t=7802700000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7804490000] MY_ID=4 WRITE addr=0x7c3 data=0x0c
+[SRAM t=7804570000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7806360000] MY_ID=4 WRITE addr=0x7c3 data=0x0d
+[SRAM t=7806440000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7808230000] MY_ID=4 WRITE addr=0x7c3 data=0x0e
+[SRAM t=7808310000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7810100000] MY_ID=4 WRITE addr=0x7c3 data=0x0f
+[SRAM t=7810180000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7811970000] MY_ID=4 WRITE addr=0x7c3 data=0x10
+[SRAM t=7812050000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7813840000] MY_ID=4 WRITE addr=0x7c3 data=0x11
+[SRAM t=7813920000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7815710000] MY_ID=4 WRITE addr=0x7c3 data=0x12
+[SRAM t=7815790000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7817580000] MY_ID=4 WRITE addr=0x7c3 data=0x13
+[SRAM t=7817660000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7819450000] MY_ID=4 WRITE addr=0x7c3 data=0x14
+[SRAM t=7819530000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7821320000] MY_ID=4 WRITE addr=0x7c3 data=0x15
+[SRAM t=7821400000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7823190000] MY_ID=4 WRITE addr=0x7c3 data=0x16
+[SRAM t=7823270000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7825060000] MY_ID=4 WRITE addr=0x7c3 data=0x17
+[SRAM t=7825140000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7826930000] MY_ID=4 WRITE addr=0x7c3 data=0x18
+[SRAM t=7827010000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7828800000] MY_ID=4 WRITE addr=0x7c3 data=0x19
+[SRAM t=7828880000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7830670000] MY_ID=4 WRITE addr=0x7c3 data=0x1a
+[SRAM t=7830750000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7832540000] MY_ID=4 WRITE addr=0x7c3 data=0x1b
+[SRAM t=7832620000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7834410000] MY_ID=4 WRITE addr=0x7c3 data=0x1c
+[SRAM t=7834490000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7836280000] MY_ID=4 WRITE addr=0x7c3 data=0x1d
+[SRAM t=7836360000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7838150000] MY_ID=4 WRITE addr=0x7c3 data=0x1e
+[SRAM t=7838230000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7840020000] MY_ID=4 WRITE addr=0x7c3 data=0x1f
+[SRAM t=7840100000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7841890000] MY_ID=4 WRITE addr=0x7c3 data=0x20
+[SRAM t=7841970000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7843760000] MY_ID=4 WRITE addr=0x7c3 data=0x21
+[SRAM t=7843840000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7845630000] MY_ID=4 WRITE addr=0x7c3 data=0x22
+[SRAM t=7845710000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7847500000] MY_ID=4 WRITE addr=0x7c3 data=0x23
+[SRAM t=7847580000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7849370000] MY_ID=4 WRITE addr=0x7c3 data=0x24
+[SRAM t=7849450000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7851240000] MY_ID=4 WRITE addr=0x7c3 data=0x25
+[SRAM t=7851320000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7853110000] MY_ID=4 WRITE addr=0x7c3 data=0x26
+[SRAM t=7853190000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7854980000] MY_ID=4 WRITE addr=0x7c3 data=0x27
+[SRAM t=7855060000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7856850000] MY_ID=4 WRITE addr=0x7c3 data=0x28
+[SRAM t=7856930000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7858720000] MY_ID=4 WRITE addr=0x7c3 data=0x29
+[SRAM t=7858800000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7860590000] MY_ID=4 WRITE addr=0x7c3 data=0x2a
+[SRAM t=7860670000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7862460000] MY_ID=4 WRITE addr=0x7c3 data=0x2b
+[SRAM t=7862540000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7864330000] MY_ID=4 WRITE addr=0x7c3 data=0x2c
+[SRAM t=7864410000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7866200000] MY_ID=4 WRITE addr=0x7c3 data=0x2d
+[SRAM t=7866280000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7868070000] MY_ID=4 WRITE addr=0x7c3 data=0x2e
+[SRAM t=7868150000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7869940000] MY_ID=4 WRITE addr=0x7c3 data=0x2f
+[SRAM t=7870020000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7871810000] MY_ID=4 WRITE addr=0x7c3 data=0x30
+[SRAM t=7871890000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7873680000] MY_ID=4 WRITE addr=0x7c3 data=0x31
+[SRAM t=7873760000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7875550000] MY_ID=4 WRITE addr=0x7c3 data=0x32
+[SRAM t=7875630000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7877420000] MY_ID=4 WRITE addr=0x7c3 data=0x33
+[SRAM t=7877500000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7879290000] MY_ID=4 WRITE addr=0x7c3 data=0x34
+[SRAM t=7879370000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7881160000] MY_ID=4 WRITE addr=0x7c3 data=0x35
+[SRAM t=7881240000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7883030000] MY_ID=4 WRITE addr=0x7c3 data=0x36
+[SRAM t=7883110000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7884900000] MY_ID=4 WRITE addr=0x7c3 data=0x37
+[SRAM t=7884980000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7886770000] MY_ID=4 WRITE addr=0x7c3 data=0x38
+[SRAM t=7886850000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7888640000] MY_ID=4 WRITE addr=0x7c3 data=0x39
+[SRAM t=7888720000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7890510000] MY_ID=4 WRITE addr=0x7c3 data=0x3a
+[SRAM t=7890590000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7892380000] MY_ID=4 WRITE addr=0x7c3 data=0x3b
+[SRAM t=7892460000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7894250000] MY_ID=4 WRITE addr=0x7c3 data=0x3c
+[SRAM t=7894330000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7896120000] MY_ID=4 WRITE addr=0x7c3 data=0x3d
+[SRAM t=7896200000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7897990000] MY_ID=4 WRITE addr=0x7c3 data=0x3e
+[SRAM t=7898070000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7899860000] MY_ID=4 WRITE addr=0x7c3 data=0x3f
+[SRAM t=7899940000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7901730000] MY_ID=4 WRITE addr=0x7c3 data=0x40
+[SRAM t=7901810000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7903600000] MY_ID=4 WRITE addr=0x7c3 data=0x41
+[SRAM t=7903680000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7905470000] MY_ID=4 WRITE addr=0x7c3 data=0x42
+[SRAM t=7905550000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7907340000] MY_ID=4 WRITE addr=0x7c3 data=0x43
+[SRAM t=7907420000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7909210000] MY_ID=4 WRITE addr=0x7c3 data=0x44
+[SRAM t=7909290000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7911080000] MY_ID=4 WRITE addr=0x7c3 data=0x45
+[SRAM t=7911160000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7912950000] MY_ID=4 WRITE addr=0x7c3 data=0x46
+[SRAM t=7913030000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7914820000] MY_ID=4 WRITE addr=0x7c3 data=0x47
+[SRAM t=7914900000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7916690000] MY_ID=4 WRITE addr=0x7c3 data=0x48
+[SRAM t=7916770000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7918560000] MY_ID=4 WRITE addr=0x7c3 data=0x49
+[SRAM t=7918640000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7920430000] MY_ID=4 WRITE addr=0x7c3 data=0x4a
+[SRAM t=7920510000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7922300000] MY_ID=4 WRITE addr=0x7c3 data=0x4b
+[SRAM t=7922380000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7924170000] MY_ID=4 WRITE addr=0x7c3 data=0x4c
+[SRAM t=7924250000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7926040000] MY_ID=4 WRITE addr=0x7c3 data=0x4d
+[SRAM t=7926120000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7927910000] MY_ID=4 WRITE addr=0x7c3 data=0x4e
+[SRAM t=7927990000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7929780000] MY_ID=4 WRITE addr=0x7c3 data=0x4f
+[SRAM t=7929860000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7931650000] MY_ID=4 WRITE addr=0x7c3 data=0x50
+[SRAM t=7931730000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7933520000] MY_ID=4 WRITE addr=0x7c3 data=0x51
+[SRAM t=7933600000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7935390000] MY_ID=4 WRITE addr=0x7c3 data=0x52
+[SRAM t=7935470000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7937260000] MY_ID=4 WRITE addr=0x7c3 data=0x53
+[SRAM t=7937340000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7939130000] MY_ID=4 WRITE addr=0x7c3 data=0x54
+[SRAM t=7939210000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7941000000] MY_ID=4 WRITE addr=0x7c3 data=0x55
+[SRAM t=7941080000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7942870000] MY_ID=4 WRITE addr=0x7c3 data=0x56
+[SRAM t=7942950000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7944740000] MY_ID=4 WRITE addr=0x7c3 data=0x57
+[SRAM t=7944820000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7946610000] MY_ID=4 WRITE addr=0x7c3 data=0x58
+[SRAM t=7946690000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7948480000] MY_ID=4 WRITE addr=0x7c3 data=0x59
+[SRAM t=7948560000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7950350000] MY_ID=4 WRITE addr=0x7c3 data=0x5a
+[SRAM t=7950430000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7952220000] MY_ID=4 WRITE addr=0x7c3 data=0x5b
+[SRAM t=7952300000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7954090000] MY_ID=4 WRITE addr=0x7c3 data=0x5c
+[SRAM t=7954170000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7955960000] MY_ID=4 WRITE addr=0x7c3 data=0x5d
+[SRAM t=7956040000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7957830000] MY_ID=4 WRITE addr=0x7c3 data=0x5e
+[SRAM t=7957910000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7959700000] MY_ID=4 WRITE addr=0x7c3 data=0x5f
+[SRAM t=7959780000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7961570000] MY_ID=4 WRITE addr=0x7c3 data=0x60
+[SRAM t=7961650000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7963440000] MY_ID=4 WRITE addr=0x7c3 data=0x61
+[SRAM t=7963520000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7965310000] MY_ID=4 WRITE addr=0x7c3 data=0x62
+[SRAM t=7965390000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7967180000] MY_ID=4 WRITE addr=0x7c3 data=0x63
+[SRAM t=7967260000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7969050000] MY_ID=4 WRITE addr=0x7c3 data=0x64
+[SRAM t=7969130000] MY_ID=4 WRITE addr=0x7c2 data=0x05
+[SRAM t=7970160000] MY_ID=4 WRITE addr=0x7c3 data=0x01
+[SRAM t=7970810000] MY_ID=4 WRITE addr=0x52d data=0x01
+[SRAM t=7971590000] MY_ID=4 WRITE addr=0x537 data=0x01
+[SRAM t=7972330000] MY_ID=4 WRITE addr=0x541 data=0x01
+[SRAM t=7973080000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=7973240000] MY_ID=4 WRITE addr=0x7c3 data=0x02
+[SRAM t=7973480000] MY_ID=4 WRITE addr=0x7c0 data=0xf0
+[SRAM t=7973880000] MY_ID=4 WRITE addr=0x7d0 data=0x80
+[SRAM t=7974440000] MY_ID=4 WRITE addr=0x7af data=0x02
+[NOC t=7975080000] ID=1 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=2 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=5 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=6 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=8 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=9 INJECT raw=0xf0000002 dest=15 type=0 bmap=0x002
+[NOC t=7975080000] ID=10 INJECT raw=0xf0000002 dest=15 type=
+
+******** ITERATION 0 (seed) ********
+
+===================================================
+TILE (0,0)  hw_id=0x0  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,1)  hw_id=0x1  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (0,2)  hw_id=0x2  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,0)  hw_id=0x4  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,1)  hw_id=0x5  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (1,2)  hw_id=0x6  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,0)  hw_id=0x8  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,1)  hw_id=0x9  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+
+===================================================
+TILE (2,2)  hw_id=0xa  ITERATION 0
+EXPECTED (Python GoL)   ACTUAL (SRAM)
+---------------------------------------------------
+##########    ##########
+##########    ##########
+##########    ##########
+##########    ##########
+#####.####    #####.####
+#####.####    #####.####
+#####.####    #####.####
+##########    ##########
+##########    ##########
+##########    ##########
+===================================================
+9400000.00ns INFO     cocotb.mesh_3x3                    Iter 0: ALL tiles match seed
+9400000.00ns INFO     cocotb.mesh_3x3                    Waiting for iter 1 SIG_GEN_STABLE...

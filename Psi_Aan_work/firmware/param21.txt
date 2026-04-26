@@ -1,0 +1,8 @@
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin -o firmware.elf main.c -T link.ld -nostdlib
+riscv64-unknown-elf-objcopy -O binary firmware.elf ../firmware.bin
+# Pad to 2048 bytes for 2KB SRAM
+truncate -s 2048 ../firmware.bin
+python3 bin2hex.py ../firmware.bin firmware.hex
+--- FIRMWARE SIZE REPORT ---
+   text	   data	    bss	    dec	    hex	filename
+   1124	      0	      0	   1124	    464	firmware.elf
