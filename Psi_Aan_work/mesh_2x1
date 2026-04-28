@@ -1,0 +1,121 @@
+`default_nettype none
+
+// mesh_2x1 — 1 row, 2 columns: tile(0,0) and tile(0,1)
+//
+// Only east-west links are connected; all other directions tied to 0.
+// tile(0,0) TILE_ID = 4'b0000  (row=0, col=0)
+// tile(0,1) TILE_ID = 4'b0001  (row=0, col=1)
+//
+// East ghost exchange:
+//   tile(0,0) sends right col east  → tile(0,1) ghost_w[]
+//   (west reverse not yet implemented in firmware)
+
+module mesh_2x1 (
+    input  wire        clk,
+    input  wire        rst,
+    output wire [33:0] monitor_01_e,   // east output of tile(0,1) for testbench
+    output wire        cpu_rst_n,      // tile(0,0) boot-done signal for testbench
+    input  wire        flash_miso,
+    output wire        flash_cs_n,
+    output wire        flash_clk,
+    output wire        flash_mosi
+);
+
+    // -------------------------------------------------------------------------
+    // Per-tile boot signals  (11-bit address for 2048-byte SRAM)
+    // -------------------------------------------------------------------------
+    wire [7:0]  boot_data [0:1];
+    wire [10:0] boot_addr [0:1];
+    wire        boot_wen  [0:1];
+    wire        cpu_rst_n_i [0:1];
+    wire        boot_mode   [0:1];
+
+    // SPI bus: tile(0,0) drives CS/CLK/MOSI; both tiles sample MISO
+    wire flash_cs_n_0, flash_clk_0, flash_mosi_0;
+    assign flash_cs_n = flash_cs_n_0;
+    assign flash_clk  = flash_clk_0;
+    assign flash_mosi = flash_mosi_0;
+
+    // Inter-tile east/west links
+    wire [33:0] ew_01;   // tile(0,0) east_out → tile(0,1) west_in
+    wire [33:0] ew_10;   // tile(0,1) west_out → tile(0,0) east_in
+
+    // -------------------------------------------------------------------------
+    // Tile (0,0)
+    // -------------------------------------------------------------------------
+    boot_controller #(
+        .TILE_ID   (4'b0000),
+        .SRAM_DEPTH(2048),
+        .SRAM_AW   (11)
+    ) boot_00 (
+        .clk        (clk),
+        .rst_n      (!rst),
+        .flash_cs_n (flash_cs_n_0),
+        .flash_clk  (flash_clk_0),
+        .flash_mosi (flash_mosi_0),
+        .flash_miso (flash_miso),
+        .sram_wdata (boot_data[0]),
+        .sram_waddr (boot_addr[0]),
+        .sram_wen   (boot_wen[0]),
+        .cpu_reset_n(cpu_rst_n_i[0])
+    );
+    assign boot_mode[0] = !cpu_rst_n_i[0];
+
+    mesh_tile #(.TILE_ID(4'b0000)) tile_00 (
+        .clk      (clk),
+        .rst      (!cpu_rst_n_i[0]),
+        .boot_mode(boot_mode[0]),
+        .boot_addr(boot_addr[0]),
+        .boot_data(boot_data[0]),
+        .boot_wen (boot_wen[0]),
+        .north_in (34'b0), .south_in (34'b0),
+        .east_in  (ew_10), .west_in  (34'b0),
+        .ne_in(34'b0), .nw_in(34'b0), .se_in(34'b0), .sw_in(34'b0),
+        .north_out(), .south_out(),
+        .east_out (ew_01), .west_out(),
+        .ne_out(), .nw_out(), .se_out(), .sw_out()
+    );
+
+    // -------------------------------------------------------------------------
+    // Tile (0,1)
+    // -------------------------------------------------------------------------
+    boot_controller #(
+        .TILE_ID   (4'b0001),
+        .SRAM_DEPTH(2048),
+        .SRAM_AW   (11)
+    ) boot_01 (
+        .clk        (clk),
+        .rst_n      (!rst),
+        .flash_cs_n (),           // not connected — tile(0,0) drives SPI bus
+        .flash_clk  (),
+        .flash_mosi (),
+        .flash_miso (flash_miso),
+        .sram_wdata (boot_data[1]),
+        .sram_waddr (boot_addr[1]),
+        .sram_wen   (boot_wen[1]),
+        .cpu_reset_n(cpu_rst_n_i[1])
+    );
+    assign boot_mode[1] = !cpu_rst_n_i[1];
+
+    mesh_tile #(.TILE_ID(4'b0001)) tile_01 (
+        .clk      (clk),
+        .rst      (!cpu_rst_n_i[1]),
+        .boot_mode(boot_mode[1]),
+        .boot_addr(boot_addr[1]),
+        .boot_data(boot_data[1]),
+        .boot_wen (boot_wen[1]),
+        .north_in (34'b0), .south_in (34'b0),
+        .east_in  (34'b0), .west_in  (ew_01),
+        .ne_in(34'b0), .nw_in(34'b0), .se_in(34'b0), .sw_in(34'b0),
+        .north_out(), .south_out(),
+        .east_out (ew_10), .west_out(),
+        .ne_out(), .nw_out(), .se_out(), .sw_out()
+    );
+
+    // -------------------------------------------------------------------------
+    // Outputs
+    // -------------------------------------------------------------------------
+    assign monitor_01_e = ew_10;          // east output of tile(0,1)
+    assign cpu_rst_n    = cpu_rst_n_i[0]; // boot done when tile(0,0) releases
+
+endmodule

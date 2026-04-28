@@ -7,7 +7,7 @@ TARGET_BIN = ../firmware.bin
 TARGET_HEX = firmware.hex
 
 # --- FLAGS ---
-CFLAGS = -march=rv32i -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin
+CFLAGS = -march=rv32i -mabi=ilp32 -Os -ffreestanding -nostdlib -fno-builtin -fno-shrink-wrap -fno-tree-bit-ccp -mstrict-align
 LDFLAGS = -T link.ld -nostdlib
 
 all: $(TARGET_HEX) size_check
