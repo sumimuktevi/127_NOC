@@ -11,7 +11,7 @@
 
 class Vtop__Syms;
 
-class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1 final {
+class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1 final : public VerilatedModule {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -19,16 +19,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
     struct {
         VL_IN8(CLK,0,0);
         VL_IN8(CEN,0,0);
-        VL_IN8(GWEN,0,0);
-        VL_IN8(WEN,7,0);
-        VL_IN8(D,7,0);
-        VL_OUT8(Q,7,0);
-        VL_IN8(VDD,0,0);
-        VL_IN8(VSS,0,0);
-        CData/*7:0*/ qo_reg;
         CData/*0:0*/ cen_flag;
-        CData/*0:0*/ write_flag;
-        CData/*0:0*/ read_flag;
         CData/*0:0*/ ntf_Tcyc;
         CData/*0:0*/ ntf_Tckh;
         CData/*0:0*/ ntf_Tckl;
@@ -42,15 +33,24 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
         CData/*0:0*/ ntf_tdh;
         CData/*0:0*/ ntf_twh;
         CData/*0:0*/ ntf_twih;
-        CData/*0:0*/ no_st_viol;
-        CData/*0:0*/ no_hd_viol;
-        CData/*0:0*/ no_ck_viol;
         CData/*0:0*/ clk_dly;
-        CData/*0:0*/ write_flag_dly;
-        CData/*0:0*/ read_flag_dly;
         CData/*0:0*/ cen_dly;
         CData/*0:0*/ cen_fell;
         CData/*0:0*/ cen_not_rst;
+        VL_IN8(GWEN,0,0);
+        VL_IN8(WEN,7,0);
+        VL_IN8(D,7,0);
+        VL_OUT8(Q,7,0);
+        VL_IN8(VDD,0,0);
+        VL_IN8(VSS,0,0);
+        CData/*7:0*/ qo_reg;
+        CData/*0:0*/ write_flag;
+        CData/*0:0*/ read_flag;
+        CData/*0:0*/ no_st_viol;
+        CData/*0:0*/ no_hd_viol;
+        CData/*0:0*/ no_ck_viol;
+        CData/*0:0*/ write_flag_dly;
+        CData/*0:0*/ read_flag_dly;
         CData/*7:0*/ we;
         CData/*7:0*/ cd2;
         CData/*7:0*/ cd4;
@@ -65,54 +65,53 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
         VL_OUT8(VDD__en,0,0);
         VL_OUT8(VSS__out,0,0);
         VL_OUT8(VSS__en,0,0);
-        CData/*0:0*/ __VdfgRegularize_h41ac00f2_0_0;
-        CData/*0:0*/ __Vintraval_h4a4d3f7b__0;
-        CData/*0:0*/ __Vintraval_h4d714d85__0;
-        CData/*0:0*/ __Vintraval_h6b973a35__0;
-        CData/*0:0*/ __Vintraval_hbcd67620__0;
-        CData/*0:0*/ __Vintraval_h9466889c__0;
-        CData/*0:0*/ __Vintraval_h541ac64a__0;
-        CData/*0:0*/ __Vintraval_h879c5562__0;
-        CData/*0:0*/ __Vintraval_hb7d4ebc7__0;
-        CData/*0:0*/ __Vintraval_h51c4c12f__0;
-        CData/*0:0*/ __Vintraval_hf5aefd35__0;
-        CData/*0:0*/ __Vintraval_h2faa2e1a__0;
-        CData/*0:0*/ __Vintraval_he489fecc__0;
-        CData/*0:0*/ __Vintraval_h63825e78__0;
-        CData/*0:0*/ __Vintraval_ha0f027f6__0;
-        CData/*0:0*/ __Vintraval_h666cf47e__0;
+        CData/*0:0*/ __Vintraval_h8990eb3f__0;
+        CData/*0:0*/ __Vintraval_h10239b0f__0;
+        CData/*0:0*/ __Vintraval_h689f03a8__0;
+        CData/*0:0*/ __Vintraval_hd7a2106f__0;
+        CData/*0:0*/ __Vintraval_h051f8c34__0;
+        CData/*0:0*/ __Vintraval_hc0c3468f__0;
+        CData/*0:0*/ __Vintraval_h75f810ed__0;
+        CData/*0:0*/ __Vintraval_h97b2fc91__0;
+        CData/*0:0*/ __Vintraval_hff82c5ca__0;
+        CData/*0:0*/ __Vintraval_hd394d84f__0;
+        CData/*0:0*/ __Vintraval_heba01726__0;
+        CData/*0:0*/ __Vintraval_h46861c3c__0;
+        CData/*0:0*/ __Vintraval_h848bddf7__0;
+        CData/*0:0*/ __Vintraval_h0753c133__0;
+        CData/*0:0*/ __Vintraval_ha207cc77__0;
+        CData/*0:0*/ __Vintraval_hea5ba220__0;
     };
     struct {
-        CData/*0:0*/ __Vintraval_h6ac41722__0;
-        CData/*0:0*/ __Vintraval_ha6788667__0;
-        CData/*0:0*/ __Vintraval_hdc9caaa4__0;
-        CData/*0:0*/ __Vintraval_h5244c191__0;
-        CData/*0:0*/ __Vintraval_hd0aef126__0;
-        CData/*0:0*/ __Vintraval_h885468c1__0;
-        CData/*0:0*/ __Vintraval_h0116e17d__0;
-        CData/*0:0*/ __Vintraval_ha98f660b__0;
-        CData/*0:0*/ __Vintraval_h51a33acb__0;
-        CData/*0:0*/ __Vintraval_hbcfa50b2__0;
-        CData/*0:0*/ __Vintraval_h6d404c11__0;
-        CData/*0:0*/ __Vintraval_h2d9a9f11__0;
-        CData/*0:0*/ __Vintraval_hb2e8b799__0;
-        CData/*0:0*/ __Vintraval_h09bb12df__0;
-        CData/*0:0*/ __Vintraval_h355f200c__0;
-        CData/*0:0*/ __Vintraval_h1f73d33f__0;
-        CData/*0:0*/ __Vintraval_h9e519176__0;
-        CData/*0:0*/ __Vintraval_h26c4758a__0;
-        CData/*0:0*/ __Vintraval_hba6ecb0a__0;
-        CData/*0:0*/ __Vintraval_hfc5dce8d__0;
-        CData/*0:0*/ __Vintraval_hbcb89e4d__0;
-        CData/*0:0*/ __Vintraval_hf43d5b83__0;
-        CData/*0:0*/ __Vintraval_h83ccec8f__0;
-        CData/*0:0*/ __Vintraval_h6bf6a020__0;
-        CData/*0:0*/ __Vintraval_h93440f20__0;
-        CData/*0:0*/ __Vintraval_hdc1ad977__0;
-        CData/*0:0*/ __Vintraval_hb7048b63__0;
-        CData/*0:0*/ __Vintraval_h97aca2db__0;
-        CData/*0:0*/ __Vintraval_h15649a68__0;
-        CData/*0:0*/ __Vintraval_h484c2083__0;
+        CData/*0:0*/ __Vintraval_h7d47414b__0;
+        CData/*0:0*/ __Vintraval_haa6a25cf__0;
+        CData/*0:0*/ __Vintraval_h5eda93c8__0;
+        CData/*0:0*/ __Vintraval_h02a4be3d__0;
+        CData/*0:0*/ __Vintraval_h1f445b8f__0;
+        CData/*0:0*/ __Vintraval_hb61cbb2f__0;
+        CData/*0:0*/ __Vintraval_h908471a9__0;
+        CData/*0:0*/ __Vintraval_hd9bcde74__0;
+        CData/*0:0*/ __Vintraval_h57e8b792__0;
+        CData/*0:0*/ __Vintraval_he556ac61__0;
+        CData/*0:0*/ __Vintraval_hc2afda9c__0;
+        CData/*0:0*/ __Vintraval_ha70f65ec__0;
+        CData/*0:0*/ __Vintraval_h77976cc3__0;
+        CData/*0:0*/ __Vintraval_hc740299a__0;
+        CData/*0:0*/ __Vintraval_ha36e4e3e__0;
+        CData/*0:0*/ __Vintraval_he99b1d6f__0;
+        CData/*0:0*/ __Vintraval_hc691fd93__0;
+        CData/*0:0*/ __Vintraval_h3032df0b__0;
+        CData/*0:0*/ __Vintraval_h97dc9405__0;
+        CData/*0:0*/ __Vintraval_h2abee442__0;
+        CData/*0:0*/ __Vintraval_hf52b88cb__0;
+        CData/*0:0*/ __Vintraval_h8d022070__0;
+        CData/*0:0*/ __Vintraval_h09e0a280__0;
+        CData/*0:0*/ __Vintraval_hc4e79ebe__0;
+        CData/*0:0*/ __Vintraval_h510c8f23__0;
+        CData/*0:0*/ __Vintraval_h744f7693__0;
+        CData/*0:0*/ __Vintraval_hda101fb2__0;
+        CData/*0:0*/ __Vintraval_hefd6443b__0;
+        CData/*0:0*/ __Vintraval_h67a3bccb__0;
         VL_IN16(A,10,0);
         SData/*10:0*/ marked_a;
         IData/*31:0*/ i;
@@ -120,8 +119,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
     };
 
     // INTERNAL VARIABLES
-    Vtop__Syms* vlSymsp;
-    const char* vlNamep;
+    Vtop__Syms* const vlSymsp;
 
     // PARAMETERS
     static constexpr IData/*31:0*/ Tdly = 0x00000064U;
@@ -141,10 +139,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1
     static constexpr IData/*31:0*/ ta = 0x0000afc8U;
 
     // CONSTRUCTORS
-    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1() = default;
-    ~Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1() = default;
-    void ctor(Vtop__Syms* symsp, const char* namep);
-    void dtor();
+    Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1(Vtop__Syms* symsp, const char* v__name);
+    ~Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1();
     VL_UNCOPYABLE(Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1);
 
     // INTERNAL METHODS
