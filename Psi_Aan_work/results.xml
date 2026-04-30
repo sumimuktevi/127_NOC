@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1777504501" />
+    <testcase name="test_magic_check" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="355" time="192.818514585495" sim_time_ns="4700000.0" ratio_time="24375.252605299156" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="406" time="230.6412079334259" sim_time_ns="4700000.0" ratio_time="20377.971664788736" />
+    <testcase name="test_col_bitmap_diagnostic" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="431" time="513.3482201099396" sim_time_ns="7383290.0" ratio_time="14382.615368606483" />
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="476" time="985.7516467571259" sim_time_ns="11182130.0" ratio_time="11343.75989813092" />
+  </testsuite>
+</testsuites>

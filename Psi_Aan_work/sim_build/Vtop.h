@@ -13,7 +13,7 @@
 
 class Vtop__Syms;
 class Vtop___024root;
-class VerilatedFstC;
+class VerilatedVcdC;
 class Vtop_gf180mcu_fd_ip_sram___05Fsram2048x8m8wm1;
 class Vtop_subservient_core__M800;
 

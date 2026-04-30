@@ -85,29 +85,14 @@ __attribute__((noinline))
 static uint32_t col_bitmap(int col)
 {
     volatile uint8_t *g = (volatile uint8_t *)GRID_BASE;
-    uint32_t bm = 0x300u;  /* just for testing */
-    uint32_t cell8 = g[8 * 10 + col];
-    uint32_t cell9 = g[9 * 10 + col];
-    uint32_t bit8  = cell8 & 1u;
-    uint32_t bit9  = cell9 & 1u;
-    uint32_t shifted8 = bit8 << 8;
-    //*(volatile uint32_t *)DEBUG_ROW8_AT_CALL = shifted8;
-    //volatile uint32_t shifted9 = bit9 << 9;
-    //*(volatile uint32_t *)DEBUG_ROW9_AT_CALL = shifted9;
-    //asm volatile("nop\nnop\nnop\nnop");
-    //bm = shifted8 | shifted9;
-    //*(volatile uint32_t *)DEBUG_SEND_BM = shifted9;
-    uint32_t shifted9 = bit9 << 9;
-    *(volatile uint32_t *)DEBUG_ROW9_AT_CALL = shifted9;
-    *(volatile uint32_t *)DEBUG_SEND_BM = shifted9;
-    //uint32_t i;
-    /**for (i = 0; i < 10; i++) {
+    uint32_t bm = 0;
+    uint32_t i;
+    for (i = 0; i < 10; i++) {
         uint32_t cell = g[i * 10 + col];
         uint32_t bit  = cell & 1u;
         uint32_t shifted = bit << i;
         bm = bm | shifted;
-    }**/
-    //*(volatile uint32_t *)DEBUG_SEND_BM = bm;
+    }
     return bm;
 }
 
@@ -191,8 +176,8 @@ int main(void)
 
     for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
     grid[4 * SIZE + 5] = 1; grid[5 * SIZE + 5] = 1; grid[6 * SIZE + 5] = 1;
-    grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
-    grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
+    // grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
+    // grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
 
     noc_signal(SIG_SEED_LIVE);
 
@@ -204,8 +189,8 @@ int main(void)
 
         if (my_col > 0) {
             uint32_t dest = TILE_ID(my_row, my_col - 1);
-            uint32_t bm0  = col_bitmap(0);
-            //uint32_t bm0  = 0x300;
+            //uint32_t bm0  = col_bitmap(0);
+            uint32_t bm0  = 0x300;
             noc_write((dest << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm0 & FLIT_BMAP_MASK));
             *debug_ghost_flags |= 0x8;
         }
