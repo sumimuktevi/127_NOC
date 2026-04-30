@@ -5,7 +5,7 @@ __pycache__/
 firmware.bin
 test.txt
 sim_build/
-test2.txt
+*.txt
 sim_build/dump.fst
 sim_build/dump.vcd
 sim_build/mesh_router.v

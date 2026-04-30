@@ -1,9 +1,15 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1777504501" />
-    <testcase name="test_magic_check" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="355" time="192.818514585495" sim_time_ns="4700000.0" ratio_time="24375.252605299156" />
-    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="406" time="230.6412079334259" sim_time_ns="4700000.0" ratio_time="20377.971664788736" />
-    <testcase name="test_col_bitmap_diagnostic" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="431" time="513.3482201099396" sim_time_ns="7383290.0" ratio_time="14382.615368606483" />
-    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="476" time="985.7516467571259" sim_time_ns="11182130.0" ratio_time="11343.75989813092" />
+    <property name="random_seed" value="1777538248" />
+    <testcase name="test_magic_check" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="355" time="131.03728890419006" sim_time_ns="4700000.0" ratio_time="35867.6529353143" />
+    <testcase name="test_iter0_seed_only" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="406" time="137.5168776512146" sim_time_ns="4700000.0" ratio_time="34177.62299636162">
+      <failure error_type="AssertionError" error_msg="Seed mismatch: 15 cells wrong." />
+    </testcase>
+    <testcase name="test_col_bitmap_diagnostic" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="431" time="786.355753660202" sim_time_ns="9709990.0" ratio_time="12348.087942134973">
+      <failure error_type="AssertionError" error_msg="col_bitmap test: 4 cell mismatches in tile(0,0) iter=1" />
+    </testcase>
+    <testcase name="test_gol_iter1_iter2" classname="test_mesh" file="/home/psi19/127_NOC/Psi_Aan_work/test_mesh.py" lineno="476" time="1595.6938517093658" sim_time_ns="14719980.0" ratio_time="9224.814637363814">
+      <failure error_type="AssertionError" error_msg="GoL test failed: iter0=15, iter1=23, iter2=15 mismatches." />
+    </testcase>
   </testsuite>
 </testsuites>

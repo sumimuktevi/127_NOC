@@ -15,8 +15,20 @@
 #define SIG_GEN_STABLE   0xF0000004u
 
 #define SIZE       10
-#define MESH_ROWS  3
-#define MESH_COLS  3
+
+/* ── CHANGE 1 ──────────────────────────────────────────────────────────────
+ * Physical grid is always 3×3 in RTL (mesh_3x3.v).
+ * ACTIVE_ROWS / ACTIVE_COLS define the logical GoL region.
+ * To run a 2×2 mesh: set ACTIVE_ROWS 2 and ACTIVE_COLS 2.
+ * Tiles with phys_row >= ACTIVE_ROWS or phys_col >= ACTIVE_COLS idle.
+ * MESH_ROWS/MESH_COLS kept as aliases so nothing else needs to change.
+ * ────────────────────────────────────────────────────────────────────────── */
+#define PHYS_ROWS    3
+#define PHYS_COLS    3
+#define ACTIVE_ROWS  2      /* ← change this to resize the logical mesh */
+#define ACTIVE_COLS  2      /* ← change this to resize the logical mesh */
+#define MESH_ROWS    ACTIVE_ROWS
+#define MESH_COLS    ACTIVE_COLS
 
 #define GRID_BASE       0x0500u
 #define GHOST_BASE      0x0600u
@@ -34,9 +46,9 @@
 #define DEBUG_COL0_BM        (DEBUG_BASE + 40)
 #define DEBUG_MY_ID          (DEBUG_BASE + 44)
 #define DEBUG_SEND_BM        (DEBUG_BASE + 48)
-#define DEBUG_ROW_TRACE_BASE (DEBUG_BASE + 52)   /* 0x0734: 10 words, rows 0-9 */
-#define DEBUG_ROW8_AT_CALL   (DEBUG_BASE + 52)   /* 0x0734 */
-#define DEBUG_ROW9_AT_CALL   (DEBUG_BASE + 56)   /* 0x0738 */
+#define DEBUG_ROW_TRACE_BASE (DEBUG_BASE + 52)
+#define DEBUG_ROW8_AT_CALL   (DEBUG_BASE + 52)
+#define DEBUG_ROW9_AT_CALL   (DEBUG_BASE + 56)
 
 #define grid      ((volatile uint8_t *)GRID_BASE)
 #define ghost_N   ((volatile uint8_t *)(GHOST_BASE +  0))
@@ -135,21 +147,18 @@ void _start(void)
 {
     __asm__ volatile (
         "li   sp, 0x7fc\n"
-        /* zero ghost region 0x0600..0x0627 */
         "li   t0, 0x0600\n"
         "li   t1, 0x0628\n"
         "1: bge  t0, t1, 2f\n"
         "   sb   zero, 0(t0)\n"
         "   addi t0, t0, 1\n"
         "   j    1b\n"
-        /* zero next_grid region 0x0640..0x06a3 */
         "2: li   t0, 0x0640\n"
         "li   t1, 0x06a4\n"
         "3: bge  t0, t1, 4f\n"
         "   sb   zero, 0(t0)\n"
         "   addi t0, t0, 1\n"
         "   j    3b\n"
-        /* zero debug region 0x0700..0x0723 */
         "4: li   t0, 0x0700\n"
         "li   t1, 0x0780\n"
         "5: bge  t0, t1, 6f\n"
@@ -161,23 +170,53 @@ void _start(void)
     );
 }
 
+/* ── CHANGE 2 ──────────────────────────────────────────────────────────────
+ * Tiles outside the active mesh spin here draining any stray flits.
+ * They never participate in ghost exchange or GoL compute.
+ * ────────────────────────────────────────────────────────────────────────── */
+static void idle_tile_forever(void)
+{
+    while (1) {
+        /* drain FIFO so it never fills and blocks routing for active tiles */
+        (void)*(volatile uint32_t *)NOC_RECV_BASE;
+    }
+}
+
 int main(void)
 {
-    /* MAGIC CHECK — proves testbench can read what firmware writes to 0x0730 */
+    /* MAGIC CHECK — proves testbench can read what firmware writes */
     *(volatile uint32_t *)0x0730u = 0xDEADBEEFu;
     *(volatile uint32_t *)0x0734u = 0xCAFEBABEu;
 
     uint32_t my_id = noc_read_my_id();
     *(volatile uint32_t *)DEBUG_MY_ID = my_id;
-    int my_row = (int)((my_id >> 2) & 0x3u);
-    int my_col = (int)(my_id & 0x3u);
+
+    /* ── CHANGE 3 ────────────────────────────────────────────────────────────
+     * Decode physical row/col from the hardware ID.
+     * TILE_ID = (r<<2)|c, so row = id>>2, col = id&3.
+     * This is identical to the working code — just renamed phys_row/phys_col
+     * to make the physical vs logical distinction explicit.
+     * ──────────────────────────────────────────────────────────────────────── */
+    int phys_row = (int)((my_id >> 2) & 0x3u);
+    int phys_col = (int)(my_id & 0x3u);
+
+    /* ── CHANGE 4 ────────────────────────────────────────────────────────────
+     * Gate on ACTIVE mesh size.  Tiles outside the logical region idle.
+     * For a 3×3 active mesh this never triggers (all tiles pass).
+     * For a 2×2 active mesh, tiles at row≥2 or col≥2 idle here.
+     * ──────────────────────────────────────────────────────────────────────── */
+    if (phys_row >= ACTIVE_ROWS || phys_col >= ACTIVE_COLS) {
+        idle_tile_forever();
+    }
+
+    /* logical == physical (active region is always the top-left corner) */
+    int my_row = phys_row;
+    int my_col = phys_col;
 
     noc_signal(SIG_BOOT_ALIVE);
 
     for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
     grid[4 * SIZE + 5] = 1; grid[5 * SIZE + 5] = 1; grid[6 * SIZE + 5] = 1;
-    // grid[8 * SIZE + 0] = 1; grid[9 * SIZE + 0] = 1;
-    // grid[8 * SIZE + 9] = 1; grid[9 * SIZE + 9] = 1;
 
     noc_signal(SIG_SEED_LIVE);
 
@@ -185,19 +224,22 @@ int main(void)
     while (1) {
         *debug_iter_count = iter;
 
-        __sync_synchronize();  
+        __sync_synchronize();
 
+        /* ── CHANGE 5 ────────────────────────────────────────────────────────
+         * has_W / has_E now check ACTIVE_COLS instead of MESH_COLS.
+         * (MESH_COLS is aliased to ACTIVE_COLS above so this is a no-op
+         *  for the 3×3 case, but it's correct for any ACTIVE_COLS value.)
+         * ──────────────────────────────────────────────────────────────────── */
         if (my_col > 0) {
             uint32_t dest = TILE_ID(my_row, my_col - 1);
-            //uint32_t bm0  = col_bitmap(0);
             uint32_t bm0  = 0x300;
             noc_write((dest << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm0 & FLIT_BMAP_MASK));
             *debug_ghost_flags |= 0x8;
         }
 
-        if (my_col < MESH_COLS - 1) {
+        if (my_col < ACTIVE_COLS - 1) {
             uint32_t dest = TILE_ID(my_row, my_col + 1);
-            //uint32_t bm9  = col_bitmap(SIZE - 1);
             uint32_t bm9  = 0x300;
             noc_write((dest << FLIT_DEST_SHIFT) | FLIT_VALID_BIT | (bm9 & FLIT_BMAP_MASK));
             *debug_ghost_flags |= 0x4;
@@ -209,7 +251,7 @@ int main(void)
             for (int i = 0; i < SIZE; i++) ghost_W[i] = (bmr0 >> i) & 1u;
         }
 
-        if (my_col < MESH_COLS - 1) {
+        if (my_col < ACTIVE_COLS - 1) {
             uint32_t bmr9 = recv_ghost();
             *debug_last_recv_e = bmr9;
             for (int i = 0; i < SIZE; i++) ghost_E[i] = (bmr9 >> i) & 1u;
