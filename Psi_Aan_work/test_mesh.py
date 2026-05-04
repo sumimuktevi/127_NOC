@@ -208,9 +208,21 @@ GLOBAL_COLS = MESH_C * SIZE
 
 def expected_blinker_seed():
     exp = [[0] * SIZE for _ in range(SIZE)]
+    # Top row
+    exp[3][4] = 1
+    exp[3][6] = 1
+
+    # Middle vertical
     exp[4][5] = 1
     exp[5][5] = 1
     exp[6][5] = 1
+
+    # Bottom row
+    exp[7][4] = 1
+    exp[7][6] = 1
+    # exp[4][5] = 1
+    # exp[5][5] = 1
+    # exp[6][5] = 1
     # exp[8][0] = 1
     # exp[9][0] = 1
     # exp[8][9] = 1
