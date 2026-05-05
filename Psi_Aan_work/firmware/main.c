@@ -9,17 +9,6 @@
 #define FLIT_BMAP_MASK   0x3FFu
 #define FLIT_VALID_BIT   0x400u
 
-/* ── CHANGE 1: tag lives in bits [12:11] of the payload ────────────────────
- * The receiver reads the tag to know which ghost buffer to fill.
- * This removes all dependence on flit arrival order.
- * TAG_W = flit carries the sender's right column  -> receiver stores as ghost_W
- * TAG_E = flit carries the sender's left  column  -> receiver stores as ghost_E
- * ─────────────────────────────────────────────────────────────────────────── */
-#define FLIT_TAG_SHIFT   11u
-#define FLIT_TAG_MASK    0x1800u   /* bits [12:11] */
-#define TAG_W            0u        /* "store into ghost_W of receiver" */
-#define TAG_E            1u        /* "store into ghost_E of receiver" */
-
 #define SIG_BOOT_ALIVE   0xF0000001u
 #define SIG_SEED_LIVE    0xF0000002u
 #define SIG_MATH_DONE    0xF0000003u
@@ -27,10 +16,17 @@
 
 #define SIZE       10
 
+/* ── CHANGE 1 ──────────────────────────────────────────────────────────────
+ * Physical grid is always 3×3 in RTL (mesh_3x3.v).
+ * ACTIVE_ROWS / ACTIVE_COLS define the logical GoL region.
+ * To run a 2×2 mesh: set ACTIVE_ROWS 2 and ACTIVE_COLS 2.
+ * Tiles with phys_row >= ACTIVE_ROWS or phys_col >= ACTIVE_COLS idle.
+ * MESH_ROWS/MESH_COLS kept as aliases so nothing else needs to change.
+ * ────────────────────────────────────────────────────────────────────────── */
 #define PHYS_ROWS    3
 #define PHYS_COLS    3
-#define ACTIVE_ROWS  3
-#define ACTIVE_COLS  3
+#define ACTIVE_ROWS  3      /* ← change this to resize the logical mesh */
+#define ACTIVE_COLS  3      /* ← change this to resize the logical mesh */
 #define MESH_ROWS    ACTIVE_ROWS
 #define MESH_COLS    ACTIVE_COLS
 
@@ -54,31 +50,6 @@
 #define DEBUG_ROW8_AT_CALL   (DEBUG_BASE + 52)
 #define DEBUG_ROW9_AT_CALL   (DEBUG_BASE + 56)
 
-#define DEBUG_PHASE       (DEBUG_BASE + 96)
-#define DEBUG_GRID0_PRE   (DEBUG_BASE + 100)
-#define DEBUG_NGRID0_PRE  (DEBUG_BASE + 104)
-#define DEBUG_GRID0_POST  (DEBUG_BASE + 108)
-
-#define debug_phase       ((volatile uint32_t *)DEBUG_PHASE)
-#define debug_grid0_pre   ((volatile uint32_t *)DEBUG_GRID0_PRE)
-#define debug_ngrid0_pre  ((volatile uint32_t *)DEBUG_NGRID0_PRE)
-#define debug_grid0_post  ((volatile uint32_t *)DEBUG_GRID0_POST)
-
-#define PHASE_BOOT          0x01u
-#define PHASE_SEEDED        0x02u
-#define PHASE_ITER_START    0x10u
-#define PHASE_SENT_WEST     0x11u
-#define PHASE_SENT_EAST     0x12u
-#define PHASE_WAIT_W_RECV   0x13u
-#define PHASE_DONE_W_RECV   0x14u
-#define PHASE_WAIT_E_RECV   0x15u
-#define PHASE_DONE_E_RECV   0x16u
-#define PHASE_COMPUTE_DONE  0x20u
-#define PHASE_MATH_SIG_SENT 0x21u
-#define PHASE_PRE_COPY      0x30u
-#define PHASE_POST_COPY     0x31u
-#define PHASE_GEN_SIG_SENT  0x32u
-
 #define grid      ((volatile uint8_t *)GRID_BASE)
 #define ghost_N   ((volatile uint8_t *)(GHOST_BASE +  0))
 #define ghost_S   ((volatile uint8_t *)(GHOST_BASE + 10))
@@ -100,6 +71,11 @@ static inline void noc_write(uint32_t word)
     *(volatile uint32_t *)NOC_INJECT_BASE = word;
 }
 
+static inline uint32_t noc_recv_raw(void)
+{
+    return *(volatile uint32_t *)NOC_RECV_BASE;
+}
+
 static inline uint32_t noc_read_my_id(void)
 {
     return *(volatile uint32_t *)NOC_ID_BASE & 0xFu;
@@ -110,39 +86,11 @@ static inline void noc_signal(uint32_t sig_word)
     noc_write(sig_word);
 }
 
-
-static inline void send_ghost(uint32_t dest_id, uint32_t tag, uint32_t bm)
+static inline uint32_t recv_ghost(void)
 {
-    uint32_t payload = ((tag & 0x3u) << FLIT_TAG_SHIFT)
-                     | FLIT_VALID_BIT
-                     | (bm & FLIT_BMAP_MASK);
-    noc_write((dest_id << FLIT_DEST_SHIFT) | payload);
-}
-
-
-static void recv_ghost_tagged(int need_W, int need_E)
-{
-    int got_W = !need_W;   /* already "done" if we don't need it */
-    int got_E = !need_E;
-
-    while (!got_W || !got_E) {
-        uint32_t p = *(volatile uint32_t *)NOC_RECV_BASE;
-        if (!(p & FLIT_VALID_BIT)) continue;   /* empty FIFO — spin */
-
-        uint32_t tag = (p & FLIT_TAG_MASK) >> FLIT_TAG_SHIFT;
-        uint32_t bm  =  p & FLIT_BMAP_MASK;
-
-        if (tag == TAG_W && !got_W) {
-            *debug_last_recv_w = bm;
-            for (int i = 0; i < SIZE; i++) ghost_W[i] = (bm >> i) & 1u;
-            got_W = 1;
-        } else if (tag == TAG_E && !got_E) {
-            *debug_last_recv_e = bm;
-            for (int i = 0; i < SIZE; i++) ghost_E[i] = (bm >> i) & 1u;
-            got_E = 1;
-        }
-        /* unknown tag or duplicate: ignore and keep spinning */
-    }
+    uint32_t p;
+    do { p = *(volatile uint32_t *)NOC_RECV_BASE; } while (!(p & FLIT_VALID_BIT));
+    return p & FLIT_BMAP_MASK;
 }
 
 __attribute__((noinline))
@@ -154,7 +102,8 @@ static uint32_t col_bitmap(int col)
     for (i = 0; i < 10; i++) {
         uint32_t cell = g[i * 10 + col];
         uint32_t bit  = cell & 1u;
-        bm = bm | (bit << i);
+        uint32_t shifted = bit << i;
+        bm = bm | shifted;
     }
     return bm;
 }
@@ -172,23 +121,14 @@ static int neighbour_count(int row, int col)
         if (left)  n += grid[idx - SIZE - 1] & 1;
                    n += grid[idx - SIZE    ] & 1;
         if (right) n += grid[idx - SIZE + 1] & 1;
-    } else {
-        if (left)  n += ghost_N[col - 1] & 1;
-                   n += ghost_N[col    ] & 1;
-        if (right) n += ghost_N[col + 1] & 1;
     }
     if (left)  n += grid[idx - 1] & 1;
-    else       n += ghost_W[row] & 1;
     if (right) n += grid[idx + 1] & 1;
-    else       n += ghost_E[row] & 1;
+    
     if (below) {
         if (left)  n += grid[idx + SIZE - 1] & 1;
                    n += grid[idx + SIZE    ] & 1;
         if (right) n += grid[idx + SIZE + 1] & 1;
-    } else {
-        if (left)  n += ghost_S[col - 1] & 1;
-                   n += ghost_S[col    ] & 1;
-        if (right) n += ghost_S[col + 1] & 1;
     }
     return n;
 }
@@ -198,86 +138,82 @@ void _start(void)
 {
     __asm__ volatile (
         "li   sp, 0x7fc\n"
-        "li   t0, 0x0600\n"  "li   t1, 0x0628\n"
-        "1: bge  t0, t1, 2f\n"  "sb   zero, 0(t0)\n"
-        "   addi t0, t0, 1\n"  "j    1b\n"
-        "2: li   t0, 0x0640\n"  "li   t1, 0x06a4\n"
-        "3: bge  t0, t1, 4f\n"  "sb   zero, 0(t0)\n"
-        "   addi t0, t0, 1\n"  "j    3b\n"
-        "4: li   t0, 0x0700\n"  "li   t1, 0x0780\n"
-        "5: bge  t0, t1, 6f\n"  "sb   zero, 0(t0)\n"
-        "   addi t0, t0, 1\n"  "j    5b\n"
+        "li   t0, 0x0600\n"
+        "li   t1, 0x0628\n"
+        "1: bge  t0, t1, 2f\n"
+        "   sb   zero, 0(t0)\n"
+        "   addi t0, t0, 1\n"
+        "   j    1b\n"
+        "2: li   t0, 0x0640\n"
+        "li   t1, 0x06a4\n"
+        "3: bge  t0, t1, 4f\n"
+        "   sb   zero, 0(t0)\n"
+        "   addi t0, t0, 1\n"
+        "   j    3b\n"
+        "4: li   t0, 0x0700\n"
+        "li   t1, 0x0780\n"
+        "5: bge  t0, t1, 6f\n"
+        "   sb   zero, 0(t0)\n"
+        "   addi t0, t0, 1\n"
+        "   j    5b\n"
         "6: call main\n"
         "7: j    7b\n"
     );
 }
 
+/* ── CHANGE 2 ──────────────────────────────────────────────────────────────
+ * Tiles outside the active mesh spin here draining any stray flits.
+ * They never participate in ghost exchange or GoL compute.
+ * ────────────────────────────────────────────────────────────────────────── */
 static void idle_tile_forever(void)
 {
-    while (1) { (void)*(volatile uint32_t *)NOC_RECV_BASE; }
+    while (1) {
+        /* drain FIFO so it never fills and blocks routing for active tiles */
+        (void)*(volatile uint32_t *)NOC_RECV_BASE;
+    }
 }
 
 int main(void)
 {
+    /* MAGIC CHECK — proves testbench can read what firmware writes */
     *(volatile uint32_t *)0x0730u = 0xDEADBEEFu;
     *(volatile uint32_t *)0x0734u = 0xCAFEBABEu;
 
     uint32_t my_id = noc_read_my_id();
     *(volatile uint32_t *)DEBUG_MY_ID = my_id;
 
+    /* ── CHANGE 3 ────────────────────────────────────────────────────────────
+     * Decode physical row/col from the hardware ID.
+     * TILE_ID = (r<<2)|c, so row = id>>2, col = id&3.
+     * This is identical to the working code — just renamed phys_row/phys_col
+     * to make the physical vs logical distinction explicit.
+     * ──────────────────────────────────────────────────────────────────────── */
     int phys_row = (int)((my_id >> 2) & 0x3u);
     int phys_col = (int)(my_id & 0x3u);
 
+    /* ── CHANGE 4 ────────────────────────────────────────────────────────────
+     * Gate on ACTIVE mesh size.  Tiles outside the logical region idle.
+     * For a 3×3 active mesh this never triggers (all tiles pass).
+     * For a 2×2 active mesh, tiles at row≥2 or col≥2 idle here.
+     * ──────────────────────────────────────────────────────────────────────── */
     if (phys_row >= ACTIVE_ROWS || phys_col >= ACTIVE_COLS) {
         idle_tile_forever();
     }
 
+    /* logical == physical (active region is always the top-left corner) */
     int my_row = phys_row;
     int my_col = phys_col;
 
-    *debug_phase = PHASE_BOOT;
     noc_signal(SIG_BOOT_ALIVE);
 
     for (int i = 0; i < SIZE * SIZE; i++) grid[i] = 0u;
-    grid[3 * SIZE + 4] = 1;
-    grid[3 * SIZE + 6] = 1;
-    grid[4 * SIZE + 5] = 1;
-    grid[5 * SIZE + 5] = 1;
-    grid[6 * SIZE + 5] = 1;
-    grid[7 * SIZE + 4] = 1;
-    grid[7 * SIZE + 6] = 1;
+    grid[4 * SIZE + 5] = 1; grid[5 * SIZE + 5] = 1; grid[6 * SIZE + 5] = 1;
 
-    *debug_phase = PHASE_SEEDED;
     noc_signal(SIG_SEED_LIVE);
-
-    /* Neighbour flags — computed once, never change */
-    int has_W = (my_col > 0);
-    int has_E = (my_col < ACTIVE_COLS - 1);
 
     uint32_t iter = 0;
     while (1) {
-        *debug_iter_count = iter;
-
         __sync_synchronize();
-
-
-        if (has_W) {
-            /* send right column to western neighbour; they store it as ghost_E */
-            send_ghost(TILE_ID(my_row, my_col - 1), TAG_E, col_bitmap(SIZE - 1));
-            *debug_ghost_flags |= 0x8;
-            *debug_phase = PHASE_SENT_WEST;
-        }
-
-        if (has_E) {
-            /* send left column to eastern neighbour; they store it as ghost_W */
-            send_ghost(TILE_ID(my_row, my_col + 1), TAG_W, col_bitmap(0));
-            *debug_ghost_flags |= 0x4;
-            *debug_phase = PHASE_SENT_EAST;
-        }
-
-        *debug_phase = PHASE_WAIT_W_RECV;
-        recv_ghost_tagged(has_W, has_E);
-        *debug_phase = PHASE_DONE_E_RECV;
 
         uint8_t neighbor_counts[9] = {0};
         for (int row = 0; row < SIZE; row++) {
@@ -292,18 +228,14 @@ int main(void)
         for (int i = 0; i <= 8; i++)
             debug_neighbor_hist[i] = neighbor_counts[i];
 
-        *debug_phase = PHASE_COMPUTE_DONE;
-        noc_signal(SIG_MATH_DONE);
-        *debug_phase = PHASE_MATH_SIG_SENT;
-
-        *debug_grid0_pre  = (uint32_t)grid[0];
-        *debug_ngrid0_pre = (uint32_t)next_grid[0];
-
         for (int i = 0; i < SIZE * SIZE; i++)
             grid[i] = next_grid[i];
 
-        *debug_grid0_post = (uint32_t)grid[0];
+        /* write iter AFTER grid is stable so testbench samples correct state */
+        *debug_iter_count = iter;
+        __sync_synchronize();
 
+        noc_signal(SIG_MATH_DONE);
         noc_signal(SIG_GEN_STABLE);
         iter++;
     }

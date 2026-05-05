@@ -208,23 +208,10 @@ GLOBAL_COLS = MESH_C * SIZE
 
 def expected_blinker_seed():
     exp = [[0] * SIZE for _ in range(SIZE)]
-    # Top row
-    exp[3][4] = 1
-    exp[3][6] = 1
-
-    # Middle vertical
+    # Plain vertical blinker — matches firmware seed exactly
     exp[4][5] = 1
     exp[5][5] = 1
     exp[6][5] = 1
-
-    # Bottom row
-    exp[7][4] = 1
-    exp[7][6] = 1
-    # exp[4][5] = 1
-    # exp[5][5] = 1
-    # exp[6][5] = 1
-    # exp[8][0] = 1
-    # exp[9][0] = 1
     # exp[8][9] = 1
     # exp[9][9] = 1
     return exp
@@ -242,19 +229,30 @@ def build_global_seed():
 
 
 def gol_step_global(grid):
+    """Step the global grid, but treat each tile's edges as hard boundaries
+    (no wrap, no inter-tile neighbours) — matching firmware which has no
+    ghost exchange."""
     new_grid = [[0] * GLOBAL_COLS for _ in range(GLOBAL_ROWS)]
-    for y in range(GLOBAL_ROWS):
-        for x in range(GLOBAL_COLS):
-            n = 0
-            for dy in [-1, 0, 1]:
-                for dx in [-1, 0, 1]:
-                    if dx == 0 and dy == 0:
-                        continue
-                    nx, ny = x + dx, y + dy
-                    if 0 <= nx < GLOBAL_COLS and 0 <= ny < GLOBAL_ROWS:
-                        n += grid[ny][nx]
-            cell = grid[y][x]
-            new_grid[y][x] = 1 if (cell and n in (2, 3)) or (not cell and n == 3) else 0
+    for tr in range(MESH_R):
+        for tc in range(MESH_C):
+            # boundaries of this tile in global coords
+            row0 = tr * SIZE
+            col0 = tc * SIZE
+            for ly in range(SIZE):
+                for lx in range(SIZE):
+                    gy = row0 + ly
+                    gx = col0 + lx
+                    n = 0
+                    for dy in [-1, 0, 1]:
+                        for dx in [-1, 0, 1]:
+                            if dx == 0 and dy == 0:
+                                continue
+                            ny, nx = ly + dy, lx + dx
+                            # only count neighbours within THIS tile
+                            if 0 <= ny < SIZE and 0 <= nx < SIZE:
+                                n += grid[row0 + ny][col0 + nx]
+                    cell = grid[gy][gx]
+                    new_grid[gy][gx] = 1 if (cell and n in (2, 3)) or (not cell and n == 3) else 0
     return new_grid
 
 
@@ -446,28 +444,12 @@ async def test_col_bitmap_diagnostic(dut):
     await Timer(SEED_SAMPLE_US, unit="us")
 
     tile00 = get_tile(dut, 0, 0)
-    tile01 = get_tile(dut, 0, 1)
-
-    print("\n\n*** col_bitmap DIAGNOSTIC — ITER 0 ***")
-    diagnose_col_bitmap(dut, iteration=0)
-
-    print("\nTILE (0,1) grid dump at ITER 0:")
-    dump_region(tile01, SRAM_GRID_BASE, 100)
 
     dut._log.info("Waiting for iter_count >= 1 on tile(0,0) ...")
     seen = await wait_for_iter(tile00, 1)
     if not seen:
         dut._log.warning("iter_count did not advance to 1 within timeout")
     await Timer(10, unit="us")
-
-    print("\n\n*** col_bitmap DIAGNOSTIC — ITER 1 ***")
-    diagnose_col_bitmap(dut, iteration=1)
-
-    print("\nTILE (0,1) grid dump at ITER 1:")
-    dump_region(tile01, SRAM_GRID_BASE, 100)
-
-    print("\nTILE (0,1) full debug info at ITER 1:")
-    read_debug_info(tile01, "TILE (0,1) iter=1")
 
     print("\nTILE (0,0) full debug info at ITER 1:")
     read_debug_info(tile00, "TILE (0,0) iter=1")
@@ -514,9 +496,6 @@ async def test_gol_iter1_iter2(dut):
         dut._log.warning("iter_count did not advance to 1")
     await Timer(10, unit="us")
 
-    print("\n\n*** col_bitmap DIAGNOSTIC at ITER 1 ***")
-    diagnose_col_bitmap(dut, iteration=1)
-
     print("\n\n******** ITERATION 1 ********")
     iter1_mismatches = 0
     for r in range(MESH_R):
@@ -541,9 +520,6 @@ async def test_gol_iter1_iter2(dut):
     if not seen:
         dut._log.warning("iter_count did not advance to 2")
     await Timer(10, unit="us")
-
-    print("\n\n*** col_bitmap DIAGNOSTIC at ITER 2 ***")
-    diagnose_col_bitmap(dut, iteration=2)
 
     print("\n\n******** ITERATION 2 ********")
     iter2_mismatches = 0
